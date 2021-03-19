@@ -208,7 +208,6 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				6189CC38AC0F88BB9F4E609F /* [CP] Embed Pods Frameworks */,
 				89AEDD8BF47FF3E7B73739D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -231,7 +230,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				759AE109EAE250F25CAAFA7D /* [CP] Embed Pods Frameworks */,
 				9096CF73F2AEAEB0E0F4CC63 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -414,42 +412,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		6189CC38AC0F88BB9F4E609F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		759AE109EAE250F25CAAFA7D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		89AEDD8BF47FF3E7B73739D8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

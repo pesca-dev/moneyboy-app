@@ -44,13 +44,13 @@ const App = () => {
           )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
+              <Text style={styles.sectionTitle}>MoneyBoy</Text>
               <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-                screen and then come back to see your edits.
+                Keep track of mutual spendings within groups of humans (for
+                example friends).
               </Text>
             </View>
-            <View style={styles.sectionContainer}>
+            {/* <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>See Your Changes</Text>
               <Text style={styles.sectionDescription}>
                 <ReloadInstructions />
@@ -61,7 +61,7 @@ const App = () => {
               <Text style={styles.sectionDescription}>
                 <DebugInstructions />
               </Text>
-            </View>
+            </View> */}
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Learn More</Text>
               <Text style={styles.sectionDescription}>
