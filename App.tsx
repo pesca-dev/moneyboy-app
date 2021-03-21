@@ -1,11 +1,10 @@
 import React from 'react';
-import { ScrollView, StatusBar, View } from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
+import Card from './components/Card';
 import Container from './components/Container';
 import List from './components/List';
 import MoneyDiff, { MoneyDiffProps } from './components/MoneyDiff';
-import Separator from './components/Separator';
-
 declare const global: { HermesInternal: null | {} };
 
 const dummyData: MoneyDiffProps[] = [
@@ -29,14 +28,12 @@ function renderListItem(
   arr: MoneyDiffProps[],
 ) {
   return (
-    <View key={uuid()}>
-      <MoneyDiff name={i.name} amount={i.amount} />
-      {(() => {
-        if (index < arr.length - 1) {
-          return <Separator />;
-        }
-      })()}
-    </View>
+    <MoneyDiff
+      key={uuid()}
+      name={i.name}
+      amount={i.amount}
+      last={index === arr.length - 1}
+    />
   );
 }
 
@@ -50,11 +47,24 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <Container>
         <ScrollView>
-          <List header="Statistics" data={dummyData} render={renderList} />
+          <View style={styles.outterContainer}>
+            <Card header="Statistics">
+              <List data={dummyData} render={renderList} />
+            </Card>
+          </View>
         </ScrollView>
       </Container>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  outterContainer: {
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 20, // TODO lome: Maybe remove
+    padding: 20,
+  },
+});
 
 export default App;

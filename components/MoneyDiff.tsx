@@ -1,24 +1,30 @@
+/* eslint-disable no-void */
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
+import Separator from './Separator';
 
 export interface MoneyDiffProps {
   name: string;
   amount: number;
+  last?: boolean;
 }
 
-export default function MoneyDiff({ name, amount }: MoneyDiffProps) {
+export default function MoneyDiff({ name, amount, last }: MoneyDiffProps) {
   return (
-    <View key={uuid()} style={styles.moneyDiffContainer}>
-      <Text style={styles.moneyDiffName}>{name}</Text>
-      <Text
-        style={[
-          styles.moneyDiffAmount,
-          amount < 0 ? styles.negativeDiff : styles.positiveDiff,
-        ]}>
-        {amount} €
-      </Text>
-    </View>
+    <>
+      <View key={uuid()} style={styles.moneyDiffContainer}>
+        <Text style={styles.moneyDiffName}>{name}</Text>
+        <Text
+          style={[
+            styles.moneyDiffAmount,
+            amount < 0 ? styles.negativeDiff : styles.positiveDiff,
+          ]}>
+          {amount} €
+        </Text>
+      </View>
+      {(() => (last ? void 0 : <Separator />))()}
+    </>
   );
 }
 

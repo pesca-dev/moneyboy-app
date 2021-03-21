@@ -1,13 +1,34 @@
 import React, { PropsWithChildren } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-interface CardProps {}
+interface CardProps {
+  header?: string;
+}
 
 /**
  *  Container for displaying content with rounded corners and an elevation effect.
  */
-export default function Card({ children }: PropsWithChildren<CardProps>) {
-  return <View style={styles.card}>{children}</View>;
+export default function Card({
+  header,
+  children,
+}: PropsWithChildren<CardProps>) {
+  return (
+    <View style={styles.card}>
+      {(() => {
+        if (header) {
+          return (
+            <>
+              <View style={styles.headerContainer}>
+                <Text style={styles.headerText}>{header}</Text>
+              </View>
+              <View style={styles.borderFaker} />
+            </>
+          );
+        }
+      })()}
+      {children}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -25,5 +46,21 @@ const styles = StyleSheet.create({
       height: 1,
     },
     shadowOpacity: 0.2,
+  },
+  headerContainer: {
+    width: '100%',
+    alignItems: 'center',
+    padding: 10,
+  },
+  headerText: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#2c3e50',
+  },
+  borderFaker: {
+    height: 1,
+    borderRadius: 2,
+    width: '100%',
+    backgroundColor: '#7f8c8d',
   },
 });
