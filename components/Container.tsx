@@ -1,5 +1,5 @@
-import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import React, { PropsWithChildren } from 'react';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 
 /**
  * Props for a container.
@@ -11,9 +11,9 @@ interface ContainerProps {}
  * @param props properties for this container
  * @returns
  */
-const Container: React.FC<ContainerProps> = (props) => {
+export default function Container(props: PropsWithChildren<ContainerProps>) {
   return <SafeAreaView style={styles.container}>{props.children}</SafeAreaView>;
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -21,5 +21,3 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
   },
 });
-
-export default Container;
