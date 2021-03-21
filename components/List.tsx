@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Card from './Card';
 
 interface ListProps<T> {
   header?: string | React.ReactNode;
@@ -13,7 +14,7 @@ interface ListProps<T> {
 function List<T>(props: ListProps<T>) {
   return (
     <View style={styles.outterContainer}>
-      <View style={styles.outterList}>
+      <Card>
         {(() => {
           if (props.header) {
             return (
@@ -28,7 +29,7 @@ function List<T>(props: ListProps<T>) {
         })()}
         {/* TODO lome: Maybe wrap each item into item-wrapper */}
         <View style={styles.itemContainer}>{props.render(props.data)}</View>
-      </View>
+      </Card>
     </View>
   );
 }
@@ -38,21 +39,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     marginTop: 40, // TODO lome: Maybe remove
-  },
-  outterList: {
-    width: '90%',
-    paddingLeft: 20,
-    paddingRight: 20,
-    elevation: 5,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    shadowColor: '#42423d',
-    shadowRadius: 3,
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
+    padding: 20,
   },
   headerContainer: {
     width: '100%',
