@@ -1,8 +1,10 @@
 import React from 'react';
-import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, Text } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 import Card from './components/Card';
 import Container from './components/Container';
+import Content from './components/Content';
+import Footer from './components/Footer';
 import List from './components/List';
 import MoneyDiff, { MoneyDiffProps } from './components/MoneyDiff';
 declare const global: { HermesInternal: null | {} };
@@ -46,24 +48,30 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <Container>
-        <ScrollView>
-          <View style={styles.outterContainer}>
+        <ScrollView style={styles.scrollView}>
+          <Content>
             <Card header="Statistics">
               <List data={dummyData} render={renderList} />
             </Card>
-          </View>
+            <Card header="Statistics">
+              <List data={dummyData} render={renderList} />
+            </Card>
+            <Card header="Statistics">
+              <List data={dummyData} render={renderList} />
+            </Card>
+          </Content>
         </ScrollView>
+        <Footer>
+          <Text>Yes</Text>
+        </Footer>
       </Container>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  outterContainer: {
-    width: '100%',
-    alignItems: 'center',
-    marginTop: 20, // TODO lome: Maybe remove
-    padding: 20,
+  scrollView: {
+    flex: 1,
   },
 });
 
