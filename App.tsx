@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StatusBar, StyleSheet } from 'react-native';
+import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 import Card from './components/Card';
 import Container from './components/Container';
@@ -22,6 +22,53 @@ const dummyData: MoneyDiffProps[] = [
   {
     name: 'Dennis',
     amount: 5.69,
+  },
+];
+
+const dummyPayments: MoneyDiffProps[] = [
+  {
+    name: 'Helena',
+    amount: -14.56,
+  },
+  {
+    name: 'Hendrik',
+    amount: -7.13,
+  },
+  {
+    name: 'Hendrik',
+    amount: -17.56,
+  },
+  {
+    name: 'Hendrik',
+    amount: -2.99,
+  },
+  {
+    name: 'Dennis',
+    amount: -5.69,
+  },
+  {
+    name: 'Dennis',
+    amount: -55.69,
+  },
+  {
+    name: 'Dennis',
+    amount: -50000.69,
+  },
+  {
+    name: 'Dennis',
+    amount: -50000.69,
+  },
+  {
+    name: 'Dennis',
+    amount: -50000.69,
+  },
+  {
+    name: 'Dennis',
+    amount: -50000.69,
+  },
+  {
+    name: 'Dennis',
+    amount: -5.69,
   },
 ];
 
@@ -51,16 +98,16 @@ const App = () => {
       <Container>
         <ScrollView style={styles.scrollView}>
           <Content>
+            <View style={styles.placeholder} />
             <Card header="Statistics">
               <List data={dummyData} render={renderList} />
             </Card>
-            <Card header="Statistics">
-              <List data={dummyData} render={renderList} />
-            </Card>
-            <Card header="Statistics">
-              <List data={dummyData} render={renderList} />
+            <View style={styles.placeholder} />
+            <Card header="History">
+              <List data={dummyPayments} render={renderList} />
             </Card>
           </Content>
+          <View style={styles.placeholder} />
         </ScrollView>
         <Footer>
           <Content>
@@ -78,7 +125,9 @@ const App = () => {
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
-    paddingTop: 20,
+  },
+  placeholder: {
+    height: 60,
   },
 });
 

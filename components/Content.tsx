@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 interface ContentProps {}
 
 /**
- * Container around the content. It adds some default padding to everything.
+ * Container around the content. It adds some default padding left and right.
  */
 export default function Content({ children }: PropsWithChildren<ContentProps>) {
   return <View style={styles.content}>{children}</View>;
