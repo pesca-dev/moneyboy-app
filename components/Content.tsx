@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   content: {
     width: '100%',
     alignItems: 'center',
-    marginTop: 20, // TODO lome: Maybe remove
-    padding: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
 });
