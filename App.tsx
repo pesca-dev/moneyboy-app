@@ -1,5 +1,6 @@
 import React from 'react';
-import { ScrollView, StatusBar } from 'react-native';
+import { ScrollView, StatusBar, View } from 'react-native';
+import { v4 as uuid } from 'react-native-uuid';
 import Container from './components/Container';
 import List from './components/List';
 import MoneyDiff, { MoneyDiffProps } from './components/MoneyDiff';
@@ -28,14 +29,14 @@ function renderListItem(
   arr: MoneyDiffProps[],
 ) {
   return (
-    <>
+    <View key={uuid()}>
       <MoneyDiff name={i.name} amount={i.amount} />
       {(() => {
         if (index < arr.length - 1) {
           return <Separator />;
         }
       })()}
-    </>
+    </View>
   );
 }
 
