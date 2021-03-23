@@ -10,11 +10,11 @@ node:install:
     # - npm i
     - mkdir node_modules
     - touch node_modules/test
-  cache:
-    key: $CI_COMMIT_REF_SLUG
-    paths:
-      - node_modules/
-    policy: pull-push
+  # cache:
+  #   key: $CI_COMMIT_REF_SLUG
+  #   paths:
+  #     - node_modules/
+  #   policy: pull-push
   artifacts:
     paths:
       - node_modules/
