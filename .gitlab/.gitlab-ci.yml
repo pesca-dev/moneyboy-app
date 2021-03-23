@@ -1,4 +1,4 @@
-image: 'node:15.12-alpine'
+image: 'node:15.12.0'
 
 stages:
   - setup
