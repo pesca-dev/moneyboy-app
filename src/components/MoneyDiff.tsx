@@ -1,8 +1,6 @@
-/* eslint-disable no-void */
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import ListItem from './ListItem';
-import Separator from './Separator';
 
 export interface MoneyDiffProps {
   name: string;
@@ -23,7 +21,6 @@ export default function MoneyDiff({ name, amount, last }: MoneyDiffProps) {
           {amount} €
         </Text>
       </ListItem>
-      {(() => (last ? void 0 : <Separator />))()}
     </>
   );
 }

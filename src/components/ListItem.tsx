@@ -1,11 +1,13 @@
 /* eslint-disable no-void */
 import React, { PropsWithChildren } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 import Separator from '@components/Separator';
 
 interface ListItemProps {
   last?: boolean;
+  style?: StyleProp<ViewStyle>;
+  separatorStyle?: StyleProp<ViewStyle>;
 }
 
 /**
@@ -13,14 +15,16 @@ interface ListItemProps {
  */
 export default function ListItem({
   last,
+  style,
+  separatorStyle,
   children,
 }: PropsWithChildren<ListItemProps>) {
   return (
     <>
-      <View key={uuid()} style={styles.listItem}>
+      <View key={uuid()} style={[styles.listItem, style]}>
         {children}
       </View>
-      {(() => (last ? void 0 : <Separator />))()}
+      {(() => (last ? void 0 : <Separator style={separatorStyle} />))()}
     </>
   );
 }

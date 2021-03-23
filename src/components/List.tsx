@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 interface ListProps<T> {
   data: T;
   render?(data: T): React.ReactNode;
+  style?: StyleProp<ViewStyle>;
 }
 
 /**
@@ -17,7 +18,11 @@ function List<T>(props: ListProps<T>) {
       return <View>{data}</View>;
     });
 
-  return <View style={styles.itemContainer}>{render(props.data)}</View>;
+  return (
+    <View style={[styles.itemContainer, props.style]}>
+      {render(props.data)}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
