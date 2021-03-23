@@ -7,8 +7,9 @@ stages:
 node:install:
   stage: setup
   script:
-    - npm i
-    - echo $CI_COMMIT_REF_SLUG
+    # - npm i
+    - mkdir node_modules
+    - touch node_modules/test
   cache:
     key: $CI_COMMIT_REF_SLUG
     paths:
