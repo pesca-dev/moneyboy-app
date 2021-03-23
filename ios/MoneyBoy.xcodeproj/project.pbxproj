@@ -293,7 +293,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = LX6F27YG87;
+						DevelopmentTeam = X7TM82FK3L;
 						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
@@ -659,7 +659,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LX6F27YG87;
+				DEVELOPMENT_TEAM = X7TM82FK3L;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MoneyBoy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -668,7 +668,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.pesca.MoneyBoy;
+				PRODUCT_BUNDLE_IDENTIFIER = "test-dev.pesca.MoneyBoy";
 				PRODUCT_NAME = MoneyBoy;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -686,7 +686,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LX6F27YG87;
+				DEVELOPMENT_TEAM = X7TM82FK3L;
 				INFOPLIST_FILE = MoneyBoy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -694,7 +694,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.pesca.MoneyBoy;
+				PRODUCT_BUNDLE_IDENTIFIER = "test-dev.pesca.MoneyBoy";
 				PRODUCT_NAME = MoneyBoy;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
