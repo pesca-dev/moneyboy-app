@@ -1,24 +1,12 @@
 image: 'node:15.12-alpine'
 
 stages:
-  - setup
   - test
-
-node:install:
-  stage: setup
-  script:
-    - npm i
-  cache:
-    key: $CI_COMMIT_REF_SLUG
-    paths:
-      - node_modules/
-    policy: pull-push
-  artifacts:
-    paths:
-      - node_modules/
 
 lint:
   stage: test
+  before_script:
+    - npm i
   script:
     - npm run lint
   cache:
@@ -29,6 +17,8 @@ lint:
 
 jest:
   stage: test
+  before_script:
+    - npm i
   script:
     - npm run test
   cache:
