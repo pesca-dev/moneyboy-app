@@ -1,7 +1,7 @@
 /* eslint-disable no-void */
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
+import { StyleSheet, Text } from 'react-native';
+import ListItem from './ListItem';
 import Separator from './Separator';
 
 export interface MoneyDiffProps {
@@ -13,7 +13,7 @@ export interface MoneyDiffProps {
 export default function MoneyDiff({ name, amount, last }: MoneyDiffProps) {
   return (
     <>
-      <View key={uuid()} style={styles.moneyDiffContainer}>
+      <ListItem last={last}>
         <Text style={styles.moneyDiffName}>{name}</Text>
         <Text
           style={[
@@ -22,18 +22,13 @@ export default function MoneyDiff({ name, amount, last }: MoneyDiffProps) {
           ]}>
           {amount} €
         </Text>
-      </View>
+      </ListItem>
       {(() => (last ? void 0 : <Separator />))()}
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  moneyDiffContainer: {
-    flexDirection: 'row',
-    paddingTop: 10,
-    paddingBottom: 10,
-  },
   moneyDiffName: {
     flex: 1,
     fontSize: 24,

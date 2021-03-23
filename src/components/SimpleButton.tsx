@@ -13,7 +13,11 @@ interface SimpleButtonProps {
   disabled?: boolean;
 }
 
-export function SimpleButton({ title, onPress, disabled }: SimpleButtonProps) {
+export default function SimpleButton({
+  title,
+  onPress,
+  disabled,
+}: SimpleButtonProps) {
   return (
     <TouchableOpacity
       style={styles.container}

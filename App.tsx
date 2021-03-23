@@ -1,13 +1,15 @@
 import React from 'react';
 import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
-import Card from './components/Card';
-import Container from './components/Container';
-import Content from './components/Content';
-import Footer from './components/Footer';
-import List from './components/List';
-import MoneyDiff, { MoneyDiffProps } from './components/MoneyDiff';
-import { SimpleButton } from './components/SimpleButton';
+
+import Card from '@components/Card';
+import Container from '@components/Container';
+import Content from '@components/Content';
+import Footer from '@components/Footer';
+import List from '@components/List';
+import MoneyDiff, { MoneyDiffProps } from '@components/MoneyDiff';
+import SimpleButton from '@components/SimpleButton';
+
 declare const global: { HermesInternal: null | {} };
 
 const dummyData: MoneyDiffProps[] = [
