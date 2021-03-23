@@ -30,7 +30,7 @@ lint:
 jest:
   stage: test
   script:
-    - npm run jest
+    - npm run test
   cache:
     key: $CI_COMMIT_REF_SLUG
     paths:
