@@ -8,6 +8,9 @@ interface ListItemProps {
   last?: boolean;
 }
 
+/**
+ * A simple wrapper for content to be displayed in a list.
+ */
 export default function ListItem({
   last,
   children,
