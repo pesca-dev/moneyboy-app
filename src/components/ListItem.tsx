@@ -1,6 +1,6 @@
 /* eslint-disable no-void */
-import React, { PropsWithChildren } from 'react';
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import React, { Component, PropsWithChildren } from 'react';
+import { GestureResponderEvent, StyleProp, StyleSheet, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 import Separator from '@components/Separator';
 
@@ -19,20 +19,70 @@ interface ListItemProps {
    * note: It will be rendered outside of the style container of the ListItem.
    */
   separatorStyle?: StyleProp<ViewStyle>;
+
+  onLongPress?: (event: GestureResponderEvent) => void;
+
+  onPress?: (event: GestureResponderEvent) => void;
+
+  disabled?: boolean;
+}
+
+interface ListItemState {
+  disabled: boolean;
 }
 
 /**
  * A simple wrapper for content to be displayed in a list.
  */
-export default function ListItem({ last, style, separatorStyle, children }: PropsWithChildren<ListItemProps>) {
-  return (
-    <>
-      <View key={uuid()} style={[styles.listItem, style]}>
-        {children}
-      </View>
-      {(() => (last ? void 0 : <Separator style={separatorStyle} />))()}
-    </>
-  );
+export default class ListItem extends Component<ListItemProps, ListItemState> {
+  constructor(props: PropsWithChildren<ListItemProps>) {
+    super(props);
+    this.bind();
+    this.state = {
+      disabled: !!this.props.disabled,
+    };
+  }
+
+  private bind() {
+    this.onPress = this.onPress.bind(this);
+    this.onLongPress = this.onLongPress.bind(this);
+  }
+
+  onLongPress(e: GestureResponderEvent) {
+    if (!this.state.disabled) {
+      this.props.onLongPress?.(e);
+    }
+  }
+
+  onPress(e: GestureResponderEvent) {
+    if (!this.state.disabled) {
+      this.props.onPress?.(e);
+    }
+  }
+
+  /**
+   * Disable all listeners on this list item.
+   * @param disabled
+   */
+  setDisabled(disabled: boolean) {
+    this.setState({
+      ...this.state,
+      disabled,
+    });
+  }
+
+  render() {
+    return (
+      <>
+        <TouchableWithoutFeedback onPress={this.onPress} onLongPress={this.onLongPress}>
+          <View key={uuid()} style={[styles.listItem, this.props.style]}>
+            {this.props.children}
+          </View>
+        </TouchableWithoutFeedback>
+        {(() => (this.props.last ? void 0 : <Separator style={this.props.separatorStyle} />))()}
+      </>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
