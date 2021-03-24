@@ -2,29 +2,41 @@ import React from 'react';
 import {
   NativeSyntheticEvent,
   NativeTouchEvent,
+  StyleProp,
   StyleSheet,
   Text,
   TouchableOpacity,
+  ViewStyle,
 } from 'react-native';
 
 interface SimpleButtonProps {
   title: string;
   onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   disabled?: boolean;
+  /**
+   * Custom style for the button.
+   */
+  style?: StyleProp<ViewStyle>;
+  /**
+   * Custom style for the text.
+   */
+  textStyle?: StyleProp<ViewStyle>;
 }
 
 export default function SimpleButton({
   title,
   onPress,
   disabled,
+  style,
+  textStyle,
 }: SimpleButtonProps) {
   return (
     <TouchableOpacity
-      style={styles.container}
+      style={[styles.container, style]}
       onPress={onPress}
       disabled={disabled}
       activeOpacity={0.5}>
-      <Text style={styles.content}>{title}</Text>
+      <Text style={[styles.content, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 }

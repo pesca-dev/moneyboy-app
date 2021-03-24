@@ -2,6 +2,9 @@ import React, { PropsWithChildren } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 interface CardProps {
+  /**
+   * String, which shall be used as header for the card.
+   */
   header?: string;
 }
 

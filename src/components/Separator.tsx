@@ -3,6 +3,9 @@ import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
 interface SeparatorProps {
+  /**
+   * Custom styling for the separator.
+   */
   style?: StyleProp<ViewStyle>;
 }
 

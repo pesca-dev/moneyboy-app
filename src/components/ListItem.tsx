@@ -5,8 +5,19 @@ import { v4 as uuid } from 'react-native-uuid';
 import Separator from '@components/Separator';
 
 interface ListItemProps {
+  /**
+   * Flag for indicating the last item in a list.
+   * If this is false, a separator will be added.
+   */
   last?: boolean;
+  /**
+   * Custom style for this list item.
+   */
   style?: StyleProp<ViewStyle>;
+  /**
+   * Custom style for the separator.
+   * note: It will be rendered outside of the style container of the ListItem.
+   */
   separatorStyle?: StyleProp<ViewStyle>;
 }
 
