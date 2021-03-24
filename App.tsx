@@ -8,7 +8,7 @@ import Content from '@components/Content';
 import Footer from '@components/Footer';
 import List from '@components/List';
 import MoneyDiff, { MoneyDiffProps } from '@components/MoneyDiff';
-import SimpleButton from '@components/SimpleButton';
+import PescaButton from '@components/PescaButton';
 
 declare const global: { HermesInternal: null | {} };
 
@@ -74,19 +74,8 @@ const dummyPayments: MoneyDiffProps[] = [
   },
 ];
 
-function renderListItem(
-  i: MoneyDiffProps,
-  index: number,
-  arr: MoneyDiffProps[],
-) {
-  return (
-    <MoneyDiff
-      key={uuid()}
-      name={i.name}
-      amount={i.amount}
-      last={index === arr.length - 1}
-    />
-  );
+function renderListItem(i: MoneyDiffProps, index: number, arr: MoneyDiffProps[]) {
+  return <MoneyDiff key={uuid()} name={i.name} amount={i.amount} last={index === arr.length - 1} />;
 }
 
 function renderList(data: MoneyDiffProps[]) {
@@ -113,10 +102,7 @@ const App = () => {
         </ScrollView>
         <Footer>
           <Content>
-            <SimpleButton
-              title="New Payment"
-              onPress={() => console.log('press')}
-            />
+            <PescaButton title="New Payment" onPress={() => console.log('press')} />
           </Content>
         </Footer>
       </Container>

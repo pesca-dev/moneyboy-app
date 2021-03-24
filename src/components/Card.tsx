@@ -11,10 +11,7 @@ interface CardProps {
 /**
  *  Container for displaying content with rounded corners and an elevation effect.
  */
-export default function Card({
-  header,
-  children,
-}: PropsWithChildren<CardProps>) {
+export default function Card({ header, children }: PropsWithChildren<CardProps>) {
   return (
     <View style={styles.card}>
       {(() => {

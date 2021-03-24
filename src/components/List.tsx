@@ -28,11 +28,7 @@ function List<T>(props: ListProps<T>) {
       return <View>{data}</View>;
     });
 
-  return (
-    <View style={[styles.itemContainer, props.style]}>
-      {render(props.data)}
-    </View>
-  );
+  return <View style={[styles.itemContainer, props.style]}>{render(props.data)}</View>;
 }
 
 const styles = StyleSheet.create({

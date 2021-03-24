@@ -24,12 +24,7 @@ interface ListItemProps {
 /**
  * A simple wrapper for content to be displayed in a list.
  */
-export default function ListItem({
-  last,
-  style,
-  separatorStyle,
-  children,
-}: PropsWithChildren<ListItemProps>) {
+export default function ListItem({ last, style, separatorStyle, children }: PropsWithChildren<ListItemProps>) {
   return (
     <>
       <View key={uuid()} style={[styles.listItem, style]}>

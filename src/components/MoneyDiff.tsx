@@ -13,13 +13,7 @@ export default function MoneyDiff({ name, amount, last }: MoneyDiffProps) {
     <>
       <ListItem last={last}>
         <Text style={styles.moneyDiffName}>{name}</Text>
-        <Text
-          style={[
-            styles.moneyDiffAmount,
-            amount < 0 ? styles.negativeDiff : styles.positiveDiff,
-          ]}>
-          {amount} €
-        </Text>
+        <Text style={[styles.moneyDiffAmount, amount < 0 ? styles.negativeDiff : styles.positiveDiff]}>{amount} €</Text>
       </ListItem>
     </>
   );
