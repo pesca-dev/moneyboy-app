@@ -4,7 +4,7 @@ import ListItem from '@components/ListItem';
 import { mock } from 'jest-mock-extended';
 
 import { create } from 'react-test-renderer';
-import { GestureResponderEvent } from 'react-native';
+import { GestureResponderEvent, TouchableWithoutFeedback } from 'react-native';
 
 describe('ListItem', () => {
   it('shall render correctly', () => {
@@ -12,84 +12,69 @@ describe('ListItem', () => {
   });
 
   it('shall not be disabled by default', () => {
-    const item = (create(<ListItem />).getInstance() as unknown) as ListItem;
-    expect(item.state.disabled).toBe(false);
+    const item = create(<ListItem />);
+    const instance = (item.getInstance() as unknown) as ListItem;
+    const touchable = item.root.findByType(TouchableWithoutFeedback).instance as TouchableWithoutFeedback;
+
+    expect(instance.state.disabled).toBe(false);
+    expect(touchable.props.disabled).toBe(false);
   });
 
   it('shall use press listeners', () => {
     const onPress = jest.fn();
     const onLongPress = jest.fn();
 
-    const item = (create(
-      <ListItem onPress={onPress} onLongPress={onLongPress} />,
-    ).getInstance() as unknown) as ListItem;
+    const item = create(<ListItem onPress={onPress} onLongPress={onLongPress} />);
+    const touchable = item.root.findByType(TouchableWithoutFeedback).instance as TouchableWithoutFeedback;
 
     const mocked = mock<GestureResponderEvent>();
 
-    item.onPress(mocked);
+    touchable.props.onPress?.(mocked);
     expect(onPress).toHaveBeenCalledTimes(1);
 
-    item.onLongPress(mocked);
+    touchable.props.onLongPress?.(mocked);
     expect(onLongPress).toHaveBeenCalledTimes(1);
   });
 
-  it('shall respect disabled as prop', () => {
-    const onPress = jest.fn();
-    const onLongPress = jest.fn();
+  it('shall pass disabled as prop', () => {
+    const item = create(<ListItem disabled />);
+    const touchable = item.root.findByType(TouchableWithoutFeedback).instance as TouchableWithoutFeedback;
 
-    const item = (create(
-      <ListItem onPress={onPress} onLongPress={onLongPress} disabled />,
-    ).getInstance() as unknown) as ListItem;
-
-    const mocked = mock<GestureResponderEvent>();
-
-    item.onPress(mocked);
-    expect(onPress).toHaveBeenCalledTimes(0);
-
-    item.onLongPress(mocked);
-    expect(onLongPress).toHaveBeenCalledTimes(0);
+    expect(touchable.props.disabled).toBe(true);
   });
 
-  it('shall respect disabled state call', () => {
-    const onPress = jest.fn();
-    const onLongPress = jest.fn();
+  it('shall store disabled in state', () => {
+    const item = create(<ListItem disabled />);
+    const instance = (item.getInstance() as unknown) as ListItem;
+    expect(instance.state.disabled).toBe(true);
+  });
 
-    const item = (create(
-      <ListItem onPress={onPress} onLongPress={onLongPress} />,
-    ).getInstance() as unknown) as ListItem;
+  it('shall forward disabled state changes', () => {
+    const item = create(<ListItem />);
+    const instance = (item.getInstance() as unknown) as ListItem;
+    const touchable = item.root.findByType(TouchableWithoutFeedback).instance as TouchableWithoutFeedback;
 
-    item.setState({
-      ...item.state,
+    instance.setState({
+      ...instance.state,
       disabled: true,
     });
+    expect(touchable.props.disabled).toBe(true);
 
-    const mocked = mock<GestureResponderEvent>();
-
-    item.onPress(mocked);
-    expect(onPress).toHaveBeenCalledTimes(0);
-
-    item.onLongPress(mocked);
-    expect(onLongPress).toHaveBeenCalledTimes(0);
-
-    item.setState({
-      ...item.state,
+    instance.setState({
+      ...instance.state,
       disabled: false,
     });
-
-    item.onPress(mocked);
-    expect(onPress).toHaveBeenCalledTimes(1);
-
-    item.onLongPress(mocked);
-    expect(onLongPress).toHaveBeenCalledTimes(1);
+    expect(touchable.props.disabled).toBe(false);
   });
 
-  it('state shall change when calling setDisabled', () => {
-    const item = (create(<ListItem />).getInstance() as unknown) as ListItem;
+  it('shall change disabled state when calling setDisabled', () => {
+    const item = create(<ListItem />);
+    const instance = (item.getInstance() as unknown) as ListItem;
 
-    item.setDisabled(true);
-    expect(item.state.disabled).toBe(true);
+    instance.setDisabled(true);
+    expect(instance.state.disabled).toBe(true);
 
-    item.setDisabled(false);
-    expect(item.state.disabled).toBe(false);
+    instance.setDisabled(false);
+    expect(instance.state.disabled).toBe(false);
   });
 });

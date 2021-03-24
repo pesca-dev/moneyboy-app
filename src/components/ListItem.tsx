@@ -37,27 +37,9 @@ interface ListItemState {
 export default class ListItem extends Component<ListItemProps, ListItemState> {
   constructor(props: PropsWithChildren<ListItemProps>) {
     super(props);
-    this.bind();
     this.state = {
       disabled: !!this.props.disabled,
     };
-  }
-
-  private bind() {
-    this.onPress = this.onPress.bind(this);
-    this.onLongPress = this.onLongPress.bind(this);
-  }
-
-  onLongPress(e: GestureResponderEvent) {
-    if (!this.state.disabled) {
-      this.props.onLongPress?.(e);
-    }
-  }
-
-  onPress(e: GestureResponderEvent) {
-    if (!this.state.disabled) {
-      this.props.onPress?.(e);
-    }
   }
 
   /**
@@ -74,7 +56,10 @@ export default class ListItem extends Component<ListItemProps, ListItemState> {
   render() {
     return (
       <>
-        <TouchableWithoutFeedback onPress={this.onPress} onLongPress={this.onLongPress}>
+        <TouchableWithoutFeedback
+          onPress={this.props.onPress}
+          onLongPress={this.props.onLongPress}
+          disabled={this.state.disabled}>
           <View key={uuid()} style={[styles.listItem, this.props.style]}>
             {this.props.children}
           </View>
