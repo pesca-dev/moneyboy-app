@@ -14,18 +14,14 @@ interface CardProps {
 export default function Card({ header, children }: PropsWithChildren<CardProps>) {
   return (
     <View style={styles.card}>
-      {(() => {
-        if (header) {
-          return (
-            <>
-              <View style={styles.headerContainer}>
-                <Text style={styles.headerText}>{header}</Text>
-              </View>
-              <View style={styles.borderFaker} />
-            </>
-          );
-        }
-      })()}
+      {header && (
+        <>
+          <View style={styles.headerContainer}>
+            <Text style={styles.headerText}>{header}</Text>
+          </View>
+          <View style={styles.borderFaker} />
+        </>
+      )}
       {children}
     </View>
   );

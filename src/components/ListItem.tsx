@@ -59,7 +59,7 @@ export default class ListItem extends Component<ListItemProps, ListItemState> {
             {this.props.children}
           </View>
         </TouchableWithoutFeedback>
-        {(() => (this.props.last ? void 0 : <Separator style={this.props.separatorStyle} />))()}
+        {this.props.last && <Separator style={this.props.separatorStyle} />}
       </>
     );
   }
