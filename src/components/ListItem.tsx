@@ -20,8 +20,6 @@ interface ListItemProps {
    */
   separatorStyle?: StyleProp<ViewStyle>;
 
-  onLongPress?: (event: GestureResponderEvent) => void;
-
   onPress?: (event: GestureResponderEvent) => void;
 
   disabled?: boolean;
@@ -56,11 +54,8 @@ export default class ListItem extends Component<ListItemProps, ListItemState> {
   render() {
     return (
       <>
-        <TouchableWithoutFeedback
-          onPress={this.props.onPress}
-          onLongPress={this.props.onLongPress}
-          disabled={this.state.disabled}>
-          <View key={uuid()} style={[styles.listItem, this.props.style]}>
+        <TouchableWithoutFeedback onPress={this.props.onPress} disabled={this.state.disabled} testID="touchable">
+          <View key={uuid()} style={[styles.listItem, this.props.style]} testID="view">
             {this.props.children}
           </View>
         </TouchableWithoutFeedback>
