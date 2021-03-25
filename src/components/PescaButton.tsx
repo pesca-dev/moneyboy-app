@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {
   NativeSyntheticEvent,
   NativeTouchEvent,
@@ -11,7 +11,7 @@ import {
 
 interface PescaButtonProps {
   title: string;
-  onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
+  onPress?: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   disabled?: boolean;
   /**
    * Custom style for the button.
@@ -31,34 +31,24 @@ interface PescaButtonState {
 /**
  * Simple, clickable button.
  */
-export default class PescaButton extends Component<PescaButtonProps, PescaButtonState> {
-  constructor(props: PescaButtonProps) {
-    super(props);
+export default function PescaButton(props: PescaButtonProps) {
+  const [state] = useState<PescaButtonState>({
+    title: props.title,
+    disabled: !!props.disabled,
+  });
 
-    this.state = {
-      title: this.props.title,
-      disabled: !!this.props.disabled,
-    };
-  }
-
-  public setDisabled(disabled: boolean): void {
-    this.setState({
-      ...this.state,
-      disabled,
-    });
-  }
-
-  render() {
-    return (
-      <TouchableOpacity
-        style={[styles.container, this.props.style]}
-        onPress={this.props.onPress}
-        disabled={this.state.disabled}
-        activeOpacity={0.5}>
-        <Text style={[styles.content, this.props.textStyle]}>{this.state.title}</Text>
-      </TouchableOpacity>
-    );
-  }
+  return (
+    <TouchableOpacity
+      style={[styles.container, props.style]}
+      onPress={props.onPress}
+      disabled={state.disabled}
+      activeOpacity={0.5}
+      testID="touchable">
+      <Text style={[styles.content, props.textStyle]} testID="text">
+        {state.title}
+      </Text>
+    </TouchableOpacity>
+  );
 }
 
 const styles = StyleSheet.create({
