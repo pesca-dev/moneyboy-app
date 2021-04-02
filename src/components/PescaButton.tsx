@@ -34,6 +34,12 @@ export default function PescaButton(props: PropsWithChildren<PescaButtonProps>) 
       style={[styles.container, props.style]}
       onPress={props.onPress}
       disabled={state.disabled}
+      hitSlop={{
+        top: 20,
+        right: 20,
+        bottom: 20,
+        left: 20,
+      }}
       testID="touchable">
       {props.children}
     </TouchableWithoutFeedback>
@@ -42,7 +48,6 @@ export default function PescaButton(props: PropsWithChildren<PescaButtonProps>) 
 
 const styles = StyleSheet.create({
   container: {
-    // width: 100,
     margin: 'auto',
     backgroundColor: '#3498db',
     padding: 10,

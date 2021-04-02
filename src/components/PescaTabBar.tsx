@@ -7,12 +7,14 @@ import { NavigationEntry } from '@api/NavigationEntry';
 import Footer from '@components/Footer';
 import PescaTab from './PescaTab';
 import AddButton from './AddButton';
+import { FlyoutType } from '@api/FlyoutType';
 
 type PescaTabUIProps<T = BottomTabBarOptions> = BottomTabBarProps<T> & {
   tabs: NavigationEntry[];
+  flyout: FlyoutType;
 };
 
-export default function PescaTabBar({ tabs, navigation, state }: PescaTabUIProps) {
+export default function PescaTabBar({ tabs, navigation, state, flyout }: PescaTabUIProps) {
   const t = tabs.map((tab, i) => {
     return { ...tab, index: i };
   });
@@ -44,7 +46,7 @@ export default function PescaTabBar({ tabs, navigation, state }: PescaTabUIProps
         <SafeAreaView>
           <View style={styles.tabBarContainer}>
             <View style={styles.tabContainer}>{leftTabs.map(renderTab)}</View>
-            <AddButton />
+            <AddButton flyout={flyout} />
             <View style={styles.tabContainer}>{rightTabs.map(renderTab)}</View>
           </View>
         </SafeAreaView>
