@@ -1,122 +1,37 @@
 import React from 'react';
-import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { v4 as uuid } from 'react-native-uuid';
+import { StatusBar } from 'react-native';
 
-import Card from '@components/Card';
-import Container from '@components/Container';
-import Content from '@components/Content';
-import Footer from '@components/Footer';
-import List from '@components/List';
-import MoneyDiff, { MoneyDiffProps } from '@components/MoneyDiff';
-import PescaButton from '@components/PescaButton';
+import MainView from '@views/MainView';
+import HistoryView from '@views/HistoryView';
+import GroupView from '@views/GroupView';
+import PescaTabBar from '@components/PescaTabBar';
+import { NavigationEntry } from '@api/NavigationEntry';
+import SettingsView from './src/views/SettingsView';
 
 declare const global: { HermesInternal: null | {} };
+const Tab = createBottomTabNavigator();
 
-const dummyData: MoneyDiffProps[] = [
-  {
-    name: 'Helena',
-    amount: 14.56,
-  },
-  {
-    name: 'Hendrik',
-    amount: -7.13,
-  },
-  {
-    name: 'Dennis',
-    amount: 5.69,
-  },
+const tabs: NavigationEntry[] = [
+  { name: 'Overview', component: MainView, icon: 'home-outline' },
+  { name: 'Groups', component: GroupView, icon: 'account-multiple-outline' },
+  { name: 'History', component: HistoryView, icon: 'history' },
+  { name: 'Settings', component: SettingsView, icon: 'cog-outline' },
 ];
 
-const dummyPayments: MoneyDiffProps[] = [
-  {
-    name: 'Helena',
-    amount: -14.56,
-  },
-  {
-    name: 'Hendrik',
-    amount: -7.13,
-  },
-  {
-    name: 'Hendrik',
-    amount: -17.56,
-  },
-  {
-    name: 'Hendrik',
-    amount: -2.99,
-  },
-  {
-    name: 'Dennis',
-    amount: -5.69,
-  },
-  {
-    name: 'Dennis',
-    amount: -55.69,
-  },
-  {
-    name: 'Dennis',
-    amount: -50000.69,
-  },
-  {
-    name: 'Dennis',
-    amount: -50000.69,
-  },
-  {
-    name: 'Dennis',
-    amount: -50000.69,
-  },
-  {
-    name: 'Dennis',
-    amount: -50000.69,
-  },
-  {
-    name: 'Dennis',
-    amount: -5.69,
-  },
-];
-
-function renderListItem(i: MoneyDiffProps, index: number, arr: MoneyDiffProps[]) {
-  return <MoneyDiff key={uuid()} name={i.name} amount={i.amount} last={index === arr.length - 1} />;
-}
-
-function renderList(data: MoneyDiffProps[]) {
-  return data.map(renderListItem);
-}
-
-const App = () => {
+export default function App() {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <Container>
-        <ScrollView style={styles.scrollView}>
-          <Content>
-            <View style={styles.placeholder} />
-            <Card header="Statistics">
-              <List data={dummyData} render={renderList} />
-            </Card>
-            <View style={styles.placeholder} />
-            <Card header="History">
-              <List data={dummyPayments} render={renderList} />
-            </Card>
-          </Content>
-          <View style={styles.placeholder} />
-        </ScrollView>
-        <Footer>
-          <Content>
-            <PescaButton title="New Payment" onPress={() => console.log('press')} />
-          </Content>
-        </Footer>
-      </Container>
+      <NavigationContainer>
+        <Tab.Navigator tabBar={(props) => <PescaTabBar {...{ tabs, ...props }} />}>
+          {tabs.map(({ name, component }) => (
+            <Tab.Screen key={uuid()} name={name} component={component} />
+          ))}
+        </Tab.Navigator>
+      </NavigationContainer>
     </>
   );
-};
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  placeholder: {
-    height: 60,
-  },
-});
-
-export default App;
+}

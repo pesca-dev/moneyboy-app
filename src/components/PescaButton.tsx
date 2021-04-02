@@ -1,53 +1,42 @@
-import React, { useState } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 import {
   NativeSyntheticEvent,
   NativeTouchEvent,
   StyleProp,
   StyleSheet,
-  Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   ViewStyle,
 } from 'react-native';
 
 interface PescaButtonProps {
-  title: string;
   onPress?: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   disabled?: boolean;
   /**
    * Custom style for the button.
    */
   style?: StyleProp<ViewStyle>;
-  /**
-   * Custom style for the text.
-   */
-  textStyle?: StyleProp<ViewStyle>;
 }
 
 interface PescaButtonState {
-  title: string;
   disabled: boolean;
 }
 
 /**
  * Simple, clickable button.
  */
-export default function PescaButton(props: PescaButtonProps) {
+export default function PescaButton(props: PropsWithChildren<PescaButtonProps>) {
   const [state] = useState<PescaButtonState>({
-    title: props.title,
     disabled: !!props.disabled,
   });
 
   return (
-    <TouchableOpacity
+    <TouchableWithoutFeedback
       style={[styles.container, props.style]}
       onPress={props.onPress}
       disabled={state.disabled}
-      activeOpacity={0.5}
       testID="touchable">
-      <Text style={[styles.content, props.textStyle]} testID="text">
-        {state.title}
-      </Text>
-    </TouchableOpacity>
+      {props.children}
+    </TouchableWithoutFeedback>
   );
 }
 
