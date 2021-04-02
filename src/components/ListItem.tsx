@@ -1,4 +1,3 @@
-/* eslint-disable no-void */
 import React, { Component, PropsWithChildren } from 'react';
 import { GestureResponderEvent, StyleProp, StyleSheet, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
@@ -59,7 +58,7 @@ export default class ListItem extends Component<ListItemProps, ListItemState> {
             {this.props.children}
           </View>
         </TouchableWithoutFeedback>
-        {this.props.last && <Separator style={this.props.separatorStyle} />}
+        {!this.props.last && <Separator style={this.props.separatorStyle} />}
       </>
     );
   }
