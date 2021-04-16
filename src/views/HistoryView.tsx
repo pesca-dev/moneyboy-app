@@ -1,5 +1,5 @@
-import React from 'react';
-import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
+import React, { ReactNode } from 'react';
+import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
 import Card from '@components/Card';
@@ -7,6 +7,7 @@ import Container from '@components/Container';
 import Content from '@components/Content';
 import List from '@components/List';
 import MoneyDiff, { MoneyDiffProps } from '@components/MoneyDiff';
+import { FlyoutContext } from '@context/FlyoutContext';
 
 const dummyPayments: MoneyDiffProps[] = [
   {
@@ -55,14 +56,41 @@ const dummyPayments: MoneyDiffProps[] = [
   },
 ];
 
-function renderListItem(i: MoneyDiffProps, index: number, arr: MoneyDiffProps[]) {
-  return <MoneyDiff key={uuid()} name={i.name} amount={i.amount} last={index === arr.length - 1} />;
-}
+type HistoryViewProps = {};
 
-function renderList(data: MoneyDiffProps[]) {
-  return data.map(renderListItem);
-}
-export default function HistoryView() {
+export default function HistoryView({}: HistoryViewProps) {
+  const flyout = React.useContext(FlyoutContext);
+
+  function openFlyout(children: ReactNode) {
+    flyout.setChildren(children, true);
+  }
+
+  // TODO lome: Remove inline
+  function renderFlyoutContent(p: MoneyDiffProps) {
+    return (
+      <View style={{ height: 80 }}>
+        <Text style={{ fontSize: 24 }}>Person: {p.name}</Text>
+        <Text style={{ fontSize: 24 }}>Amount: {p.amount}</Text>
+      </View>
+    );
+  }
+
+  function renderListItem(i: MoneyDiffProps, index: number, arr: MoneyDiffProps[]) {
+    return (
+      <MoneyDiff
+        key={uuid()}
+        name={i.name}
+        amount={i.amount}
+        last={index === arr.length - 1}
+        onPress={() => openFlyout(renderFlyoutContent(i))}
+      />
+    );
+  }
+
+  function renderList(data: MoneyDiffProps[]) {
+    return data.map(renderListItem);
+  }
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -76,11 +104,6 @@ export default function HistoryView() {
           </Content>
           <View style={styles.placeholder} />
         </ScrollView>
-        {/* <Footer>
-          <Content>
-            <PescaButton title="New Payment" onPress={() => console.log('press')} />
-          </Content>
-        </Footer> */}
       </Container>
     </>
   );

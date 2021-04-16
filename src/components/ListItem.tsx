@@ -64,6 +64,7 @@ export default class ListItem extends Component<ListItemProps, ListItemState> {
   }
 }
 
+// TODO lome: use paddingVertical
 const styles = StyleSheet.create({
   listItem: {
     flexDirection: 'row',

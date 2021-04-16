@@ -9,7 +9,8 @@ import HistoryView from '@views/HistoryView';
 import GroupView from '@views/GroupView';
 import PescaTabBar from '@components/PescaTabBar';
 import { NavigationEntry } from '@api/NavigationEntry';
-import SettingsView from './src/views/SettingsView';
+import SettingsView from '@views/SettingsView';
+import { FlyoutContextProvider } from '@context/FlyoutContext';
 
 declare const global: { HermesInternal: null | {} };
 const Tab = createBottomTabNavigator();
@@ -25,13 +26,21 @@ export default function App() {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <NavigationContainer>
-        <Tab.Navigator tabBar={(props) => <PescaTabBar {...{ tabs, ...props }} />}>
-          {tabs.map(({ name, component }) => (
-            <Tab.Screen key={uuid()} name={name} component={component} />
-          ))}
-        </Tab.Navigator>
-      </NavigationContainer>
+      <FlyoutContextProvider>
+        <NavigationContainer>
+          <Tab.Navigator tabBar={(props) => <PescaTabBar {...{ tabs, ...props }} />}>
+            {tabs.map(({ name, component }) => (
+              <Tab.Screen
+                key={uuid()}
+                name={name}
+                children={() => {
+                  return React.createElement(component, {});
+                }}
+              />
+            ))}
+          </Tab.Navigator>
+        </NavigationContainer>
+      </FlyoutContextProvider>
     </>
   );
 }

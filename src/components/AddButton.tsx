@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import PescaButton from './PescaButton';
+import { FlyoutContext } from '@context/FlyoutContext';
 
 const topOffset = -40;
 const maxRotation = Math.PI / 4;
@@ -14,7 +15,12 @@ const springConfig: Animated.WithSpringConfig = {
   mass: 0.1,
 };
 
-export default function AddButton() {
+type AddButtonProps = {};
+
+// TODO lome: Clean this mess up
+export default function AddButton({}: AddButtonProps) {
+  const flyout = React.useContext(FlyoutContext);
+
   const containerOffset = useSharedValue(0);
   const buttonRotation = useSharedValue(0);
   const buttonContainerWidth = useSharedValue(defaultContainerWidth);
@@ -58,11 +64,45 @@ export default function AddButton() {
   }
 
   function onAddPaymentButtonPress() {
-    console.log('add payment');
+    flyout.setChildren(
+      <>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+      </>,
+      true,
+    );
+    onMainButtonPress();
   }
 
   function onAddGroupButtonPress() {
-    console.log('add group');
+    flyout.setChildren(
+      <>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+        <Text>Lol</Text>
+      </>,
+      true,
+    );
+    // onMainButtonPress();
   }
 
   return (
