@@ -7,7 +7,7 @@ import Container from '@components/Container';
 import Content from '@components/Content';
 import List from '@components/List';
 import MoneyDiff, { MoneyDiffProps } from '@components/MoneyDiff';
-import { FlyoutType } from '@api/FlyoutType';
+import { FlyoutContext } from '@context/FlyoutContext';
 
 const dummyPayments: MoneyDiffProps[] = [
   {
@@ -56,11 +56,11 @@ const dummyPayments: MoneyDiffProps[] = [
   },
 ];
 
-type HistoryViewProps = {
-  flyout: FlyoutType;
-};
+type HistoryViewProps = {};
 
-export default function HistoryView({ flyout }: HistoryViewProps) {
+export default function HistoryView({}: HistoryViewProps) {
+  const flyout = React.useContext(FlyoutContext);
+
   function openFlyout(children: ReactNode) {
     flyout.setChildren(children, true);
   }
@@ -104,11 +104,6 @@ export default function HistoryView({ flyout }: HistoryViewProps) {
           </Content>
           <View style={styles.placeholder} />
         </ScrollView>
-        {/* <Footer>
-          <Content>
-            <PescaButton title="New Payment" onPress={() => console.log('press')} />
-          </Content>
-        </Footer> */}
       </Container>
     </>
   );

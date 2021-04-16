@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import PescaButton from './PescaButton';
-import { FlyoutType } from '@api/FlyoutType';
+import { FlyoutContext } from '@context/FlyoutContext';
 
 const topOffset = -40;
 const maxRotation = Math.PI / 4;
@@ -15,12 +15,12 @@ const springConfig: Animated.WithSpringConfig = {
   mass: 0.1,
 };
 
-type AddButtonProps = {
-  flyout: FlyoutType;
-};
+type AddButtonProps = {};
 
 // TODO lome: Clean this mess up
-export default function AddButton({ flyout }: AddButtonProps) {
+export default function AddButton({}: AddButtonProps) {
+  const flyout = React.useContext(FlyoutContext);
+
   const containerOffset = useSharedValue(0);
   const buttonRotation = useSharedValue(0);
   const buttonContainerWidth = useSharedValue(defaultContainerWidth);
