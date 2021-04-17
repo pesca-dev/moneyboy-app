@@ -1,7 +1,8 @@
-import React, { PropsWithChildren, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 
 import { AuthData } from '@api/AuthData';
 import { UserData } from '@api/UserData';
+import { ParseContext } from '@context/ParseContext';
 
 type AuthContextType = {
   /**
@@ -40,24 +41,55 @@ type AuthContextState = {
  * Provider for the authentication context.
  */
 export function AuthContextProvider({ children }: PropsWithChildren<AuthContextProviderProps>) {
+  // Get the Parse Context
+  const Parse = React.useContext(ParseContext);
+
   const [authContextState, setAuthContextState] = useState<AuthContextState>({ loggedIn: false });
 
-  function login({ username, password }: AuthData) {
+  /**
+   * Try to authenticate the current user, if it exists.
+   */
+  async function tryToAuthCurrentUser() {
+    const currentUser = await Parse?.getUser();
+
+    if (currentUser && currentUser.authenticated()) {
+      setAuthContextState({
+        ...authContextState,
+        loggedIn: true,
+        user: {
+          id: currentUser.id,
+          username: currentUser.getUsername() as string,
+        },
+      });
+    }
+  }
+
+  // Try to auth the user on app start
+  useEffect(() => {
+    tryToAuthCurrentUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  /**
+   * Try to log a user in. It will also try to authenticate the user.
+   */
+  async function login({ username, password }: AuthData) {
+    // We only want valid userdata
     if (!username.trim().length || !password.trim().length) {
       return;
     }
 
-    setAuthContextState({
-      ...authContextState,
-      loggedIn: true,
-      user: {
-        id: '1337',
-        username,
-      },
-    });
+    // Try to log in and authenticate
+    await Parse?.login(username, password);
+    await tryToAuthCurrentUser();
   }
 
-  function logout() {
+  /**
+   * Log the current user out.
+   */
+  async function logout() {
+    await Parse?.logout();
+
     setAuthContextState({
       ...authContextState,
       loggedIn: false,
