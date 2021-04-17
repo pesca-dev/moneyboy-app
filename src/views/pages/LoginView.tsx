@@ -5,6 +5,9 @@ import PescaButton from '@components/input/PescaButton';
 import PescaInputField from '@components/input/PescaInputField';
 import { AuthContext } from '@context/LoginContext';
 
+/**
+ * The login view of out application.
+ */
 export default function LoginView() {
   const { login } = React.useContext(AuthContext);
 
@@ -12,10 +15,13 @@ export default function LoginView() {
   const [password, setPassword] = useState<string>('');
 
   function onSubmit() {
-    login({
-      username,
-      password,
-    });
+    // Only try to log in, if there is any useful input.
+    if (username.trim().length && password.trim().length) {
+      login({
+        username,
+        password,
+      });
+    }
   }
 
   return (

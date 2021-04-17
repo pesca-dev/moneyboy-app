@@ -22,6 +22,9 @@ const tabs: NavigationEntry[] = [
   { name: 'Settings', component: SettingsView, icon: 'cog-outline' },
 ];
 
+/**
+ * Container for the app and the navigation.
+ */
 export default function AppContainer() {
   const { loggedIn } = React.useContext(AuthContext);
 
