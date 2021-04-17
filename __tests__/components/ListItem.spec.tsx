@@ -1,9 +1,9 @@
 import 'react-native';
 import React from 'react';
-import ListItem from '@components/ListItem';
 
 import { cleanup, fireEvent, render } from '@testing-library/react-native';
 import { TouchableWithoutFeedback } from 'react-native';
+import ListItem from '@components/structure/ListItem';
 
 describe('ListItem', () => {
   afterEach(cleanup);
