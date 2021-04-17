@@ -2,11 +2,11 @@ import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
-import Card from '@components/Card';
-import Container from '@components/Container';
-import Content from '@components/Content';
-import List from '@components/List';
 import MoneyDiff, { MoneyDiffProps } from '@components/MoneyDiff';
+import Container from '@components/structure/Container';
+import Content from '@components/structure/Content';
+import Card from '@components/structure/Card';
+import List from '@components/structure/List';
 
 const dummyData: MoneyDiffProps[] = [
   {
