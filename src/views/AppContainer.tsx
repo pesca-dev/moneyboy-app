@@ -7,11 +7,11 @@ import { NavigationEntry } from '@api/NavigationEntry';
 import PescaTabBar from '@components/navigation/PescaTabBar';
 import { FlyoutContextProvider } from '@context/FlyoutContext';
 import { AuthContext } from '@context/LoginContext';
-import GroupView from '@views/GroupView';
-import HistoryView from '@views/HistoryView';
-import LoginView from '@views/LoginView';
-import MainView from '@views/MainView';
-import SettingsView from '@views/SettingsView';
+import GroupView from '@views/pages/GroupView';
+import HistoryView from '@views/pages/HistoryView';
+import LoginView from '@views/pages/LoginView';
+import MainView from '@views/pages/MainView';
+import SettingsView from '@views/pages/SettingsView';
 
 const Tab = createBottomTabNavigator();
 
