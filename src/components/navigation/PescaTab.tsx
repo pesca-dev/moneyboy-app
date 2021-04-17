@@ -1,10 +1,11 @@
 import React from 'react';
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers } from '@react-navigation/core';
 import { ParamListBase } from '@react-navigation/routers';
-import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
-import { NavigationEntry } from '@api/NavigationEntry';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import { NavigationEntry } from '@api/NavigationEntry';
 
 type PescaTabProps = NavigationEntry & {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
@@ -12,6 +13,9 @@ type PescaTabProps = NavigationEntry & {
   disabled?: boolean;
 };
 
+/**
+ * Custom tab for being used inside of custom pesca tab bar for react-native-navigation.
+ */
 export default function PescaTab({ name, navigation, icon, focussed, disabled }: PescaTabProps) {
   function navigate() {
     navigation.navigate(name);

@@ -1,16 +1,17 @@
+import React from 'react';
+import { v4 as uuid } from 'react-native-uuid';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import { NavigationEntry } from '@api/NavigationEntry';
-import PescaTabBar from '@components/PescaTabBar';
+import PescaTabBar from '@components/navigation/PescaTabBar';
 import { FlyoutContextProvider } from '@context/FlyoutContext';
 import { AuthContext } from '@context/LoginContext';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
 import GroupView from '@views/GroupView';
 import HistoryView from '@views/HistoryView';
 import LoginView from '@views/LoginView';
 import MainView from '@views/MainView';
 import SettingsView from '@views/SettingsView';
-import React from 'react';
-import { v4 as uuid } from 'react-native-uuid';
 
 const Tab = createBottomTabNavigator();
 

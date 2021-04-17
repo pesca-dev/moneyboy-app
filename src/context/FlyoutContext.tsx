@@ -2,7 +2,7 @@ import React, { PropsWithChildren, ReactNode, useState } from 'react';
 import { Text } from 'react-native';
 
 import { FlyoutType } from '@api/FlyoutType';
-import Flyout from '@components/Flyout';
+import Flyout from '@components/structure/Flyout';
 
 export const FlyoutContext = React.createContext<FlyoutType>({
   open() {},

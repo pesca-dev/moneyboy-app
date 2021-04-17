@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
-import PescaButton from './PescaButton';
+
+import PescaButton from '@components/input/PescaButton';
 import { FlyoutContext } from '@context/FlyoutContext';
 
 const topOffset = -40;

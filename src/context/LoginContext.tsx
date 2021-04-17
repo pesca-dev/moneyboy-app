@@ -1,6 +1,7 @@
+import React, { PropsWithChildren, useState } from 'react';
+
 import { AuthData } from '@api/AuthData';
 import { UserData } from '@api/UserData';
-import React, { PropsWithChildren, useState } from 'react';
 
 type AuthContextType = {
   /**

@@ -4,14 +4,17 @@ import { BottomTabBarOptions, BottomTabBarProps } from '@react-navigation/bottom
 import { v4 as uuid } from 'react-native-uuid';
 
 import { NavigationEntry } from '@api/NavigationEntry';
-import Footer from '@components/Footer';
-import PescaTab from './PescaTab';
-import AddButton from './AddButton';
+import Footer from '@components/structure/Footer';
+import PescaTab from '@components/navigation/PescaTab';
+import AddButton from '@components/input/AddButton';
 
 type PescaTabUIProps<T = BottomTabBarOptions> = BottomTabBarProps<T> & {
   tabs: NavigationEntry[];
 };
 
+/**
+ * Custom tab bar for being used in react-anative-navigation.
+ */
 export default function PescaTabBar({ tabs, navigation, state }: PescaTabUIProps) {
   const t = tabs.map((tab, i) => {
     return { ...tab, index: i };

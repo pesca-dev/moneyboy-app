@@ -1,5 +1,5 @@
-import PescaButton from '@components/PescaButton';
-import PescaInputField from '@components/PescaInputField';
+import PescaButton from '@components/input/PescaButton';
+import PescaInputField from '@components/input/PescaInputField';
 import { AuthContext } from '@context/LoginContext';
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
