@@ -1,5 +1,13 @@
 import React from 'react';
-import { NativeSyntheticEvent, StyleSheet, Text, TextInputSubmitEditingEventData, View } from 'react-native';
+import {
+  NativeSyntheticEvent,
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextInputSubmitEditingEventData,
+  TextStyle,
+  View,
+} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
 type PescaInputFieldProps = {
@@ -9,6 +17,7 @@ type PescaInputFieldProps = {
   onChangeText?: (text: string) => void;
   value?: string;
   onSubmitEditing?: (e?: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => void;
+  style?: StyleProp<TextStyle>;
 };
 
 export default function PescaInputField({
@@ -18,13 +27,14 @@ export default function PescaInputField({
   value,
   onChangeText,
   onSubmitEditing,
+  style,
 }: PescaInputFieldProps) {
   return (
     <View style={[styles.container]}>
       <Text style={[styles.label]}>{label}</Text>
       <TextInput
         placeholder={placeholder}
-        style={[styles.input]}
+        style={[styles.input, style]}
         placeholderTextColor="#7f8c8d"
         textContentType="password"
         autoCorrect={false}
