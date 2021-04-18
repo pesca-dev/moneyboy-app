@@ -1,49 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 
 import PescaButton from '@components/input/PescaButton';
 import PescaInputField from '@components/input/PescaInputField';
 import { AuthContext } from '@context/LoginContext';
+import { ScrollView } from 'react-native-gesture-handler';
 
-type LoginViewProps = {
+type RegisterViewProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
 };
 
-/**
- * The login view of out application.
- */
-export default function LoginView({ navigation }: LoginViewProps) {
-  const { login } = React.useContext(AuthContext);
+export default function RegisterView({ navigation }: RegisterViewProps) {
+  const { register } = React.useContext(AuthContext);
 
   const [valid, setValid] = useState<boolean>(false);
 
   const [username, setUsername] = useState<string>('');
+  const [displayName, setDisplayName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [confirmPw, setConfirmPw] = useState<string>('');
+  const [mail, setMail] = useState<string>('');
 
-  const [error, setError] = useState<string | undefined>(undefined);
+  // let isValid = React.useRef(false);
 
   useEffect(() => {
     function validate() {
-      return !!username.length && !!password.length;
+      return (
+        !!mail.length &&
+        !!username.length &&
+        !!displayName.length &&
+        !!password.length &&
+        !!confirmPw.length &&
+        password === confirmPw
+      );
     }
-
     setValid(validate());
-  }, [username, password]);
+  }, [username, displayName, password, confirmPw, mail]);
 
   function onSubmit() {
-    // Only try to log in, if there is any useful input.
     if (valid) {
-      login({
-        username,
-        password,
-      }).then(([succes, message]) => {
-        // Set error message, if login is not successful
-        if (!succes) {
-          setError(message);
-        }
-      });
+      register();
     }
   }
 
@@ -53,19 +51,27 @@ export default function LoginView({ navigation }: LoginViewProps) {
         <SafeAreaView style={styles.container}>
           <View style={[styles.formContainer]}>
             <View style={[styles.formHeadingContainer]}>
-              <Text style={[styles.formHeading]}>Login</Text>
+              <Text style={[styles.formHeading]}>Register</Text>
             </View>
-            {/* Display possible error */}
-            {error && (
-              <View style={[styles.errorView]}>
-                <Text style={[styles.errorText]}>{error}</Text>
-              </View>
-            )}
+            <PescaInputField
+              label="Email"
+              placeholder="Email"
+              value={mail}
+              onChangeText={setMail}
+              onSubmitEditing={onSubmit}
+            />
             <PescaInputField
               label="Username"
               placeholder="Username"
               value={username}
               onChangeText={setUsername}
+              onSubmitEditing={onSubmit}
+            />
+            <PescaInputField
+              label="Displayname"
+              placeholder="Displayname"
+              value={displayName}
+              onChangeText={setDisplayName}
               onSubmitEditing={onSubmit}
             />
             <PescaInputField
@@ -76,18 +82,27 @@ export default function LoginView({ navigation }: LoginViewProps) {
               onSubmitEditing={onSubmit}
               secureTextEntry
             />
+            <PescaInputField
+              label="Confirm Password"
+              placeholder="Confirm Password"
+              value={confirmPw}
+              onChangeText={setConfirmPw}
+              onSubmitEditing={onSubmit}
+              style={password !== confirmPw && styles.error}
+              secureTextEntry
+            />
             <View style={[styles.buttonContainer]}>
               <PescaButton onPress={onSubmit} style={[styles.button]}>
                 <View style={[styles.buttonContent, valid && styles.validFormbutton]}>
-                  <Text style={[styles.buttonText]}>Login</Text>
+                  <Text style={[styles.buttonText]}>Register</Text>
                 </View>
               </PescaButton>
             </View>
           </View>
 
           <View style={[styles.link]}>
-            <PescaButton onPress={() => navigation.navigate('register')}>
-              <Text>No Account? Register!</Text>
+            <PescaButton onPress={() => navigation.navigate('login')}>
+              <Text>Already got an accout? Login!</Text>
             </PescaButton>
           </View>
         </SafeAreaView>
@@ -104,7 +119,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: 60,
   },
   formHeadingContainer: {
     alignItems: 'center',
@@ -112,15 +127,6 @@ const styles = StyleSheet.create({
   },
   formHeading: {
     fontSize: 32,
-  },
-  errorView: {
-    alignItems: 'center',
-    backgroundColor: '#e74c3c',
-    padding: 10,
-    borderRadius: 5,
-  },
-  errorText: {
-    color: '#fff',
   },
   formContainer: {
     width: '80%',
@@ -142,6 +148,9 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     color: '#fff',
+  },
+  error: {
+    borderColor: '#f00',
   },
   link: {
     marginTop: 25,

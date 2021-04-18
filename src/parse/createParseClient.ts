@@ -17,14 +17,13 @@ export default function createParseClient(appName: string, url: string): ParseCl
   // Allow unsafe current user, so we can retrieve it on startup
   Parse.User.enableUnsafeCurrentUser();
 
-  // TODO lome: do we need this? Or only use `Parse.User.currentAsync`
-  let user: Parse.User | undefined;
-
-  async function login(username: string, password: string): Promise<boolean> {
+  async function login(username: string, password: string): Promise<MaybeError<boolean>> {
     try {
-      user = await Parse.User.logIn(username, password);
-    } catch {}
-    return !!user;
+      await Parse.User.logIn(username, password);
+    } catch (e) {
+      return [false, e.message];
+    }
+    return [true];
   }
 
   async function logout(): Promise<void> {

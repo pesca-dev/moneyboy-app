@@ -7,7 +7,7 @@ export interface ParseClient {
    * @param username username of the user
    * @param password password of the user
    */
-  login(username: string, password: string): Promise<boolean>;
+  login(username: string, password: string): Promise<MaybeError<boolean>>;
   /**
    * Log the current user out.
    * Noop if no user is logged in.

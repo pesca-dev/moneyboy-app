@@ -17,8 +17,15 @@ type AuthContextType = {
    * Try to log in with the given data.
    * @param data AuthData to log in with
    */
-  login(data: AuthData): void;
+  login(data: AuthData): Promise<MaybeError<boolean>>;
+  /**
+   * Log a user out.
+   */
   logout(): void;
+  /**
+   * Try to register a new user.
+   */
+  register(): Promise<MaybeError<boolean>>;
 };
 
 /**
@@ -26,8 +33,13 @@ type AuthContextType = {
  */
 export const AuthContext = React.createContext<AuthContextType>({
   loggedIn: false,
-  login(_data) {},
+  async login(_data) {
+    return [true];
+  },
   logout() {},
+  async register() {
+    return [true];
+  },
 });
 
 type AuthContextProviderProps = {};
@@ -73,15 +85,29 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
   /**
    * Try to log a user in. It will also try to authenticate the user.
    */
-  async function login({ username, password }: AuthData) {
+  async function login({ username, password }: AuthData): Promise<MaybeError<boolean>> {
     // We only want valid userdata
     if (!username.trim().length || !password.trim().length) {
-      return;
+      return [false];
     }
 
-    // Try to log in and authenticate
-    await Parse?.login(username, password);
+    // Try to log in
+    const [success, message] = (await Parse?.login(username, password)) ?? [
+      false,
+      'Internal error while communicating with server',
+    ];
+
+    // On error, return
+    if (!success) {
+      return [success, message];
+    }
     await tryToAuthCurrentUser();
+
+    return [true];
+  }
+
+  async function register(): Promise<MaybeError<boolean>> {
+    return [true];
   }
 
   /**
@@ -101,6 +127,7 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
     ...authContextState,
     login,
     logout,
+    register,
   };
 
   return <AuthContext.Provider value={authContextData}>{children}</AuthContext.Provider>;

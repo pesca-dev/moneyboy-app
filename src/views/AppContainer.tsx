@@ -12,6 +12,7 @@ import HistoryView from '@views/pages/HistoryView';
 import LoginView from '@views/pages/LoginView';
 import MainView from '@views/pages/MainView';
 import SettingsView from '@views/pages/SettingsView';
+import RegisterView from '@views/pages/RegisterView';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,11 +31,11 @@ export default function AppContainer() {
 
   return (
     <>
-      {loggedIn ? (
-        <FlyoutContextProvider>
-          <NavigationContainer>
-            <Tab.Navigator tabBar={(props) => <PescaTabBar {...{ tabs, ...props }} />}>
-              {tabs.map(({ name, component }) => (
+      <FlyoutContextProvider>
+        <NavigationContainer>
+          <Tab.Navigator tabBar={(props) => loggedIn && <PescaTabBar {...{ tabs, ...props }} />}>
+            {loggedIn ? (
+              tabs.map(({ name, component }) => (
                 <Tab.Screen
                   key={uuid()}
                   name={name}
@@ -42,13 +43,16 @@ export default function AppContainer() {
                     return React.createElement(component, {});
                   }}
                 />
-              ))}
-            </Tab.Navigator>
-          </NavigationContainer>
-        </FlyoutContextProvider>
-      ) : (
-        <LoginView />
-      )}
+              ))
+            ) : (
+              <>
+                <Tab.Screen key={uuid()} name="login" component={LoginView} />
+                <Tab.Screen key={uuid()} name="register" component={RegisterView} />
+              </> // <RegisterView />
+            )}
+          </Tab.Navigator>
+        </NavigationContainer>
+      </FlyoutContextProvider>
     </>
   );
 }
