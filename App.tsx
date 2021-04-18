@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 
-import { AuthContextProvider } from '@context/LoginContext';
+import { AuthContextProvider } from '@context/AuthContext';
 import AppContainer from '@views/AppContainer';
 import { ParseContextProvider } from '@context/ParseContext';
 

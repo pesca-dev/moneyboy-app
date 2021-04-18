@@ -1,3 +1,5 @@
+import { RegistrationData } from '@api/RegistrationData';
+
 /**
  * A client to interface with the parse API in a controlled way.
  */
@@ -19,4 +21,11 @@ export interface ParseClient {
    * @returns currently logged in user, or `null`, if no user is logged in
    */
   getUser(): Promise<Parse.User | null>;
+
+  /**
+   * Try to register a new user.
+   *
+   * @param data data needed for registration
+   */
+  register(data: RegistrationData): Promise<MaybeError<boolean>>;
 }

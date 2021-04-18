@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import PescaButton from '@components/input/PescaButton';
-import { AuthContext } from '@context/LoginContext';
+import { AuthContext } from '@context/AuthContext';
 
 export default function SettingsView() {
   const { user, logout } = React.useContext(AuthContext);

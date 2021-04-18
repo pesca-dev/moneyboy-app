@@ -5,8 +5,16 @@ import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/t
 
 import PescaButton from '@components/input/PescaButton';
 import PescaInputField from '@components/input/PescaInputField';
-import { AuthContext } from '@context/LoginContext';
+import { AuthContext } from '@context/AuthContext';
 import { ScrollView } from 'react-native-gesture-handler';
+
+/**
+ * Diplay message for the registration dialog.
+ */
+type Messages = {
+  error: string | undefined;
+  success: string | undefined;
+};
 
 type RegisterViewProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
@@ -21,14 +29,14 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
   const [displayName, setDisplayName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPw, setConfirmPw] = useState<string>('');
-  const [mail, setMail] = useState<string>('');
+  const [email, setMail] = useState<string>('');
 
-  // let isValid = React.useRef(false);
+  const [message, setMessages] = useState<Messages>({ error: undefined, success: undefined });
 
   useEffect(() => {
     function validate() {
       return (
-        !!mail.length &&
+        !!email.length &&
         !!username.length &&
         !!displayName.length &&
         !!password.length &&
@@ -37,11 +45,23 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
       );
     }
     setValid(validate());
-  }, [username, displayName, password, confirmPw, mail]);
+  }, [username, displayName, password, confirmPw, email]);
 
   function onSubmit() {
     if (valid) {
-      register();
+      register({ username, password, displayName, email }).then(([success, error]) => {
+        if (success) {
+          setMessages({
+            error: undefined,
+            success: 'Please check your mailbox for a confirmation email! Also check your spam box.',
+          });
+        } else {
+          setMessages({
+            success: undefined,
+            error,
+          });
+        }
+      });
     }
   }
 
@@ -53,10 +73,22 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
             <View style={[styles.formHeadingContainer]}>
               <Text style={[styles.formHeading]}>Register</Text>
             </View>
+            {/* Display possible error */}
+            {message.error && (
+              <View style={[styles.infoMessage, styles.errorView]}>
+                <Text style={[styles.errorText]}>{message.error}</Text>
+              </View>
+            )}
+            {/* Display possible succes message */}
+            {message.success && (
+              <View style={[styles.infoMessage, styles.successView]}>
+                <Text style={[styles.successText]}>{message.success}</Text>
+              </View>
+            )}
             <PescaInputField
               label="Email"
               placeholder="Email"
-              value={mail}
+              value={email}
               onChangeText={setMail}
               onSubmitEditing={onSubmit}
             />
@@ -127,6 +159,23 @@ const styles = StyleSheet.create({
   },
   formHeading: {
     fontSize: 32,
+  },
+  infoMessage: {
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 5,
+  },
+  errorView: {
+    backgroundColor: '#e74c3c',
+  },
+  errorText: {
+    color: '#fff',
+  },
+  successView: {
+    backgroundColor: '#2ecc71',
+  },
+  successText: {
+    color: '#fff',
   },
   formContainer: {
     width: '80%',

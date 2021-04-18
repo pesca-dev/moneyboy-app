@@ -5,7 +5,7 @@ import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/t
 
 import PescaButton from '@components/input/PescaButton';
 import PescaInputField from '@components/input/PescaInputField';
-import { AuthContext } from '@context/LoginContext';
+import { AuthContext } from '@context/AuthContext';
 
 type LoginViewProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
@@ -38,9 +38,9 @@ export default function LoginView({ navigation }: LoginViewProps) {
       login({
         username,
         password,
-      }).then(([succes, message]) => {
+      }).then(([success, message]) => {
         // Set error message, if login is not successful
-        if (!succes) {
+        if (!success) {
           setError(message);
         }
       });

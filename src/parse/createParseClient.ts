@@ -2,6 +2,7 @@ import Parse from 'parse/react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { ParseClient } from '@api/ParseClient';
+import { RegistrationData } from '@api/RegistrationData';
 
 /**
  * Create a new Parse Client.
@@ -30,6 +31,21 @@ export default function createParseClient(appName: string, url: string): ParseCl
     await Parse.User.logOut();
   }
 
+  async function register({ username, password, email, displayName }: RegistrationData): Promise<MaybeError<boolean>> {
+    const user = new Parse.User();
+    user.set('username', username);
+    user.set('password', password);
+    user.set('email', email);
+    user.set('displayName', displayName);
+
+    try {
+      await user.signUp();
+    } catch (e) {
+      return [false, e.message];
+    }
+    return [true];
+  }
+
   async function getUser(): Promise<Parse.User | null> {
     return Parse.User.currentAsync();
   }
@@ -37,6 +53,7 @@ export default function createParseClient(appName: string, url: string): ParseCl
   return Object.freeze({
     login,
     logout,
+    register,
     getUser,
   });
 }

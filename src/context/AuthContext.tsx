@@ -3,6 +3,7 @@ import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { AuthData } from '@api/AuthData';
 import { UserData } from '@api/UserData';
 import { ParseContext } from '@context/ParseContext';
+import { RegistrationData } from '@api/RegistrationData';
 
 type AuthContextType = {
   /**
@@ -25,7 +26,7 @@ type AuthContextType = {
   /**
    * Try to register a new user.
    */
-  register(): Promise<MaybeError<boolean>>;
+  register(data: RegistrationData): Promise<MaybeError<boolean>>;
 };
 
 /**
@@ -106,8 +107,9 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
     return [true];
   }
 
-  async function register(): Promise<MaybeError<boolean>> {
-    return [true];
+  async function register(data: RegistrationData): Promise<MaybeError<boolean>> {
+    // Simply forward call
+    return Parse?.register(data) ?? [false, 'Internal error while communicating with server'];
   }
 
   /**

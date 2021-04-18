@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationEntry } from '@api/NavigationEntry';
 import PescaTabBar from '@components/navigation/PescaTabBar';
 import { FlyoutContextProvider } from '@context/FlyoutContext';
-import { AuthContext } from '@context/LoginContext';
+import { AuthContext } from '@context/AuthContext';
 import GroupView from '@views/pages/GroupView';
 import HistoryView from '@views/pages/HistoryView';
 import LoginView from '@views/pages/LoginView';
