@@ -72,6 +72,7 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
         user: {
           id: currentUser.id,
           username: currentUser.getUsername() as string,
+          displayName: currentUser.get('displayName') as string,
         },
       });
     }

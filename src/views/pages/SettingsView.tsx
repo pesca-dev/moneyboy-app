@@ -9,7 +9,7 @@ export default function SettingsView() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.username}>{user?.username}</Text>
+      <Text style={styles.username}>{user?.displayName}</Text>
       <PescaButton onPress={logout}>
         <Text>Logout</Text>
       </PescaButton>
