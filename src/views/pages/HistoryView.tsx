@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
-import MoneyDiff, { MoneyDiffProps } from '@components/MoneyDiff';
+import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
 import { FlyoutContext } from '@context/FlyoutContext';
 import Container from '@components/structure/Container';
 import Content from '@components/structure/Content';
