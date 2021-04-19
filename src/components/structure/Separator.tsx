@@ -28,8 +28,7 @@ const styles = StyleSheet.create({
   separator: {
     flex: 1,
     height: 1,
-    marginLeft: 15,
-    marginRight: 15,
+    marginHorizontal: 15,
     backgroundColor: '#ecf0f1',
   },
 });
