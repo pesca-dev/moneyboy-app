@@ -1,15 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import PescaButton from '@components/input/PescaButton';
 import { AuthContext } from '@context/AuthContext';
 import Card from '@components/structure/Card';
 import Content from '@components/structure/Content';
 import ListItem from '@components/structure/ListItem';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import LogoutButton from '@components/extended/LogoutButton';
 
 export default function SettingsView() {
-  const { user, logout } = React.useContext(AuthContext);
+  const { user } = React.useContext(AuthContext);
 
   // TODO lome: Add structure for menu points
   return (
@@ -18,12 +17,7 @@ export default function SettingsView() {
       <Content>
         <Card header={user?.displayName}>
           <ListItem last>
-            <PescaButton onPress={logout}>
-              <View style={[styles.logoutContainer]}>
-                <MaterialCommunityIcons name="arrow-right" style={[styles.logoutIcon]} />
-                <Text style={[styles.logoutText]}>Logout</Text>
-              </View>
-            </PescaButton>
+            <LogoutButton />
           </ListItem>
         </Card>
       </Content>
@@ -43,17 +37,5 @@ const styles = StyleSheet.create({
   },
   separatorStyle: {
     marginHorizontal: 0,
-  },
-  logoutContainer: {
-    flexDirection: 'row',
-  },
-  logoutIcon: {
-    fontSize: 20,
-    marginRight: 5,
-    color: '#e74c3c',
-  },
-  logoutText: {
-    fontSize: 16,
-    color: '#e74c3c',
   },
 });
