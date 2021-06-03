@@ -37,7 +37,7 @@ export class HttpClient {
    */
   public async requestWithAuth(uri: RequestInfo, options: RequestInit) {
     // get access token from storage and add it to header
-    let access_token = (await this.storage.getItem(this.keys.storage.access_token)) ?? '';
+    let access_token = (await this.storage.getItem(this.keys.storage.access_token).catch(() => null)) ?? '';
     options.headers = {
       ...options.headers,
       Authorization: `Bearer ${access_token}`,
@@ -47,7 +47,7 @@ export class HttpClient {
     let res = await this.request(uri, options);
     if (res?.status === 401) {
       // if request is unauthorized, get refresh token from storage
-      const refresh_token = (await this.storage.getItem(this.keys.storage.refresh_token)) ?? '';
+      const refresh_token = (await this.storage.getItem(this.keys.storage.refresh_token).catch(() => null)) ?? '';
       const payload: Pesca.RefreshAccessTokenPayload = {
         refresh_token,
       };
@@ -63,7 +63,7 @@ export class HttpClient {
       if (refResult?.status === 201) {
         // if sucessful, store new access token in storage...
         const newAccessToken: Pesca.RefreshAccessTokenDTO = await refResult.json();
-        await this.storage.setItem(this.keys.storage.access_token, newAccessToken.access_token);
+        await this.storage.setItem(this.keys.storage.access_token, newAccessToken.access_token).catch(console.error);
         // ...and perform request again
         options.headers = {
           ...options.headers,

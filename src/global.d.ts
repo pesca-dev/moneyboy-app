@@ -18,4 +18,11 @@ declare namespace Pesca {
   interface RefreshAccessTokenDTO {
     access_token: string;
   }
+
+  interface RegistrationPayload {
+    username: string;
+    password: string;
+    displayName: string;
+    email: string;
+  }
 }

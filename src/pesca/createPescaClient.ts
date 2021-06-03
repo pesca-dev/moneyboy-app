@@ -41,8 +41,8 @@ export default function createPescaClient(url: string): PescaClient {
     }
 
     const tokens: Pesca.LoginReturnDTO = await result.json();
-    await EncryptedStorage.setItem(constants.storage.access_token, tokens.access_token);
-    await EncryptedStorage.setItem(constants.storage.refresh_token, tokens.refresh_token);
+    await EncryptedStorage.setItem(constants.storage.access_token, tokens.access_token).catch(console.error);
+    await EncryptedStorage.setItem(constants.storage.refresh_token, tokens.refresh_token).catch(console.error);
     return [true];
   }
 
@@ -50,12 +50,28 @@ export default function createPescaClient(url: string): PescaClient {
     await httpClient.requestWithAuth('auth/logout', {
       method: 'DELETE',
     });
-    await EncryptedStorage.removeItem(constants.storage.access_token);
-    await EncryptedStorage.removeItem(constants.storage.refresh_token);
+    await EncryptedStorage.removeItem(constants.storage.access_token).catch(() => null);
+    await EncryptedStorage.removeItem(constants.storage.refresh_token).catch(() => null);
+    await EncryptedStorage.removeItem(constants.storage.user).catch(() => null);
   }
 
-  async function register({}: RegistrationData): Promise<MaybeError<boolean>> {
-    return [false, 'Not Implemented'];
+  async function register(data: RegistrationData): Promise<MaybeError<boolean>> {
+    const payload: Pesca.RegistrationPayload = data;
+
+    const result = await httpClient.request('auth/register', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (result?.status === 202) {
+      return [true];
+    } else {
+      return [false, (await result?.json())?.message ?? 'Error during registration'];
+    }
   }
 
   async function getUser(): Promise<Pesca.User | null> {
@@ -64,10 +80,10 @@ export default function createPescaClient(url: string): PescaClient {
     if (result?.status === 200) {
       user = await result.json();
       // store current user in memory
-      await EncryptedStorage.setItem(constants.storage.user, JSON.stringify(user));
+      await EncryptedStorage.setItem(constants.storage.user, JSON.stringify(user)).catch(console.error);
     } else if (result?.status !== 401) {
       // if we have no connection or another error happens (but we are NOT unauthorized), we use cached user
-      const userJSON = await EncryptedStorage.getItem(constants.storage.user);
+      const userJSON = await EncryptedStorage.getItem(constants.storage.user).catch(() => null);
       if (userJSON) {
         try {
           user = JSON.parse(userJSON);
@@ -75,9 +91,9 @@ export default function createPescaClient(url: string): PescaClient {
       }
     } else {
       // if we are unauthorized, we simply delete all stored data, so we leave nothing behind after a logout
-      await EncryptedStorage.removeItem(constants.storage.access_token);
-      await EncryptedStorage.removeItem(constants.storage.refresh_token);
-      await EncryptedStorage.removeItem(constants.storage.user);
+      await EncryptedStorage.removeItem(constants.storage.access_token).catch(() => null);
+      await EncryptedStorage.removeItem(constants.storage.refresh_token).catch(() => null);
+      await EncryptedStorage.removeItem(constants.storage.user).catch(() => null);
     }
     return user;
   }
