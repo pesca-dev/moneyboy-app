@@ -30,8 +30,7 @@ export default function Card({ header, children }: PropsWithChildren<CardProps>)
 const styles = StyleSheet.create({
   card: {
     width: '100%',
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingHorizontal: 20,
     elevation: 5,
     backgroundColor: '#fff',
     borderRadius: 5,

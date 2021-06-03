@@ -1,5 +1,3 @@
-import { RegistrationData } from '@api/RegistrationData';
-
 /**
  * A client to interface with the backend API in a controlled way.
  *
@@ -29,5 +27,5 @@ export interface PescaClient {
    *
    * @param data data needed for registration
    */
-  register(data: RegistrationData): Promise<MaybeError<boolean>>;
+  register(data: Pesca.RegistrationPayload): Promise<MaybeError<boolean>>;
 }

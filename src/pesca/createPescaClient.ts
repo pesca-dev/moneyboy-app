@@ -1,7 +1,6 @@
 import EncryptedStorage from 'react-native-encrypted-storage';
 
 import { PescaClient } from '@api/PescaClient';
-import { RegistrationData } from '@api/RegistrationData';
 
 import { HttpClient } from '@pesca/httpClient';
 
@@ -55,7 +54,7 @@ export default function createPescaClient(url: string): PescaClient {
     await EncryptedStorage.removeItem(constants.storage.user).catch(() => null);
   }
 
-  async function register(data: RegistrationData): Promise<MaybeError<boolean>> {
+  async function register(data: Pesca.RegistrationPayload): Promise<MaybeError<boolean>> {
     const payload: Pesca.RegistrationPayload = data;
 
     const result = await httpClient.request('auth/register', {

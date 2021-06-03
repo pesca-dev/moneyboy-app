@@ -1,9 +1,7 @@
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 
 import { AuthData } from '@api/AuthData';
-import { UserData } from '@api/UserData';
 import { PescaContext } from '@context/PescaContext';
-import { RegistrationData } from '@api/RegistrationData';
 
 type AuthContextType = {
   /**
@@ -17,7 +15,7 @@ type AuthContextType = {
   /**
    * Object with all relevant user data.
    */
-  user?: UserData;
+  user?: Pesca.User;
   /**
    * Try to log in with the given data.
    * @param data AuthData to log in with
@@ -30,7 +28,7 @@ type AuthContextType = {
   /**
    * Try to register a new user.
    */
-  register(data: RegistrationData): Promise<MaybeError<boolean>>;
+  register(data: Pesca.RegistrationPayload): Promise<MaybeError<boolean>>;
 };
 
 /**
@@ -53,7 +51,7 @@ type AuthContextProviderProps = {};
 type AuthContextState = {
   ready: boolean;
   loggedIn: boolean;
-  user?: UserData;
+  user?: Pesca.User;
 };
 
 /**
@@ -75,11 +73,7 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
         ...authContextState,
         loggedIn: true,
         ready: true,
-        user: {
-          id: currentUser.id,
-          username: currentUser.username,
-          displayName: currentUser.displayName,
-        },
+        user: currentUser,
       });
     } else {
       setAuthContextState({
@@ -119,7 +113,7 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
     return [true];
   }
 
-  async function register(data: RegistrationData): Promise<MaybeError<boolean>> {
+  async function register(data: Pesca.RegistrationPayload): Promise<MaybeError<boolean>> {
     // Simply forward call
     return Pesca?.register(data) ?? [false, 'Internal error while communicating with server'];
   }
