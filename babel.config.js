@@ -11,7 +11,7 @@ module.exports = {
           '@views': './src/views',
           '@api': './src/api',
           '@context': './src/context',
-          '@parse': './src/parse',
+          '@pesca': './src/pesca',
         },
       },
     ],

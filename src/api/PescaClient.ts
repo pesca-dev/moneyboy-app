@@ -1,9 +1,11 @@
 import { RegistrationData } from '@api/RegistrationData';
 
 /**
- * A client to interface with the parse API in a controlled way.
+ * A client to interface with the backend API in a controlled way.
+ *
+ * @author Louis Meyer
  */
-export interface ParseClient {
+export interface PescaClient {
   /**
    * Try to log a user in with the given auth data.
    * @param username username of the user
@@ -20,7 +22,7 @@ export interface ParseClient {
    *
    * @returns currently logged in user, or `null`, if no user is logged in
    */
-  getUser(): Promise<Parse.User | null>;
+  getUser(): Promise<Pesca.User | null>;
 
   /**
    * Try to register a new user.

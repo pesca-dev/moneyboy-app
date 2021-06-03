@@ -2,7 +2,7 @@ import React, { PropsWithChildren, useEffect, useState } from 'react';
 
 import { AuthData } from '@api/AuthData';
 import { UserData } from '@api/UserData';
-import { ParseContext } from '@context/ParseContext';
+import { PescaContext } from '@context/PescaContext';
 import { RegistrationData } from '@api/RegistrationData';
 
 type AuthContextType = {
@@ -55,7 +55,7 @@ type AuthContextState = {
  */
 export function AuthContextProvider({ children }: PropsWithChildren<AuthContextProviderProps>) {
   // Get the Parse Context
-  const Parse = React.useContext(ParseContext);
+  const Pesca = React.useContext(PescaContext);
 
   const [authContextState, setAuthContextState] = useState<AuthContextState>({ loggedIn: false });
 
@@ -63,16 +63,16 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
    * Try to authenticate the current user, if it exists.
    */
   async function tryToAuthCurrentUser() {
-    const currentUser = await Parse?.getUser();
+    const currentUser = await Pesca?.getUser();
 
-    if (currentUser && currentUser.authenticated()) {
+    if (currentUser) {
       setAuthContextState({
         ...authContextState,
         loggedIn: true,
         user: {
           id: currentUser.id,
-          username: currentUser.getUsername() as string,
-          displayName: currentUser.get('displayName') as string,
+          username: currentUser.username,
+          displayName: currentUser.displayName,
         },
       });
     }
@@ -94,7 +94,7 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
     }
 
     // Try to log in
-    const [success, message] = (await Parse?.login(username, password)) ?? [
+    const [success, message] = (await Pesca?.login(username, password)) ?? [
       false,
       'Internal error while communicating with server',
     ];
@@ -110,14 +110,14 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
 
   async function register(data: RegistrationData): Promise<MaybeError<boolean>> {
     // Simply forward call
-    return Parse?.register(data) ?? [false, 'Internal error while communicating with server'];
+    return Pesca?.register(data) ?? [false, 'Internal error while communicating with server'];
   }
 
   /**
    * Log the current user out.
    */
   async function logout() {
-    await Parse?.logout();
+    await Pesca?.logout();
 
     setAuthContextState({
       ...authContextState,
