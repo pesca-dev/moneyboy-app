@@ -27,30 +27,32 @@ const tabs: NavigationEntry[] = [
  * Container for the app and the navigation.
  */
 export default function AppContainer() {
-  const { loggedIn } = React.useContext(AuthContext);
+  const { loggedIn, ready } = React.useContext(AuthContext);
 
   return (
     <>
       <FlyoutContextProvider>
         <NavigationContainer>
-          <Tab.Navigator tabBar={(props) => loggedIn && <PescaTabBar {...{ tabs, ...props }} />}>
-            {loggedIn ? (
-              tabs.map(({ name, component }) => (
-                <Tab.Screen
-                  key={uuid()}
-                  name={name}
-                  children={() => {
-                    return React.createElement(component, {});
-                  }}
-                />
-              ))
-            ) : (
-              <>
-                <Tab.Screen key={uuid()} name="login" component={LoginView} />
-                <Tab.Screen key={uuid()} name="register" component={RegisterView} />
-              </> // <RegisterView />
-            )}
-          </Tab.Navigator>
+          {ready && (
+            <Tab.Navigator tabBar={(props) => loggedIn && <PescaTabBar {...{ tabs, ...props }} />}>
+              {loggedIn ? (
+                tabs.map(({ name, component }) => (
+                  <Tab.Screen
+                    key={uuid()}
+                    name={name}
+                    children={() => {
+                      return React.createElement(component, {});
+                    }}
+                  />
+                ))
+              ) : (
+                <>
+                  <Tab.Screen key={uuid()} name="login" component={LoginView} />
+                  <Tab.Screen key={uuid()} name="register" component={RegisterView} />
+                </>
+              )}
+            </Tab.Navigator>
+          )}
         </NavigationContainer>
       </FlyoutContextProvider>
     </>

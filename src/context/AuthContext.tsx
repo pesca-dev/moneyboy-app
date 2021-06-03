@@ -11,6 +11,10 @@ type AuthContextType = {
    */
   loggedIn: boolean;
   /**
+   * Flag, if initial auth is ready (i.e. app is fully loaded)
+   */
+  ready: boolean;
+  /**
    * Object with all relevant user data.
    */
   user?: UserData;
@@ -41,11 +45,13 @@ export const AuthContext = React.createContext<AuthContextType>({
   async register() {
     return [true];
   },
+  ready: true,
 });
 
 type AuthContextProviderProps = {};
 
 type AuthContextState = {
+  ready: boolean;
   loggedIn: boolean;
   user?: UserData;
 };
@@ -54,10 +60,9 @@ type AuthContextState = {
  * Provider for the authentication context.
  */
 export function AuthContextProvider({ children }: PropsWithChildren<AuthContextProviderProps>) {
-  // Get the Parse Context
   const Pesca = React.useContext(PescaContext);
 
-  const [authContextState, setAuthContextState] = useState<AuthContextState>({ loggedIn: false });
+  const [authContextState, setAuthContextState] = useState<AuthContextState>({ loggedIn: false, ready: false });
 
   /**
    * Try to authenticate the current user, if it exists.
@@ -69,11 +74,17 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
       setAuthContextState({
         ...authContextState,
         loggedIn: true,
+        ready: true,
         user: {
           id: currentUser.id,
           username: currentUser.username,
           displayName: currentUser.displayName,
         },
+      });
+    } else {
+      setAuthContextState({
+        ...authContextState,
+        ready: true,
       });
     }
   }
