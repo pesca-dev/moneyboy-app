@@ -1,6 +1,7 @@
 import React from 'react';
 import { GestureResponderEvent, StyleSheet, Text } from 'react-native';
-import ListItem from './ListItem';
+
+import ListItem from '@components/structure/ListItem';
 
 export interface MoneyDiffProps {
   name: string;

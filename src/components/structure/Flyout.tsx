@@ -4,7 +4,7 @@ import Modal from 'react-native-modal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import PescaButton from '@components/PescaButton';
+import PescaButton from '@components/input/PescaButton';
 
 type FlyoutProps = {
   isOpen: boolean;

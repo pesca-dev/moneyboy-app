@@ -1,7 +1,7 @@
 import React, { Component, PropsWithChildren } from 'react';
 import { GestureResponderEvent, StyleProp, StyleSheet, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
-import Separator from '@components/Separator';
+import Separator from '@components/structure/Separator';
 
 interface ListItemProps {
   /**
@@ -64,11 +64,9 @@ export default class ListItem extends Component<ListItemProps, ListItemState> {
   }
 }
 
-// TODO lome: use paddingVertical
 const styles = StyleSheet.create({
   listItem: {
     flexDirection: 'row',
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingVertical: 10,
   },
 });
