@@ -23,7 +23,15 @@ export default function PescaTab({ name, navigation, icon, focussed, disabled }:
 
   return (
     <View style={styles.tab}>
-      <TouchableWithoutFeedback onPress={navigate} disabled={disabled}>
+      <TouchableWithoutFeedback
+        onPress={navigate}
+        disabled={disabled}
+        hitSlop={{
+          top: 40,
+          right: 40,
+          bottom: 40,
+          left: 40,
+        }}>
         <View>
           <MaterialCommunityIcons
             name={icon}
