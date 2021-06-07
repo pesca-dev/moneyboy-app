@@ -809,12 +809,13 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MoneyBoy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 0.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "test-dev.pesca.MoneyBoy";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.pesca.app.MoneyBoy;
 				PRODUCT_NAME = MoneyBoy;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -835,12 +836,13 @@
 				DEVELOPMENT_TEAM = X7TM82FK3L;
 				INFOPLIST_FILE = MoneyBoy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 0.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "test-dev.pesca.MoneyBoy";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.pesca.app.MoneyBoy;
 				PRODUCT_NAME = MoneyBoy;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
