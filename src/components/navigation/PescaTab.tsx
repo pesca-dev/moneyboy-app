@@ -5,12 +5,12 @@ import { NavigationHelpers } from '@react-navigation/core';
 import { ParamListBase } from '@react-navigation/routers';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { NavigationEntry } from '@api/NavigationEntry';
-
-type PescaTabProps = NavigationEntry & {
+type PescaTabProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
   focussed?: boolean;
   disabled?: boolean;
+  name: string;
+  icon: string;
 };
 
 /**

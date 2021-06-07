@@ -3,7 +3,6 @@ import { v4 as uuid } from 'react-native-uuid';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { NavigationEntry } from '@api/NavigationEntry';
 import PescaTabBar from '@components/navigation/PescaTabBar';
 import { FlyoutContextProvider } from '@context/FlyoutContext';
 import { AuthContext } from '@context/AuthContext';
@@ -16,13 +15,6 @@ import RegisterView from '@views/pages/RegisterView';
 
 const Tab = createBottomTabNavigator();
 
-const tabs: NavigationEntry[] = [
-  { name: 'Overview', component: MainView, icon: 'home-outline' },
-  { name: 'Groups', component: GroupView, icon: 'account-multiple-outline' },
-  { name: 'History', component: HistoryView, icon: 'history' },
-  { name: 'Settings', component: SettingsView, icon: 'cog-outline' },
-];
-
 /**
  * Container for the app and the navigation.
  */
@@ -34,17 +26,18 @@ export default function AppContainer() {
       <FlyoutContextProvider>
         <NavigationContainer>
           {ready && (
-            <Tab.Navigator tabBar={(props) => loggedIn && <PescaTabBar {...{ tabs, ...props }} />}>
+            <Tab.Navigator tabBar={(props) => loggedIn && <PescaTabBar {...props} />}>
               {loggedIn ? (
-                tabs.map(({ name, component }) => (
+                <>
+                  <Tab.Screen name="Overview" component={MainView} initialParams={{ icon: 'home-outline' }} />
                   <Tab.Screen
-                    key={uuid()}
-                    name={name}
-                    children={() => {
-                      return React.createElement(component, {});
-                    }}
+                    name="Groups"
+                    component={GroupView}
+                    initialParams={{ icon: 'account-multiple-outline' }}
                   />
-                ))
+                  <Tab.Screen name="History" component={HistoryView} initialParams={{ icon: 'history' }} />
+                  <Tab.Screen name="Settings" component={SettingsView} initialParams={{ icon: 'cog-outline' }} />
+                </>
               ) : (
                 <>
                   <Tab.Screen key={uuid()} name="login" component={LoginView} />
