@@ -1,3 +1,4 @@
+import variables from '@config/variables';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   headerText: {
-    fontSize: 32,
+    fontSize: variables.font.size.large,
     fontWeight: 'bold',
     color: '#2c3e50',
   },

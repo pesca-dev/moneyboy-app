@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import PescaButton from '@components/input/PescaButton';
+import variables from '@config/variables';
 
 type FlyoutProps = {
   isOpen: boolean;
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
     zIndex: 9999,
   },
   closeIcon: {
-    fontSize: 24,
+    fontSize: variables.font.size.default,
     color: '#7f8c8d',
   },
   modal: {

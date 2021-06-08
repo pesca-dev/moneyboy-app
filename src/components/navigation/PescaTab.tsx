@@ -4,6 +4,7 @@ import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/t
 import { NavigationHelpers } from '@react-navigation/core';
 import { ParamListBase } from '@react-navigation/routers';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import variables from '@config/variables';
 
 type PescaTabProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   icon: {
-    fontSize: 32,
+    fontSize: variables.font.size.large,
     color: '#7f8c8d',
   },
   focus: {

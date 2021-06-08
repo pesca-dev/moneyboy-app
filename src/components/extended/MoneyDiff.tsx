@@ -1,6 +1,7 @@
 import React from 'react';
 import { GestureResponderEvent, StyleSheet, Text } from 'react-native';
 
+import variables from '@config/variables';
 import ListItem from '@components/structure/ListItem';
 
 export interface MoneyDiffProps {
@@ -24,10 +25,10 @@ export default function MoneyDiff({ name, amount, last, onPress }: MoneyDiffProp
 const styles = StyleSheet.create({
   moneyDiffName: {
     flex: 1,
-    fontSize: 24,
+    fontSize: variables.font.size.small,
   },
   moneyDiffAmount: {
-    fontSize: 24,
+    fontSize: variables.font.size.small,
   },
   positiveDiff: {
     color: '#2ecc71',

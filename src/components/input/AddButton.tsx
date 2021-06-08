@@ -5,6 +5,7 @@ import { animated, useSpring } from '@react-spring/native';
 
 import PescaButton from '@components/input/PescaButton';
 import { FlyoutContext } from '@context/FlyoutContext';
+import variables from '@config/variables';
 
 const topOffset = -40;
 const containerWidth = {
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
   },
   addButton: {},
   icon: {
-    fontSize: 32,
+    fontSize: variables.font.size.large,
     color: '#fff',
   },
   center: {

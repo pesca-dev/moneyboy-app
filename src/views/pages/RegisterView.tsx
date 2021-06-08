@@ -7,6 +7,7 @@ import PescaButton from '@components/input/PescaButton';
 import PescaInputField from '@components/input/PescaInputField';
 import { AuthContext } from '@context/AuthContext';
 import { ScrollView } from 'react-native-gesture-handler';
+import variables from '@config/variables';
 
 /**
  * Diplay message for the registration dialog.
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   formHeading: {
-    fontSize: 32,
+    fontSize: variables.font.size.large,
   },
   infoMessage: {
     alignItems: 'center',
@@ -195,7 +196,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2c3e50',
   },
   buttonText: {
-    fontSize: 18,
+    fontSize: variables.font.size.extraSmall,
     color: '#fff',
   },
   error: {

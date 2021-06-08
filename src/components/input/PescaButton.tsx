@@ -1,3 +1,4 @@
+import variables from '@config/variables';
 import React, { PropsWithChildren, useState } from 'react';
 import {
   NativeSyntheticEvent,
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   content: {
-    fontSize: 20,
+    fontSize: variables.font.size.small,
     color: '#fff',
   },
 });
