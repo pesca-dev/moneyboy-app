@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -26,7 +27,9 @@ export default function AppContainer() {
       <FlyoutContextProvider>
         <NavigationContainer>
           {ready && (
-            <Tab.Navigator tabBar={(props) => loggedIn && <PescaTabBar {...props} />}>
+            <Tab.Navigator
+              tabBar={(props) => loggedIn && <PescaTabBar {...props} />}
+              sceneContainerStyle={[styles.sceneContainer]}>
               {loggedIn ? (
                 <>
                   <Tab.Screen name="Overview" component={MainView} initialParams={{ icon: 'home-outline' }} />
@@ -51,3 +54,9 @@ export default function AppContainer() {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  sceneContainer: {
+    backgroundColor: '#fff',
+  },
+});

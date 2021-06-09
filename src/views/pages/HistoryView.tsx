@@ -1,15 +1,16 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { ReactNode } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
+import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 
 import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
 import { FlyoutContext } from '@context/FlyoutContext';
 import Container from '@components/structure/Container';
 import Content from '@components/structure/Content';
-import List from '@components/structure/List';
-import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
-import PescaCard from '@components/extended/PescaCard';
+import SectionHeader from '@components/structure/SectionHeader';
+import variables from '@config/variables';
 
 const dummyPayments: MoneyDiffProps[] = [
   {
@@ -56,12 +57,75 @@ const dummyPayments: MoneyDiffProps[] = [
     name: 'Some Random Guy',
     amount: -5.69,
   },
+  {
+    name: 'Some Random Guy',
+    amount: -5.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -55.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -50000.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -50000.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -50000.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -50000.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -5.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -5.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -55.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -50000.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -50000.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -50000.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -50000.69,
+  },
+  {
+    name: 'Some Random Guy',
+    amount: -5.69,
+  },
 ];
 
 type HistoryViewProps = {
   route: RouteProp<ParamListBase, any>;
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
 };
+
+const data = [
+  {
+    title: 'History',
+    data: dummyPayments,
+  },
+];
 
 export default function HistoryView({}: HistoryViewProps) {
   const flyout = React.useContext(FlyoutContext);
@@ -80,34 +144,31 @@ export default function HistoryView({}: HistoryViewProps) {
     );
   }
 
-  function renderListItem(i: MoneyDiffProps, index: number, arr: MoneyDiffProps[]) {
+  function renderListItem({ item, index, section }: SectionListRenderItemInfo<MoneyDiffProps, DefaultSectionT>) {
     return (
-      <MoneyDiff
-        key={uuid()}
-        name={i.name}
-        amount={i.amount}
-        last={index === arr.length - 1}
-        onPress={() => openFlyout(renderFlyoutContent(i))}
-      />
+      <Content>
+        <MoneyDiff
+          key={uuid()}
+          name={item.name}
+          amount={item.amount}
+          last={index === section.data.length - 1}
+          onPress={() => openFlyout(renderFlyoutContent(item))}
+        />
+      </Content>
     );
-  }
-
-  function renderList(data: MoneyDiffProps[]) {
-    return data.map(renderListItem);
   }
 
   return (
     <>
       <Container>
-        <ScrollView style={styles.scrollView}>
-          <Content>
-            <View style={styles.placeholder} />
-            <PescaCard header="History">
-              <List data={dummyPayments} render={renderList} />
-            </PescaCard>
-          </Content>
-          <View style={styles.placeholder} />
-        </ScrollView>
+        <View style={[styles.placeholder]} />
+        <SectionList
+          style={{ flex: 1 }}
+          sections={data}
+          renderItem={renderListItem}
+          keyExtractor={() => uuid()}
+          renderSectionHeader={({ section: { title } }) => <SectionHeader key={uuid()} header={title} />}
+        />
       </Container>
     </>
   );
@@ -118,6 +179,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   placeholder: {
-    height: 60,
+    height: variables.display.placeholderTop.height,
   },
 });

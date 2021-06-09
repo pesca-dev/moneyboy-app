@@ -15,4 +15,15 @@ export default {
       large: 32,
     },
   },
+  /**
+   * Variables for several display things.
+   */
+  display: {
+    placeholderTop: {
+      height: 40,
+    },
+    footer: {
+      height: 85,
+    },
+  },
 };
