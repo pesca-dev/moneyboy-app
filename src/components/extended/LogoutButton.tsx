@@ -5,14 +5,14 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import PescaButton from '@components/input/PescaButton';
 import { AuthContext } from '@context/AuthContext';
 import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 
 type LogoutButtonProps = {};
 
 export default function LogoutButton({}: LogoutButtonProps) {
   const { logout } = React.useContext(AuthContext);
 
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     logoutContainer: {
       flexDirection: 'row',

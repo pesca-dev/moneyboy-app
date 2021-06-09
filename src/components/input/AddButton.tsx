@@ -6,7 +6,7 @@ import { animated, useSpring } from '@react-spring/native';
 import PescaButton from '@components/input/PescaButton';
 import { FlyoutContext } from '@context/FlyoutContext';
 import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 
 const topOffset = -40;
 const containerWidth = {
@@ -102,7 +102,7 @@ export default function AddButton({}: AddButtonProps) {
     // onMainButtonPress();
   }
 
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     addButtonWrapper: {
       height: 32,

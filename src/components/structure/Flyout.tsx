@@ -6,7 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import PescaButton from '@components/input/PescaButton';
 import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 
 type FlyoutProps = {
   isOpen: boolean;
@@ -16,7 +16,7 @@ type FlyoutProps = {
 export default function Flyout({ isOpen, children, close }: PropsWithChildren<FlyoutProps>) {
   // const flyout = React.useContext(FlyoutContext);
 
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     flyoutOutterContainer: {
       position: 'absolute',

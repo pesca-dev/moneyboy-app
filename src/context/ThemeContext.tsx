@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 
-import { StyleType } from '@api/StyleType';
+import { StyleType as ThemeType } from '@api/ThemeType';
 
-type StyleContextProviderProps = {};
+type ThemeContextProviderProps = {};
 
 const palette = {
   turquoise: {
@@ -46,7 +46,7 @@ const palette = {
   },
 };
 
-const defaultColors: StyleType = {
+const defaultColors: ThemeType = {
   default: {
     white: palette.shades.white,
     black: palette.shades.black,
@@ -130,10 +130,10 @@ const defaultColors: StyleType = {
   },
 };
 
-export const StyleContext = React.createContext<StyleType>(defaultColors);
+export const ThemeContext = React.createContext<ThemeType>(defaultColors);
 
-export function StyleContextProvider({ children }: PropsWithChildren<StyleContextProviderProps>) {
-  const style: StyleType = defaultColors;
+export function ThemeContextProvider({ children }: PropsWithChildren<ThemeContextProviderProps>) {
+  const style: ThemeType = defaultColors;
 
-  return <StyleContext.Provider value={style}>{children}</StyleContext.Provider>;
+  return <ThemeContext.Provider value={style}>{children}</ThemeContext.Provider>;
 }

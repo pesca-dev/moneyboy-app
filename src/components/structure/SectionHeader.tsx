@@ -1,4 +1,4 @@
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -7,7 +7,7 @@ type SectionHeaderProps = {
 };
 
 export default function SectionHeader({ header }: SectionHeaderProps) {
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     headerContainer: {
       paddingHorizontal: 20,

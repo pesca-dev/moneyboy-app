@@ -13,7 +13,7 @@ import LoginView from '@views/pages/LoginView';
 import MainView from '@views/pages/MainView';
 import SettingsView from '@views/pages/SettingsView';
 import RegisterView from '@views/pages/RegisterView';
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +23,7 @@ const Tab = createBottomTabNavigator();
 export default function AppContainer() {
   const { loggedIn, ready } = React.useContext(AuthContext);
 
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     sceneContainer: {
       backgroundColor: theme.content.background,

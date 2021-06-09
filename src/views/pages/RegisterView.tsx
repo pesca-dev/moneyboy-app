@@ -8,7 +8,7 @@ import PescaInputField from '@components/input/PescaInputField';
 import { AuthContext } from '@context/AuthContext';
 import { ScrollView } from 'react-native-gesture-handler';
 import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 
 /**
  * Diplay message for the registration dialog.
@@ -67,7 +67,7 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
     }
   }
 
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     wrapper: {
       backgroundColor: theme.content.background,

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 
 interface PescaButtonProps {
   onPress?: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
@@ -32,7 +32,7 @@ export default function PescaButton(props: PropsWithChildren<PescaButtonProps>) 
     disabled: !!props.disabled,
   });
 
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     container: {
       margin: 'auto',

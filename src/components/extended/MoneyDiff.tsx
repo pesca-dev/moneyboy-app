@@ -3,7 +3,7 @@ import { GestureResponderEvent, StyleSheet, Text } from 'react-native';
 
 import variables from '@config/variables';
 import ListItem from '@components/structure/ListItem';
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 
 export interface MoneyDiffProps {
   name: string;
@@ -13,7 +13,7 @@ export interface MoneyDiffProps {
 }
 
 export default function MoneyDiff({ name, amount, last, onPress }: MoneyDiffProps) {
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     moneyDiffName: {
       flex: 1,

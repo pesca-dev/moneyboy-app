@@ -1,4 +1,4 @@
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
@@ -14,7 +14,7 @@ interface SeparatorProps {
  * Separator for a list.
  */
 export default function Separator({ style }: SeparatorProps) {
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     separatorContainer: {
       width: '100%',

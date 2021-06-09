@@ -5,7 +5,7 @@ import { NavigationHelpers } from '@react-navigation/core';
 import { ParamListBase } from '@react-navigation/routers';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 
 type PescaTabProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
@@ -23,7 +23,7 @@ export default function PescaTab({ name, navigation, icon, focussed, disabled }:
     navigation.navigate(name);
   }
 
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     tab: {
       minWidth: 32,

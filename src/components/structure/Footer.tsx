@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 
 interface FooterProps {
   style?: StyleProp<ViewStyle>;
@@ -11,7 +11,7 @@ interface FooterProps {
  * Footer for a screen.
  */
 export default function Footer({ children, style }: PropsWithChildren<FooterProps>) {
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     footerWrapper: {
       backgroundColor: theme.content.background,

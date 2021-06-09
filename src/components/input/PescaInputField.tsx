@@ -11,7 +11,7 @@ import {
 import { TextInput } from 'react-native-gesture-handler';
 
 import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import { ThemeContext } from '@context/ThemeContext';
 
 type PescaInputFieldProps = {
   label?: string;
@@ -32,7 +32,7 @@ export default function PescaInputField({
   onSubmitEditing,
   style,
 }: PescaInputFieldProps) {
-  const theme = React.useContext(StyleContext);
+  const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     container: {
       width: '100%',
