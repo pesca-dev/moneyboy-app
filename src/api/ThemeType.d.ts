@@ -1,3 +1,6 @@
+/**
+ * Global type for a theme.
+ */
 export type StyleType = {
   default: {
     white: string;
