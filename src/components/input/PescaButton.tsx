@@ -1,4 +1,3 @@
-import variables from '@config/variables';
 import React, { PropsWithChildren, useState } from 'react';
 import {
   NativeSyntheticEvent,
@@ -8,6 +7,9 @@ import {
   TouchableWithoutFeedback,
   ViewStyle,
 } from 'react-native';
+
+import variables from '@config/variables';
+import { ThemeContext } from '@context/ThemeContext';
 
 interface PescaButtonProps {
   onPress?: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
@@ -30,6 +32,20 @@ export default function PescaButton(props: PropsWithChildren<PescaButtonProps>) 
     disabled: !!props.disabled,
   });
 
+  const theme = React.useContext(ThemeContext);
+  const styles = StyleSheet.create({
+    container: {
+      margin: 'auto',
+      backgroundColor: theme.buttons.default.background,
+      padding: 10,
+      borderRadius: 10,
+    },
+    content: {
+      fontSize: variables.font.size.small,
+      color: theme.buttons.default.color,
+    },
+  });
+
   return (
     <TouchableWithoutFeedback
       style={[styles.container, props.style]}
@@ -46,16 +62,3 @@ export default function PescaButton(props: PropsWithChildren<PescaButtonProps>) 
     </TouchableWithoutFeedback>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    margin: 'auto',
-    backgroundColor: '#3498db',
-    padding: 10,
-    borderRadius: 10,
-  },
-  content: {
-    fontSize: variables.font.size.small,
-    color: '#fff',
-  },
-});

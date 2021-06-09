@@ -1,4 +1,4 @@
-import variables from '@config/variables';
+import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -7,6 +7,32 @@ type SectionHeaderProps = {
 };
 
 export default function SectionHeader({ header }: SectionHeaderProps) {
+  const theme = React.useContext(ThemeContext);
+  const styles = StyleSheet.create({
+    headerContainer: {
+      paddingHorizontal: 20,
+      paddingTop: 10,
+      backgroundColor: theme.list.header.background,
+    },
+    headerTextContainer: {
+      width: '100%',
+      // alignItems: 'center',
+      padding: 10,
+      // backgroundColor: '#fff',
+      elevation: 10,
+      shadowColor: theme.list.header.shadow,
+      shadowOffset: {
+        width: 0,
+        height: 0,
+      },
+      shadowOpacity: 0.2,
+    },
+    headerText: {
+      fontSize: 42,
+      fontWeight: 'bold',
+      color: theme.list.header.color,
+    },
+  });
   return (
     <View style={[styles.headerContainer]}>
       <View style={styles.headerTextContainer}>
@@ -15,29 +41,3 @@ export default function SectionHeader({ header }: SectionHeaderProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  headerContainer: {
-    paddingHorizontal: 20,
-    paddingTop: 10,
-    backgroundColor: variables.themes.light.background.primary,
-  },
-  headerTextContainer: {
-    width: '100%',
-    // alignItems: 'center',
-    padding: 10,
-    // backgroundColor: '#fff',
-    elevation: 10,
-    shadowColor: variables.themes.light.shadow.primary,
-    shadowOffset: {
-      width: 0,
-      height: 0,
-    },
-    shadowOpacity: 0.2,
-  },
-  headerText: {
-    fontSize: 42,
-    fontWeight: 'bold',
-    color: variables.themes.light.text.secondary,
-  },
-});

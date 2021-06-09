@@ -5,11 +5,28 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import PescaButton from '@components/input/PescaButton';
 import { AuthContext } from '@context/AuthContext';
 import variables from '@config/variables';
+import { ThemeContext } from '@context/ThemeContext';
 
 type LogoutButtonProps = {};
 
 export default function LogoutButton({}: LogoutButtonProps) {
   const { logout } = React.useContext(AuthContext);
+
+  const theme = React.useContext(ThemeContext);
+  const styles = StyleSheet.create({
+    logoutContainer: {
+      flexDirection: 'row',
+    },
+    logoutIcon: {
+      fontSize: variables.font.size.small,
+      marginRight: 5,
+      color: theme.buttons.logout.color,
+    },
+    logoutText: {
+      fontSize: variables.font.size.extraSmall,
+      color: theme.buttons.logout.color,
+    },
+  });
 
   return (
     <PescaButton onPress={logout}>
@@ -20,18 +37,3 @@ export default function LogoutButton({}: LogoutButtonProps) {
     </PescaButton>
   );
 }
-
-const styles = StyleSheet.create({
-  logoutContainer: {
-    flexDirection: 'row',
-  },
-  logoutIcon: {
-    fontSize: variables.font.size.small,
-    marginRight: 5,
-    color: variables.themes.light.signals.bad,
-  },
-  logoutText: {
-    fontSize: variables.font.size.extraSmall,
-    color: variables.themes.light.signals.bad,
-  },
-});

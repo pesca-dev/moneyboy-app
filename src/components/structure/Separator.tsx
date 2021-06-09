@@ -1,3 +1,4 @@
+import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
@@ -13,22 +14,23 @@ interface SeparatorProps {
  * Separator for a list.
  */
 export default function Separator({ style }: SeparatorProps) {
+  const theme = React.useContext(ThemeContext);
+  const styles = StyleSheet.create({
+    separatorContainer: {
+      width: '100%',
+      flexDirection: 'row',
+    },
+    separator: {
+      flex: 1,
+      height: 1,
+      marginHorizontal: 15,
+      backgroundColor: theme.content.separator.color,
+    },
+  });
+
   return (
     <View key={uuid()} style={styles.separatorContainer}>
       <View style={[styles.separator, style]} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  separatorContainer: {
-    width: '100%',
-    flexDirection: 'row',
-  },
-  separator: {
-    flex: 1,
-    height: 1,
-    marginHorizontal: 15,
-    backgroundColor: '#ecf0f1',
-  },
-});

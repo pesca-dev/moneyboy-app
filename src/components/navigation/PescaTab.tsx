@@ -5,6 +5,7 @@ import { NavigationHelpers } from '@react-navigation/core';
 import { ParamListBase } from '@react-navigation/routers';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import variables from '@config/variables';
+import { ThemeContext } from '@context/ThemeContext';
 
 type PescaTabProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
@@ -21,6 +22,32 @@ export default function PescaTab({ name, navigation, icon, focussed, disabled }:
   function navigate() {
     navigation.navigate(name);
   }
+
+  const theme = React.useContext(ThemeContext);
+  const styles = StyleSheet.create({
+    tab: {
+      minWidth: 32,
+      height: 32,
+      justifyContent: 'center',
+    },
+    icon: {
+      fontSize: variables.font.size.large,
+      color: theme.tab.default.color,
+    },
+    focus: {
+      color: theme.tab.focus.color,
+      shadowColor: theme.tab.focus.shadow,
+      shadowRadius: 10,
+      shadowOffset: {
+        width: 1,
+        height: 1,
+      },
+      shadowOpacity: 0.6,
+    },
+    disabled: {
+      color: theme.tab.disabled.color,
+    },
+  });
 
   return (
     <View style={styles.tab}>
@@ -43,28 +70,3 @@ export default function PescaTab({ name, navigation, icon, focussed, disabled }:
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  tab: {
-    minWidth: 32,
-    height: 32,
-    justifyContent: 'center',
-  },
-  icon: {
-    fontSize: variables.font.size.large,
-    color: variables.themes.light.icon.primary.color,
-  },
-  focus: {
-    color: variables.themes.light.icon.focus.color,
-    shadowColor: variables.themes.light.shadow.primary,
-    shadowRadius: 10,
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    shadowOpacity: 0.6,
-  },
-  disabled: {
-    color: variables.themes.light.icon.disabled.color,
-  },
-});
