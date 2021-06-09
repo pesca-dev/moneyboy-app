@@ -1,11 +1,10 @@
 import MoneyDiff from '@components/extended/MoneyDiff';
 import SectionHeader from '@components/structure/SectionHeader';
-import Container from '@components/structure/Container';
 import Content from '@components/structure/Content';
-import variables from '@config/variables';
 import React from 'react';
-import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet, View } from 'react-native';
+import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
+import ViewBase from '@components/structure/ViewBase';
 
 const data = [
   {
@@ -37,25 +36,13 @@ function renderListItem({ item, index, section }: SectionListRenderItemInfo<{ te
 
 export default function GroupView() {
   return (
-    <>
-      <Container>
-        <View style={[styles.placeholder]} />
-        <SectionList
-          sections={data}
-          keyExtractor={() => uuid()}
-          renderItem={renderListItem}
-          renderSectionHeader={({ section: { title } }) => <SectionHeader key={uuid()} header={title} />}
-        />
-      </Container>
-    </>
+    <ViewBase>
+      <SectionList
+        sections={data}
+        keyExtractor={() => uuid()}
+        renderItem={renderListItem}
+        renderSectionHeader={({ section: { title } }) => <SectionHeader key={uuid()} header={title} />}
+      />
+    </ViewBase>
   );
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  placeholder: {
-    height: variables.display.placeholderTop.height,
-  },
-});

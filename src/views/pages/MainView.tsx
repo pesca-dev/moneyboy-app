@@ -1,12 +1,12 @@
 import React from 'react';
-import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet, View } from 'react-native';
+import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
 import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
-import Container from '@components/structure/Container';
 import Content from '@components/structure/Content';
 import SectionHeader from '@components/structure/SectionHeader';
 import variables from '@config/variables';
+import ViewBase from '@components/structure/ViewBase';
 
 const dummyData: MoneyDiffProps[] = [
   {
@@ -40,8 +40,7 @@ function renderListItem({ item, index, section }: SectionListRenderItemInfo<Mone
 
 export default function MainView() {
   return (
-    <Container>
-      <View style={[styles.placeholder]} />
+    <ViewBase>
       <SectionList
         style={[styles.scrollView]}
         sections={data}
@@ -49,7 +48,7 @@ export default function MainView() {
         keyExtractor={() => uuid()}
         renderSectionHeader={({ section: { title } }) => <SectionHeader key={uuid()} header={title} />}
       />
-    </Container>
+    </ViewBase>
   );
 }
 

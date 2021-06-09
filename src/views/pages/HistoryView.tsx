@@ -1,16 +1,15 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { ReactNode } from 'react';
-import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
+import { DefaultSectionT, SectionList, SectionListRenderItemInfo, Text, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 
 import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
 import { FlyoutContext } from '@context/FlyoutContext';
-import Container from '@components/structure/Container';
 import Content from '@components/structure/Content';
 import SectionHeader from '@components/structure/SectionHeader';
-import variables from '@config/variables';
+import ViewBase from '@components/structure/ViewBase';
 
 const dummyPayments: MoneyDiffProps[] = [
   {
@@ -159,26 +158,14 @@ export default function HistoryView({}: HistoryViewProps) {
   }
 
   return (
-    <>
-      <Container>
-        <View style={[styles.placeholder]} />
-        <SectionList
-          style={{ flex: 1 }}
-          sections={data}
-          renderItem={renderListItem}
-          keyExtractor={() => uuid()}
-          renderSectionHeader={({ section: { title } }) => <SectionHeader key={uuid()} header={title} />}
-        />
-      </Container>
-    </>
+    <ViewBase>
+      <SectionList
+        style={{ flex: 1 }}
+        sections={data}
+        renderItem={renderListItem}
+        keyExtractor={() => uuid()}
+        renderSectionHeader={({ section: { title } }) => <SectionHeader key={uuid()} header={title} />}
+      />
+    </ViewBase>
   );
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  placeholder: {
-    height: variables.display.placeholderTop.height,
-  },
-});
