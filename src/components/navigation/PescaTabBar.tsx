@@ -7,6 +7,7 @@ import { v4 as uuid } from 'react-native-uuid';
 import Footer from '@components/structure/Footer';
 import PescaTab from '@components/navigation/PescaTab';
 import AddButton from '@components/input/AddButton';
+import variables from '@config/variables';
 
 type PescaTabUIProps<T = BottomTabBarOptions> = BottomTabBarProps<T> & {};
 
@@ -50,7 +51,11 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
 }
 
 const styles = StyleSheet.create({
-  footer: { position: 'absolute', bottom: 0, width: '100%', height: 85 },
+  footer: {
+    bottom: 0,
+    width: '100%',
+    height: variables.display.footer.height,
+  },
   tabBarContainer: {
     flexDirection: 'row',
     width: '100%',

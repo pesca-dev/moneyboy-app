@@ -1,45 +1,40 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { SectionList } from 'react-native';
 
 import { AuthContext } from '@context/AuthContext';
 import Content from '@components/structure/Content';
 import ListItem from '@components/structure/ListItem';
 import LogoutButton from '@components/extended/LogoutButton';
-import Container from '@components/structure/Container';
-import PescaCard from '@components/extended/PescaCard';
+import { v4 as uuid } from 'react-native-uuid';
+import SectionHeader from '@components/structure/SectionHeader';
+import ViewBase from '@components/structure/ViewBase';
 
 export default function SettingsView() {
   const { user } = React.useContext(AuthContext);
 
-  // TODO lome: Add structure for menu points
-  return (
-    <Container>
-      <Content>
-        <View style={styles.placeholder} />
-        <PescaCard header={user?.displayName}>
+  const data = [
+    {
+      title: <SectionHeader key={uuid()} header={user?.displayName ?? ''} />,
+      data: [
+        <Content>
           <ListItem last>
             <LogoutButton />
           </ListItem>
-        </PescaCard>
-      </Content>
-    </Container>
+        </Content>,
+      ],
+    },
+  ];
+
+  // TODO lome: Add structure for menu points
+  return (
+    <ViewBase>
+      <SectionList
+        sections={data}
+        renderItem={({ item }) => item}
+        keyExtractor={() => uuid()}
+        renderSectionHeader={({ section: { title } }) => title}
+        scrollEnabled={false}
+      />
+    </ViewBase>
   );
 }
-
-const styles = StyleSheet.create({
-  placeholder: {
-    height: 60,
-  },
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: 120,
-  },
-  username: {
-    marginBottom: 40,
-  },
-  separatorStyle: {
-    marginHorizontal: 0,
-  },
-});

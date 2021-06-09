@@ -148,6 +148,13 @@ const styles = StyleSheet.create({
     marginRight: 15,
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#42423d',
+    shadowOffset: {
+      height: 0,
+      width: 0,
+    },
+    shadowOpacity: 0.7,
+    shadowRadius: 7,
   },
   addButtonOutterContainer: {
     overflow: 'hidden',
@@ -157,13 +164,6 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     height: 48,
     width: 48,
-    shadowColor: '#42423d',
-    shadowRadius: 10,
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    shadowOpacity: 0.4,
   },
   addButtonInnerContainer: {
     flexDirection: 'row',

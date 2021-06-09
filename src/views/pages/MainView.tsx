@@ -1,12 +1,12 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
 import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
-import Container from '@components/structure/Container';
 import Content from '@components/structure/Content';
-import List from '@components/structure/List';
-import PescaCard from '@components/extended/PescaCard';
+import SectionHeader from '@components/structure/SectionHeader';
+import variables from '@config/variables';
+import ViewBase from '@components/structure/ViewBase';
 
 const dummyData: MoneyDiffProps[] = [
   {
@@ -23,29 +23,32 @@ const dummyData: MoneyDiffProps[] = [
   },
 ];
 
-function renderListItem(i: MoneyDiffProps, index: number, arr: MoneyDiffProps[]) {
-  return <MoneyDiff key={uuid()} name={i.name} amount={i.amount} last={index === arr.length - 1} />;
-}
+const data = [
+  {
+    title: 'Statistics',
+    data: dummyData,
+  },
+];
 
-function renderList(data: MoneyDiffProps[]) {
-  return data.map(renderListItem);
+function renderListItem({ item, index, section }: SectionListRenderItemInfo<MoneyDiffProps, DefaultSectionT>) {
+  return (
+    <Content>
+      <MoneyDiff key={uuid()} name={item.name} amount={item.amount} last={index === section.data.length - 1} />
+    </Content>
+  );
 }
 
 export default function MainView() {
   return (
-    <>
-      <Container>
-        <ScrollView style={styles.scrollView}>
-          <Content>
-            <View style={styles.placeholder} />
-            <PescaCard header="Statistics">
-              <List data={dummyData} render={renderList} />
-            </PescaCard>
-          </Content>
-          <View style={styles.placeholder} />
-        </ScrollView>
-      </Container>
-    </>
+    <ViewBase>
+      <SectionList
+        style={[styles.scrollView]}
+        sections={data}
+        renderItem={renderListItem}
+        keyExtractor={() => uuid()}
+        renderSectionHeader={({ section: { title } }) => <SectionHeader key={uuid()} header={title} />}
+      />
+    </ViewBase>
   );
 }
 
@@ -54,6 +57,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   placeholder: {
-    height: 60,
+    height: variables.display.placeholderTop.height,
   },
 });

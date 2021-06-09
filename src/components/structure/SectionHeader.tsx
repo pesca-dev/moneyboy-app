@@ -1,18 +1,16 @@
-import variables from '@config/variables';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-type CardHeaderProps = {
+type SectionHeaderProps = {
   header: string;
 };
 
-export default function CardHeader({ header }: CardHeaderProps) {
+export default function SectionHeader({ header }: SectionHeaderProps) {
   return (
     <View style={[styles.headerContainer]}>
       <View style={styles.headerTextContainer}>
         <Text style={styles.headerText}>{header}</Text>
       </View>
-      <View style={styles.borderFaker} />
     </View>
   );
 }
@@ -20,14 +18,24 @@ export default function CardHeader({ header }: CardHeaderProps) {
 const styles = StyleSheet.create({
   headerContainer: {
     paddingHorizontal: 20,
+    paddingTop: 10,
+    backgroundColor: '#fff',
   },
   headerTextContainer: {
     width: '100%',
-    alignItems: 'center',
+    // alignItems: 'center',
     padding: 10,
+    // backgroundColor: '#fff',
+    elevation: 10,
+    shadowColor: '#42423d',
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.2,
   },
   headerText: {
-    fontSize: variables.font.size.large,
+    fontSize: 42,
     fontWeight: 'bold',
     color: '#2c3e50',
   },
