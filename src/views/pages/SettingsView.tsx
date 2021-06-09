@@ -2,30 +2,34 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { AuthContext } from '@context/AuthContext';
-import Card from '@components/structure/Card';
 import Content from '@components/structure/Content';
 import ListItem from '@components/structure/ListItem';
 import LogoutButton from '@components/extended/LogoutButton';
+import Container from '@components/structure/Container';
+import PescaCard from '@components/extended/PescaCard';
 
 export default function SettingsView() {
   const { user } = React.useContext(AuthContext);
 
   // TODO lome: Add structure for menu points
   return (
-    <View style={styles.container}>
-      {/* <Text style={styles.username}>{user?.displayName}</Text> */}
+    <Container>
       <Content>
-        <Card header={user?.displayName}>
+        <View style={styles.placeholder} />
+        <PescaCard header={user?.displayName}>
           <ListItem last>
             <LogoutButton />
           </ListItem>
-        </Card>
+        </PescaCard>
       </Content>
-    </View>
+    </Container>
   );
 }
 
 const styles = StyleSheet.create({
+  placeholder: {
+    height: 60,
+  },
   container: {
     flex: 1,
     // justifyContent: 'center',

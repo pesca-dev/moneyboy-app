@@ -12,9 +12,9 @@ module.exports = {
           '@api': './src/api',
           '@context': './src/context',
           '@pesca': './src/pesca',
+          '@config': './src/config',
         },
       },
     ],
-    'react-native-reanimated/plugin',
   ],
 };

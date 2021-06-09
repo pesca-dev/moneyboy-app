@@ -5,8 +5,8 @@ import { v4 as uuid } from 'react-native-uuid';
 import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
 import Container from '@components/structure/Container';
 import Content from '@components/structure/Content';
-import Card from '@components/structure/Card';
 import List from '@components/structure/List';
+import PescaCard from '@components/extended/PescaCard';
 
 const dummyData: MoneyDiffProps[] = [
   {
@@ -38,9 +38,9 @@ export default function MainView() {
         <ScrollView style={styles.scrollView}>
           <Content>
             <View style={styles.placeholder} />
-            <Card header="Statistics">
+            <PescaCard header="Statistics">
               <List data={dummyData} render={renderList} />
-            </Card>
+            </PescaCard>
           </Content>
           <View style={styles.placeholder} />
         </ScrollView>

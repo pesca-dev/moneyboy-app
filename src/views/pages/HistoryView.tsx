@@ -1,13 +1,15 @@
 import React, { ReactNode } from 'react';
-import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
+import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
 
 import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
 import { FlyoutContext } from '@context/FlyoutContext';
 import Container from '@components/structure/Container';
 import Content from '@components/structure/Content';
-import Card from '@components/structure/Card';
 import List from '@components/structure/List';
+import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
+import PescaCard from '@components/extended/PescaCard';
 
 const dummyPayments: MoneyDiffProps[] = [
   {
@@ -56,7 +58,10 @@ const dummyPayments: MoneyDiffProps[] = [
   },
 ];
 
-type HistoryViewProps = {};
+type HistoryViewProps = {
+  route: RouteProp<ParamListBase, any>;
+  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
+};
 
 export default function HistoryView({}: HistoryViewProps) {
   const flyout = React.useContext(FlyoutContext);
@@ -93,14 +98,13 @@ export default function HistoryView({}: HistoryViewProps) {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
       <Container>
         <ScrollView style={styles.scrollView}>
           <Content>
             <View style={styles.placeholder} />
-            <Card header="History">
+            <PescaCard header="History">
               <List data={dummyPayments} render={renderList} />
-            </Card>
+            </PescaCard>
           </Content>
           <View style={styles.placeholder} />
         </ScrollView>

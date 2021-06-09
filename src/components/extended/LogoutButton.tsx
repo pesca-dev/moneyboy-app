@@ -4,6 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import PescaButton from '@components/input/PescaButton';
 import { AuthContext } from '@context/AuthContext';
+import variables from '@config/variables';
 
 type LogoutButtonProps = {};
 
@@ -25,12 +26,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   logoutIcon: {
-    fontSize: 20,
+    fontSize: variables.font.size.small,
     marginRight: 5,
     color: '#e74c3c',
   },
   logoutText: {
-    fontSize: 16,
+    fontSize: variables.font.size.extraSmall,
     color: '#e74c3c',
   },
 });

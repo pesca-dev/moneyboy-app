@@ -1,42 +1,35 @@
 import React from 'react';
 import { StyleSheet, View, SafeAreaView } from 'react-native';
 import { BottomTabBarOptions, BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { Route } from '@react-navigation/native';
 import { v4 as uuid } from 'react-native-uuid';
 
-import { NavigationEntry } from '@api/NavigationEntry';
 import Footer from '@components/structure/Footer';
 import PescaTab from '@components/navigation/PescaTab';
 import AddButton from '@components/input/AddButton';
 
-type PescaTabUIProps<T = BottomTabBarOptions> = BottomTabBarProps<T> & {
-  tabs: NavigationEntry[];
-};
+type PescaTabUIProps<T = BottomTabBarOptions> = BottomTabBarProps<T> & {};
 
 /**
  * Custom tab bar for being used in react-anative-navigation.
  */
-export default function PescaTabBar({ tabs, navigation, state }: PescaTabUIProps) {
-  const t = tabs.map((tab, i) => {
-    return { ...tab, index: i };
-  });
-
+export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
   // Split tabs depending on their index
-  const leftTabs = t.filter((tab) => tab.index < t.length / 2);
-  const rightTabs = t.filter((tab) => tab.index >= t.length / 2);
+  const leftTabs = state.routes.filter((_, index) => index < state.routes.length / 2);
+  const rightTabs = state.routes.filter((_, index) => index >= state.routes.length / 2);
 
   /**
    * Helper function for rendering a tab.
    */
-  function renderTab({ name, component, icon, index, disabled }: NavigationEntry & { index: number }) {
+  function renderTab(route: Route<any, any>, disabled: boolean) {
     return (
       <PescaTab
         key={uuid()}
-        name={name}
-        component={component}
-        icon={icon}
+        name={route.name}
+        icon={route.params?.icon}
         navigation={navigation}
-        focussed={index === state.index}
-        disabled={!!disabled}
+        focussed={state.index === state.routeNames.indexOf(route.name)}
+        disabled={disabled}
       />
     );
   }
@@ -46,9 +39,9 @@ export default function PescaTabBar({ tabs, navigation, state }: PescaTabUIProps
       <Footer style={styles.footer}>
         <SafeAreaView>
           <View style={styles.tabBarContainer}>
-            <View style={styles.tabContainer}>{leftTabs.map(renderTab)}</View>
+            <View style={styles.tabContainer}>{leftTabs.map((tab) => renderTab(tab, false))}</View>
             <AddButton />
-            <View style={styles.tabContainer}>{rightTabs.map(renderTab)}</View>
+            <View style={styles.tabContainer}>{rightTabs.map((tab) => renderTab(tab, false))}</View>
           </View>
         </SafeAreaView>
       </Footer>

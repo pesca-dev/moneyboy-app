@@ -1,3 +1,4 @@
+import variables from '@config/variables';
 import React from 'react';
 import {
   NativeSyntheticEvent,
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   label: {
-    fontSize: 12,
+    fontSize: variables.font.size.ultraSmall,
     marginBottom: 5,
     paddingLeft: 7,
     color: '#34495e',
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     borderColor: '#ecf0f1',
     borderWidth: 1,
     padding: 10,
-    fontSize: 20,
+    fontSize: variables.font.size.small,
     borderRadius: 5,
   },
 });

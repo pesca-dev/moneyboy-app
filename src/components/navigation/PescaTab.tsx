@@ -4,13 +4,14 @@ import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/t
 import { NavigationHelpers } from '@react-navigation/core';
 import { ParamListBase } from '@react-navigation/routers';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import variables from '@config/variables';
 
-import { NavigationEntry } from '@api/NavigationEntry';
-
-type PescaTabProps = NavigationEntry & {
+type PescaTabProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
   focussed?: boolean;
   disabled?: boolean;
+  name: string;
+  icon: string;
 };
 
 /**
@@ -23,7 +24,15 @@ export default function PescaTab({ name, navigation, icon, focussed, disabled }:
 
   return (
     <View style={styles.tab}>
-      <TouchableWithoutFeedback onPress={navigate} disabled={disabled}>
+      <TouchableWithoutFeedback
+        onPress={navigate}
+        disabled={disabled}
+        hitSlop={{
+          top: 40,
+          right: 40,
+          bottom: 40,
+          left: 40,
+        }}>
         <View>
           <MaterialCommunityIcons
             name={icon}
@@ -42,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   icon: {
-    fontSize: 32,
+    fontSize: variables.font.size.large,
     color: '#7f8c8d',
   },
   focus: {

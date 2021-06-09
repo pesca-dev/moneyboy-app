@@ -6,6 +6,7 @@ import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/t
 import PescaButton from '@components/input/PescaButton';
 import PescaInputField from '@components/input/PescaInputField';
 import { AuthContext } from '@context/AuthContext';
+import variables from '@config/variables';
 
 type LoginViewProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   formHeading: {
-    fontSize: 32,
+    fontSize: variables.font.size.large,
   },
   errorView: {
     alignItems: 'center',
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2c3e50',
   },
   buttonText: {
-    fontSize: 18,
+    fontSize: variables.font.size.extraSmall,
     color: '#fff',
   },
   link: {

@@ -1,66 +1,61 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
+import { animated, useSpring } from '@react-spring/native';
 
 import PescaButton from '@components/input/PescaButton';
 import { FlyoutContext } from '@context/FlyoutContext';
+import variables from '@config/variables';
 
 const topOffset = -40;
-const maxRotation = Math.PI / 4;
-const defaultContainerWidth = 48;
-const maxContainerWidth = 200;
-
-const springConfig: Animated.WithSpringConfig = {
-  stiffness: 15,
-  mass: 0.1,
+const containerWidth = {
+  default: 48,
+  max: 200,
 };
 
 type AddButtonProps = {};
 
-// TODO lome: Clean this mess up
 export default function AddButton({}: AddButtonProps) {
   const flyout = React.useContext(FlyoutContext);
-
-  const containerOffset = useSharedValue(0);
-  const buttonRotation = useSharedValue(0);
-  const buttonContainerWidth = useSharedValue(defaultContainerWidth);
-
-  const buttonOpacity = useSharedValue(0);
 
   const [open, setOpen] = useState<boolean>(false);
 
   // Move the outter container up
-  const animatedContainer = useAnimatedStyle(() => {
-    return {
-      top: withSpring(containerOffset.value),
-    };
-  });
+  const [animatedContainerStyle, animateContainer] = useSpring(() => ({ top: 0 }));
 
   // Rotate the center button
-  const animatedButton = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          rotate: withSpring(buttonRotation.value),
-        },
-      ],
-    };
-  });
+  const [animatedButtonStyle, animateButton] = useSpring(() => ({
+    rotateZ: '0deg',
+  }));
 
-  // Make the button container wider
-  const animatedButtonContainer = useAnimatedStyle(() => {
-    return {
-      width: withSpring(buttonContainerWidth.value, springConfig),
-    };
-  });
+  const [animatedButtonContainerStyle, animateButtonContainer] = useSpring(() => ({ width: containerWidth.default }));
 
   // Animate everything, if main button is pressed
   function onMainButtonPress() {
-    containerOffset.value = open ? 0 : topOffset;
-    buttonRotation.value = open ? 0 : maxRotation;
-    buttonContainerWidth.value = open ? defaultContainerWidth : maxContainerWidth;
-    buttonOpacity.value = open ? 0 : 1;
+    animateContainer.start({
+      top: open ? 0 : topOffset,
+      config: {
+        tension: 200,
+        // bounce: 10,
+        friction: 30,
+        mass: 4,
+      },
+    });
+    animateButton.start({
+      from: {
+        rotateZ: open ? '45deg' : '0deg',
+      },
+      to: {
+        rotateZ: open ? '90deg' : '45deg',
+      },
+      config: {
+        tension: 200,
+        mass: 4,
+      },
+    });
+    animateButtonContainer.start({
+      width: open ? containerWidth.default : containerWidth.max,
+    });
     setOpen(!open);
   }
 
@@ -108,31 +103,37 @@ export default function AddButton({}: AddButtonProps) {
 
   return (
     <View style={styles.addButtonWrapper}>
-      <Animated.View style={[animatedContainer, styles.center]}>
-        <Animated.View style={[styles.addButtonOutterContainer, styles.center, animatedButtonContainer]}>
+      <animated.View style={[animatedContainerStyle, styles.center]}>
+        <animated.View style={[styles.addButtonOutterContainer, styles.center, animatedButtonContainerStyle]}>
           <View style={[styles.addButtonInnerContainer, styles.center]}>
             {/*  */}
-            <Animated.View style={[styles.addPaymentButton]}>
+            <animated.View style={[styles.addPaymentButton]}>
               <PescaButton onPress={onAddPaymentButtonPress}>
                 <MaterialCommunityIcons name="currency-eur" style={styles.icon} />
               </PescaButton>
-            </Animated.View>
+            </animated.View>
             {/*  */}
-            <Animated.View style={[styles.addButton, animatedButton]}>
+            <animated.View
+              style={[
+                styles.addButton,
+                {
+                  transform: [animatedButtonStyle],
+                },
+              ]}>
               <PescaButton onPress={onMainButtonPress}>
                 <MaterialCommunityIcons name="plus" style={styles.icon} />
               </PescaButton>
-            </Animated.View>
+            </animated.View>
             {/*  */}
-            <Animated.View style={[styles.addGroupButton]}>
+            <animated.View style={[styles.addGroupButton]}>
               <PescaButton onPress={onAddGroupButtonPress}>
                 <MaterialCommunityIcons name="account-multiple-plus-outline" style={styles.icon} />
               </PescaButton>
-            </Animated.View>
+            </animated.View>
             {/*  */}
           </View>
-        </Animated.View>
-      </Animated.View>
+        </animated.View>
+      </animated.View>
     </View>
   );
 }
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
   },
   addButton: {},
   icon: {
-    fontSize: 32,
+    fontSize: variables.font.size.large,
     color: '#fff',
   },
   center: {

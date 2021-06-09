@@ -1,3 +1,4 @@
+import variables from '@config/variables';
 import React, { PropsWithChildren, useState } from 'react';
 import {
   NativeSyntheticEvent,
@@ -35,10 +36,10 @@ export default function PescaButton(props: PropsWithChildren<PescaButtonProps>) 
       onPress={props.onPress}
       disabled={state.disabled}
       hitSlop={{
-        top: 20,
-        right: 20,
-        bottom: 20,
-        left: 20,
+        top: 40,
+        right: 40,
+        bottom: 40,
+        left: 40,
       }}
       testID="touchable">
       {props.children}
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   content: {
-    fontSize: 20,
+    fontSize: variables.font.size.small,
     color: '#fff',
   },
 });
