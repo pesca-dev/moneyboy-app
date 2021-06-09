@@ -6,6 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import PescaButton from '@components/input/PescaButton';
 import variables from '@config/variables';
+import { StyleContext } from '@context/StyleContext';
 
 type FlyoutProps = {
   isOpen: boolean;
@@ -14,6 +15,53 @@ type FlyoutProps = {
 
 export default function Flyout({ isOpen, children, close }: PropsWithChildren<FlyoutProps>) {
   // const flyout = React.useContext(FlyoutContext);
+
+  const theme = React.useContext(StyleContext);
+  const styles = StyleSheet.create({
+    flyoutOutterContainer: {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      flexDirection: 'row',
+    },
+    backplane: {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      opacity: 0.4,
+    },
+    flyoutContainer: {
+      backgroundColor: theme.flyout.background,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      paddingHorizontal: 20,
+      paddingTop: 20,
+      elevation: 5,
+      shadowColor: theme.flyout.shadow,
+      shadowRadius: 10,
+      shadowOffset: {
+        width: 1,
+        height: 1,
+      },
+      shadowOpacity: 0.5,
+    },
+    closeButtonContainer: {
+      position: 'absolute',
+      top: 15,
+      right: 15,
+    },
+    closeButton: {
+      zIndex: 9999,
+    },
+    closeIcon: {
+      fontSize: variables.font.size.default,
+      color: theme.flyout.icon.color,
+    },
+    modal: {
+      margin: 0,
+      justifyContent: 'flex-end',
+    },
+  });
 
   return (
     <Modal
@@ -40,49 +88,3 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  flyoutOutterContainer: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    flexDirection: 'row',
-  },
-  backplane: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    opacity: 0.4,
-  },
-  flyoutContainer: {
-    backgroundColor: variables.themes.light.background.primary,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    paddingHorizontal: 20,
-    paddingTop: 20,
-    elevation: 5,
-    shadowColor: variables.themes.light.shadow.primary,
-    shadowRadius: 10,
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    shadowOpacity: 0.5,
-  },
-  closeButtonContainer: {
-    position: 'absolute',
-    top: 15,
-    right: 15,
-  },
-  closeButton: {
-    zIndex: 9999,
-  },
-  closeIcon: {
-    fontSize: variables.font.size.default,
-    color: variables.themes.light.icon.primary.color,
-  },
-  modal: {
-    margin: 0,
-    justifyContent: 'flex-end',
-  },
-});

@@ -1,4 +1,3 @@
-import variables from '@config/variables';
 import React from 'react';
 import {
   NativeSyntheticEvent,
@@ -10,6 +9,9 @@ import {
   View,
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+
+import variables from '@config/variables';
+import { StyleContext } from '@context/StyleContext';
 
 type PescaInputFieldProps = {
   label?: string;
@@ -30,13 +32,35 @@ export default function PescaInputField({
   onSubmitEditing,
   style,
 }: PescaInputFieldProps) {
+  const theme = React.useContext(StyleContext);
+  const styles = StyleSheet.create({
+    container: {
+      width: '100%',
+      marginVertical: 10,
+    },
+    label: {
+      fontSize: variables.font.size.ultraSmall,
+      marginBottom: 5,
+      paddingLeft: 7,
+      color: theme.input.label.color,
+    },
+    input: {
+      // width: 200,
+      borderColor: theme.input.borderColor,
+      borderWidth: 1,
+      padding: 10,
+      fontSize: variables.font.size.small,
+      borderRadius: 5,
+    },
+  });
+
   return (
     <View style={[styles.container]}>
       <Text style={[styles.label]}>{label}</Text>
       <TextInput
         placeholder={placeholder}
         style={[styles.input, style]}
-        placeholderTextColor={variables.themes.light.text.light}
+        placeholderTextColor={theme.input.placeholder}
         textContentType="password"
         autoCorrect={false}
         enablesReturnKeyAutomatically={true}
@@ -49,24 +73,3 @@ export default function PescaInputField({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    marginVertical: 10,
-  },
-  label: {
-    fontSize: variables.font.size.ultraSmall,
-    marginBottom: 5,
-    paddingLeft: 7,
-    color: variables.themes.light.text.primary,
-  },
-  input: {
-    // width: 200,
-    borderColor: '#ecf0f1',
-    borderWidth: 1,
-    padding: 10,
-    fontSize: variables.font.size.small,
-    borderRadius: 5,
-  },
-});

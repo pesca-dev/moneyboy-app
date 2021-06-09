@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native';
 import { AuthContextProvider } from '@context/AuthContext';
 import AppContainer from '@views/AppContainer';
 import { PescaContextProvider } from '@context/PescaContext';
+import { StyleContextProvider } from '@context/StyleContext';
 
 declare const global: { HermesInternal: null | {} };
 
@@ -13,7 +14,9 @@ export default function App() {
       <StatusBar barStyle="dark-content" />
       <PescaContextProvider>
         <AuthContextProvider>
-          <AppContainer />
+          <StyleContextProvider>
+            <AppContainer />
+          </StyleContextProvider>
         </AuthContextProvider>
       </PescaContextProvider>
     </>

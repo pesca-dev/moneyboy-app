@@ -7,6 +7,7 @@ import PescaButton from '@components/input/PescaButton';
 import PescaInputField from '@components/input/PescaInputField';
 import { AuthContext } from '@context/AuthContext';
 import variables from '@config/variables';
+import { StyleContext } from '@context/StyleContext';
 
 type LoginViewProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
@@ -47,6 +48,59 @@ export default function LoginView({ navigation }: LoginViewProps) {
       });
     }
   }
+
+  const theme = React.useContext(StyleContext);
+  const styles = StyleSheet.create({
+    wrapper: {
+      backgroundColor: theme.content.background,
+      flex: 1,
+    },
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      marginBottom: 40,
+    },
+    formHeadingContainer: {
+      alignItems: 'center',
+      marginBottom: 40,
+    },
+    formHeading: {
+      fontSize: variables.font.size.large,
+    },
+    errorView: {
+      alignItems: 'center',
+      backgroundColor: theme.signals.error,
+      padding: 10,
+      borderRadius: 5,
+    },
+    errorText: {
+      color: theme.default.white,
+    },
+    formContainer: {
+      width: '80%',
+      marginTop: 120,
+    },
+    buttonContainer: {
+      marginTop: 15,
+    },
+    button: {},
+    buttonContent: {
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 5,
+      backgroundColor: theme.buttons.form.invalid.background,
+    },
+    validFormbutton: {
+      backgroundColor: theme.buttons.form.valid.background,
+    },
+    buttonText: {
+      fontSize: variables.font.size.extraSmall,
+      color: theme.buttons.form.color,
+    },
+    link: {
+      marginTop: 25,
+    },
+  });
 
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.wrapper]}>
@@ -96,55 +150,3 @@ export default function LoginView({ navigation }: LoginViewProps) {
     </KeyboardAvoidingView>
   );
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    backgroundColor: variables.themes.light.background.primary,
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    marginBottom: 40,
-  },
-  formHeadingContainer: {
-    alignItems: 'center',
-    marginBottom: 40,
-  },
-  formHeading: {
-    fontSize: variables.font.size.large,
-  },
-  errorView: {
-    alignItems: 'center',
-    backgroundColor: variables.themes.light.signals.bad,
-    padding: 10,
-    borderRadius: 5,
-  },
-  errorText: {
-    color: variables.themes.light.text.white,
-  },
-  formContainer: {
-    width: '80%',
-    marginTop: 120,
-  },
-  buttonContainer: {
-    marginTop: 15,
-  },
-  button: {},
-  buttonContent: {
-    alignItems: 'center',
-    padding: 10,
-    borderRadius: 5,
-    backgroundColor: '#95a5a6',
-  },
-  validFormbutton: {
-    backgroundColor: '#2c3e50',
-  },
-  buttonText: {
-    fontSize: variables.font.size.extraSmall,
-    color: variables.themes.light.text.white,
-  },
-  link: {
-    marginTop: 25,
-  },
-});

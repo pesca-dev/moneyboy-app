@@ -6,6 +6,7 @@ import { animated, useSpring } from '@react-spring/native';
 import PescaButton from '@components/input/PescaButton';
 import { FlyoutContext } from '@context/FlyoutContext';
 import variables from '@config/variables';
+import { StyleContext } from '@context/StyleContext';
 
 const topOffset = -40;
 const containerWidth = {
@@ -101,6 +102,61 @@ export default function AddButton({}: AddButtonProps) {
     // onMainButtonPress();
   }
 
+  const theme = React.useContext(StyleContext);
+  const styles = StyleSheet.create({
+    addButtonWrapper: {
+      height: 32,
+      width: 32,
+      top: -25,
+      overflow: 'visible',
+      marginLeft: 15,
+      marginRight: 15,
+      justifyContent: 'center',
+      alignItems: 'center',
+      shadowColor: theme.shadow.default.color,
+      shadowOffset: {
+        height: 0,
+        width: 0,
+      },
+      shadowOpacity: 0.7,
+      shadowRadius: 7,
+    },
+    addButtonOutterContainer: {
+      overflow: 'hidden',
+      flexDirection: 'row',
+      position: 'relative',
+      backgroundColor: theme.buttons.add.background,
+      borderRadius: 24,
+      height: 48,
+      width: 48,
+    },
+    addButtonInnerContainer: {
+      flexDirection: 'row',
+      overflow: 'hidden',
+    },
+    addButton: {},
+    icon: {
+      fontSize: variables.font.size.large,
+      color: theme.buttons.add.color,
+    },
+    center: {
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    addPaymentButton: {
+      marginRight: 15,
+      paddingRight: 15,
+      borderColor: theme.buttons.add.color,
+      borderRightWidth: 1,
+    },
+    addGroupButton: {
+      marginLeft: 15,
+      paddingLeft: 15,
+      borderLeftColor: theme.buttons.add.color,
+      borderLeftWidth: 1,
+    },
+  });
+
   return (
     <View style={styles.addButtonWrapper}>
       <animated.View style={[animatedContainerStyle, styles.center]}>
@@ -137,57 +193,3 @@ export default function AddButton({}: AddButtonProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  addButtonWrapper: {
-    height: 32,
-    width: 32,
-    top: -25,
-    overflow: 'visible',
-    marginLeft: 15,
-    marginRight: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#42423d',
-    shadowOffset: {
-      height: 0,
-      width: 0,
-    },
-    shadowOpacity: 0.7,
-    shadowRadius: 7,
-  },
-  addButtonOutterContainer: {
-    overflow: 'hidden',
-    flexDirection: 'row',
-    position: 'relative',
-    backgroundColor: '#3498db',
-    borderRadius: 24,
-    height: 48,
-    width: 48,
-  },
-  addButtonInnerContainer: {
-    flexDirection: 'row',
-    overflow: 'hidden',
-  },
-  addButton: {},
-  icon: {
-    fontSize: variables.font.size.large,
-    color: '#fff',
-  },
-  center: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  addPaymentButton: {
-    marginRight: 15,
-    paddingRight: 15,
-    borderColor: '#fff',
-    borderRightWidth: 1,
-  },
-  addGroupButton: {
-    marginLeft: 15,
-    paddingLeft: 15,
-    borderLeftColor: '#fff',
-    borderLeftWidth: 1,
-  },
-});

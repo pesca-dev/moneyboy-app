@@ -3,6 +3,7 @@ import { GestureResponderEvent, StyleSheet, Text } from 'react-native';
 
 import variables from '@config/variables';
 import ListItem from '@components/structure/ListItem';
+import { StyleContext } from '@context/StyleContext';
 
 export interface MoneyDiffProps {
   name: string;
@@ -12,6 +13,24 @@ export interface MoneyDiffProps {
 }
 
 export default function MoneyDiff({ name, amount, last, onPress }: MoneyDiffProps) {
+  const theme = React.useContext(StyleContext);
+  const styles = StyleSheet.create({
+    moneyDiffName: {
+      flex: 1,
+      fontSize: variables.font.size.small,
+      color: theme.content.text.color,
+    },
+    moneyDiffAmount: {
+      fontSize: variables.font.size.small,
+    },
+    positiveDiff: {
+      color: theme.signals.success,
+    },
+    negativeDiff: {
+      color: theme.signals.error,
+    },
+  });
+
   return (
     <>
       <ListItem last={last} onPress={onPress}>
@@ -21,20 +40,3 @@ export default function MoneyDiff({ name, amount, last, onPress }: MoneyDiffProp
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  moneyDiffName: {
-    flex: 1,
-    fontSize: variables.font.size.small,
-    color: variables.themes.light.text.default,
-  },
-  moneyDiffAmount: {
-    fontSize: variables.font.size.small,
-  },
-  positiveDiff: {
-    color: variables.themes.light.signals.good,
-  },
-  negativeDiff: {
-    color: variables.themes.light.signals.bad,
-  },
-});

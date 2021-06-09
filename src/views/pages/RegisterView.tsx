@@ -8,6 +8,7 @@ import PescaInputField from '@components/input/PescaInputField';
 import { AuthContext } from '@context/AuthContext';
 import { ScrollView } from 'react-native-gesture-handler';
 import variables from '@config/variables';
+import { StyleContext } from '@context/StyleContext';
 
 /**
  * Diplay message for the registration dialog.
@@ -65,6 +66,70 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
       });
     }
   }
+
+  const theme = React.useContext(StyleContext);
+  const styles = StyleSheet.create({
+    wrapper: {
+      backgroundColor: theme.content.background,
+      flex: 1,
+    },
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      marginBottom: 60,
+    },
+    formHeadingContainer: {
+      alignItems: 'center',
+      marginBottom: 40,
+    },
+    formHeading: {
+      fontSize: variables.font.size.large,
+    },
+    infoMessage: {
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 5,
+    },
+    errorView: {
+      backgroundColor: theme.signals.error,
+    },
+    errorText: {
+      color: theme.default.white,
+    },
+    successView: {
+      backgroundColor: theme.signals.success,
+    },
+    successText: {
+      color: theme.default.white,
+    },
+    formContainer: {
+      width: '80%',
+      marginTop: 120,
+    },
+    buttonContainer: {
+      marginTop: 15,
+    },
+    button: {},
+    buttonContent: {
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 5,
+      backgroundColor: theme.buttons.form.invalid.background,
+    },
+    validFormbutton: {
+      backgroundColor: theme.buttons.form.valid.background,
+    },
+    buttonText: {
+      fontSize: variables.font.size.extraSmall,
+      color: theme.buttons.form.color,
+    },
+    error: {
+      borderColor: theme.signals.error,
+    },
+    link: {
+      marginTop: 25,
+    },
+  });
 
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.wrapper]}>
@@ -143,66 +208,3 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
     </KeyboardAvoidingView>
   );
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    backgroundColor: variables.themes.light.background.primary,
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    marginBottom: 60,
-  },
-  formHeadingContainer: {
-    alignItems: 'center',
-    marginBottom: 40,
-  },
-  formHeading: {
-    fontSize: variables.font.size.large,
-  },
-  infoMessage: {
-    alignItems: 'center',
-    padding: 10,
-    borderRadius: 5,
-  },
-  errorView: {
-    backgroundColor: variables.themes.light.signals.bad,
-  },
-  errorText: {
-    color: variables.themes.light.text.white,
-  },
-  successView: {
-    backgroundColor: variables.themes.light.signals.good,
-  },
-  successText: {
-    color: variables.themes.light.text.white,
-  },
-  formContainer: {
-    width: '80%',
-    marginTop: 120,
-  },
-  buttonContainer: {
-    marginTop: 15,
-  },
-  button: {},
-  buttonContent: {
-    alignItems: 'center',
-    padding: 10,
-    borderRadius: 5,
-    backgroundColor: '#95a5a6',
-  },
-  validFormbutton: {
-    backgroundColor: '#2c3e50',
-  },
-  buttonText: {
-    fontSize: variables.font.size.extraSmall,
-    color: variables.themes.light.text.white,
-  },
-  error: {
-    borderColor: '#f00',
-  },
-  link: {
-    marginTop: 25,
-  },
-});
