@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
     opacity: 0.4,
   },
   flyoutContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: variables.themes.light.background.primary,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingHorizontal: 20,
     paddingTop: 20,
     elevation: 5,
-    shadowColor: '#42423d',
+    shadowColor: variables.themes.light.shadow.primary,
     shadowRadius: 10,
     shadowOffset: {
       width: 1,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
   closeIcon: {
     fontSize: variables.font.size.default,
-    color: '#7f8c8d',
+    color: variables.themes.light.icon.primary.color,
   },
   modal: {
     margin: 0,

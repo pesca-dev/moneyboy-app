@@ -1,3 +1,4 @@
+import variables from '@config/variables';
 import React, { PropsWithChildren } from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
@@ -9,14 +10,21 @@ interface FooterProps {
  * Footer for a screen.
  */
 export default function Footer({ children, style }: PropsWithChildren<FooterProps>) {
-  return <View style={[styles.footer, style]}>{children}</View>;
+  return (
+    <View style={[styles.footerWrapper]}>
+      <View style={[styles.footer, style]}>{children}</View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
+  footerWrapper: {
+    backgroundColor: variables.themes.light.background.primary,
+  },
   footer: {
     height: 60,
-    backgroundColor: '#fff',
-    shadowColor: '#42423d',
+    backgroundColor: variables.themes.light.background.primary,
+    shadowColor: variables.themes.light.shadow.primary,
     borderRadius: 20,
     shadowOffset: {
       height: 0,

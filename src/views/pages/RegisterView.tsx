@@ -146,7 +146,7 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#fff',
+    backgroundColor: variables.themes.light.background.primary,
     flex: 1,
   },
   container: {
@@ -167,16 +167,16 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   errorView: {
-    backgroundColor: '#e74c3c',
+    backgroundColor: variables.themes.light.signals.bad,
   },
   errorText: {
-    color: '#fff',
+    color: variables.themes.light.text.white,
   },
   successView: {
-    backgroundColor: '#2ecc71',
+    backgroundColor: variables.themes.light.signals.good,
   },
   successText: {
-    color: '#fff',
+    color: variables.themes.light.text.white,
   },
   formContainer: {
     width: '80%',
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: variables.font.size.extraSmall,
-    color: '#fff',
+    color: variables.themes.light.text.white,
   },
   error: {
     borderColor: '#f00',

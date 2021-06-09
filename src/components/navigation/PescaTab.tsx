@@ -52,11 +52,11 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: variables.font.size.large,
-    color: '#7f8c8d',
+    color: variables.themes.light.icon.primary.color,
   },
   focus: {
-    color: '#34495e',
-    shadowColor: '#42423d',
+    color: variables.themes.light.icon.focus.color,
+    shadowColor: variables.themes.light.shadow.primary,
     shadowRadius: 10,
     shadowOffset: {
       width: 1,
@@ -65,6 +65,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
   },
   disabled: {
-    color: '#bdc3c7',
+    color: variables.themes.light.icon.disabled.color,
   },
 });

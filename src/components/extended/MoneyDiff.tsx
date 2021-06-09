@@ -26,14 +26,15 @@ const styles = StyleSheet.create({
   moneyDiffName: {
     flex: 1,
     fontSize: variables.font.size.small,
+    color: variables.themes.light.text.default,
   },
   moneyDiffAmount: {
     fontSize: variables.font.size.small,
   },
   positiveDiff: {
-    color: '#2ecc71',
+    color: variables.themes.light.signals.good,
   },
   negativeDiff: {
-    color: '#e74c3c',
+    color: variables.themes.light.signals.bad,
   },
 });

@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
   logoutIcon: {
     fontSize: variables.font.size.small,
     marginRight: 5,
-    color: '#e74c3c',
+    color: variables.themes.light.signals.bad,
   },
   logoutText: {
     fontSize: variables.font.size.extraSmall,
-    color: '#e74c3c',
+    color: variables.themes.light.signals.bad,
   },
 });

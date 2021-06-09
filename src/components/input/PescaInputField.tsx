@@ -36,7 +36,7 @@ export default function PescaInputField({
       <TextInput
         placeholder={placeholder}
         style={[styles.input, style]}
-        placeholderTextColor="#7f8c8d"
+        placeholderTextColor={variables.themes.light.text.light}
         textContentType="password"
         autoCorrect={false}
         enablesReturnKeyAutomatically={true}
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     fontSize: variables.font.size.ultraSmall,
     marginBottom: 5,
     paddingLeft: 7,
-    color: '#34495e',
+    color: variables.themes.light.text.primary,
   },
   input: {
     // width: 200,

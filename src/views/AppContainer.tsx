@@ -13,6 +13,7 @@ import LoginView from '@views/pages/LoginView';
 import MainView from '@views/pages/MainView';
 import SettingsView from '@views/pages/SettingsView';
 import RegisterView from '@views/pages/RegisterView';
+import variables from '@config/variables';
 
 const Tab = createBottomTabNavigator();
 
@@ -57,6 +58,6 @@ export default function AppContainer() {
 
 const styles = StyleSheet.create({
   sceneContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: variables.themes.light.background.primary,
   },
 });

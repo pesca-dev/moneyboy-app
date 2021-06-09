@@ -99,7 +99,7 @@ export default function LoginView({ navigation }: LoginViewProps) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#fff',
+    backgroundColor: variables.themes.light.background.primary,
     flex: 1,
   },
   container: {
@@ -116,12 +116,12 @@ const styles = StyleSheet.create({
   },
   errorView: {
     alignItems: 'center',
-    backgroundColor: '#e74c3c',
+    backgroundColor: variables.themes.light.signals.bad,
     padding: 10,
     borderRadius: 5,
   },
   errorText: {
-    color: '#fff',
+    color: variables.themes.light.text.white,
   },
   formContainer: {
     width: '80%',
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: variables.font.size.extraSmall,
-    color: '#fff',
+    color: variables.themes.light.text.white,
   },
   link: {
     marginTop: 25,
