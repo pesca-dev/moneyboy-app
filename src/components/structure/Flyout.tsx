@@ -70,14 +70,14 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
     <Modal
       isVisible={isOpen}
       style={styles.modal}
-      // swipeDirection={['down']}
+      swipeDirection={['down']}
       onSwipeComplete={close}
+      onBackdropPress={close}
+      onBackButtonPress={close}
+      propagateSwipe
       animationInTiming={500}
       animationOutTiming={500}
       backdropOpacity={0.5}>
-      <TouchableWithoutFeedback onPress={close}>
-        <View style={[styles.backplane]} />
-      </TouchableWithoutFeedback>
       <View style={[styles.flyoutContainer]}>
         <SafeAreaView>{children}</SafeAreaView>
 
