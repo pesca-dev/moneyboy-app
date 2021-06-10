@@ -4,6 +4,9 @@ import { Text } from 'react-native';
 import { FlyoutType } from '@api/FlyoutType';
 import Flyout from '@components/structure/Flyout';
 
+/**
+ * @deprecated use flyout directly instead
+ */
 export const FlyoutContext = React.createContext<FlyoutType>({
   open() {},
   close() {},
@@ -19,6 +22,8 @@ type FlyoutState = {
 
 /**
  * Component, which provides a way to create and manage a flyout.
+ *
+ * @deprecated use flyout directly instead
  */
 export function FlyoutContextProvider({ children }: PropsWithChildren<FlyoutContextProviderProps>) {
   const [flyoutState, setFlyoutState] = useState<FlyoutState>({

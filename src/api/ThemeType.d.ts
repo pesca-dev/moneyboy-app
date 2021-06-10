@@ -93,5 +93,8 @@ export type StyleType = {
     memberList: {
       color: string;
     };
+    flyout: {
+      color: string;
+    };
   };
 };

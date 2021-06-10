@@ -138,6 +138,9 @@ const defaultColors: ThemeType = {
     memberList: {
       color: palette.shades.black,
     },
+    flyout: {
+      color: palette.shades.black,
+    },
   },
 };
 

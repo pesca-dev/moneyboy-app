@@ -44,6 +44,7 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
         height: 1,
       },
       shadowOpacity: 0.5,
+      maxHeight: '80%',
     },
     closeButtonContainer: {
       position: 'absolute',
@@ -60,6 +61,8 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
     modal: {
       margin: 0,
       justifyContent: 'flex-end',
+      display: 'flex',
+      overflow: 'hidden',
     },
   });
 
@@ -67,7 +70,7 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
     <Modal
       isVisible={isOpen}
       style={styles.modal}
-      swipeDirection={['down']}
+      // swipeDirection={['down']}
       onSwipeComplete={close}
       animationInTiming={500}
       animationOutTiming={500}
