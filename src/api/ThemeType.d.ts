@@ -83,4 +83,15 @@ export type StyleType = {
       shadow: string;
     };
   };
+  groups: {
+    header: {
+      color: string;
+    };
+    caption: {
+      color: string;
+    };
+    memberList: {
+      color: string;
+    };
+  };
 };

@@ -128,6 +128,17 @@ const defaultColors: ThemeType = {
       shadow: palette.shades.soft,
     },
   },
+  groups: {
+    header: {
+      color: palette.shades.black,
+    },
+    caption: {
+      color: palette.shades.mediumDark,
+    },
+    memberList: {
+      color: palette.shades.black,
+    },
+  },
 };
 
 export const ThemeContext = React.createContext<ThemeType>(defaultColors);
