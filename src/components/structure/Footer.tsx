@@ -20,7 +20,8 @@ export default function Footer({ children, style }: PropsWithChildren<FooterProp
       height: 60,
       backgroundColor: theme.footer.background,
       shadowColor: theme.footer.shadow,
-      borderRadius: 20,
+      borderTopRightRadius: 20,
+      borderTopLeftRadius: 20,
       shadowOffset: {
         height: 0,
         width: 0,
