@@ -8,7 +8,6 @@ import Flyout from '@components/structure/Flyout';
 import ListItem from '@components/structure/ListItem';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
-import PescaInputField from '@components/input/PescaInputField';
 
 type GroupListItemProps = {
   name: string;
@@ -188,7 +187,6 @@ export default function GroupListItem({ name, createdAt, members, last }: GroupL
           </View>
           <View style={styles.groupBody}>
             <Text style={styles.membersList}>{`you, ${members.join(', ')}`}</Text>
-            <PescaInputField label="Search for a user" />
             <View style={styles.recentPaymentContainer}>
               <View style={styles.recentPaymentHeaderContainer}>
                 <Text style={styles.recentPaymentHeader}>Recent Payments</Text>
