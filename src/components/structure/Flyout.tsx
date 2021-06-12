@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 import Modal from 'react-native-modal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -44,6 +44,7 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
         height: 1,
       },
       shadowOpacity: 0.5,
+      maxHeight: '80%',
     },
     closeButtonContainer: {
       position: 'absolute',
@@ -60,6 +61,8 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
     modal: {
       margin: 0,
       justifyContent: 'flex-end',
+      display: 'flex',
+      overflow: 'hidden',
     },
   });
 
@@ -69,13 +72,14 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
       style={styles.modal}
       swipeDirection={['down']}
       onSwipeComplete={close}
+      onBackdropPress={close}
+      onBackButtonPress={close}
+      propagateSwipe
       animationInTiming={500}
       animationOutTiming={500}
       backdropOpacity={0.5}>
-      <TouchableWithoutFeedback onPress={close}>
-        <View style={[styles.backplane]} />
-      </TouchableWithoutFeedback>
-      <View style={[styles.flyoutContainer]}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.flyoutContainer]}>
+        {/* <View style={[styles.flyoutContainer]}> */}
         <SafeAreaView>{children}</SafeAreaView>
 
         {/* Close Button */}
@@ -84,7 +88,8 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
             <MaterialCommunityIcons name="close" style={[styles.closeIcon]} />
           </PescaButton>
         </View>
-      </View>
+        {/* </View> */}
+      </KeyboardAvoidingView>
     </Modal>
   );
 }

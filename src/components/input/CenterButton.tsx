@@ -7,6 +7,7 @@ import PescaButton from '@components/input/PescaButton';
 import { FlyoutContext } from '@context/FlyoutContext';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
+import PescaInputField from '@components/input/PescaInputField';
 
 const topOffset = -40;
 const containerWidth = {
@@ -14,9 +15,9 @@ const containerWidth = {
   max: 200,
 };
 
-type AddButtonProps = {};
+type CenterButtonProps = {};
 
-export default function AddButton({}: AddButtonProps) {
+export default function CenterButton({}: CenterButtonProps) {
   const flyout = React.useContext(FlyoutContext);
 
   const [open, setOpen] = useState<boolean>(false);
@@ -63,6 +64,7 @@ export default function AddButton({}: AddButtonProps) {
   function onAddPaymentButtonPress() {
     flyout.setChildren(
       <>
+        <PescaInputField label="Search for a user" />
         <Text>Lol</Text>
         <Text>Lol</Text>
         <Text>Lol</Text>
@@ -165,7 +167,7 @@ export default function AddButton({}: AddButtonProps) {
             {/*  */}
             <animated.View style={[styles.addPaymentButton]}>
               <PescaButton onPress={onAddPaymentButtonPress}>
-                <MaterialCommunityIcons name="currency-eur" style={styles.icon} />
+                <MaterialCommunityIcons name="credit-card-plus-outline" style={styles.icon} />
               </PescaButton>
             </animated.View>
             {/*  */}

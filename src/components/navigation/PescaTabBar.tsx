@@ -6,7 +6,7 @@ import { v4 as uuid } from 'react-native-uuid';
 
 import Footer from '@components/structure/Footer';
 import PescaTab from '@components/navigation/PescaTab';
-import AddButton from '@components/input/AddButton';
+import CenterButton from '@components/input/CenterButton';
 import variables from '@config/variables';
 
 type PescaTabUIProps<T = BottomTabBarOptions> = BottomTabBarProps<T> & {};
@@ -22,7 +22,7 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
   /**
    * Helper function for rendering a tab.
    */
-  function renderTab(route: Route<any, any>, disabled: boolean) {
+  function renderTab(route: Route<any, any>) {
     return (
       <PescaTab
         key={uuid()}
@@ -30,7 +30,7 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
         icon={route.params?.icon}
         navigation={navigation}
         focussed={state.index === state.routeNames.indexOf(route.name)}
-        disabled={disabled}
+        disabled={!!route.params?.disabled}
       />
     );
   }
@@ -40,9 +40,9 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
       <Footer style={styles.footer}>
         <SafeAreaView>
           <View style={styles.tabBarContainer}>
-            <View style={styles.tabContainer}>{leftTabs.map((tab) => renderTab(tab, false))}</View>
-            <AddButton />
-            <View style={styles.tabContainer}>{rightTabs.map((tab) => renderTab(tab, false))}</View>
+            <View style={styles.tabContainer}>{leftTabs.map((tab) => renderTab(tab))}</View>
+            <CenterButton />
+            <View style={styles.tabContainer}>{rightTabs.map((tab) => renderTab(tab))}</View>
           </View>
         </SafeAreaView>
       </Footer>
