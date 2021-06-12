@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 import Modal from 'react-native-modal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -78,7 +78,8 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
       animationInTiming={500}
       animationOutTiming={500}
       backdropOpacity={0.5}>
-      <View style={[styles.flyoutContainer]}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.flyoutContainer]}>
+        {/* <View style={[styles.flyoutContainer]}> */}
         <SafeAreaView>{children}</SafeAreaView>
 
         {/* Close Button */}
@@ -87,7 +88,8 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
             <MaterialCommunityIcons name="close" style={[styles.closeIcon]} />
           </PescaButton>
         </View>
-      </View>
+        {/* </View> */}
+      </KeyboardAvoidingView>
     </Modal>
   );
 }
