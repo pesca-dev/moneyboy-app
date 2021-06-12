@@ -15,9 +15,9 @@ const containerWidth = {
   max: 200,
 };
 
-type AddButtonProps = {};
+type CenterButtonProps = {};
 
-export default function AddButton({}: AddButtonProps) {
+export default function CenterButton({}: CenterButtonProps) {
   const flyout = React.useContext(FlyoutContext);
 
   const [open, setOpen] = useState<boolean>(false);

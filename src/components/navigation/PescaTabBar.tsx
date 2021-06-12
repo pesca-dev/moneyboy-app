@@ -6,7 +6,7 @@ import { v4 as uuid } from 'react-native-uuid';
 
 import Footer from '@components/structure/Footer';
 import PescaTab from '@components/navigation/PescaTab';
-import AddButton from '@components/input/AddButton';
+import CenterButton from '@components/input/CenterButton';
 import variables from '@config/variables';
 
 type PescaTabUIProps<T = BottomTabBarOptions> = BottomTabBarProps<T> & {};
@@ -41,7 +41,7 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
         <SafeAreaView>
           <View style={styles.tabBarContainer}>
             <View style={styles.tabContainer}>{leftTabs.map((tab) => renderTab(tab))}</View>
-            <AddButton />
+            <CenterButton />
             <View style={styles.tabContainer}>{rightTabs.map((tab) => renderTab(tab))}</View>
           </View>
         </SafeAreaView>
