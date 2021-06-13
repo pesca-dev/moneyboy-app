@@ -4,7 +4,7 @@ declare namespace Pesca {
     refresh_token: string;
   }
 
-  interface User {
+  interface UserProfileInformation {
     id: string;
     username: string;
     displayName: string;

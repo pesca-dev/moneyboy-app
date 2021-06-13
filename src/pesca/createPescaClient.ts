@@ -73,9 +73,9 @@ export default function createPescaClient(url: string): PescaClient {
     }
   }
 
-  async function getUser(): Promise<Pesca.User | null> {
+  async function getUser(): Promise<Pesca.UserProfileInformation | null> {
     const result = await httpClient.requestWithAuth('user/profile', {});
-    let user: Pesca.User | null = null;
+    let user: Pesca.UserProfileInformation | null = null;
     if (result?.status === 200) {
       user = await result.json();
       // store current user in memory

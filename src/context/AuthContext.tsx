@@ -15,7 +15,7 @@ type AuthContextType = {
   /**
    * Object with all relevant user data.
    */
-  user?: Pesca.User;
+  user?: Pesca.UserProfileInformation;
   /**
    * Try to log in with the given data.
    * @param data AuthData to log in with
@@ -51,7 +51,7 @@ type AuthContextProviderProps = {};
 type AuthContextState = {
   ready: boolean;
   loggedIn: boolean;
-  user?: Pesca.User;
+  user?: Pesca.UserProfileInformation;
 };
 
 /**
