@@ -8,6 +8,7 @@ import { FlyoutContext } from '@context/FlyoutContext';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
 import PescaInputField from '@components/input/PescaInputField';
+import AddPaymentButton from '@components/extended/AddPaymentButton';
 
 const topOffset = -40;
 const containerWidth = {
@@ -59,23 +60,6 @@ export default function CenterButton({}: CenterButtonProps) {
       width: open ? containerWidth.default : containerWidth.max,
     });
     setOpen(!open);
-  }
-
-  function onAddPaymentButtonPress() {
-    flyout.setChildren(
-      <>
-        <PescaInputField label="Search for a user" />
-        <Text>Lol</Text>
-        <Text>Lol</Text>
-        <Text>Lol</Text>
-        <Text>Lol</Text>
-        <Text>Lol</Text>
-        <Text>Lol</Text>
-        <Text>Lol</Text>
-      </>,
-      true,
-    );
-    onMainButtonPress();
   }
 
   function onAddGroupButtonPress() {
@@ -145,12 +129,6 @@ export default function CenterButton({}: CenterButtonProps) {
       justifyContent: 'center',
       alignItems: 'center',
     },
-    addPaymentButton: {
-      marginRight: 15,
-      paddingRight: 15,
-      borderColor: theme.buttons.add.color,
-      borderRightWidth: 1,
-    },
     addGroupButton: {
       marginLeft: 15,
       paddingLeft: 15,
@@ -165,11 +143,7 @@ export default function CenterButton({}: CenterButtonProps) {
         <animated.View style={[styles.addButtonOutterContainer, styles.center, animatedButtonContainerStyle]}>
           <View style={[styles.addButtonInnerContainer, styles.center]}>
             {/*  */}
-            <animated.View style={[styles.addPaymentButton]}>
-              <PescaButton onPress={onAddPaymentButtonPress}>
-                <MaterialCommunityIcons name="credit-card-plus-outline" style={styles.icon} />
-              </PescaButton>
-            </animated.View>
+            <AddPaymentButton onPress={onMainButtonPress} iconStyle={styles.icon} />
             {/*  */}
             <animated.View
               style={[

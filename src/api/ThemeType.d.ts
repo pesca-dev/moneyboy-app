@@ -66,6 +66,10 @@ export type StyleType = {
     };
   };
   flyout: {
+    heading: {
+      color: string;
+      fontSize: number;
+    };
     background: string;
     shadow: string;
     icon: {
