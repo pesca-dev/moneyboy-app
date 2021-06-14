@@ -1,9 +1,8 @@
-import 'react-native';
-import React from 'react';
-
-import { cleanup, fireEvent, render } from '@testing-library/react-native';
-import { TouchableWithoutFeedback } from 'react-native';
 import ListItem from '@components/structure/ListItem';
+import { cleanup, fireEvent, render } from '@testing-library/react-native';
+import React from 'react';
+import 'react-native';
+import { TouchableWithoutFeedback } from 'react-native';
 
 describe('ListItem', () => {
   afterEach(cleanup);
@@ -15,7 +14,7 @@ describe('ListItem', () => {
   it('shall not be disabled by default', () => {
     const item = render(<ListItem />);
     const instance = item.container.instance as ListItem;
-    const touchable = (item.getByTestId('touchable') as unknown) as TouchableWithoutFeedback;
+    const touchable = item.getByTestId('touchable') as unknown as TouchableWithoutFeedback;
 
     expect(instance.state.disabled).toBeFalsy();
     expect(touchable.props.disabled).toBeFalsy();
