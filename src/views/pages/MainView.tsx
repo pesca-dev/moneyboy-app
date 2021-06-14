@@ -1,12 +1,11 @@
-import React from 'react';
-import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
-
 import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
 import Content from '@components/structure/Content';
 import SectionHeader from '@components/structure/SectionHeader';
-import variables from '@config/variables';
 import ViewBase from '@components/structure/ViewBase';
+import variables from '@config/variables';
+import React from 'react';
+import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from 'react-native';
+import { v4 as uuid } from 'react-native-uuid';
 
 const dummyData: MoneyDiffProps[] = [
   {

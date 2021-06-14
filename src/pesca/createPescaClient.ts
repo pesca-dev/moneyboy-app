@@ -1,8 +1,6 @@
-import EncryptedStorage from 'react-native-encrypted-storage';
-
 import { PescaClient } from '@api/PescaClient';
-
 import { HttpClient } from '@pesca/httpClient';
+import EncryptedStorage from 'react-native-encrypted-storage';
 
 const constants = {
   storage: {

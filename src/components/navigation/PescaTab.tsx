@@ -1,11 +1,11 @@
-import React from 'react';
-import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import variables from '@config/variables';
+import { ThemeContext } from '@context/ThemeContext';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers } from '@react-navigation/core';
 import { ParamListBase } from '@react-navigation/routers';
+import React from 'react';
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
 
 type PescaTabProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;

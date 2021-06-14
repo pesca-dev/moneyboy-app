@@ -1,3 +1,5 @@
+import variables from '@config/variables';
+import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
 import {
   NativeSyntheticEvent,
@@ -9,9 +11,6 @@ import {
   View,
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-
-import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
 
 type PescaInputFieldProps = {
   label?: string;

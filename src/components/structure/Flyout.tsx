@@ -1,12 +1,11 @@
+import PescaButton from '@components/input/PescaButton';
+import variables from '@config/variables';
+import { ThemeContext } from '@context/ThemeContext';
 import React, { PropsWithChildren } from 'react';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 import Modal from 'react-native-modal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
-import PescaButton from '@components/input/PescaButton';
-import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
 
 type FlyoutProps = {
   isOpen: boolean;

@@ -1,15 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { ReactNode } from 'react';
-import { DefaultSectionT, SectionList, SectionListRenderItemInfo, Text, View } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
-import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
-import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
-
 import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
-import { FlyoutContext } from '@context/FlyoutContext';
 import Content from '@components/structure/Content';
 import SectionHeader from '@components/structure/SectionHeader';
 import ViewBase from '@components/structure/ViewBase';
+import { FlyoutContext } from '@context/FlyoutContext';
+import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
+import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
+import React, { ReactNode } from 'react';
+import { DefaultSectionT, SectionList, SectionListRenderItemInfo, Text, View } from 'react-native';
+import { v4 as uuid } from 'react-native-uuid';
 
 const dummyPayments: MoneyDiffProps[] = [
   {

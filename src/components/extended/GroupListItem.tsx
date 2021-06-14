@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, ListRenderItemInfo, FlatList } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
-
 import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
 import Content from '@components/structure/Content';
 import Flyout from '@components/structure/Flyout';
 import ListItem from '@components/structure/ListItem';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
+import React, { useState } from 'react';
+import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
+import { v4 as uuid } from 'react-native-uuid';
 
 type GroupListItemProps = {
   name: string;

@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
-import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
-
 import PescaButton from '@components/input/PescaButton';
 import PescaInputField from '@components/input/PescaInputField';
-import { AuthContext } from '@context/AuthContext';
-import { ScrollView } from 'react-native-gesture-handler';
 import variables from '@config/variables';
+import { AuthContext } from '@context/AuthContext';
 import { ThemeContext } from '@context/ThemeContext';
+import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
+import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
+import React, { useEffect, useState } from 'react';
+import { KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 /**
  * Diplay message for the registration dialog.

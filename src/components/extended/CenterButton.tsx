@@ -1,14 +1,12 @@
+import AddPaymentButton from '@components/extended/AddPaymentButton';
+import PescaButton from '@components/input/PescaButton';
+import variables from '@config/variables';
+import { FlyoutContext } from '@context/FlyoutContext';
+import { ThemeContext } from '@context/ThemeContext';
+import { animated, useSpring } from '@react-spring/native';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { animated, useSpring } from '@react-spring/native';
-
-import PescaButton from '@components/input/PescaButton';
-import { FlyoutContext } from '@context/FlyoutContext';
-import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
-import PescaInputField from '@components/input/PescaInputField';
-import AddPaymentButton from '@components/extended/AddPaymentButton';
 
 const topOffset = -40;
 const containerWidth = {

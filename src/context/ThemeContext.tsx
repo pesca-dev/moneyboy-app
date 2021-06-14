@@ -1,4 +1,4 @@
-import { StyleType as ThemeType } from '@api/ThemeType';
+import { ThemeType as ThemeType } from '@api/ThemeType';
 import React, { PropsWithChildren } from 'react';
 
 type ThemeContextProviderProps = {};

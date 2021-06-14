@@ -1,9 +1,8 @@
+import ListItem from '@components/structure/ListItem';
+import variables from '@config/variables';
+import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
 import { GestureResponderEvent, StyleSheet, Text } from 'react-native';
-
-import variables from '@config/variables';
-import ListItem from '@components/structure/ListItem';
-import { ThemeContext } from '@context/ThemeContext';
 
 export interface MoneyDiffProps {
   name: string;

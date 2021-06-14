@@ -1,4 +1,4 @@
-import CenterButton from '@components/input/CenterButton';
+import CenterButton from '@components/extended/CenterButton';
 import PescaTab from '@components/navigation/PescaTab';
 import Footer from '@components/structure/Footer';
 import variables from '@config/variables';

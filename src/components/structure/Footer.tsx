@@ -1,7 +1,6 @@
+import { ThemeContext } from '@context/ThemeContext';
 import React, { PropsWithChildren } from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
-
-import { ThemeContext } from '@context/ThemeContext';
 
 interface FooterProps {
   style?: StyleProp<ViewStyle>;

@@ -1,7 +1,6 @@
-import React, { PropsWithChildren, useEffect, useState } from 'react';
-
 import { AuthData } from '@api/AuthData';
 import { PescaContext } from '@context/PescaContext';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 
 type AuthContextType = {
   /**
