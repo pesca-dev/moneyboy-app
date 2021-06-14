@@ -1,13 +1,12 @@
-import React from 'react';
-import { StyleSheet, View, SafeAreaView } from 'react-native';
+import CenterButton from '@components/input/CenterButton';
+import PescaTab from '@components/navigation/PescaTab';
+import Footer from '@components/structure/Footer';
+import variables from '@config/variables';
 import { BottomTabBarOptions, BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Route } from '@react-navigation/native';
+import React from 'react';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
-
-import Footer from '@components/structure/Footer';
-import PescaTab from '@components/navigation/PescaTab';
-import CenterButton from '@components/input/CenterButton';
-import variables from '@config/variables';
 
 type PescaTabUIProps<T = BottomTabBarOptions> = BottomTabBarProps<T> & {};
 
@@ -40,9 +39,9 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
       <Footer style={styles.footer}>
         <SafeAreaView>
           <View style={styles.tabBarContainer}>
-            <View style={styles.tabContainer}>{leftTabs.map((tab) => renderTab(tab))}</View>
+            <View style={styles.tabContainer}>{leftTabs.map(tab => renderTab(tab))}</View>
             <CenterButton />
-            <View style={styles.tabContainer}>{rightTabs.map((tab) => renderTab(tab))}</View>
+            <View style={styles.tabContainer}>{rightTabs.map(tab => renderTab(tab))}</View>
           </View>
         </SafeAreaView>
       </Footer>

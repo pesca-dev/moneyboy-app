@@ -1,19 +1,18 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 import PescaTabBar from '@components/navigation/PescaTabBar';
-import { FlyoutContextProvider } from '@context/FlyoutContext';
 import { AuthContext } from '@context/AuthContext';
+import { FlyoutContextProvider } from '@context/FlyoutContext';
+import { ThemeContext } from '@context/ThemeContext';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 import GroupView from '@views/pages/GroupView';
 import HistoryView from '@views/pages/HistoryView';
 import LoginView from '@views/pages/LoginView';
 import MainView from '@views/pages/MainView';
-import SettingsView from '@views/pages/SettingsView';
 import RegisterView from '@views/pages/RegisterView';
-import { ThemeContext } from '@context/ThemeContext';
+import SettingsView from '@views/pages/SettingsView';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { v4 as uuid } from 'react-native-uuid';
 
 const Tab = createBottomTabNavigator();
 
@@ -36,7 +35,7 @@ export default function AppContainer() {
         <NavigationContainer>
           {ready && (
             <Tab.Navigator
-              tabBar={(props) => loggedIn && <PescaTabBar {...props} />}
+              tabBar={props => loggedIn && <PescaTabBar {...props} />}
               sceneContainerStyle={[styles.sceneContainer]}>
               {loggedIn ? (
                 <>
