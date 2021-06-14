@@ -33,7 +33,7 @@ export default function AppContainer() {
       <NavigationContainer>
         {ready && (
           <Tab.Navigator
-            tabBar={(props) => loggedIn && <PescaTabBar {...props} />}
+            tabBar={props => loggedIn && <PescaTabBar {...props} />}
             tabBarPosition="bottom"
             sceneContainerStyle={[styles.sceneContainer]}>
             {loggedIn ? (
