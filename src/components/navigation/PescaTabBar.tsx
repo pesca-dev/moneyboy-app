@@ -2,13 +2,13 @@ import CenterButton from '@components/extended/CenterButton';
 import PescaTab from '@components/navigation/PescaTab';
 import Footer from '@components/structure/Footer';
 import variables from '@config/variables';
-import { BottomTabBarOptions, BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
 import { Route } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
-type PescaTabUIProps<T = BottomTabBarOptions> = BottomTabBarProps<T> & {};
+type PescaTabUIProps = MaterialTopTabBarProps & {};
 
 /**
  * Custom tab bar for being used in react-anative-navigation.

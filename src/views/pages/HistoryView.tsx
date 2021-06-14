@@ -4,7 +4,7 @@ import Content from '@components/structure/Content';
 import SectionHeader from '@components/structure/SectionHeader';
 import ViewBase from '@components/structure/ViewBase';
 import { FlyoutContext } from '@context/FlyoutContext';
-import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
+import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
 import React, { ReactNode } from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo, Text, View } from 'react-native';
@@ -115,7 +115,7 @@ const dummyPayments: MoneyDiffProps[] = [
 
 type HistoryViewProps = {
   route: RouteProp<ParamListBase, any>;
-  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
+  navigation: NavigationHelpers<ParamListBase, MaterialTopTabNavigationEventMap>;
 };
 
 const data = [
