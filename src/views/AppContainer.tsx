@@ -56,11 +56,11 @@ export default function AppContainer() {
             )}
           </Tab.Navigator>
         )}
-        <Pesca.Navigator>
+        {/* <Pesca.Navigator>
           <Pesca.Screen name="FirstScreen" component={FirstScreen} />
           <Pesca.Screen name="SecondScreen" component={SecondScreen} />
           <Pesca.Screen name="ThridScreen" component={ThirdScreen} />
-        </Pesca.Navigator>
+        </Pesca.Navigator> */}
       </NavigationContainer>
     </>
   );

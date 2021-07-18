@@ -29,7 +29,10 @@ export default function CenterButton({}: CenterButtonProps) {
     rotateZ: '0deg',
   }));
 
-  const [animatedButtonContainerStyle, animateButtonContainer] = useSpring(() => ({ width: containerWidth.default }));
+  const [animatedButtonContainerStyle, animateButtonContainer] = useSpring(() => ({
+    width: containerWidth.default,
+    borderRadius: 24,
+  }));
 
   // Animate everything, if main button is pressed
   function onMainButtonPress() {
@@ -56,6 +59,7 @@ export default function CenterButton({}: CenterButtonProps) {
     });
     animateButtonContainer.start({
       width: open ? containerWidth.default : containerWidth.max,
+      borderRadius: open ? 24 : 12,
     });
     setOpen(!open);
   }
