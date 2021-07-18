@@ -1,5 +1,5 @@
 import CenterButton from '@components/extended/CenterButton';
-import PescaTab from '@components/navigation/PescaTab';
+import PescaTabIcon from '@components/navigation/PescaTabIcon';
 import Footer from '@components/structure/Footer';
 import variables from '@config/variables';
 import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
@@ -23,7 +23,7 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
    */
   function renderTab(route: Route<any, any>) {
     return (
-      <PescaTab
+      <PescaTabIcon
         key={uuid()}
         name={route.name}
         icon={route.params?.icon}
