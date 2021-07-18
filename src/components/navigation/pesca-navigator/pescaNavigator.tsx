@@ -1,14 +1,19 @@
 import { PescaNavContextScreen, PescaNavContextType } from '@api/PescaNavContextType';
 import Flyout from '@components/structure/Flyout';
-import React, { PropsWithChildren, useState } from 'react';
-import { LayoutAnimation, StyleSheet, View } from 'react-native';
+import { ThemeContext } from '@context/ThemeContext';
+import React, { PropsWithChildren, useContext, useState } from 'react';
+import { LayoutAnimation, StyleSheet, Text, View } from 'react-native';
 
-type PescaNavigatorProps = PropsWithChildren<{}>;
+type PescaNavigatorProps = PropsWithChildren<{
+  isOpen: boolean;
+  setOpen(open: boolean): void;
+  heading?: string;
+}>;
 
 export function createPescaNavigator(
   PescaNavContext: React.Context<PescaNavContextType | null>,
 ): React.FC<PescaNavigatorProps> {
-  return function ({ children }: PescaNavigatorProps) {
+  return function ({ children, isOpen, setOpen, heading }: PescaNavigatorProps) {
     const [screens, setScreens] = useState<PescaNavContextScreen[]>([]);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
 
@@ -68,16 +73,27 @@ export function createPescaNavigator(
       back,
     };
 
+    const theme = useContext(ThemeContext);
     const style = StyleSheet.create({
       screensContainer: {
         flexDirection: 'row',
         width: '100%',
       },
+      flyoutHeading: {
+        color: theme.flyout.heading.color,
+        fontSize: theme.flyout.heading.fontSize,
+        fontWeight: 'bold',
+      },
     });
 
     return (
       <PescaNavContext.Provider value={navContext}>
-        <Flyout isOpen close={() => null}>
+        <Flyout isOpen={isOpen} close={() => setOpen(false)}>
+          {heading && (
+            <View style={{ width: '100%' }}>
+              <Text style={[style.flyoutHeading]}>{heading}</Text>
+            </View>
+          )}
           <View style={[style.screensContainer]}>{children}</View>
         </Flyout>
       </PescaNavContext.Provider>

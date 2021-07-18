@@ -121,6 +121,7 @@ export default function LoginView({ navigation }: LoginViewProps) {
               value={username}
               onChangeText={setUsername}
               onSubmitEditing={onSubmit}
+              textContentType="username"
             />
             <PescaInputField
               label="Password"
@@ -128,6 +129,7 @@ export default function LoginView({ navigation }: LoginViewProps) {
               value={password}
               onChangeText={setPassword}
               onSubmitEditing={onSubmit}
+              textContentType="password"
               secureTextEntry
             />
             <View style={[styles.buttonContainer]}>

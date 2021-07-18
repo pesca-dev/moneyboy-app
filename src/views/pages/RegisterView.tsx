@@ -156,6 +156,8 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
               value={email}
               onChangeText={setMail}
               onSubmitEditing={onSubmit}
+              textContentType="emailAddress"
+              keyboardType="email-address"
             />
             <PescaInputField
               label="Username"
@@ -163,6 +165,7 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
               value={username}
               onChangeText={setUsername}
               onSubmitEditing={onSubmit}
+              textContentType="username"
             />
             <PescaInputField
               label="Displayname"
@@ -178,6 +181,7 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
               onChangeText={setPassword}
               onSubmitEditing={onSubmit}
               secureTextEntry
+              textContentType="newPassword"
             />
             <PescaInputField
               label="Confirm Password"
@@ -187,6 +191,7 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
               onSubmitEditing={onSubmit}
               style={password !== confirmPw && styles.error}
               secureTextEntry
+              textContentType="newPassword"
             />
             <View style={[styles.buttonContainer]}>
               <PescaButton onPress={onSubmit} style={[styles.button]}>

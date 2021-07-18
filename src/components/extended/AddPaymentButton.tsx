@@ -1,12 +1,12 @@
+import PescaAmountField, { defaultValue } from '@components/input/PescaAmountField';
 import PescaButton from '@components/input/PescaButton';
-import PescaInputField from '@components/input/PescaInputField';
-import Flyout from '@components/structure/Flyout';
-import ListItem from '@components/structure/ListItem';
+import { createPescaNavigation } from '@components/navigation/pesca-navigator/createPescaNavigation';
+import { ScreenComponentProps } from '@components/navigation/pesca-navigator/pescaScreen';
 import { ThemeContext } from '@context/ThemeContext';
-import React, { useContext, useState } from 'react';
-import { Insets, SectionList, SectionListData, SectionListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
+import React, { useContext, useEffect, useState } from 'react';
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { SearchListView } from './addPaymentButton/SearchListView';
 
 type IconStyle = {
   fontSize: number;
@@ -18,141 +18,15 @@ type AddPaymentButtonProps = {
   iconStyle?: IconStyle;
 };
 
-enum SectionType {
-  user,
-  group,
-}
-
-type UserSectionData = {
-  username: string;
-  id: string;
-};
-
-const users: UserSectionData[] = [
-  {
-    username: 'User a',
-    id: uuid(),
-  },
-  {
-    username: 'User b',
-    id: uuid(),
-  },
-  {
-    username: 'User c',
-    id: uuid(),
-  },
-  {
-    username: 'User d',
-    id: uuid(),
-  },
-  {
-    username: 'User e',
-    id: uuid(),
-  },
-  {
-    username: 'User f',
-    id: uuid(),
-  },
-  {
-    username: 'User g',
-    id: uuid(),
-  },
-  {
-    username: 'User h',
-    id: uuid(),
-  },
-  {
-    username: 'User i',
-    id: uuid(),
-  },
-];
-
-type GroupSectionData = {
-  groupName: string;
-  id: string;
-};
-
-const groups: GroupSectionData[] = [
-  {
-    groupName: 'Group a',
-    id: uuid(),
-  },
-  {
-    groupName: 'Group b',
-    id: uuid(),
-  },
-  {
-    groupName: 'Group c',
-    id: uuid(),
-  },
-  {
-    groupName: 'Group d',
-    id: uuid(),
-  },
-  {
-    groupName: 'Group e',
-    id: uuid(),
-  },
-  {
-    groupName: 'Group f',
-    id: uuid(),
-  },
-  {
-    groupName: 'Group g',
-    id: uuid(),
-  },
-  {
-    groupName: 'Group h',
-    id: uuid(),
-  },
-  {
-    groupName: 'Group i',
-    id: uuid(),
-  },
-  {
-    groupName: 'Group j',
-    id: uuid(),
-  },
-];
-
-type SectionT = {
-  title: string;
-  type: SectionType;
-  data: any[];
-};
-
-const sections: SectionT[] = [
-  {
-    title: 'Users',
-    type: SectionType.user,
-    data: users,
-  },
-  {
-    title: 'Groups',
-    type: SectionType.group,
-    data: groups,
-  },
-];
+const Pesca = createPescaNavigation();
 
 export default function AddPaymentButton({ onPress, iconStyle }: AddPaymentButtonProps) {
-  const [value, setValue] = useState('');
   const [isOpen, setOpen] = useState(false);
 
   function onAddPaymentButtonPress() {
     setOpen(true);
     onPress?.();
   }
-
-  function onSubmit() {
-    console.log('submit');
-  }
-
-  const hitSlop: Insets = {
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-  };
 
   const theme = useContext(ThemeContext);
   const styles = StyleSheet.create({
@@ -162,72 +36,12 @@ export default function AddPaymentButton({ onPress, iconStyle }: AddPaymentButto
       borderColor: theme.buttons.add.color,
       borderRightWidth: 1,
     },
-    flyoutContent: {
-      maxHeight: '100%',
-    },
-    flyoutHeaderContainer: {
-      marginBottom: 10,
-    },
     flyoutHeading: {
       color: theme.flyout.heading.color,
       fontSize: theme.flyout.heading.fontSize,
       fontWeight: 'bold',
     },
-    submitButtonContainer: {
-      width: '100%',
-      backgroundColor: theme.buttons.default.background,
-      padding: 5,
-      borderRadius: 5,
-      alignItems: 'center',
-    },
-    submitButtonText: {
-      color: theme.buttons.default.color,
-    },
   });
-
-  function renderUserItem(item: UserSectionData) {
-    return <Text style={{ fontSize: 16 }}>{item.username}</Text>;
-  }
-
-  function renderGroupItem(item: GroupSectionData) {
-    return <Text style={{ fontSize: 16 }}>{item.groupName}</Text>;
-  }
-
-  function renderItem({
-    item,
-    index,
-    section,
-  }: SectionListRenderItemInfo<UserSectionData | GroupSectionData, SectionT>) {
-    switch (section.type) {
-      case SectionType.user: {
-        return (
-          <ListItem last={index === section.data.length - 1} onPress={() => console.log(item.id)}>
-            {renderUserItem(item as UserSectionData)}
-          </ListItem>
-        );
-      }
-
-      case SectionType.group: {
-        return (
-          <ListItem last={index === section.data.length - 1} onPress={() => console.log(item.id)}>
-            {renderGroupItem(item as GroupSectionData)}
-          </ListItem>
-        );
-      }
-
-      default: {
-        return <View />;
-      }
-    }
-  }
-
-  function renderSectionHeader({ section: { title } }: { section: SectionListData<any, SectionT> }) {
-    return (
-      <View style={{ paddingVertical: 5, backgroundColor: '#fff' }}>
-        <Text style={{ fontWeight: 'bold' }}>{title}</Text>
-      </View>
-    );
-  }
 
   return (
     <>
@@ -236,30 +50,95 @@ export default function AddPaymentButton({ onPress, iconStyle }: AddPaymentButto
           <MaterialCommunityIcons name="credit-card-plus-outline" style={[iconStyle]} />
         </PescaButton>
       </View>
-      <Flyout isOpen={isOpen} close={() => setOpen(false)}>
-        <View style={[styles.flyoutContent]}>
-          <View style={[styles.flyoutHeaderContainer]}>
-            <Text style={[styles.flyoutHeading]}>Add a payment</Text>
-            <PescaInputField
-              label="Search for a user"
-              value={value}
-              onChangeText={setValue}
-              onSubmitEditing={onSubmit}
-            />
-            <PescaButton onPress={onSubmit} hitSlop={hitSlop}>
-              <View style={[styles.submitButtonContainer]}>
-                <Text style={[styles.submitButtonText]}>Search</Text>
+      <Pesca.Navigator isOpen={isOpen} setOpen={open => setOpen(open)} heading={'Add a payment'}>
+        <Pesca.Screen name={'SeachListView'} component={SearchListView} />
+        <Pesca.Screen name={'Second Screen'} component={SecondScreen} />
+      </Pesca.Navigator>
+    </>
+  );
+}
+
+type SecondScreenParams = {
+  item?: {
+    id: string;
+    username: string;
+  };
+};
+
+function SecondScreen({ name, navigation, params }: ScreenComponentProps & SecondScreenParams) {
+  const p: SecondScreenParams = params;
+
+  const theme = useContext(ThemeContext);
+  const styles = StyleSheet.create({
+    backButtonContainer: {
+      paddingTop: 5,
+      paddingBottom: 20,
+    },
+    backButtonText: {
+      color: theme.buttons.default.background,
+    },
+  });
+
+  const [value, setValue] = useState(defaultValue);
+
+  useEffect(() => {
+    setValue(defaultValue);
+  }, [params]);
+
+  const [amountFieldInFocus, setAmountFieldFocus] = useState(false);
+
+  return (
+    <>
+      <TouchableWithoutFeedback onPress={() => setAmountFieldFocus(false)}>
+        <View
+          style={{
+            width: '100%',
+            minHeight: 300,
+          }}>
+          <View style={[styles.backButtonContainer]}>
+            <PescaButton
+              onPress={() => {
+                setAmountFieldFocus(false);
+                navigation.back();
+              }}>
+              <Text style={[styles.backButtonText]}>{'<'} Back</Text>
+            </PescaButton>
+          </View>
+
+          <PescaAmountField
+            label={`Payment for ${p?.item?.username}`}
+            focus={amountFieldInFocus}
+            setFocus={setAmountFieldFocus}
+            value={value}
+            setValue={setValue}
+          />
+          <View
+            style={{
+              width: '100%',
+              marginTop: 20,
+            }}>
+            <PescaButton>
+              <View
+                style={{
+                  width: '100%',
+                  justifyContent: 'center',
+                  backgroundColor: theme.buttons.default.background,
+                  padding: 5,
+                  borderRadius: 10,
+                }}>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontSize: 24,
+                    color: theme.buttons.default.color,
+                  }}>
+                  Next
+                </Text>
               </View>
             </PescaButton>
           </View>
-          <SectionList
-            initialNumToRender={20}
-            sections={sections}
-            renderItem={renderItem}
-            renderSectionHeader={renderSectionHeader}
-          />
         </View>
-      </Flyout>
+      </TouchableWithoutFeedback>
     </>
   );
 }

@@ -2,6 +2,7 @@ import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
 import {
+  KeyboardTypeOptions,
   NativeSyntheticEvent,
   StyleProp,
   StyleSheet,
@@ -12,6 +13,36 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
+type TextContentType =
+  | 'none'
+  | 'URL'
+  | 'addressCity'
+  | 'addressCityAndState'
+  | 'addressState'
+  | 'countryName'
+  | 'creditCardNumber'
+  | 'emailAddress'
+  | 'familyName'
+  | 'fullStreetAddress'
+  | 'givenName'
+  | 'jobTitle'
+  | 'location'
+  | 'middleName'
+  | 'name'
+  | 'namePrefix'
+  | 'nameSuffix'
+  | 'nickname'
+  | 'organizationName'
+  | 'postalCode'
+  | 'streetAddressLine1'
+  | 'streetAddressLine2'
+  | 'sublocality'
+  | 'telephoneNumber'
+  | 'username'
+  | 'password'
+  | 'newPassword'
+  | 'oneTimeCode';
+
 type PescaInputFieldProps = {
   label?: string;
   placeholder?: string;
@@ -20,6 +51,8 @@ type PescaInputFieldProps = {
   value?: string;
   onSubmitEditing?: (e?: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => void;
   style?: StyleProp<TextStyle>;
+  keyboardType?: KeyboardTypeOptions;
+  textContentType?: TextContentType;
 };
 
 export default function PescaInputField({
@@ -30,6 +63,8 @@ export default function PescaInputField({
   onChangeText,
   onSubmitEditing,
   style,
+  textContentType,
+  keyboardType = 'default',
 }: PescaInputFieldProps) {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
@@ -60,7 +95,7 @@ export default function PescaInputField({
         placeholder={placeholder}
         style={[styles.input, style]}
         placeholderTextColor={theme.input.placeholder}
-        textContentType="password"
+        textContentType={textContentType}
         autoCorrect={false}
         enablesReturnKeyAutomatically={true}
         secureTextEntry={secureTextEntry}
@@ -68,6 +103,7 @@ export default function PescaInputField({
         onChangeText={onChangeText}
         autoCapitalize="none"
         onSubmitEditing={onSubmitEditing}
+        keyboardType={keyboardType}
       />
     </View>
   );

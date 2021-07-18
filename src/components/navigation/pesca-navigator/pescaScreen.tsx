@@ -1,7 +1,7 @@
 import { PescaNavContextType } from '@api/PescaNavContextType';
 import { animated, useSpring } from '@react-spring/native';
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { LayoutAnimation, StyleSheet, View } from 'react-native';
 
 type PescaScreenProps = {
   name: string;
@@ -11,6 +11,7 @@ type PescaScreenProps = {
 export type ScreenComponentProps = {
   navigation: PescaNavContextType;
   name: string;
+  params?: any;
 };
 
 /**
@@ -55,7 +56,7 @@ export function createPescaScreen(
 
     // style for rendering the offset and opacity of this screen
     const [offsetStyle, setOffsetStyle] = useSpring(() => ({
-      left: '0%',
+      left: `-${navContext.current * 100}%`,
       opacity: 1,
     }));
 
@@ -73,10 +74,16 @@ export function createPescaScreen(
         }
         setAnimating(true);
 
+        LayoutAnimation.easeInEaseOut();
         // start animation for opacity and offset
         setOffsetStyle.start({
-          left: `-${navContext.current * 100}%`,
-          opacity: isCurrent ? 1 : 0,
+          from: {
+            opacity: isCurrent ? 0 : 1,
+          },
+          to: {
+            left: `-${navContext.current * 100}%`,
+            opacity: isCurrent ? 1 : 0,
+          },
           onResolve() {
             // after finishing animation update reference to "last current"
             setAnimating(false);
@@ -115,7 +122,11 @@ export function createPescaScreen(
       },
     });
 
-    const componentProps: ScreenComponentProps = { name, navigation: navContext };
+    const componentProps: ScreenComponentProps = {
+      name,
+      navigation: navContext,
+      params: navContext.screens[index]?.params,
+    };
     return (
       <animated.View style={[style.screenWrapper, offsetStyle]}>
         <View style={style.dummyWrapper}>
