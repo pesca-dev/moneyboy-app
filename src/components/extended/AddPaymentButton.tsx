@@ -61,7 +61,7 @@ export default function AddPaymentButton({ onPress, iconStyle }: AddPaymentButto
 type SecondScreenParams = {
   item?: {
     id: string;
-    username: string;
+    name: string;
   };
 };
 
@@ -106,7 +106,7 @@ function SecondScreen({ name, navigation, params }: ScreenComponentProps & Secon
           </View>
 
           <PescaAmountField
-            label={`Payment for ${p?.item?.username}`}
+            label={`Payment for ${p?.item?.name}`}
             focus={amountFieldInFocus}
             setFocus={setAmountFieldFocus}
             value={value}

@@ -14,13 +14,13 @@ export default function Footer({ children, style }: PropsWithChildren<FooterProp
   const styles = StyleSheet.create({
     footerWrapper: {
       backgroundColor: theme.content.background,
+      margin: 20,
     },
     footer: {
       height: 60,
       backgroundColor: theme.footer.background,
       shadowColor: theme.footer.shadow,
-      borderTopRightRadius: 20,
-      borderTopLeftRadius: 20,
+      borderRadius: 20,
       shadowOffset: {
         height: 0,
         width: 0,

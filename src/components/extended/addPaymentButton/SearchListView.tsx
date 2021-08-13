@@ -7,118 +7,105 @@ import React, { useState } from 'react';
 import { Insets, SectionList, SectionListData, SectionListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
-enum SectionType {
-  user,
-  group,
-}
-
-type UserSectionData = {
-  username: string;
+type SectionData = {
   id: string;
+  name: string;
 };
 
-const users: UserSectionData[] = [
+const users: SectionData[] = [
   {
-    username: 'User a',
+    name: 'User a',
     id: uuid(),
   },
   {
-    username: 'User b',
+    name: 'User b',
     id: uuid(),
   },
   {
-    username: 'User c',
+    name: 'User c',
     id: uuid(),
   },
   {
-    username: 'User d',
+    name: 'User d',
     id: uuid(),
   },
   {
-    username: 'User e',
+    name: 'User e',
     id: uuid(),
   },
   {
-    username: 'User f',
+    name: 'User f',
     id: uuid(),
   },
   {
-    username: 'User g',
+    name: 'User g',
     id: uuid(),
   },
   {
-    username: 'User h',
+    name: 'User h',
     id: uuid(),
   },
   {
-    username: 'User i',
+    name: 'User i',
     id: uuid(),
   },
 ];
 
-type GroupSectionData = {
-  groupName: string;
-  id: string;
-};
-
-const groups: GroupSectionData[] = [
+const groups: SectionData[] = [
   {
-    groupName: 'Group a',
+    name: 'Group a',
     id: uuid(),
   },
   {
-    groupName: 'Group b',
+    name: 'Group b',
     id: uuid(),
   },
   {
-    groupName: 'Group c',
+    name: 'Group c',
     id: uuid(),
   },
   {
-    groupName: 'Group d',
+    name: 'Group d',
     id: uuid(),
   },
   {
-    groupName: 'Group e',
+    name: 'Group e',
     id: uuid(),
   },
   {
-    groupName: 'Group f',
+    name: 'Group f',
     id: uuid(),
   },
   {
-    groupName: 'Group g',
+    name: 'Group g',
     id: uuid(),
   },
   {
-    groupName: 'Group h',
+    name: 'Group h',
     id: uuid(),
   },
   {
-    groupName: 'Group i',
+    name: 'Group i',
     id: uuid(),
   },
   {
-    groupName: 'Group j',
+    name: 'Group j',
     id: uuid(),
   },
 ];
 
 type SectionT = {
   title: string;
-  type: SectionType;
-  data: any[];
+  data: SectionData[];
 };
 
 const sections: SectionT[] = [
   {
     title: 'Users',
-    type: SectionType.user,
     data: users,
   },
   {
     title: 'Groups',
-    type: SectionType.group,
     data: groups,
   },
 ];
@@ -136,46 +123,19 @@ export function SearchListView({ navigation }: ScreenComponentProps) {
     left: 0,
   };
 
-  function renderUserItem(item: UserSectionData) {
-    return <Text style={{ fontSize: 16 }}>{item.username}</Text>;
-  }
-
-  function renderGroupItem(item: GroupSectionData) {
-    return <Text style={{ fontSize: 16 }}>{item.groupName}</Text>;
-  }
-
-  function renderItem({
-    item,
-    index,
-    section,
-  }: SectionListRenderItemInfo<UserSectionData | GroupSectionData, SectionT>) {
-    switch (section.type) {
-      case SectionType.user: {
-        return (
-          <ListItem
-            last={index === section.data.length - 1}
-            onPress={() =>
-              navigation.next({
-                item,
-              })
-            }>
-            {renderUserItem(item as UserSectionData)}
-          </ListItem>
-        );
-      }
-
-      case SectionType.group: {
-        return (
-          <ListItem last={index === section.data.length - 1} onPress={() => console.log(item.id)}>
-            {renderGroupItem(item as GroupSectionData)}
-          </ListItem>
-        );
-      }
-
-      default: {
-        return <View />;
-      }
-    }
+  function renderItem({ item, index, section }: SectionListRenderItemInfo<SectionData, SectionT>) {
+    return (
+      <ListItem
+        last={index === section.data.length - 1}
+        key={item.id}
+        onPress={() =>
+          navigation.next({
+            item,
+          })
+        }>
+        <Text style={{ fontSize: 16 }}>{item.name}</Text>
+      </ListItem>
+    );
   }
 
   function renderSectionHeader({ section: { title } }: { section: SectionListData<any, SectionT> }) {
@@ -226,7 +186,14 @@ export function SearchListView({ navigation }: ScreenComponentProps) {
       </View>
       <SectionList
         initialNumToRender={20}
-        sections={sections}
+        sections={sections
+          .map(s => {
+            return {
+              ...s,
+              data: s.data.filter(d => d.name.toLowerCase().includes(value.toLowerCase())),
+            };
+          })
+          .filter(s => s.data.length > 0)}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
       />

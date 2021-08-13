@@ -126,7 +126,7 @@ const defaultTheme: ThemeType = {
   },
   list: {
     header: {
-      color: palette.shades.veryDark,
+      color: palette.shades.black,
       background: palette.shades.white,
       shadow: palette.shades.soft,
     },

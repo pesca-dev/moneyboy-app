@@ -1,7 +1,6 @@
 import CenterButton from '@components/extended/CenterButton';
 import PescaTabIcon from '@components/navigation/PescaTabIcon';
 import Footer from '@components/structure/Footer';
-import variables from '@config/variables';
 import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
 import { Route } from '@react-navigation/native';
 import React from 'react';
@@ -53,11 +52,13 @@ const styles = StyleSheet.create({
   footer: {
     bottom: 0,
     width: '100%',
-    height: variables.display.footer.height,
+    height: 64,
+    position: 'absolute',
   },
   tabBarContainer: {
     flexDirection: 'row',
     width: '100%',
+    paddingHorizontal: 8,
   },
   tabContainer: {
     flex: 1,
