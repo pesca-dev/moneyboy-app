@@ -8,6 +8,7 @@
     "start": "react-native start",
     "build": "tsc",
     "test": "jest",
+    "docs": "typedoc App.tsx ./src --tsconfig ./tsconfig.json",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
