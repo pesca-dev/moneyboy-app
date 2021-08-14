@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.moneyboy">
+  package="dev.pesca.app.moneyboy">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
