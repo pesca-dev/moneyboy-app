@@ -1,4 +1,4 @@
-package com.moneyboy;
+package dev.pesca.app.moneyboy;
 
 import com.facebook.react.ReactActivity;
 
