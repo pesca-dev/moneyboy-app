@@ -21,5 +21,5 @@ jobs:
     - name: Install fastlane
       run: bundle install
     - name: Build the app
-      run: bundle exec fastlane build
+      run: bundle exec fastlane build_only
       working-directory: ios

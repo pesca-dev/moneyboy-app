@@ -17,10 +17,12 @@ default_platform(:ios)
 
 platform :ios do
   desc "Builds the app without a provisioning profile"
-  lane :build do
+  lane :build_only do
     xcodebuild(
       scheme: "MoneyBoy",
-      workspace: "MoneyBoy.xcworkspace"
+      workspace: "MoneyBoy.xcworkspace",
+      destination: "generic/platform=iOS",
+      xcargs: " build-for-testing"
     )
   end
 
