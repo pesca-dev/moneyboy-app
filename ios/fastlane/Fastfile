@@ -21,8 +21,9 @@ platform :ios do
     xcodebuild(
       scheme: "MoneyBoy",
       workspace: "MoneyBoy.xcworkspace",
-      destination: "generic/platform=iOS",
-      xcargs: " build-for-testing"
+      sdk: "iphonesimulator",
+      destination: "platform=iOS Simulator,name=iPhone 12,OS=14.7",
+      xcargs: "build-for-testing"
     )
   end
 
