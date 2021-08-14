@@ -22,7 +22,7 @@ platform :ios do
       scheme: "MoneyBoy",
       workspace: "MoneyBoy.xcworkspace",
       sdk: "iphonesimulator",
-      destination: "platform=iOS Simulator,name=iPhone 12,OS=14.7",
+      destination: "platform=iOS Simulator,name=iPhone 12,OS=14.4",
       xcargs: "build-for-testing"
     )
   end
