@@ -18,7 +18,7 @@ default_platform(:android)
 platform :android do
   desc "Builds the app"
   lane :build do
-    gradle(task: "assemble")
+    gradle(task: "assembleRelease")
   end
 
   desc "Runs all the tests"
