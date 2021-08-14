@@ -18,7 +18,10 @@ default_platform(:ios)
 platform :ios do
   desc "Builds the app"
   lane :build do
-    build_app
+    xcodebuild(
+      scheme: "MoneyBoy",
+      workspace: "MoneyBoy.xcworkspace"
+    )
   end
 
   # desc "Description of what the lane does"
