@@ -16,7 +16,7 @@ jobs:
     - name: Install npm dependencies
       run: npm ci
     - name: Install Ruby and Fastlane
-      run: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6
         bundler-cache: true # runs `bundle install`
