@@ -1,0 +1,15 @@
+name: iOS Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install fastlane
+      run: bundle install
+    - name: Build the app
+      run: bundle exec fastlane build
+      working-directory: ios
