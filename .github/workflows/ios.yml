@@ -10,6 +10,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install fastlane
       run: bundle install
+    - name: Install pod dependencies
+      run: pod install
+      working-directory: ios
     - name: Build the app
       run: bundle exec fastlane build
       working-directory: ios

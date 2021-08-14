@@ -16,7 +16,7 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Builds the app"
+  desc "Builds the app without a provisioning profile"
   lane :build do
     xcodebuild(
       scheme: "MoneyBoy",
