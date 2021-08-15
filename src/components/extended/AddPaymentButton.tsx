@@ -51,7 +51,7 @@ export default function AddPaymentButton({ onPress, iconStyle }: AddPaymentButto
       </View>
       <Pesca.Navigator isOpen={isOpen} setOpen={open => setOpen(open)} heading={'Add a payment'}>
         <Pesca.Screen name={'SeachListView'} component={SearchListView} />
-        <Pesca.Screen name={'Second Screen'} component={EnterPaymentView} />
+        <Pesca.Screen name={'EnterPaymentView'} component={EnterPaymentView} />
       </Pesca.Navigator>
     </>
   );
