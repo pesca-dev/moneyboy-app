@@ -1,6 +1,5 @@
+import { ThemeType as ThemeType } from '@api/ThemeType';
 import React, { PropsWithChildren } from 'react';
-
-import { StyleType as ThemeType } from '@api/ThemeType';
 
 type ThemeContextProviderProps = {};
 
@@ -46,7 +45,7 @@ const palette = {
   },
 };
 
-const defaultColors: ThemeType = {
+const defaultTheme: ThemeType = {
   default: {
     white: palette.shades.white,
     black: palette.shades.black,
@@ -111,6 +110,10 @@ const defaultColors: ThemeType = {
     },
   },
   flyout: {
+    heading: {
+      color: palette.shades.black,
+      fontSize: 24,
+    },
     background: palette.shades.white,
     shadow: palette.shades.soft,
     icon: {
@@ -123,7 +126,7 @@ const defaultColors: ThemeType = {
   },
   list: {
     header: {
-      color: palette.shades.veryDark,
+      color: palette.shades.black,
       background: palette.shades.white,
       shadow: palette.shades.soft,
     },
@@ -144,10 +147,10 @@ const defaultColors: ThemeType = {
   },
 };
 
-export const ThemeContext = React.createContext<ThemeType>(defaultColors);
+export const ThemeContext = React.createContext<ThemeType>(defaultTheme);
 
 export function ThemeContextProvider({ children }: PropsWithChildren<ThemeContextProviderProps>) {
-  const style: ThemeType = defaultColors;
+  const style: ThemeType = defaultTheme;
 
   return <ThemeContext.Provider value={style}>{children}</ThemeContext.Provider>;
 }

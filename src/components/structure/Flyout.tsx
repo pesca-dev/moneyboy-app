@@ -1,12 +1,10 @@
-import React, { PropsWithChildren } from 'react';
-import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
-import Modal from 'react-native-modal';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import PescaButton from '@components/input/PescaButton';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
+import React, { PropsWithChildren } from 'react';
+import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
+import Modal from 'react-native-modal';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type FlyoutProps = {
   isOpen: boolean;
@@ -64,6 +62,9 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
       display: 'flex',
       overflow: 'hidden',
     },
+    contentWrapper: {
+      paddingBottom: 25,
+    },
   });
 
   return (
@@ -80,7 +81,7 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
       backdropOpacity={0.5}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.flyoutContainer]}>
         {/* <View style={[styles.flyoutContainer]}> */}
-        <SafeAreaView>{children}</SafeAreaView>
+        <View style={[styles.contentWrapper]}>{children}</View>
 
         {/* Close Button */}
         <View style={[styles.closeButtonContainer]}>

@@ -1,7 +1,6 @@
+import { ThemeContext } from '@context/ThemeContext';
 import React, { PropsWithChildren } from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
-
-import { ThemeContext } from '@context/ThemeContext';
 
 interface FooterProps {
   style?: StyleProp<ViewStyle>;
@@ -15,13 +14,13 @@ export default function Footer({ children, style }: PropsWithChildren<FooterProp
   const styles = StyleSheet.create({
     footerWrapper: {
       backgroundColor: theme.content.background,
+      marginHorizontal: 20,
     },
     footer: {
       height: 60,
       backgroundColor: theme.footer.background,
       shadowColor: theme.footer.shadow,
-      borderTopRightRadius: 20,
-      borderTopLeftRadius: 20,
+      borderRadius: 20,
       shadowOffset: {
         height: 0,
         width: 0,

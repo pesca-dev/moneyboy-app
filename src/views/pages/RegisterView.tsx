@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
-import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
-
 import PescaButton from '@components/input/PescaButton';
 import PescaInputField from '@components/input/PescaInputField';
-import { AuthContext } from '@context/AuthContext';
-import { ScrollView } from 'react-native-gesture-handler';
 import variables from '@config/variables';
+import { AuthContext } from '@context/AuthContext';
 import { ThemeContext } from '@context/ThemeContext';
+import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
+import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
+import React, { useEffect, useState } from 'react';
+import { KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 /**
  * Diplay message for the registration dialog.
@@ -19,7 +18,7 @@ type Messages = {
 };
 
 type RegisterViewProps = {
-  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
+  navigation: NavigationHelpers<ParamListBase, MaterialTopTabNavigationEventMap>;
 };
 
 export default function RegisterView({ navigation }: RegisterViewProps) {
@@ -157,6 +156,8 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
               value={email}
               onChangeText={setMail}
               onSubmitEditing={onSubmit}
+              textContentType="emailAddress"
+              keyboardType="email-address"
             />
             <PescaInputField
               label="Username"
@@ -164,6 +165,7 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
               value={username}
               onChangeText={setUsername}
               onSubmitEditing={onSubmit}
+              textContentType="username"
             />
             <PescaInputField
               label="Displayname"
@@ -179,6 +181,7 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
               onChangeText={setPassword}
               onSubmitEditing={onSubmit}
               secureTextEntry
+              textContentType="newPassword"
             />
             <PescaInputField
               label="Confirm Password"
@@ -188,6 +191,7 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
               onSubmitEditing={onSubmit}
               style={password !== confirmPw && styles.error}
               secureTextEntry
+              textContentType="newPassword"
             />
             <View style={[styles.buttonContainer]}>
               <PescaButton onPress={onSubmit} style={[styles.button]}>

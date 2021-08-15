@@ -1,11 +1,10 @@
+import PescaButton from '@components/input/PescaButton';
+import variables from '@config/variables';
+import { AuthContext } from '@context/AuthContext';
+import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
-import PescaButton from '@components/input/PescaButton';
-import { AuthContext } from '@context/AuthContext';
-import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
 
 type LogoutButtonProps = {};
 

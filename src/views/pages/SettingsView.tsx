@@ -1,13 +1,12 @@
-import React from 'react';
-import { SectionList } from 'react-native';
-
-import { AuthContext } from '@context/AuthContext';
+import LogoutButton from '@components/extended/LogoutButton';
 import Content from '@components/structure/Content';
 import ListItem from '@components/structure/ListItem';
-import LogoutButton from '@components/extended/LogoutButton';
-import { v4 as uuid } from 'react-native-uuid';
 import SectionHeader from '@components/structure/SectionHeader';
 import ViewBase from '@components/structure/ViewBase';
+import { AuthContext } from '@context/AuthContext';
+import React from 'react';
+import { SectionList } from 'react-native';
+import { v4 as uuid } from 'react-native-uuid';
 
 export default function SettingsView() {
   const { user } = React.useContext(AuthContext);

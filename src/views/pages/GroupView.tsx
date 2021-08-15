@@ -1,10 +1,9 @@
+import GroupListItem from '@components/extended/GroupListItem';
+import SectionHeader from '@components/structure/SectionHeader';
+import ViewBase from '@components/structure/ViewBase';
 import React from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
-
-import SectionHeader from '@components/structure/SectionHeader';
-import ViewBase from '@components/structure/ViewBase';
-import GroupListItem from '@components/extended/GroupListItem';
 
 type Group = {
   name: string;

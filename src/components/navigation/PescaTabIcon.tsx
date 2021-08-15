@@ -1,14 +1,14 @@
-import React from 'react';
-import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
-import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
-import { NavigationHelpers } from '@react-navigation/core';
-import { ParamListBase } from '@react-navigation/routers';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
+import { NavigationHelpers } from '@react-navigation/core';
+import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
+import { ParamListBase } from '@react-navigation/routers';
+import React from 'react';
+import { Insets, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type PescaTabProps = {
-  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
+  navigation: NavigationHelpers<ParamListBase, MaterialTopTabNavigationEventMap>;
   focussed?: boolean;
   disabled?: boolean;
   name: string;
@@ -18,7 +18,7 @@ type PescaTabProps = {
 /**
  * Custom tab for being used inside of custom pesca tab bar for react-native-navigation.
  */
-export default function PescaTab({ name, navigation, icon, focussed, disabled }: PescaTabProps) {
+export default function PescaTabIcon({ name, navigation, icon, focussed, disabled }: PescaTabProps) {
   function navigate() {
     navigation.navigate(name);
   }
@@ -49,17 +49,16 @@ export default function PescaTab({ name, navigation, icon, focussed, disabled }:
     },
   });
 
+  const hitStops: Insets = {
+    top: 20,
+    right: 20,
+    bottom: 20,
+    left: 20,
+  };
+
   return (
     <View style={styles.tab}>
-      <TouchableWithoutFeedback
-        onPress={navigate}
-        disabled={disabled}
-        hitSlop={{
-          top: 40,
-          right: 40,
-          bottom: 40,
-          left: 40,
-        }}>
+      <TouchableWithoutFeedback onPress={navigate} disabled={disabled} hitSlop={hitStops}>
         <View>
           <MaterialCommunityIcons
             name={icon}

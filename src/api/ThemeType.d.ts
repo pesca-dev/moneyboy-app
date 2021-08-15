@@ -1,7 +1,7 @@
 /**
  * Global type for a theme.
  */
-export type StyleType = {
+export type ThemeType = {
   default: {
     white: string;
     black: string;
@@ -66,6 +66,10 @@ export type StyleType = {
     };
   };
   flyout: {
+    heading: {
+      color: string;
+      fontSize: number;
+    };
     background: string;
     shadow: string;
     icon: {

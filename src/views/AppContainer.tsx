@@ -1,8 +1,7 @@
 import PescaTabBar from '@components/navigation/PescaTabBar';
 import { AuthContext } from '@context/AuthContext';
-import { FlyoutContextProvider } from '@context/FlyoutContext';
 import { ThemeContext } from '@context/ThemeContext';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import GroupView from '@views/pages/GroupView';
 import HistoryView from '@views/pages/HistoryView';
@@ -14,7 +13,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 
 /**
  * Container for the app and the navigation.
@@ -31,33 +30,28 @@ export default function AppContainer() {
 
   return (
     <>
-      <FlyoutContextProvider>
-        <NavigationContainer>
-          {ready && (
-            <Tab.Navigator
-              tabBar={props => loggedIn && <PescaTabBar {...props} />}
-              sceneContainerStyle={[styles.sceneContainer]}>
-              {loggedIn ? (
-                <>
-                  <Tab.Screen name="Overview" component={MainView} initialParams={{ icon: 'home-outline' }} />
-                  <Tab.Screen
-                    name="Groups"
-                    component={GroupView}
-                    initialParams={{ icon: 'account-multiple-outline' }}
-                  />
-                  <Tab.Screen name="History" component={HistoryView} initialParams={{ icon: 'history' }} />
-                  <Tab.Screen name="Settings" component={SettingsView} initialParams={{ icon: 'cog-outline' }} />
-                </>
-              ) : (
-                <>
-                  <Tab.Screen key={uuid()} name="login" component={LoginView} />
-                  <Tab.Screen key={uuid()} name="register" component={RegisterView} />
-                </>
-              )}
-            </Tab.Navigator>
-          )}
-        </NavigationContainer>
-      </FlyoutContextProvider>
+      <NavigationContainer>
+        {ready && (
+          <Tab.Navigator
+            tabBar={props => loggedIn && <PescaTabBar {...props} />}
+            tabBarPosition="bottom"
+            sceneContainerStyle={[styles.sceneContainer]}>
+            {loggedIn ? (
+              <>
+                <Tab.Screen name="Overview" component={MainView} initialParams={{ icon: 'home-outline' }} />
+                <Tab.Screen name="Groups" component={GroupView} initialParams={{ icon: 'account-multiple-outline' }} />
+                <Tab.Screen name="History" component={HistoryView} initialParams={{ icon: 'history' }} />
+                <Tab.Screen name="Settings" component={SettingsView} initialParams={{ icon: 'cog-outline' }} />
+              </>
+            ) : (
+              <>
+                <Tab.Screen key={uuid()} name="login" component={LoginView} />
+                <Tab.Screen key={uuid()} name="register" component={RegisterView} />
+              </>
+            )}
+          </Tab.Navigator>
+        )}
+      </NavigationContainer>
     </>
   );
 }

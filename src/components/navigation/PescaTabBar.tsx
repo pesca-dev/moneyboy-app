@@ -1,14 +1,13 @@
-import CenterButton from '@components/input/CenterButton';
-import PescaTab from '@components/navigation/PescaTab';
+import CenterButton from '@components/extended/CenterButton';
+import PescaTabIcon from '@components/navigation/PescaTabIcon';
 import Footer from '@components/structure/Footer';
-import variables from '@config/variables';
-import { BottomTabBarOptions, BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
 import { Route } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
-type PescaTabUIProps<T = BottomTabBarOptions> = BottomTabBarProps<T> & {};
+type PescaTabUIProps = MaterialTopTabBarProps & {};
 
 /**
  * Custom tab bar for being used in react-anative-navigation.
@@ -23,7 +22,7 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
    */
   function renderTab(route: Route<any, any>) {
     return (
-      <PescaTab
+      <PescaTabIcon
         key={uuid()}
         name={route.name}
         icon={route.params?.icon}
@@ -35,29 +34,29 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
   }
 
   return (
-    <View>
+    <SafeAreaView style={[]}>
       <Footer style={styles.footer}>
-        <SafeAreaView>
-          <View style={styles.tabBarContainer}>
-            <View style={styles.tabContainer}>{leftTabs.map(tab => renderTab(tab))}</View>
-            <CenterButton />
-            <View style={styles.tabContainer}>{rightTabs.map(tab => renderTab(tab))}</View>
-          </View>
-        </SafeAreaView>
+        <View style={styles.tabBarContainer}>
+          <View style={styles.tabContainer}>{leftTabs.map(tab => renderTab(tab))}</View>
+          <CenterButton />
+          <View style={styles.tabContainer}>{rightTabs.map(tab => renderTab(tab))}</View>
+        </View>
       </Footer>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeAreaView: {
+    paddingBottom: 10,
+  },
   footer: {
-    bottom: 0,
-    width: '100%',
-    height: variables.display.footer.height,
+    height: 64,
   },
   tabBarContainer: {
     flexDirection: 'row',
     width: '100%',
+    paddingHorizontal: 8,
   },
   tabContainer: {
     flex: 1,

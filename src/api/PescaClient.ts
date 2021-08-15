@@ -20,7 +20,7 @@ export interface PescaClient {
    *
    * @returns currently logged in user, or `null`, if no user is logged in
    */
-  getUser(): Promise<Pesca.User | null>;
+  getUser(): Promise<Pesca.UserProfileInformation | null>;
 
   /**
    * Try to register a new user.
