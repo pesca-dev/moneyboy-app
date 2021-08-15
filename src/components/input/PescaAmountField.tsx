@@ -1,5 +1,6 @@
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
+import { formatAmount } from '@util/amountUtil';
 import React, { useContext, useEffect, useRef } from 'react';
 import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
 
@@ -26,16 +27,6 @@ export default function PescaAmountField({
   value,
   setValue,
 }: PescaAmountFieldProps) {
-  function formatAmount(amount: number) {
-    return new Intl.NumberFormat('de-DE', {
-      style: 'currency',
-      currency: 'EUR',
-    })
-      .format(amount)
-      .slice(0, -1)
-      .trim();
-  }
-
   const floatRef = useRef(0);
 
   function extractNumbers(str: string) {

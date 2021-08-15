@@ -8,10 +8,10 @@ type PescaScreenProps = {
   component: React.ComponentType<any>;
 };
 
-export type ScreenComponentProps = {
-  navigation: PescaNavContextType;
+export type ScreenComponentProps<P = any, N = any> = {
+  navigation: PescaNavContextType<N>;
   name: string;
-  params?: any;
+  params?: P;
 };
 
 /**

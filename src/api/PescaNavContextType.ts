@@ -3,12 +3,13 @@ export type PescaNavContextScreen = {
   params?: any;
 };
 
-export type PescaNavContextType = {
+export type PescaNavContextType<N = any> = {
   screens: PescaNavContextScreen[];
   current: number;
   register(name: string): void;
   unregister(name: string): void;
   navigate(name: string): void;
-  next(params?: any): void;
+  next(params?: N): void;
   back(): void;
+  close(): void;
 };

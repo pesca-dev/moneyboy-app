@@ -1,7 +1,7 @@
 import { PescaNavContextScreen, PescaNavContextType } from '@api/PescaNavContextType';
 import Flyout from '@components/structure/Flyout';
 import { ThemeContext } from '@context/ThemeContext';
-import React, { PropsWithChildren, useContext, useState } from 'react';
+import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { LayoutAnimation, StyleSheet, Text, View } from 'react-native';
 
 type PescaNavigatorProps = PropsWithChildren<{
@@ -16,6 +16,12 @@ export function createPescaNavigator(
   return function ({ children, isOpen, setOpen, heading }: PescaNavigatorProps) {
     const [screens, setScreens] = useState<PescaNavContextScreen[]>([]);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+    useEffect(() => {
+      if (isOpen) {
+        setCurrentIndex(0);
+      }
+    }, [isOpen]);
 
     function register(name: string) {
       if (!screens.map(s => s.name).includes(name)) {
@@ -63,6 +69,10 @@ export function createPescaNavigator(
       setCurrentIndex(index);
     }
 
+    function close() {
+      setOpen(false);
+    }
+
     const navContext: PescaNavContextType = {
       register,
       navigate,
@@ -71,15 +81,19 @@ export function createPescaNavigator(
       current: currentIndex,
       next,
       back,
+      close,
     };
 
     const theme = useContext(ThemeContext);
-    const style = StyleSheet.create({
+    const styles = StyleSheet.create({
       screensContainer: {
         flexDirection: 'row',
         width: '100%',
       },
-      flyoutHeading: {
+      flyoutHeadingContainer: {
+        width: '100%',
+      },
+      flyoutHeadingLabel: {
         color: theme.flyout.heading.color,
         fontSize: theme.flyout.heading.fontSize,
         fontWeight: 'bold',
@@ -88,13 +102,13 @@ export function createPescaNavigator(
 
     return (
       <PescaNavContext.Provider value={navContext}>
-        <Flyout isOpen={isOpen} close={() => setOpen(false)}>
+        <Flyout isOpen={isOpen} close={close}>
           {heading && (
-            <View style={{ width: '100%' }}>
-              <Text style={[style.flyoutHeading]}>{heading}</Text>
+            <View style={[styles.flyoutHeadingContainer]}>
+              <Text style={[styles.flyoutHeadingLabel]}>{heading}</Text>
             </View>
           )}
-          <View style={[style.screensContainer]}>{children}</View>
+          <View style={[styles.screensContainer]}>{children}</View>
         </Flyout>
       </PescaNavContext.Provider>
     );

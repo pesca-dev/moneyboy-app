@@ -1,3 +1,4 @@
+import { EnterPaymentViewParams } from '@components/extended/addPaymentButton/EnterPaymentView';
 import PescaButton from '@components/input/PescaButton';
 import PescaInputField from '@components/input/PescaInputField';
 import { ScreenComponentProps } from '@components/navigation/pesca-navigator/pescaScreen';
@@ -110,7 +111,7 @@ const sections: SectionT[] = [
   },
 ];
 
-export function SearchListView({ navigation }: ScreenComponentProps) {
+export function SearchListView({ navigation }: ScreenComponentProps<any, EnterPaymentViewParams>) {
   const [value, setValue] = useState('');
   function onSubmit() {
     console.log('submit');
@@ -122,29 +123,6 @@ export function SearchListView({ navigation }: ScreenComponentProps) {
     bottom: 0,
     left: 0,
   };
-
-  function renderItem({ item, index, section }: SectionListRenderItemInfo<SectionData, SectionT>) {
-    return (
-      <ListItem
-        last={index === section.data.length - 1}
-        key={item.id}
-        onPress={() =>
-          navigation.next({
-            item,
-          })
-        }>
-        <Text style={{ fontSize: 16 }}>{item.name}</Text>
-      </ListItem>
-    );
-  }
-
-  function renderSectionHeader({ section: { title } }: { section: SectionListData<any, SectionT> }) {
-    return (
-      <View style={{ paddingVertical: 5, backgroundColor: '#fff' }}>
-        <Text style={{ fontWeight: 'bold' }}>{title}</Text>
-      </View>
-    );
-  }
 
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
@@ -160,7 +138,6 @@ export function SearchListView({ navigation }: ScreenComponentProps) {
       fontSize: theme.flyout.heading.fontSize,
       fontWeight: 'bold',
     },
-
     submitButtonContainer: {
       width: '100%',
       backgroundColor: theme.buttons.default.background,
@@ -171,7 +148,40 @@ export function SearchListView({ navigation }: ScreenComponentProps) {
     submitButtonText: {
       color: theme.buttons.default.color,
     },
+    sectionHeaderContainer: {
+      paddingVertical: 5,
+      backgroundColor: '#fff',
+    },
+    sectionHeaderLabel: {
+      fontWeight: 'bold',
+    },
+    listItem: {
+      fontSize: 16,
+    },
   });
+
+  function renderItem({ item, index, section }: SectionListRenderItemInfo<SectionData, SectionT>) {
+    return (
+      <ListItem
+        last={index === section.data.length - 1}
+        key={item.id}
+        onPress={() =>
+          navigation.next({
+            item,
+          })
+        }>
+        <Text style={[styles.listItem]}>{item.name}</Text>
+      </ListItem>
+    );
+  }
+
+  function renderSectionHeader({ section: { title } }: { section: SectionListData<any, SectionT> }) {
+    return (
+      <View style={[styles.sectionHeaderContainer]}>
+        <Text style={[styles.sectionHeaderLabel]}>{title}</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={[styles.flyoutContent]}>

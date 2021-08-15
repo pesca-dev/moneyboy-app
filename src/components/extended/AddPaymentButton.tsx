@@ -1,11 +1,12 @@
+import ConfirmPaymentView from '@components/extended/addPaymentButton/ConfirmPaymentView';
+import EnterPaymentView from '@components/extended/addPaymentButton/EnterPaymentView';
+import { SearchListView } from '@components/extended/addPaymentButton/SearchListView';
 import PescaButton from '@components/input/PescaButton';
 import { createPescaNavigation } from '@components/navigation/pesca-navigator/createPescaNavigation';
 import { ThemeContext } from '@context/ThemeContext';
 import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import EnterPaymentView from './addPaymentButton/EnterPaymentView';
-import { SearchListView } from './addPaymentButton/SearchListView';
 
 type IconStyle = {
   fontSize: number;
@@ -52,6 +53,7 @@ export default function AddPaymentButton({ onPress, iconStyle }: AddPaymentButto
       <Pesca.Navigator isOpen={isOpen} setOpen={open => setOpen(open)} heading={'Add a payment'}>
         <Pesca.Screen name={'SeachListView'} component={SearchListView} />
         <Pesca.Screen name={'EnterPaymentView'} component={EnterPaymentView} />
+        <Pesca.Screen name={'ConfirmPaymentView'} component={ConfirmPaymentView} />
       </Pesca.Navigator>
     </>
   );

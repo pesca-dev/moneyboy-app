@@ -1,20 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { ThemeContext } from '../../../context/ThemeContext';
+import { parseAmount } from '../../../util/amountUtil';
 import PescaAmountField, { defaultValue } from '../../input/PescaAmountField';
 import PescaButton from '../../input/PescaButton';
 import { ScreenComponentProps } from '../../navigation/pesca-navigator/pescaScreen';
+import { ConfirmPaymentViewParams } from './ConfirmPaymentView';
 
-type EnterPaymentViewParams = {
+export type EnterPaymentViewParams = {
   item?: {
     id: string;
     name: string;
   };
 };
 
-export default function EnterPaymentView({ navigation, params }: ScreenComponentProps & EnterPaymentViewParams) {
-  const p: EnterPaymentViewParams = params;
-
+export default function EnterPaymentView({
+  navigation,
+  params,
+}: ScreenComponentProps<EnterPaymentViewParams, ConfirmPaymentViewParams>) {
   const theme = useContext(ThemeContext);
   const styles = StyleSheet.create({
     container: {
@@ -54,6 +57,16 @@ export default function EnterPaymentView({ navigation, params }: ScreenComponent
 
   const [amountFieldInFocus, setAmountFieldFocus] = useState(false);
 
+  function handleSubmitButtonPress() {
+    const amount = parseAmount(value);
+    if (amount > 0) {
+      navigation.next({
+        ...params,
+        amount,
+      });
+    }
+  }
+
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setAmountFieldFocus(false)}>
@@ -69,14 +82,14 @@ export default function EnterPaymentView({ navigation, params }: ScreenComponent
           </View>
 
           <PescaAmountField
-            label={`Payment for ${p?.item?.name}`}
+            label={`Enter Payment for ${params?.item?.name}`}
             focus={amountFieldInFocus}
             setFocus={setAmountFieldFocus}
             value={value}
             setValue={setValue}
           />
           <View style={[styles.submitButtonContainer]}>
-            <PescaButton>
+            <PescaButton onPress={handleSubmitButtonPress}>
               <View style={[styles.submitButtonBackground]}>
                 <Text style={[styles.submitButtonText]}>Next</Text>
               </View>

@@ -13,6 +13,7 @@ module.exports = {
           '@context': './src/context',
           '@pesca': './src/pesca',
           '@config': './src/config',
+          '@util': './src/util',
         },
       },
     ],
