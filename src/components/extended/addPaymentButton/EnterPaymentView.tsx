@@ -12,17 +12,37 @@ type EnterPaymentViewParams = {
   };
 };
 
-export default function EnterPaymentView({ name, navigation, params }: ScreenComponentProps & EnterPaymentViewParams) {
+export default function EnterPaymentView({ navigation, params }: ScreenComponentProps & EnterPaymentViewParams) {
   const p: EnterPaymentViewParams = params;
 
   const theme = useContext(ThemeContext);
   const styles = StyleSheet.create({
+    container: {
+      width: '100%',
+      marginBottom: 30,
+    },
     backButtonContainer: {
       paddingTop: 5,
       paddingBottom: 20,
     },
     backButtonText: {
       color: theme.buttons.default.background,
+    },
+    submitButtonContainer: {
+      width: '100%',
+      marginTop: 20,
+    },
+    submitButtonBackground: {
+      width: '100%',
+      justifyContent: 'center',
+      backgroundColor: theme.buttons.default.background,
+      padding: 5,
+      borderRadius: 10,
+    },
+    submitButtonText: {
+      textAlign: 'center',
+      fontSize: 24,
+      color: theme.buttons.default.color,
     },
   });
 
@@ -37,11 +57,7 @@ export default function EnterPaymentView({ name, navigation, params }: ScreenCom
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setAmountFieldFocus(false)}>
-        <View
-          style={{
-            width: '100%',
-            minHeight: 300,
-          }}>
+        <View style={[styles.container]}>
           <View style={[styles.backButtonContainer]}>
             <PescaButton
               onPress={() => {
@@ -59,28 +75,10 @@ export default function EnterPaymentView({ name, navigation, params }: ScreenCom
             value={value}
             setValue={setValue}
           />
-          <View
-            style={{
-              width: '100%',
-              marginTop: 20,
-            }}>
+          <View style={[styles.submitButtonContainer]}>
             <PescaButton>
-              <View
-                style={{
-                  width: '100%',
-                  justifyContent: 'center',
-                  backgroundColor: theme.buttons.default.background,
-                  padding: 5,
-                  borderRadius: 10,
-                }}>
-                <Text
-                  style={{
-                    textAlign: 'center',
-                    fontSize: 24,
-                    color: theme.buttons.default.color,
-                  }}>
-                  Next
-                </Text>
+              <View style={[styles.submitButtonBackground]}>
+                <Text style={[styles.submitButtonText]}>Next</Text>
               </View>
             </PescaButton>
           </View>
