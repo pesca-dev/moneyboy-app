@@ -4,7 +4,7 @@ import { NavigationHelpers } from '@react-navigation/core';
 import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import { ParamListBase } from '@react-navigation/routers';
 import React from 'react';
-import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { Insets, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type PescaTabProps = {
@@ -49,17 +49,16 @@ export default function PescaTabIcon({ name, navigation, icon, focussed, disable
     },
   });
 
+  const hitStops: Insets = {
+    top: 20,
+    right: 20,
+    bottom: 20,
+    left: 20,
+  };
+
   return (
     <View style={styles.tab}>
-      <TouchableWithoutFeedback
-        onPress={navigate}
-        disabled={disabled}
-        hitSlop={{
-          top: 40,
-          right: 40,
-          bottom: 40,
-          left: 40,
-        }}>
+      <TouchableWithoutFeedback onPress={navigate} disabled={disabled} hitSlop={hitStops}>
         <View>
           <MaterialCommunityIcons
             name={icon}

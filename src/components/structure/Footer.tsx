@@ -14,7 +14,7 @@ export default function Footer({ children, style }: PropsWithChildren<FooterProp
   const styles = StyleSheet.create({
     footerWrapper: {
       backgroundColor: theme.content.background,
-      margin: 20,
+      marginHorizontal: 20,
     },
     footer: {
       height: 60,

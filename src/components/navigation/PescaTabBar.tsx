@@ -34,26 +34,24 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
   }
 
   return (
-    <View>
+    <SafeAreaView style={[]}>
       <Footer style={styles.footer}>
-        <SafeAreaView>
-          <View style={styles.tabBarContainer}>
-            <View style={styles.tabContainer}>{leftTabs.map(tab => renderTab(tab))}</View>
-            <CenterButton />
-            <View style={styles.tabContainer}>{rightTabs.map(tab => renderTab(tab))}</View>
-          </View>
-        </SafeAreaView>
+        <View style={styles.tabBarContainer}>
+          <View style={styles.tabContainer}>{leftTabs.map(tab => renderTab(tab))}</View>
+          <CenterButton />
+          <View style={styles.tabContainer}>{rightTabs.map(tab => renderTab(tab))}</View>
+        </View>
       </Footer>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeAreaView: {
+    paddingBottom: 10,
+  },
   footer: {
-    bottom: 0,
-    width: '100%',
     height: 64,
-    position: 'absolute',
   },
   tabBarContainer: {
     flexDirection: 'row',
