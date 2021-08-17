@@ -1,0 +1,21 @@
+name: MoneyBoy
+
+targets:
+  MoneyBoy:
+    type: application
+    platform: iOS
+    deploymentTarget: "10.0"
+    sources: [MoneyBoy]
+    scheme:
+      testTargets:
+        - MoneyBoyTests
+  MoneyBoyTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [MoneyBoyTests]
+  MoneyBoy-tvOS:
+    type: application
+    platform: tvOS
+  MoneyBoy-tvOSTests:
+    type: bundle.unit-test
+    platform: tvOS
