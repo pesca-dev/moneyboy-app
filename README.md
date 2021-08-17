@@ -15,10 +15,10 @@ First, make sure to have the following installed on your system:
 * Ruby and Bundler (for Fastlane)
 * Python 3 (for scripts)
 * For iOS development:
-  * Xcode
+  * Xcode 12
   * Homebrew
 * For Android development:
-  * Java
+  * Java 14
 
 To bootstrap a development environment, run `scripts/setup --ios` or `scripts/setup --android`, depending on which platform you want to build for. This should e.g. generate the corresponding Xcode project and install the required dependencies.
 
