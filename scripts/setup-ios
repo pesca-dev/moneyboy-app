@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+# Generates the Xcode project and installs the CocoaPods dependencies.
+# Requires CocoaPods and Xcodegen to be installed.
+#
+# Based on https://github.com/pvinis/react-native-xcodegen/blob/master/make
+
+set -e
+
+cd $(dirname $0)/../ios
+
+touch main.jsbundle
+xcodegen generate
+rm -rf main.jsbundle
+pod install

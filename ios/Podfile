@@ -44,12 +44,3 @@ target 'MoneyBoy' do
     end
   end
 end
-
-target 'MoneyBoy-tvOS' do
-  # Pods for MoneyBoy-tvOS
-
-  target 'MoneyBoy-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-end
