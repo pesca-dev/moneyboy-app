@@ -805,7 +805,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = X7TM82FK3L;
+				DEVELOPMENT_TEAM = <DEVTEAM_PLACEHOLDER>;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MoneyBoy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -834,7 +834,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = X7TM82FK3L;
+				DEVELOPMENT_TEAM = <DEVTEAM_PLACEHOLDER>;
 				INFOPLIST_FILE = MoneyBoy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.1.0;
