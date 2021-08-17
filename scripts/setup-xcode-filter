@@ -6,6 +6,7 @@
 # checkout.
 
 DEVTEAM_PLACEHOLDER='<DEVTEAM_PLACEHOLDER>'
+DEVTEAM_FIELD_PREFIX='DEVELOPMENT_TEAM\s*=\s*'
 FILTER_NAME='xcodeTeam'
 
 set -e
@@ -18,8 +19,8 @@ if [ -z "$devteam" ]; then
     exit 1
 fi
 
-git config filter.$FILTER_NAME.clean "sed 's/\\(DEVELOPMENT_TEAM\s*=\s*\\)\\(\w\+\\)/\1$DEVTEAM_PLACEHOLDER/'"
-git config filter.$FILTER_NAME.smudge "sed 's/$DEVTEAM_PLACEHOLDER/$devteam/'"
+git config filter.$FILTER_NAME.clean "sed 's/\\($DEVTEAM_FIELD_PREFIX\\)\\(\w\+\\)/\1$DEVTEAM_PLACEHOLDER/'"
+git config filter.$FILTER_NAME.smudge "sed 's/\\($DEVTEAM_FIELD_PREFIX\\)$DEVTEAM_PLACEHOLDER/\1$devteam/'"
 
 echo "Configured Git filter '$FILTER_NAME' to use team '$devteam'"
 echo "You may now want to re-checkout the Xcode project using 'scripts/recheckout-xcodeproj'"
