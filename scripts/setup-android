@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# Bootstraps an Android development environment.
+
+set -e
+cd $(dirname $0)/..
+
+# Install Gradle dependencies.
+cd android
+./gradlew dependencies

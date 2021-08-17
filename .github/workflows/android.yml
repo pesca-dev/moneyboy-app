@@ -13,13 +13,12 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-    - name: Install npm dependencies
-      run: npm ci
     - name: Install Ruby and Fastlane
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6
-        bundler-cache: true # runs `bundle install`
+    - name: Set up environment (dependencies)
+      run: scripts/setup --android --ci
     - name: Build the app
       run: bundle exec fastlane build
       working-directory: android
