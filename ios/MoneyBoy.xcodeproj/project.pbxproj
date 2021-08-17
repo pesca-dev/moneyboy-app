@@ -8,19 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MoneyBoyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoneyBoyTests.m */; };
-		127F42C85F57285701ACB799 /* libPods-MoneyBoy-MoneyBoyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A045146A60FA552D7F989D07 /* libPods-MoneyBoy-MoneyBoyTests.a */; };
+		0DE73558304F0816C3EB3BBE /* libPods-MoneyBoy-MoneyBoyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69BB2DA3C2EF0AA0075E23D /* libPods-MoneyBoy-MoneyBoyTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		23C3883D64DDCEBDBCEC0D39 /* libPods-MoneyBoy-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 742E868353DA7519DC47C806 /* libPods-MoneyBoy-tvOS.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* MoneyBoyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoneyBoyTests.m */; };
-		8135B9823294081B9588C9D6 /* libPods-MoneyBoy-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C77E7C29E7910B58AB296DF /* libPods-MoneyBoy-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		A9902271774E1F30FA0BC975 /* libPods-MoneyBoy-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE86CE1F5FFA8F6A69D4D7F /* libPods-MoneyBoy-tvOSTests.a */; };
+		B13344FC26CACB4800EA55CB /* ForceBridgingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13344FB26CACB4800EA55CB /* ForceBridgingHeader.swift */; };
 		BF054D57260B81F600B0892C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BF054D56260B81F600B0892C /* logo.png */; };
-		E381E833E4D49FECC5E940BB /* libPods-MoneyBoy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB047A6973487489FA952CE /* libPods-MoneyBoy.a */; };
+		D125CDC57F9E00EC227C703B /* libPods-MoneyBoy-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D946FB15C5DC8F77B4917C2 /* libPods-MoneyBoy-tvOSTests.a */; };
+		DCBE3DDD41C2E2496F1A3C92 /* libPods-MoneyBoy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7BBEAEF3F290F624B92324 /* libPods-MoneyBoy.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,39 +53,41 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MoneyBoy/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MoneyBoy/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MoneyBoy/main.m; sourceTree = "<group>"; };
-		1C77E7C29E7910B58AB296DF /* libPods-MoneyBoy-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyBoy-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		253B08443E3CE7823BDEF7F9 /* Pods-MoneyBoy-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-tvOSTests/Pods-MoneyBoy-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* MoneyBoy-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoneyBoy-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* MoneyBoy-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MoneyBoy-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FBAF34C95106FF1E2FF031D /* Pods-MoneyBoy-MoneyBoyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-MoneyBoyTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3585ED3714DA44C1812447A6 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		40765F385FD663055B352389 /* Pods-MoneyBoy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy.release.xcconfig"; path = "Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy.release.xcconfig"; sourceTree = "<group>"; };
 		40BB450871CB4E50B746083E /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		4F37C31B02AC1FDE3DD30378 /* Pods-MoneyBoy-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-tvOSTests/Pods-MoneyBoy-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		412604A479AABB6D41342618 /* Pods-MoneyBoy-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-tvOSTests/Pods-MoneyBoy-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		5570D5EAE9E6484DAB0E7E6C /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		5680C306FBCD4342A4079317 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		60244A1B5F9D5662D51D7392 /* Pods-MoneyBoy-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-tvOS.release.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-tvOS/Pods-MoneyBoy-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		68538C726717E46154A07995 /* Pods-MoneyBoy-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-tvOSTests/Pods-MoneyBoy-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		742E868353DA7519DC47C806 /* libPods-MoneyBoy-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyBoy-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7456233A6C8D4E67BF23B0CA /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		7542732238B74AE39A9B7AB4 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		7A7CE51F844241A6ADFE33EE /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		7DC96660369457F5BA8AE813 /* Pods-MoneyBoy-MoneyBoyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-MoneyBoyTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests.release.xcconfig"; sourceTree = "<group>"; };
 		8133AAE4793F4BD5AFD63B34 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MoneyBoy/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		95F6716837B00C05EBBD6D46 /* Pods-MoneyBoy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy.release.xcconfig"; path = "Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy.release.xcconfig"; sourceTree = "<group>"; };
-		A045146A60FA552D7F989D07 /* libPods-MoneyBoy-MoneyBoyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyBoy-MoneyBoyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D946FB15C5DC8F77B4917C2 /* libPods-MoneyBoy-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyBoy-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F7BBEAEF3F290F624B92324 /* libPods-MoneyBoy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyBoy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053E06479094A8299989A28 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		ADBF9D9DA06FCB0493DF3609 /* Pods-MoneyBoy-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-tvOS.release.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-tvOS/Pods-MoneyBoy-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		B13344FA26CACB4800EA55CB /* MoneyBoy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoneyBoy-Bridging-Header.h"; sourceTree = "<group>"; };
+		B13344FB26CACB4800EA55CB /* ForceBridgingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceBridgingHeader.swift; sourceTree = "<group>"; };
 		B157CDBB53FD49059F170247 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		B7BA433DFA1928FA7922C42A /* Pods-MoneyBoy-MoneyBoyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-MoneyBoyTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BABC928083AD4AE99B0AC7FA /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		BF054D56260B81F600B0892C /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../assets/logo.png; sourceTree = "<group>"; };
 		CC51B9A66ABD49FC8F965703 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		D26013075D527DEA7379B227 /* Pods-MoneyBoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy.debug.xcconfig"; path = "Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy.debug.xcconfig"; sourceTree = "<group>"; };
-		DBE86CE1F5FFA8F6A69D4D7F /* libPods-MoneyBoy-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyBoy-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E301C2AE85294C259DD5B512 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		EB8F5636B4200B3F786BB820 /* Pods-MoneyBoy-MoneyBoyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-MoneyBoyTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests.release.xcconfig"; sourceTree = "<group>"; };
+		E69BB2DA3C2EF0AA0075E23D /* libPods-MoneyBoy-MoneyBoyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyBoy-MoneyBoyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		ED3F594953404F088709A2DA /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
-		EFB047A6973487489FA952CE /* libPods-MoneyBoy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyBoy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDFFEAED8EF63D06A7684F13 /* Pods-MoneyBoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy.debug.xcconfig"; path = "Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy.debug.xcconfig"; sourceTree = "<group>"; };
+		F1C15758BC156B519003200B /* Pods-MoneyBoy-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-tvOS/Pods-MoneyBoy-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		FD4CB616A40740DDB114EEFF /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		FE9F317D119BC77E46ADE31B /* Pods-MoneyBoy-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyBoy-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-MoneyBoy-tvOS/Pods-MoneyBoy-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				127F42C85F57285701ACB799 /* libPods-MoneyBoy-MoneyBoyTests.a in Frameworks */,
+				0DE73558304F0816C3EB3BBE /* libPods-MoneyBoy-MoneyBoyTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E381E833E4D49FECC5E940BB /* libPods-MoneyBoy.a in Frameworks */,
+				DCBE3DDD41C2E2496F1A3C92 /* libPods-MoneyBoy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8135B9823294081B9588C9D6 /* libPods-MoneyBoy-tvOS.a in Frameworks */,
+				23C3883D64DDCEBDBCEC0D39 /* libPods-MoneyBoy-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9902271774E1F30FA0BC975 /* libPods-MoneyBoy-tvOSTests.a in Frameworks */,
+				D125CDC57F9E00EC227C703B /* libPods-MoneyBoy-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +154,8 @@
 				BF054D56260B81F600B0892C /* logo.png */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				B13344FB26CACB4800EA55CB /* ForceBridgingHeader.swift */,
+				B13344FA26CACB4800EA55CB /* MoneyBoy-Bridging-Header.h */,
 			);
 			name = MoneyBoy;
 			sourceTree = "<group>";
@@ -160,10 +165,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				EFB047A6973487489FA952CE /* libPods-MoneyBoy.a */,
-				A045146A60FA552D7F989D07 /* libPods-MoneyBoy-MoneyBoyTests.a */,
-				1C77E7C29E7910B58AB296DF /* libPods-MoneyBoy-tvOS.a */,
-				DBE86CE1F5FFA8F6A69D4D7F /* libPods-MoneyBoy-tvOSTests.a */,
+				8F7BBEAEF3F290F624B92324 /* libPods-MoneyBoy.a */,
+				E69BB2DA3C2EF0AA0075E23D /* libPods-MoneyBoy-MoneyBoyTests.a */,
+				742E868353DA7519DC47C806 /* libPods-MoneyBoy-tvOS.a */,
+				8D946FB15C5DC8F77B4917C2 /* libPods-MoneyBoy-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -205,14 +210,14 @@
 		9EBA536358ABB5933D585D40 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D26013075D527DEA7379B227 /* Pods-MoneyBoy.debug.xcconfig */,
-				95F6716837B00C05EBBD6D46 /* Pods-MoneyBoy.release.xcconfig */,
-				2FBAF34C95106FF1E2FF031D /* Pods-MoneyBoy-MoneyBoyTests.debug.xcconfig */,
-				EB8F5636B4200B3F786BB820 /* Pods-MoneyBoy-MoneyBoyTests.release.xcconfig */,
-				FE9F317D119BC77E46ADE31B /* Pods-MoneyBoy-tvOS.debug.xcconfig */,
-				60244A1B5F9D5662D51D7392 /* Pods-MoneyBoy-tvOS.release.xcconfig */,
-				4F37C31B02AC1FDE3DD30378 /* Pods-MoneyBoy-tvOSTests.debug.xcconfig */,
-				68538C726717E46154A07995 /* Pods-MoneyBoy-tvOSTests.release.xcconfig */,
+				EDFFEAED8EF63D06A7684F13 /* Pods-MoneyBoy.debug.xcconfig */,
+				40765F385FD663055B352389 /* Pods-MoneyBoy.release.xcconfig */,
+				B7BA433DFA1928FA7922C42A /* Pods-MoneyBoy-MoneyBoyTests.debug.xcconfig */,
+				7DC96660369457F5BA8AE813 /* Pods-MoneyBoy-MoneyBoyTests.release.xcconfig */,
+				F1C15758BC156B519003200B /* Pods-MoneyBoy-tvOS.debug.xcconfig */,
+				ADBF9D9DA06FCB0493DF3609 /* Pods-MoneyBoy-tvOS.release.xcconfig */,
+				253B08443E3CE7823BDEF7F9 /* Pods-MoneyBoy-tvOSTests.debug.xcconfig */,
+				412604A479AABB6D41342618 /* Pods-MoneyBoy-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -247,12 +252,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoneyBoyTests" */;
 			buildPhases = (
-				1D92398D1FB0409B2EF62AC6 /* [CP] Check Pods Manifest.lock */,
+				FD9529D8FF214D108D9EB5FF /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				89AEDD8BF47FF3E7B73739D8 /* [CP] Copy Pods Resources */,
-				0D77E26BF3370D467D6AC0EF /* [CP] Embed Pods Frameworks */,
+				D0A11B37D10C045E9C9A2FBF /* [CP] Embed Pods Frameworks */,
+				28B51A9F9A74204EF4B396B3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,14 +273,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MoneyBoy" */;
 			buildPhases = (
-				CAD5E8892B0A6630ACEB4E67 /* [CP] Check Pods Manifest.lock */,
+				2774AD2B9AADA20E7C96E44B /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				9096CF73F2AEAEB0E0F4CC63 /* [CP] Copy Pods Resources */,
-				90F9FF1BE32D741916C2D388 /* [CP] Embed Pods Frameworks */,
+				31E6D7C2CCFF38BE1873B5B7 /* [CP] Embed Pods Frameworks */,
+				BC6B2BAAECE0DCDBD7E6A8EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -290,7 +295,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "MoneyBoy-tvOS" */;
 			buildPhases = (
-				A7BE73DCE9C577D4E57E976E /* [CP] Check Pods Manifest.lock */,
+				E400A919E2F04F817D9454DF /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -310,7 +315,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "MoneyBoy-tvOSTests" */;
 			buildPhases = (
-				9A06AB4C0884691A60FDBE49 /* [CP] Check Pods Manifest.lock */,
+				331D4F7C8A61B977672F4358 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -338,8 +343,8 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = X7TM82FK3L;
-						LastSwiftMigration = 1120;
+						DevelopmentTeam = MS84H3H22K;
+						LastSwiftMigration = 1250;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -424,25 +429,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		0D77E26BF3370D467D6AC0EF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1D92398D1FB0409B2EF62AC6 /* [CP] Check Pods Manifest.lock */ = {
+		2774AD2B9AADA20E7C96E44B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -457,28 +444,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoneyBoy-MoneyBoyTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MoneyBoy-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		89AEDD8BF47FF3E7B73739D8 /* [CP] Copy Pods Resources */ = {
+		28B51A9F9A74204EF4B396B3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -528,7 +501,61 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9096CF73F2AEAEB0E0F4CC63 /* [CP] Copy Pods Resources */ = {
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native Code And Images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		31E6D7C2CCFF38BE1873B5B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		331D4F7C8A61B977672F4358 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoneyBoy-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC6B2BAAECE0DCDBD7E6A8EF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -578,13 +605,13 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		90F9FF1BE32D741916C2D388 /* [CP] Embed Pods Frameworks */ = {
+		D0A11B37D10C045E9C9A2FBF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -593,32 +620,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy/Pods-MoneyBoy-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyBoy-MoneyBoyTests/Pods-MoneyBoy-MoneyBoyTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9A06AB4C0884691A60FDBE49 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoneyBoy-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A7BE73DCE9C577D4E57E976E /* [CP] Check Pods Manifest.lock */ = {
+		E400A919E2F04F817D9454DF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -634,28 +639,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-MoneyBoy-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CAD5E8892B0A6630ACEB4E67 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoneyBoy-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -700,6 +683,28 @@
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		FD9529D8FF214D108D9EB5FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoneyBoy-MoneyBoyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -715,6 +720,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B13344FC26CACB4800EA55CB /* ForceBridgingHeader.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -755,8 +761,9 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FBAF34C95106FF1E2FF031D /* Pods-MoneyBoy-MoneyBoyTests.debug.xcconfig */;
+			baseConfigurationReference = B7BA433DFA1928FA7922C42A /* Pods-MoneyBoy-MoneyBoyTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -778,8 +785,9 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB8F5636B4200B3F786BB820 /* Pods-MoneyBoy-MoneyBoyTests.release.xcconfig */;
+			baseConfigurationReference = 7DC96660369457F5BA8AE813 /* Pods-MoneyBoy-MoneyBoyTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = MoneyBoyTests/Info.plist;
@@ -798,15 +806,16 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D26013075D527DEA7379B227 /* Pods-MoneyBoy.debug.xcconfig */;
+			baseConfigurationReference = EDFFEAED8EF63D06A7684F13 /* Pods-MoneyBoy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = X7TM82FK3L;
+				DEVELOPMENT_TEAM = MS84H3H22K;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = MoneyBoy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.1.0;
@@ -815,9 +824,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.pesca.app.MoneyBoy;
+				PRODUCT_BUNDLE_IDENTIFIER = hendrik.dev.pesca.moneyboy;
 				PRODUCT_NAME = MoneyBoy;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MoneyBoy-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -827,14 +837,15 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95F6716837B00C05EBBD6D46 /* Pods-MoneyBoy.release.xcconfig */;
+			baseConfigurationReference = 40765F385FD663055B352389 /* Pods-MoneyBoy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = X7TM82FK3L;
+				DEVELOPMENT_TEAM = MS84H3H22K;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = MoneyBoy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.1.0;
@@ -843,9 +854,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.pesca.app.MoneyBoy;
+				PRODUCT_BUNDLE_IDENTIFIER = hendrik.dev.pesca.moneyboy;
 				PRODUCT_NAME = MoneyBoy;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MoneyBoy-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -854,7 +866,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE9F317D119BC77E46ADE31B /* Pods-MoneyBoy-tvOS.debug.xcconfig */;
+			baseConfigurationReference = F1C15758BC156B519003200B /* Pods-MoneyBoy-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -882,7 +894,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60244A1B5F9D5662D51D7392 /* Pods-MoneyBoy-tvOS.release.xcconfig */;
+			baseConfigurationReference = ADBF9D9DA06FCB0493DF3609 /* Pods-MoneyBoy-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -910,7 +922,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F37C31B02AC1FDE3DD30378 /* Pods-MoneyBoy-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 253B08443E3CE7823BDEF7F9 /* Pods-MoneyBoy-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -937,7 +949,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68538C726717E46154A07995 /* Pods-MoneyBoy-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 412604A479AABB6D41342618 /* Pods-MoneyBoy-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -994,6 +1006,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1054,6 +1067,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
