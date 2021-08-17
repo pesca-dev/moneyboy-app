@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+# Sets up a Git smudge/clean filter that automatically strips
+# the Xcode Development Team before the Xcode project is
+# added to the staging area and automatically reinserts it upon
+# checkout.
+
+DEVTEAM_PLACEHOLDER='<DEVTEAM_PLACEHOLDER>'
+FILTER_NAME='xcodeTeam'
+
+set -e
+cd $(dirname $0)
+
+devteam=$1
+
+if [ -z "$devteam" ]; then
+    echo "Usage: $0 [development team id, e.g. XXXXXXXXXX]"
+    exit 1
+fi
+
+git config filter.$FILTER_NAME.clean "sed 's/\\(DEVELOPMENT_TEAM\s*=\s*\\)\\(\w\+\\)/\1$DEVTEAM_PLACEHOLDER/'"
+git config filter.$FILTER_NAME.smudge "sed 's/$DEVTEAM_PLACEHOLDER/$devteam/'"
+
+echo "Configured Git filter $FILTER_NAME to use team $devteam"
