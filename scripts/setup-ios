@@ -1,15 +1,18 @@
 #!/usr/bin/env sh
 
-# Generates the Xcode project and installs the CocoaPods dependencies.
-# Requires CocoaPods and Xcodegen to be installed.
-#
-# Based on https://github.com/pvinis/react-native-xcodegen/blob/master/make
+# Bootstraps an iOS development environment.
 
 set -e
+cd $(dirname $0)/..
 
-cd $(dirname $0)/../ios
+# Install system dependencies
+brew install cocoapods xcodegen
 
+# Set up the Xcode project
+cd ios
 touch main.jsbundle
 xcodegen generate
 rm -rf main.jsbundle
+
+# Install CocoaPods dependencies
 pod install
