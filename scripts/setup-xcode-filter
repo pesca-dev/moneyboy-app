@@ -5,7 +5,7 @@
 # added to the staging area and automatically reinserts it upon
 # checkout.
 
-DEVTEAM_PLACEHOLDER='<DEVTEAM_PLACEHOLDER>'
+DEVTEAM_PLACEHOLDER='iOS Developer'
 DEVTEAM_FIELD_PREFIX='DEVELOPMENT_TEAM\s*=\s*'
 FILTER_NAME='xcodeTeam'
 
