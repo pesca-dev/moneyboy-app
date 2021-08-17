@@ -7,13 +7,15 @@ if [ -n "$(git status --porcelain)" ]; then
     exit 1
 fi
 
-repo_path=$(cd $(dirname $0)/..; pwd -P)
-proj_path="$repo_path/ios/MoneyBoy.xcodeproj/project.pbxproj"
+cd $(dirname $0)/..
+
+proj_path="$PWD/ios/MoneyBoy.xcodeproj/project.pbxproj"
 
 if [ ! -f "$proj_path" ]; then
     echo "Could not find the Xcode project at $proj_path."
     exit 1
 fi
 
+echo "Re-checking out $proj_path"
 rm "$proj_path"
 git checkout "$proj_path"
