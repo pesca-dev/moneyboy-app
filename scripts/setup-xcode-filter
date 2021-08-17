@@ -19,7 +19,7 @@ if [ -z "$devteam" ]; then
     exit 1
 fi
 
-git config filter.$FILTER_NAME.clean "sed 's/\\($DEVTEAM_FIELD_PREFIX\\)\\(\w\+\\)/\1$DEVTEAM_PLACEHOLDER/'"
+git config filter.$FILTER_NAME.clean "sed 's/\\($DEVTEAM_FIELD_PREFIX\\).*;/\1$DEVTEAM_PLACEHOLDER;/'"
 git config filter.$FILTER_NAME.smudge "sed 's/\\($DEVTEAM_FIELD_PREFIX\\)$DEVTEAM_PLACEHOLDER/\1$devteam/'"
 
 echo "Configured Git filter '$FILTER_NAME' to use team '$devteam'"
