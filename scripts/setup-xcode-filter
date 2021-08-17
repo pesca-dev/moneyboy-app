@@ -21,4 +21,5 @@ fi
 git config filter.$FILTER_NAME.clean "sed 's/\\(DEVELOPMENT_TEAM\s*=\s*\\)\\(\w\+\\)/\1$DEVTEAM_PLACEHOLDER/'"
 git config filter.$FILTER_NAME.smudge "sed 's/$DEVTEAM_PLACEHOLDER/$devteam/'"
 
-echo "Configured Git filter $FILTER_NAME to use team $devteam"
+echo "Configured Git filter '$FILTER_NAME' to use team '$devteam'"
+echo "You may now want to re-checkout the Xcode project using 'scripts/recheckout-xcodeproj'"

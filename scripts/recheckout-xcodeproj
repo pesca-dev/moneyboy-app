@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# Checks out the Xcode project again.
+
+if [ -n "$(git status --porcelain)" ]; then
+    echo "Please make sure everything is committed!"
+    exit 1
+fi
+
+repo_path=$(cd $(dirname $0)/..; pwd -P)
+proj_path="$repo_path/ios/MoneyBoy.xcodeproj/project.pbxproj"
+
+if [ ! -f "$proj_path" ]; then
+    echo "Could not find the Xcode project at $proj_path."
+    exit 1
+fi
+
+rm "$proj_path"
+git checkout "$proj_path"
