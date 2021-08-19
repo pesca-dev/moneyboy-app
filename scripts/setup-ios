@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Bootstraps an iOS development environment.
+
+set -e
+cd $(dirname $0)/..
+
+# Figure out missing system dependencies
+system_deps=()
+
+if [ ! -x "$(command -v pod)" ]; then
+    system_deps+=(cocoapods)
+fi
+
+if [ ! -x "$(command -v xcodegen)" ]; then
+    system_deps+=(xcodegen)
+fi
+
+# Install system dependencies
+if [ -n "$system_deps" ]; then
+    brew install $system_deps
+fi
+
+# Set up the Xcode project
+cd ios
+touch main.jsbundle
+xcodegen generate
+rm -rf main.jsbundle
+
+# Install CocoaPods dependencies
+pod install
