@@ -1,9 +1,10 @@
 import CenterButton from '@components/extended/CenterButton';
 import PescaTabIcon from '@components/navigation/PescaTabIcon';
 import Footer from '@components/structure/Footer';
+import { ThemeContext } from '@context/ThemeContext';
 import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
 import { Route } from '@react-navigation/native';
-import React from 'react';
+import React, { useContext } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
@@ -33,8 +34,27 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
     );
   }
 
+  const theme = useContext(ThemeContext);
+  const styles = StyleSheet.create({
+    safeAreaView: {
+      backgroundColor: theme.content.background,
+    },
+    footer: {
+      height: 64,
+    },
+    tabBarContainer: {
+      flexDirection: 'row',
+      width: '100%',
+      paddingHorizontal: 8,
+    },
+    tabContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+    },
+  });
   return (
-    <SafeAreaView style={[]}>
+    <SafeAreaView style={[styles.safeAreaView]}>
       <Footer style={styles.footer}>
         <View style={styles.tabBarContainer}>
           <View style={styles.tabContainer}>{leftTabs.map(tab => renderTab(tab))}</View>
@@ -45,22 +65,3 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  safeAreaView: {
-    paddingBottom: 10,
-  },
-  footer: {
-    height: 64,
-  },
-  tabBarContainer: {
-    flexDirection: 'row',
-    width: '100%',
-    paddingHorizontal: 8,
-  },
-  tabContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
-});
