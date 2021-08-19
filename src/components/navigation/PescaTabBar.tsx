@@ -6,6 +6,7 @@ import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
 import { Route } from '@react-navigation/native';
 import React, { useContext } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { v4 as uuid } from 'react-native-uuid';
 
 type PescaTabUIProps = MaterialTopTabBarProps & {};
@@ -34,6 +35,7 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
     );
   }
 
+  const insets = useSafeAreaInsets();
   const theme = useContext(ThemeContext);
   const styles = StyleSheet.create({
     safeAreaView: {
@@ -41,6 +43,7 @@ export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
     },
     footer: {
       height: 64,
+      marginBottom: insets.bottom ? 0 : 20, // if we are on an older device, use some default padding
     },
     tabBarContainer: {
       flexDirection: 'row',
