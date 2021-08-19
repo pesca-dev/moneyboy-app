@@ -13,12 +13,8 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-    - name: Install npm dependencies
-      run: npm ci
-    - name: Set up Xcode project and install pod dependencies
-      run: scripts/setup-ios
-    - name: Install fastlane
-      run: bundle install
+    - name: Set up environment (dependencies, Xcode project)
+      run: scripts/setup --ios --ci
     - name: Build the app
       run: bundle exec fastlane build_only
       working-directory: ios
