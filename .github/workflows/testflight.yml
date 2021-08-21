@@ -1,6 +1,9 @@
 name: Testflight
 
-on: [push]
+on:
+  push:
+    tags:
+      - 'v*.*.*-beta*'
 
 jobs:
   testflight:
@@ -15,13 +18,16 @@ jobs:
           cache: 'npm'
       - name: Set up environment (dependencies, Xcode project)
         run: scripts/setup --ios --ci
+      - name: Get Version Number
+        run: |
+          VERSION=$(echo ${GITHUB_REF#refs/*/} | grep -o '[0-9].[0-9].[0-9]')
+          echo "VERSION_NUMBER=$VERSION" >> $GITHUB_ENV
       - name: Build & Upload the app
         env:
           BUNDLE_IDENT: ${{ secrets.BUNDLE_IDENT }}
           DELIVER_USER: ${{ secrets.DELIVER_USER }}
           FASTLANE_ITC_TEAM_ID: ${{ secrets.FASTLANE_ITC_TEAM_ID }}
           APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
-          VERSION_NUMBER: ${{ secrets.VERSION_NUMBER }}
           PRIVATE_KEY_ID: ${{ secrets.PRIVATE_KEY_ID }}
           PRIVATE_KEY_CONTENT: ${{ secrets.PRIVATE_KEY_CONTENT }}
           PRIVATE_KEY_ISSUER: ${{ secrets.PRIVATE_KEY_ISSUER }}
