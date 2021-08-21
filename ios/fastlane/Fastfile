@@ -1,18 +1,3 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
-
 default_platform(:ios)
 
 platform :ios do
@@ -27,12 +12,14 @@ platform :ios do
     )
   end
 
-  # desc "Description of what the lane does"
-  # lane :custom_lane do
-  #   # add actions here: https://docs.fastlane.tools/actions
-  # end
-
   lane :beta do 
+    create_keychain(
+      name: "#{ENV["KEYCHAIN_NAME"]}",
+      password: "#{ENV["KEYCHAIN_PASS"]}",
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: false
+    )
     app_store_connect_api_key(
       key_id: "#{ENV["PRIVATE_KEY_ID"]}",
       issuer_id: "#{ENV["PRIVATE_KEY_ISSUER"]}",
@@ -40,7 +27,12 @@ platform :ios do
       duration: 1200, # optional (maximum 1200)
       in_house: false # optional but may be required if using match/sigh
     )
-    match(type: "appstore", readonly: is_ci)
+    match(
+      type: "appstore", 
+      readonly: is_ci,
+      keychain_name: "#{ENV["KEYCHAIN_NAME"]}",
+      keychain_password: "#{ENV["KEYCHAIN_PASS"]}"
+    )
     update_project_provisioning(
       xcodeproj: "MoneyBoy.xcodeproj",
       profile: "#{ENV["sigh_dev.pesca.app.MoneyBoy_appstore_profile-path"]}", # optional if you use sigh
