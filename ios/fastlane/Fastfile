@@ -33,7 +33,7 @@ platform :ios do
   # end
 
   lane :beta do 
-
+    match(type: "appstore")
     app_store_connect_api_key(
       key_id: "#{ENV["PRIVATE_KEY_ID"]}",
       issuer_id: "#{ENV["PRIVATE_KEY_ISSUER"]}",
