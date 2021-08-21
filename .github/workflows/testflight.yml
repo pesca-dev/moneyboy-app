@@ -22,6 +22,7 @@ jobs:
           APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
           VERSION_NUMBER: ${{ secrets.VERSION_NUMBER }}
           PRIVATE_KEY_ID: ${{ secrets.PRIVATE_KEY_ID }}
+          PRIVATE_KEY_CONTENT: ${{ secrets.PRIVATE_KEY_CONTENT }}
           PRIVATE_KEY_ISSUER: ${{ secrets.PRIVATE_KEY_ISSUER }}
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
           MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
