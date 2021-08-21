@@ -31,4 +31,33 @@ platform :ios do
   # lane :custom_lane do
   #   # add actions here: https://docs.fastlane.tools/actions
   # end
+
+  lane :beta do 
+
+    app_store_connect_api_key(
+      key_id: "#{ENV["PRIVATE_KEY_ID"]}",
+      issuer_id: "#{ENV["PRIVATE_KEY_ISSUER"]}",
+      key_content: "#{ENV["PRIVATE_KEY_CONTENT"]}",
+      duration: 1200, # optional (maximum 1200)
+      in_house: false # optional but may be required if using match/sigh
+    )
+    # set version number to number from env vars
+    increment_version_number(
+      version_number: ENV["VERSION_NUMBER"]
+    )
+
+    # increment build number depending on current build number in testflight
+    increment_build_number(
+      build_number: latest_testflight_build_number + 1,
+      xcodeproj: "MoneyBoy.xcodeproj"
+    )
+
+    # build and upload app
+    build_app(scheme: "MoneyBoy")
+    upload_to_testflight
+  end
+
+  lane :testflight do
+    upload_to_testflight
+  end
 end
