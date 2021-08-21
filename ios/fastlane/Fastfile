@@ -58,6 +58,6 @@ platform :ios do
 
     # build and upload app
     build_app(scheme: "MoneyBoy")
-    upload_to_testflight
+    # upload_to_testflight
   end
 end
