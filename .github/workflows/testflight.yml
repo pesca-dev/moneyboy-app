@@ -3,7 +3,7 @@ name: iOS
 on: [push]
 
 jobs:
-  build:
+  testflight:
     runs-on: macos-latest
 
     steps:
@@ -15,7 +15,7 @@ jobs:
           cache: 'npm'
       - name: Set up environment (dependencies, Xcode project)
         run: scripts/setup --ios --ci
-      - name: Build the app
+      - name: Build & Upload the app
         env:
           DELIVER_USER: ${{ secrets.DELIVER_USER }}
           FASTLANE_ITC_TEAM_ID: ${{ secrets.FASTLANE_ITC_TEAM_ID }}
