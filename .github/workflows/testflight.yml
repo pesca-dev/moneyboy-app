@@ -1,4 +1,4 @@
-name: iOS
+name: Testflight
 
 on: [push]
 
