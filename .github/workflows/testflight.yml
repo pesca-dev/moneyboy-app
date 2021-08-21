@@ -17,6 +17,7 @@ jobs:
         run: scripts/setup --ios --ci
       - name: Build & Upload the app
         env:
+          BUNDLE_IDENT: ${{ secrets.BUNDLE_IDENT }}
           DELIVER_USER: ${{ secrets.DELIVER_USER }}
           FASTLANE_ITC_TEAM_ID: ${{ secrets.FASTLANE_ITC_TEAM_ID }}
           APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
