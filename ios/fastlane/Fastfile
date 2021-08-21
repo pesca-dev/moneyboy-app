@@ -33,13 +33,25 @@ platform :ios do
   # end
 
   lane :beta do 
-    match(type: "appstore")
     app_store_connect_api_key(
       key_id: "#{ENV["PRIVATE_KEY_ID"]}",
       issuer_id: "#{ENV["PRIVATE_KEY_ISSUER"]}",
       key_content: "#{ENV["PRIVATE_KEY_CONTENT"]}",
       duration: 1200, # optional (maximum 1200)
       in_house: false # optional but may be required if using match/sigh
+    )
+    match(type: "appstore", readonly: is_ci)
+    update_project_provisioning(
+      xcodeproj: "MoneyBoy.xcodeproj",
+      profile: "#{ENV["sigh_dev.pesca.app.MoneyBoy_appstore_profile-path"]}", # optional if you use sigh
+      build_configuration: "Release",
+      code_signing_identity: "iPhone Distribution"
+    )
+    update_code_signing_settings(
+      path: "MoneyBoy.xcodeproj",
+      profile_name: "#{ENV["sigh_dev.pesca.app.MoneyBoy_appstore_profile-name"]}",
+      profile_uuid: "#{ENV["sigh_dev.pesca.app.MoneyBoy_appstore"]}",
+      team_id: "#{ENV["sigh_dev.pesca.app.MoneyBoy_appstore_team-id"]}",
     )
     # set version number to number from env vars
     increment_version_number(
@@ -54,10 +66,6 @@ platform :ios do
 
     # build and upload app
     build_app(scheme: "MoneyBoy")
-    upload_to_testflight
-  end
-
-  lane :testflight do
     upload_to_testflight
   end
 end

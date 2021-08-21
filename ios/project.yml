@@ -4,7 +4,7 @@ name: MoneyBoy
 
 options:
   deploymentTarget:
-    iOS: "10.0"
+    iOS: '10.0'
   usesTabs: false
   tabWidth: 2
   indentWidth: 2
@@ -48,7 +48,7 @@ targets:
       parallelizeBuild: false
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)
+        PRODUCT_BUNDLE_IDENTIFIER: '${BUNDLE_IDENT}'
         CLANG_ENABLE_MODULES: true
         OTHER_LDFLAGS:
           - $(inherited)
