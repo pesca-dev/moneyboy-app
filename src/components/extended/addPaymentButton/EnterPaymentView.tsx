@@ -57,9 +57,14 @@ export default function EnterPaymentView({
 
   const [amountFieldInFocus, setAmountFieldFocus] = useState(false);
 
+  function unfocusAmountField() {
+    setAmountFieldFocus(false);
+  }
+
   function handleSubmitButtonPress() {
     const amount = parseAmount(value);
     if (amount > 0) {
+      unfocusAmountField();
       navigation.next({
         ...params,
         amount,
@@ -69,7 +74,7 @@ export default function EnterPaymentView({
 
   return (
     <>
-      <TouchableWithoutFeedback onPress={() => setAmountFieldFocus(false)}>
+      <TouchableWithoutFeedback onPress={unfocusAmountField}>
         <View style={[styles.container]}>
           <View style={[styles.backButtonContainer]}>
             <PescaButton
