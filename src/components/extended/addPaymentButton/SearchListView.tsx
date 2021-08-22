@@ -126,10 +126,6 @@ export function SearchListView({ navigation }: ScreenComponentProps<any, EnterPa
 
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
-    flyoutContent: {
-      maxHeight: '100%',
-      width: '100%',
-    },
     flyoutHeaderContainer: {
       marginBottom: 10,
     },
@@ -154,6 +150,9 @@ export function SearchListView({ navigation }: ScreenComponentProps<any, EnterPa
     },
     sectionHeaderLabel: {
       fontWeight: 'bold',
+    },
+    list: {
+      flexGrow: 0,
     },
     listItem: {
       fontSize: 16,
@@ -184,8 +183,7 @@ export function SearchListView({ navigation }: ScreenComponentProps<any, EnterPa
   }
 
   return (
-    <View style={[styles.flyoutContent]}>
-      {/* <Text style={[styles.flyoutHeading]}>Add a payment</Text> */}
+    <>
       <View style={[styles.flyoutHeaderContainer]}>
         <PescaInputField label="Search for a user" value={value} onChangeText={setValue} onSubmitEditing={onSubmit} />
         <PescaButton onPress={onSubmit} hitSlop={hitSlop}>
@@ -206,7 +204,8 @@ export function SearchListView({ navigation }: ScreenComponentProps<any, EnterPa
           .filter(s => s.data.length > 0)}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
+        style={[styles.list]}
       />
-    </View>
+    </>
   );
 }
