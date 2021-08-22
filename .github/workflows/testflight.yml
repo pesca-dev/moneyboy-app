@@ -1,0 +1,40 @@
+name: Testflight
+
+on:
+  push:
+    tags:
+      - 'v*.*.*-beta*'
+
+jobs:
+  testflight:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: 'npm'
+      - name: Set up environment (dependencies, Xcode project)
+        run: scripts/setup --ios --ci
+      - name: Get Version Number
+        run: |
+          VERSION=$(echo ${GITHUB_REF#refs/*/} | grep -o '[0-9].[0-9].[0-9]')
+          echo "VERSION_NUMBER=$VERSION" >> $GITHUB_ENV
+      - name: Build & Upload the app
+        env:
+          BUNDLE_IDENT: ${{ secrets.BUNDLE_IDENT }}
+          DELIVER_USER: ${{ secrets.DELIVER_USER }}
+          FASTLANE_ITC_TEAM_ID: ${{ secrets.FASTLANE_ITC_TEAM_ID }}
+          APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
+          PRIVATE_KEY_ID: ${{ secrets.PRIVATE_KEY_ID }}
+          PRIVATE_KEY_CONTENT: ${{ secrets.PRIVATE_KEY_CONTENT }}
+          PRIVATE_KEY_ISSUER: ${{ secrets.PRIVATE_KEY_ISSUER }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          KEYCHAIN_NAME: ${{ secrets.KEYCHAIN_NAME }}
+          KEYCHAIN_PASS: ${{ secrets.KEYCHAIN_PASS }}
+        run: bundle exec fastlane beta
+        working-directory: ios
