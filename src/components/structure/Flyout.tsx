@@ -4,6 +4,7 @@ import { ThemeContext } from '@context/ThemeContext';
 import React, { PropsWithChildren } from 'react';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 import Modal from 'react-native-modal';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type FlyoutProps = {
@@ -16,18 +17,6 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
 
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
-    flyoutOutterContainer: {
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      flexDirection: 'row',
-    },
-    backplane: {
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      opacity: 0.4,
-    },
     flyoutContainer: {
       backgroundColor: theme.flyout.background,
       borderTopLeftRadius: 20,
@@ -46,8 +35,8 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
     },
     closeButtonContainer: {
       position: 'absolute',
-      top: 15,
-      right: 15,
+      top: 0,
+      right: 0,
     },
     closeButton: {
       zIndex: 9999,
@@ -59,11 +48,7 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
     modal: {
       margin: 0,
       justifyContent: 'flex-end',
-      display: 'flex',
       overflow: 'hidden',
-    },
-    contentWrapper: {
-      paddingBottom: 25,
     },
   });
 
@@ -80,16 +65,15 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
       animationOutTiming={500}
       backdropOpacity={0.5}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.flyoutContainer]}>
-        {/* <View style={[styles.flyoutContainer]}> */}
-        <View style={[styles.contentWrapper]}>{children}</View>
-
-        {/* Close Button */}
-        <View style={[styles.closeButtonContainer]}>
-          <PescaButton onPress={close} style={[styles.closeButton]}>
-            <MaterialCommunityIcons name="close" style={[styles.closeIcon]} />
-          </PescaButton>
-        </View>
-        {/* </View> */}
+        <SafeAreaView>
+          {children}
+          {/* Close Button */}
+          <View style={[styles.closeButtonContainer]}>
+            <PescaButton onPress={close} style={[styles.closeButton]}>
+              <MaterialCommunityIcons name="close" style={[styles.closeIcon]} />
+            </PescaButton>
+          </View>
+        </SafeAreaView>
       </KeyboardAvoidingView>
     </Modal>
   );

@@ -5,20 +5,27 @@
 [![iOS](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/ios.yml/badge.svg)](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/ios.yml)
 [![Android](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/android.yml/badge.svg)](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/android.yml)
 
+<div align="center">
+<p>
+<img src="assets/screenshot_main.png" width=140 style="margin: 10px">
+<img src="assets/screenshot_search_user.png" width=140 style="margin: 10px">
+<img src="assets/screenshot_enter_amount.png" width=140 style="margin: 10px">
+</p>
+</div>
 MoneyBoy is a cross-platform app for tracking spending between groups of people.
 
 ## Development
 
 First, make sure to have the following installed on your system:
 
-* Node.js and NPM
-* Ruby and Bundler (for Fastlane)
-* Python 3 (for scripts)
-* For iOS development:
-  * Xcode 12
-  * Homebrew
-* For Android development:
-  * Java 14
+- Node.js and NPM
+- Ruby and Bundler (for Fastlane)
+- Python 3 (for scripts)
+- For iOS development:
+  - Xcode 12
+  - Homebrew
+- For Android development:
+  - Java 14
 
 To bootstrap a development environment, run `scripts/setup --ios` or `scripts/setup --android`, depending on which platform you want to build for. This should e.g. generate the corresponding Xcode project and install the required dependencies.
 

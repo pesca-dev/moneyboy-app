@@ -89,9 +89,12 @@ export function createPescaNavigator(
       screensContainer: {
         flexDirection: 'row',
         width: '100%',
+        maxHeight: '100%',
+        paddingBottom: 35,
       },
       flyoutHeadingContainer: {
         width: '100%',
+        height: 30,
       },
       flyoutHeadingLabel: {
         color: theme.flyout.heading.color,
