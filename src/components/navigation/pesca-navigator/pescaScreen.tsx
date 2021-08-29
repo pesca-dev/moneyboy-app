@@ -113,13 +113,6 @@ export function createPescaScreen(
         position: inViewFlow ? 'relative' : 'absolute',
         width: '100%',
       },
-      screenBlocker: {
-        display: isAnimating ? 'flex' : 'none',
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
-        opacity: 0,
-      },
     });
 
     const componentProps: ScreenComponentProps = {
@@ -129,9 +122,8 @@ export function createPescaScreen(
     };
     return (
       <animated.View style={[style.screenWrapper, offsetStyle]}>
-        <View style={style.dummyWrapper}>
+        <View style={style.dummyWrapper} pointerEvents={isAnimating ? 'none' : 'auto'}>
           {React.createElement(component, componentProps)}
-          <View style={style.screenBlocker} />
         </View>
       </animated.View>
     );
