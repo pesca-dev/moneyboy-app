@@ -31,10 +31,10 @@ export default function AddPaymentButton({ onPress, iconStyle }: AddPaymentButto
   const theme = useContext(ThemeContext);
   const styles = StyleSheet.create({
     addPaymentButton: {
-      marginRight: 15,
-      paddingRight: 15,
-      borderColor: theme.buttons.add.color,
-      borderRightWidth: 1,
+      // marginRight: 15,
+      // paddingRight: 15,
+      // borderColor: theme.buttons.add.color,
+      // borderRightWidth: 1,
     },
     flyoutHeading: {
       color: theme.flyout.heading.color,

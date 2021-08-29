@@ -34,6 +34,12 @@ export default function CenterButton({}: CenterButtonProps) {
     borderRadius: 24,
   }));
 
+  const [distance, animateDistance] = useSpring(() => ({
+    distance: 40,
+    opacity: 0,
+    size: 36,
+  }));
+
   // Animate everything, if main button is pressed
   function onMainButtonPress() {
     animateContainer.start({
@@ -60,6 +66,12 @@ export default function CenterButton({}: CenterButtonProps) {
     animateButtonContainer.start({
       width: open ? containerWidth.default : containerWidth.max,
       borderRadius: open ? 24 : 12,
+    });
+    animateDistance.start({
+      distance: open ? 40 : 60,
+      opacity: open ? 0 : 1,
+      size: open ? 36 : 48,
+      delay: open ? 0 : 100,
     });
     setOpen(!open);
   }
@@ -107,22 +119,26 @@ export default function CenterButton({}: CenterButtonProps) {
         width: 0,
       },
       shadowOpacity: 0.7,
+      zIndex: 100,
       shadowRadius: 7,
     },
     addButtonOutterContainer: {
-      overflow: 'hidden',
+      // overflow: 'hidden',
       flexDirection: 'row',
       position: 'relative',
-      backgroundColor: theme.buttons.add.background,
+      // backgroundColor: theme.buttons.add.background,
       borderRadius: 24,
       height: 48,
       width: 48,
     },
     addButtonInnerContainer: {
       flexDirection: 'row',
-      overflow: 'hidden',
+      // overflow: 'hidden',
     },
-    addButton: {},
+    addButton: {
+      width: 42,
+      height: 42,
+    },
     icon: {
       fontSize: variables.font.size.large,
       color: theme.buttons.add.color,
@@ -132,10 +148,19 @@ export default function CenterButton({}: CenterButtonProps) {
       alignItems: 'center',
     },
     addGroupButton: {
-      marginLeft: 15,
-      paddingLeft: 15,
-      borderLeftColor: theme.buttons.add.color,
-      borderLeftWidth: 1,
+      // marginLeft: 15,
+      // paddingLeft: 15,
+      // borderLeftColor: theme.buttons.add.color,
+      // borderLeftWidth: 1,
+    },
+    dummy: {
+      backgroundColor: theme.buttons.add.background,
+      width: 48,
+      height: 48,
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: 40,
+      borderRadius: 24,
     },
   });
 
@@ -145,10 +170,23 @@ export default function CenterButton({}: CenterButtonProps) {
         <animated.View style={[styles.addButtonOutterContainer, styles.center, animatedButtonContainerStyle]}>
           <View style={[styles.addButtonInnerContainer, styles.center]}>
             {/*  */}
-            <AddPaymentButton onPress={onMainButtonPress} iconStyle={styles.icon} />
+            <animated.View
+              style={[
+                styles.dummy,
+                {
+                  position: 'absolute',
+                  transform: [{ rotateZ: '0deg' }, { translateX: distance.distance }, { rotateZ: '-0deg' }],
+                  opacity: distance.opacity,
+                  width: distance.size,
+                  height: distance.size,
+                },
+              ]}>
+              <AddPaymentButton onPress={onMainButtonPress} iconStyle={styles.icon} />
+            </animated.View>
             {/*  */}
             <animated.View
               style={[
+                styles.dummy,
                 styles.addButton,
                 {
                   transform: [animatedButtonStyle],
@@ -159,7 +197,18 @@ export default function CenterButton({}: CenterButtonProps) {
               </PescaButton>
             </animated.View>
             {/*  */}
-            <animated.View style={[styles.addGroupButton]}>
+            <animated.View
+              style={[
+                styles.addGroupButton,
+                styles.dummy,
+                {
+                  position: 'absolute',
+                  transform: [{ rotateZ: '-180deg' }, { translateX: distance.distance }, { rotateZ: '180deg' }],
+                  opacity: distance.opacity,
+                  width: distance.size,
+                  height: distance.size,
+                },
+              ]}>
               <PescaButton onPress={onAddGroupButtonPress}>
                 <MaterialCommunityIcons name="account-multiple-plus-outline" style={styles.icon} />
               </PescaButton>
