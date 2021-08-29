@@ -12,6 +12,7 @@ export type ConfirmPaymentViewParams = {
     name: string;
   };
   amount: number;
+  date: Date;
 };
 
 export default function ConfirmPaymentView({ navigation, params }: ScreenComponentProps<ConfirmPaymentViewParams>) {
@@ -58,6 +59,16 @@ export default function ConfirmPaymentView({ navigation, params }: ScreenCompone
       fontSize: 24,
       color: theme.buttons.default.color,
     },
+    dateFieldContainer: {
+      flexDirection: 'row',
+    },
+    dateFieldLabelContainer: {
+      justifyContent: 'center',
+    },
+    dateFieldLabel: {
+      fontSize: variables.font.size.small,
+      paddingHorizontal: 7,
+    },
   });
 
   return (
@@ -72,6 +83,11 @@ export default function ConfirmPaymentView({ navigation, params }: ScreenCompone
       </View>
       <View>
         <Text style={[styles.amount]}>{formatAmount(params?.amount ?? 0)} €</Text>
+      </View>
+      <View style={[styles.dateFieldContainer]}>
+        <View style={[styles.dateFieldLabelContainer]}>
+          <Text style={[styles.dateFieldLabel]}>Date: {params?.date.toLocaleDateString('de-DE')}</Text>
+        </View>
       </View>
       <View style={[styles.submitButtonContainer]}>
         <PescaButton onPress={confirm}>

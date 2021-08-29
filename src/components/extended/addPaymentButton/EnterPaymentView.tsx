@@ -1,3 +1,5 @@
+import variables from '@config/variables';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { ThemeContext } from '../../../context/ThemeContext';
@@ -47,9 +49,28 @@ export default function EnterPaymentView({
       fontSize: 24,
       color: theme.buttons.default.color,
     },
+    dateFieldContainer: {
+      flexDirection: 'row',
+    },
+    dateFieldLabelContainer: {
+      justifyContent: 'center',
+    },
+    dateFieldLabel: {
+      fontSize: variables.font.size.small,
+      paddingHorizontal: 7,
+    },
+    dateFieldInput: {
+      flex: 1,
+    },
   });
 
   const [value, setValue] = useState(defaultValue);
+  const [date, setDate] = useState(new Date());
+
+  function onDateChange(evt: any, newDate?: Date) {
+    console.log(newDate);
+    newDate && setDate(newDate);
+  }
 
   useEffect(() => {
     setValue(defaultValue);
@@ -68,6 +89,7 @@ export default function EnterPaymentView({
       navigation.next({
         ...params,
         amount,
+        date,
       });
     }
   }
@@ -93,8 +115,20 @@ export default function EnterPaymentView({
             value={value}
             setValue={setValue}
           />
+          <View style={[styles.dateFieldContainer]}>
+            <View style={[styles.dateFieldLabelContainer]}>
+              <Text style={styles.dateFieldLabel}>Date: </Text>
+            </View>
+            <DateTimePicker
+              value={date}
+              display="default"
+              onChange={onDateChange}
+              style={[styles.dateFieldInput]}
+              maximumDate={new Date()}
+            />
+          </View>
           <View style={[styles.submitButtonContainer]}>
-            <PescaButton onPress={handleSubmitButtonPress}>
+            <PescaButton onPress={handleSubmitButtonPress} hitSlop={{ top: 0, right: 0, bottom: 0, left: 0 }}>
               <View style={[styles.submitButtonBackground]}>
                 <Text style={[styles.submitButtonText]}>Next</Text>
               </View>
