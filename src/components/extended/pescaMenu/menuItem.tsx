@@ -33,7 +33,7 @@ export function createPescaMenuItem(PescaMenuContext: React.Context<PescaMenuCon
       close();
     }
 
-    const rotation = count > 1 ? (180 / (count - 1)) * index : 90;
+    const rotation = count > 1 ? 20 + (140 / (count - 1)) * index : 90;
 
     const [animStyle, animation] = useSpring(() => ({
       size: 36,
@@ -46,7 +46,7 @@ export function createPescaMenuItem(PescaMenuContext: React.Context<PescaMenuCon
         to: {
           size: 48,
           opacity: 1,
-          distance: -60,
+          distance: -80,
         },
         delay: index * 100,
       });
