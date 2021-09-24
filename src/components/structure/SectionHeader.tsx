@@ -16,9 +16,8 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ header }) => {
     },
     headerTextContainer: {
       width: '100%',
-      // alignItems: 'center',
-      padding: 10,
-      // backgroundColor: '#fff',
+      paddingHorizontal: 10,
+      paddingBottom: 10,
       elevation: 10,
       shadowColor: Lists.header.shadow,
       shadowOffset: {
