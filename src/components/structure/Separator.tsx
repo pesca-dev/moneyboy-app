@@ -13,7 +13,7 @@ interface SeparatorProps {
 /**
  * Separator for a list.
  */
-export default function Separator({ style }: SeparatorProps) {
+export function Separator({ style }: SeparatorProps) {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     separatorContainer: {

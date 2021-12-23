@@ -1,8 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
-import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
-import Content from '@components/structure/Content';
-import SectionHeader from '@components/structure/SectionHeader';
-import ViewBase from '@components/structure/ViewBase';
+import { MoneyDiffProps, MoneyDiff } from '@components/extended/MoneyDiff';
+import { Content } from '@components/structure/Content';
+import { SectionHeader } from '@components/structure/SectionHeader';
+import { ViewBase } from '@components/structure/ViewBase';
 import { FlyoutContext } from '@context/FlyoutContext';
 import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
@@ -125,7 +125,7 @@ const data = [
   },
 ];
 
-export default function HistoryView({}: HistoryViewProps) {
+export function HistoryView({}: HistoryViewProps) {
   const flyout = React.useContext(FlyoutContext);
 
   function openFlyout(children: ReactNode) {

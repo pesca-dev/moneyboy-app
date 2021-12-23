@@ -4,8 +4,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { ThemeContext } from '../../../context/ThemeContext';
 import { parseAmount } from '../../../util/amountUtil';
-import PescaAmountField, { defaultValue } from '../../input/PescaAmountField';
-import PescaButton from '../../input/PescaButton';
+import { defaultValue, PescaAmountField } from '../../input/PescaAmountField';
+import { PescaButton } from '../../input/PescaButton';
 import { ScreenComponentProps } from '../../navigation/pesca-navigator/pescaScreen';
 import { ConfirmPaymentViewParams } from './ConfirmPaymentView';
 
@@ -16,7 +16,7 @@ export type EnterPaymentViewParams = {
   };
 };
 
-export default function EnterPaymentView({
+export function EnterPaymentView({
   navigation,
   params,
 }: ScreenComponentProps<EnterPaymentViewParams, ConfirmPaymentViewParams>) {

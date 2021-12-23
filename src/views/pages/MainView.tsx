@@ -1,7 +1,7 @@
-import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
-import Content from '@components/structure/Content';
-import SectionHeader from '@components/structure/SectionHeader';
-import ViewBase from '@components/structure/ViewBase';
+import { MoneyDiffProps, MoneyDiff } from '@components/extended/MoneyDiff';
+import { Content } from '@components/structure/Content';
+import { SectionHeader } from '@components/structure/SectionHeader';
+import { ViewBase } from '@components/structure/ViewBase';
 import variables from '@config/variables';
 import React from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from 'react-native';
@@ -37,7 +37,7 @@ function renderListItem({ item, index, section }: SectionListRenderItemInfo<Mone
   );
 }
 
-export default function MainView() {
+export function MainView() {
   return (
     <ViewBase>
       <SectionList

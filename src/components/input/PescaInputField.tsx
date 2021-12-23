@@ -55,7 +55,7 @@ type PescaInputFieldProps = {
   textContentType?: TextContentType;
 };
 
-export default function PescaInputField({
+export function PescaInputField({
   label,
   placeholder,
   secureTextEntry,
@@ -108,5 +108,3 @@ export default function PescaInputField({
     </View>
   );
 }
-
-export { PescaInputField };

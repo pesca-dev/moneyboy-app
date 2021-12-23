@@ -1,5 +1,5 @@
 import { PescaNavContextScreen, PescaNavContextType } from '@api/PescaNavContextType';
-import Flyout from '@components/structure/Flyout';
+import { Flyout } from '@components/structure/Flyout';
 import { ThemeContext } from '@context/ThemeContext';
 import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { LayoutAnimation, StyleSheet, Text, View } from 'react-native';

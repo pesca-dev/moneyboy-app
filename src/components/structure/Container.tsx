@@ -11,7 +11,7 @@ interface ContainerProps {}
  * @param props properties for this container
  * @returns
  */
-export default function Container(props: PropsWithChildren<ContainerProps>) {
+export function Container(props: PropsWithChildren<ContainerProps>) {
   return <SafeAreaView style={styles.container}>{props.children}</SafeAreaView>;
 }
 

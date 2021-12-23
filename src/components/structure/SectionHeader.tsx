@@ -6,7 +6,7 @@ type SectionHeaderProps = {
   header: string;
 };
 
-export default function SectionHeader({ header }: SectionHeaderProps) {
+export function SectionHeader({ header }: SectionHeaderProps) {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     headerContainer: {

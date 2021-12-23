@@ -18,7 +18,7 @@ type PescaTabProps = {
 /**
  * Custom tab for being used inside of custom pesca tab bar for react-native-navigation.
  */
-export default function PescaTabIcon({ name, navigation, icon, focussed, disabled }: PescaTabProps) {
+export function PescaTabIcon({ name, navigation, icon, focussed, disabled }: PescaTabProps) {
   function navigate() {
     navigation.navigate(name);
   }

@@ -9,7 +9,7 @@ interface FooterProps {
 /**
  * Footer for a screen.
  */
-export default function Footer({ children, style }: PropsWithChildren<FooterProps>) {
+export function Footer({ children, style }: PropsWithChildren<FooterProps>) {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     footerWrapper: {

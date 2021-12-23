@@ -1,4 +1,4 @@
-import ListItem from '@components/structure/ListItem';
+import { ListItem } from '@components/structure/ListItem';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
@@ -11,7 +11,7 @@ export interface MoneyDiffProps {
   onPress?: (event: GestureResponderEvent) => void;
 }
 
-export default function MoneyDiff({ name, amount, last, onPress }: MoneyDiffProps) {
+export function MoneyDiff({ name, amount, last, onPress }: MoneyDiffProps) {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     moneyDiffName: {

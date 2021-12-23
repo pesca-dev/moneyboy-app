@@ -1,4 +1,4 @@
-import AddPaymentButton from '@components/extended/AddPaymentButton';
+import { AddPaymentButton } from '@components/extended/AddPaymentButton';
 import { createPescaMenu } from '@components/extended/pescaMenu/createPescaMenu';
 import { FlyoutContext } from '@context/FlyoutContext';
 import React, { useState } from 'react';
@@ -8,7 +8,7 @@ type CenterButtonProps = {};
 
 const PescaMenu = createPescaMenu();
 
-export default function CenterButton({}: CenterButtonProps) {
+export function CenterButton({}: CenterButtonProps) {
   const flyout = React.useContext(FlyoutContext);
 
   const [isPaymentButtonOpen, setPaymentButtonOpen] = useState<boolean>(false);

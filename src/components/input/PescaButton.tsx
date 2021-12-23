@@ -35,7 +35,7 @@ const defaultHitSlop: Insets = {
 /**
  * Simple, clickable button.
  */
-export default function PescaButton({
+export function PescaButton({
   disabled,
   style,
   onPress,

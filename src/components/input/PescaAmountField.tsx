@@ -19,14 +19,7 @@ export const defaultValue = '0,00';
 /**
  * Component for catching a
  */
-export default function PescaAmountField({
-  unit = '€',
-  label,
-  focus,
-  setFocus,
-  value,
-  setValue,
-}: PescaAmountFieldProps) {
+export function PescaAmountField({ unit = '€', label, focus, setFocus, value, setValue }: PescaAmountFieldProps) {
   const floatRef = useRef(0);
 
   function extractNumbers(str: string) {

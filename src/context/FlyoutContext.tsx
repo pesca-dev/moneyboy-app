@@ -1,5 +1,5 @@
 import { FlyoutType } from '@api/FlyoutType';
-import Flyout from '@components/structure/Flyout';
+import { Flyout } from '@components/structure/Flyout';
 import React, { PropsWithChildren, ReactNode, useState } from 'react';
 import { Text } from 'react-native';
 

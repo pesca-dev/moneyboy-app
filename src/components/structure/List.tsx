@@ -20,7 +20,7 @@ interface ListProps<T> {
 /**
  * A simple display utility for displaying a list.
  */
-function List<T>(props: ListProps<T>) {
+export function List<T>(props: ListProps<T>) {
   // Use a very simple render function if none is provided
   const render =
     props.render ??
@@ -36,5 +36,3 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
 });
-
-export default List;

@@ -1,7 +1,7 @@
-import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
-import Content from '@components/structure/Content';
-import Flyout from '@components/structure/Flyout';
-import ListItem from '@components/structure/ListItem';
+import { MoneyDiffProps, MoneyDiff } from '@components/extended/MoneyDiff';
+import { Content } from '@components/structure/Content';
+import { Flyout } from '@components/structure/Flyout';
+import { ListItem } from '@components/structure/ListItem';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
 import React, { useState } from 'react';
@@ -118,7 +118,7 @@ const dummyData: MoneyDiffProps[] = [
   },
 ];
 
-export default function GroupListItem({ name, createdAt, members, last }: GroupListItemProps) {
+export function GroupListItem({ name, createdAt, members, last }: GroupListItemProps) {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     groupContainer: {

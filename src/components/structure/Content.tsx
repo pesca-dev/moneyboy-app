@@ -6,7 +6,7 @@ interface ContentProps {}
 /**
  * Container around the content. It adds some default padding left and right.
  */
-export default function Content({ children }: PropsWithChildren<ContentProps>) {
+export function Content({ children }: PropsWithChildren<ContentProps>) {
   return <View style={styles.content}>{children}</View>;
 }
 

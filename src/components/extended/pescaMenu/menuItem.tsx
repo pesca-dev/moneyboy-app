@@ -1,5 +1,5 @@
 import { PescaMenuContextType } from '@api/PescaMenuContextType';
-import PescaButton from '@components/input/PescaButton';
+import { PescaButton } from '@components/input/PescaButton';
 import { ThemeContext } from '@context/ThemeContext';
 import { animated, useSpring } from '@react-spring/native';
 import React, { useCallback, useContext, useEffect, useState } from 'react';

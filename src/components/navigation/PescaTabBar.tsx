@@ -1,6 +1,6 @@
-import CenterButton from '@components/extended/CenterButton';
-import PescaTabIcon from '@components/navigation/PescaTabIcon';
-import Footer from '@components/structure/Footer';
+import { CenterButton } from '@components/extended/CenterButton';
+import { PescaTabIcon } from '@components/navigation/PescaTabIcon';
+import { Footer } from '@components/structure/Footer';
 import { ThemeContext } from '@context/ThemeContext';
 import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
 import { Route } from '@react-navigation/native';
@@ -14,7 +14,7 @@ type PescaTabUIProps = MaterialTopTabBarProps & {};
 /**
  * Custom tab bar for being used in react-anative-navigation.
  */
-export default function PescaTabBar({ navigation, state }: PescaTabUIProps) {
+export function PescaTabBar({ navigation, state }: PescaTabUIProps) {
   // Split tabs depending on their index
   const leftTabs = state.routes.filter((_, index) => index < state.routes.length / 2);
   const rightTabs = state.routes.filter((_, index) => index >= state.routes.length / 2);

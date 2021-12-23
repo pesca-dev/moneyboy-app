@@ -1,6 +1,6 @@
-import GroupListItem from '@components/extended/GroupListItem';
-import SectionHeader from '@components/structure/SectionHeader';
-import ViewBase from '@components/structure/ViewBase';
+import { GroupListItem } from '@components/extended/GroupListItem';
+import { SectionHeader } from '@components/structure/SectionHeader';
+import { ViewBase } from '@components/structure/ViewBase';
 import React from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
@@ -41,7 +41,7 @@ const data = [
   },
 ];
 
-export default function GroupView() {
+export function GroupView() {
   function renderListItem({ item, index, section }: SectionListRenderItemInfo<Group, DefaultSectionT>) {
     return <GroupListItem {...item} last={index === section.data.length - 1} />;
   }
