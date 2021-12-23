@@ -4,7 +4,7 @@ name: MoneyBoy
 
 options:
   deploymentTarget:
-    iOS: '10.0'
+    iOS: '11.4'
   usesTabs: false
   tabWidth: 2
   indentWidth: 2
