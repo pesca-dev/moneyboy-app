@@ -1,8 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
-import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
-import Content from '@components/structure/Content';
-import SectionHeader from '@components/structure/SectionHeader';
-import ViewBase from '@components/structure/ViewBase';
+import { MoneyDiff, MoneyDiffProps } from '@components/extended/MoneyDiff';
+import { Content } from '@components/structure/Content';
+import { SectionHeader } from '@components/structure/SectionHeader';
+import { ViewBase } from '@components/structure/ViewBase';
 import { FlyoutContext } from '@context/FlyoutContext';
 import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
@@ -12,102 +12,127 @@ import { v4 as uuid } from 'react-native-uuid';
 
 const dummyPayments: MoneyDiffProps[] = [
   {
+    id: uuid(),
     name: 'Friend A',
     amount: -14.56,
   },
   {
+    id: uuid(),
     name: 'Another Friend',
     amount: -7.13,
   },
   {
+    id: uuid(),
     name: 'Another Friend',
     amount: -17.56,
   },
   {
+    id: uuid(),
     name: 'Another Friend',
     amount: -2.99,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
@@ -125,7 +150,7 @@ const data = [
   },
 ];
 
-export default function HistoryView({}: HistoryViewProps) {
+export const HistoryView: React.FC<HistoryViewProps> = ({}) => {
   const flyout = React.useContext(FlyoutContext);
 
   function openFlyout(children: ReactNode) {
@@ -142,13 +167,19 @@ export default function HistoryView({}: HistoryViewProps) {
     );
   }
 
-  function renderListItem({ item, index, section }: SectionListRenderItemInfo<MoneyDiffProps, DefaultSectionT>) {
+  function renderListItem({
+    item: { id, name, amount },
+    item,
+    index,
+    section,
+  }: SectionListRenderItemInfo<MoneyDiffProps, DefaultSectionT>) {
     return (
       <Content>
         <MoneyDiff
-          key={uuid()}
-          name={item.name}
-          amount={item.amount}
+          id={id}
+          key={id}
+          name={name}
+          amount={amount}
           last={index === section.data.length - 1}
           onPress={() => openFlyout(renderFlyoutContent(item))}
         />
@@ -162,9 +193,11 @@ export default function HistoryView({}: HistoryViewProps) {
         style={{ flex: 1 }}
         sections={data}
         renderItem={renderListItem}
-        keyExtractor={() => uuid()}
-        renderSectionHeader={({ section: { title } }) => <SectionHeader key={uuid()} header={title} />}
+        keyExtractor={({ id }) => id}
+        renderSectionHeader={({ section: { title } }) => (
+          <SectionHeader key={`historyview-section-${title}`} header={title} />
+        )}
       />
     </ViewBase>
   );
-}
+};

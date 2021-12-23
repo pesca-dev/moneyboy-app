@@ -1,5 +1,5 @@
 import { PescaMenuContextType } from '@api/PescaMenuContextType';
-import PescaButton from '@components/input/PescaButton';
+import { PescaButton } from '@components/input/PescaButton';
 import { ThemeContext } from '@context/ThemeContext';
 import { animated, useSpring } from '@react-spring/native';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
@@ -14,7 +14,7 @@ type MenuItemProps = {
 /**
  * Create a menu item for a PescaMenu. All items will be layout in a half-circle around the main button.
  */
-export function createPescaMenuItem(PescaMenuContext: React.Context<PescaMenuContextType>): React.FC<MenuItemProps> {
+export const createPescaMenuItem = (PescaMenuContext: React.Context<PescaMenuContextType>): React.FC<MenuItemProps> => {
   return function ({ iconName, onPress }: MenuItemProps) {
     const { isOpen, count, close, register } = useContext(PescaMenuContext);
 
@@ -109,4 +109,4 @@ export function createPescaMenuItem(PescaMenuContext: React.Context<PescaMenuCon
       </animated.View>
     );
   };
-}
+};

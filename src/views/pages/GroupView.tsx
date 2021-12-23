@@ -1,11 +1,12 @@
-import GroupListItem from '@components/extended/GroupListItem';
-import SectionHeader from '@components/structure/SectionHeader';
-import ViewBase from '@components/structure/ViewBase';
+import { GroupListItem } from '@components/extended/GroupListItem';
+import { SectionHeader } from '@components/structure/SectionHeader';
+import { ViewBase } from '@components/structure/ViewBase';
 import React from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
 type Group = {
+  id: string;
   name: string;
   createdAt: number;
   members: string[];
@@ -13,21 +14,25 @@ type Group = {
 
 const groups: Group[] = [
   {
+    id: uuid(),
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico', 'Louis', 'Hendrik', 'Vivi', 'Nico'],
   },
   {
+    id: uuid(),
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico'],
   },
   {
+    id: uuid(),
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico'],
   },
   {
+    id: uuid(),
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico'],
@@ -41,7 +46,9 @@ const data = [
   },
 ];
 
-export default function GroupView() {
+type GroupViewProps = {};
+
+export const GroupView: React.FC<GroupViewProps> = () => {
   function renderListItem({ item, index, section }: SectionListRenderItemInfo<Group, DefaultSectionT>) {
     return <GroupListItem {...item} last={index === section.data.length - 1} />;
   }
@@ -50,10 +57,12 @@ export default function GroupView() {
     <ViewBase>
       <SectionList
         sections={data}
-        keyExtractor={() => uuid()}
+        keyExtractor={({ id }) => id}
         renderItem={renderListItem}
-        renderSectionHeader={({ section: { title } }) => <SectionHeader key={uuid()} header={title} />}
+        renderSectionHeader={({ section: { title } }) => (
+          <SectionHeader key={`groupview-section-header-${title}`} header={title} />
+        )}
       />
     </ViewBase>
   );
-}
+};

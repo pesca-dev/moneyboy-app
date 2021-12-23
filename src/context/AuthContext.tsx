@@ -56,7 +56,7 @@ type AuthContextState = {
 /**
  * Provider for the authentication context.
  */
-export function AuthContextProvider({ children }: PropsWithChildren<AuthContextProviderProps>) {
+export const AuthContextProvider: React.FC<PropsWithChildren<AuthContextProviderProps>> = ({ children }) => {
   const Pesca = React.useContext(PescaContext);
 
   const [authContextState, setAuthContextState] = useState<AuthContextState>({ loggedIn: false, ready: false });
@@ -138,4 +138,4 @@ export function AuthContextProvider({ children }: PropsWithChildren<AuthContextP
   };
 
   return <AuthContext.Provider value={authContextData}>{children}</AuthContext.Provider>;
-}
+};

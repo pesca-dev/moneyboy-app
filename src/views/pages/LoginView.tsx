@@ -1,5 +1,5 @@
-import PescaButton from '@components/input/PescaButton';
-import PescaInputField from '@components/input/PescaInputField';
+import { PescaButton } from '@components/input/PescaButton';
+import { PescaInputField } from '@components/input/PescaInputField';
 import variables from '@config/variables';
 import { AuthContext } from '@context/AuthContext';
 import { ThemeContext } from '@context/ThemeContext';
@@ -15,7 +15,7 @@ type LoginViewProps = {
 /**
  * The login view of out application.
  */
-export default function LoginView({ navigation }: LoginViewProps) {
+export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
   const { login } = React.useContext(AuthContext);
 
   const [valid, setValid] = useState<boolean>(false);
@@ -150,4 +150,4 @@ export default function LoginView({ navigation }: LoginViewProps) {
       </ScrollView>
     </KeyboardAvoidingView>
   );
-}
+};

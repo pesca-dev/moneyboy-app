@@ -1,24 +1,25 @@
-import PescaTabBar from '@components/navigation/PescaTabBar';
+import { PescaTabBar } from '@components/navigation/PescaTabBar';
 import { AuthContext } from '@context/AuthContext';
 import { ThemeContext } from '@context/ThemeContext';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import GroupView from '@views/pages/GroupView';
-import HistoryView from '@views/pages/HistoryView';
-import LoginView from '@views/pages/LoginView';
-import MainView from '@views/pages/MainView';
-import RegisterView from '@views/pages/RegisterView';
-import SettingsView from '@views/pages/SettingsView';
+import { GroupView } from '@views/pages/GroupView';
+import { HistoryView } from '@views/pages/HistoryView';
+import { LoginView } from '@views/pages/LoginView';
+import { MainView } from '@views/pages/MainView';
+import { RegisterView } from '@views/pages/RegisterView';
+import { SettingsView } from '@views/pages/SettingsView';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
 
 const Tab = createMaterialTopTabNavigator();
+
+type AppContainerProps = {};
 
 /**
  * Container for the app and the navigation.
  */
-export default function AppContainer() {
+export const AppContainer: React.FC<AppContainerProps> = () => {
   const { loggedIn, ready } = React.useContext(AuthContext);
 
   const theme = React.useContext(ThemeContext);
@@ -45,8 +46,8 @@ export default function AppContainer() {
               </>
             ) : (
               <>
-                <Tab.Screen key={uuid()} name="login" component={LoginView} />
-                <Tab.Screen key={uuid()} name="register" component={RegisterView} />
+                <Tab.Screen name="login" component={LoginView} />
+                <Tab.Screen name="register" component={RegisterView} />
               </>
             )}
           </Tab.Navigator>
@@ -54,4 +55,4 @@ export default function AppContainer() {
       </NavigationContainer>
     </>
   );
-}
+};

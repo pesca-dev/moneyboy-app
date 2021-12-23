@@ -4,8 +4,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { ThemeContext } from '../../../context/ThemeContext';
 import { parseAmount } from '../../../util/amountUtil';
-import PescaAmountField, { defaultValue } from '../../input/PescaAmountField';
-import PescaButton from '../../input/PescaButton';
+import { defaultValue, PescaAmountField } from '../../input/PescaAmountField';
+import { PescaButton } from '../../input/PescaButton';
 import { ScreenComponentProps } from '../../navigation/pesca-navigator/pescaScreen';
 import { ConfirmPaymentViewParams } from './ConfirmPaymentView';
 
@@ -16,10 +16,10 @@ export type EnterPaymentViewParams = {
   };
 };
 
-export default function EnterPaymentView({
+export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewParams, ConfirmPaymentViewParams>> = ({
   navigation,
   params,
-}: ScreenComponentProps<EnterPaymentViewParams, ConfirmPaymentViewParams>) {
+}) => {
   const theme = useContext(ThemeContext);
   const styles = StyleSheet.create({
     container: {
@@ -138,4 +138,4 @@ export default function EnterPaymentView({
       </TouchableWithoutFeedback>
     </>
   );
-}
+};

@@ -6,7 +6,7 @@ import { createContext } from 'react';
 /**
  * Create a PescaMenu.
  */
-export function createPescaMenu() {
+export const createPescaMenu = () => {
   const PescaMenuContext = createContext<PescaMenuContextType>({
     count: 0,
     isOpen: false,
@@ -18,4 +18,4 @@ export function createPescaMenu() {
     Menu: createPescaMenuContainer(PescaMenuContext),
     Item: createPescaMenuItem(PescaMenuContext),
   };
-}
+};

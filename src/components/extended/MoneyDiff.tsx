@@ -1,17 +1,18 @@
-import ListItem from '@components/structure/ListItem';
+import { ListItem } from '@components/structure/ListItem';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
 import { GestureResponderEvent, StyleSheet, Text } from 'react-native';
 
 export interface MoneyDiffProps {
+  id: string;
   name: string;
   amount: number;
   last?: boolean;
   onPress?: (event: GestureResponderEvent) => void;
 }
 
-export default function MoneyDiff({ name, amount, last, onPress }: MoneyDiffProps) {
+export const MoneyDiff: React.FC<MoneyDiffProps> = ({ name, amount, last, onPress }) => {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     moneyDiffName: {
@@ -38,4 +39,4 @@ export default function MoneyDiff({ name, amount, last, onPress }: MoneyDiffProp
       </ListItem>
     </>
   );
-}
+};

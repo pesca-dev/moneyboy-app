@@ -1,5 +1,5 @@
-import PescaButton from '@components/input/PescaButton';
-import PescaInputField from '@components/input/PescaInputField';
+import { PescaButton } from '@components/input/PescaButton';
+import { PescaInputField } from '@components/input/PescaInputField';
 import variables from '@config/variables';
 import { AuthContext } from '@context/AuthContext';
 import { ThemeContext } from '@context/ThemeContext';
@@ -21,7 +21,7 @@ type RegisterViewProps = {
   navigation: NavigationHelpers<ParamListBase, MaterialTopTabNavigationEventMap>;
 };
 
-export default function RegisterView({ navigation }: RegisterViewProps) {
+export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
   const { register } = React.useContext(AuthContext);
 
   const [valid, setValid] = useState<boolean>(false);
@@ -211,4 +211,4 @@ export default function RegisterView({ navigation }: RegisterViewProps) {
       </ScrollView>
     </KeyboardAvoidingView>
   );
-}
+};

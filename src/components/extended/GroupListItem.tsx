@@ -1,7 +1,7 @@
-import MoneyDiff, { MoneyDiffProps } from '@components/extended/MoneyDiff';
-import Content from '@components/structure/Content';
-import Flyout from '@components/structure/Flyout';
-import ListItem from '@components/structure/ListItem';
+import { MoneyDiff, MoneyDiffProps } from '@components/extended/MoneyDiff';
+import { Content } from '@components/structure/Content';
+import { Flyout } from '@components/structure/Flyout';
+import { ListItem } from '@components/structure/ListItem';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
 import React, { useState } from 'react';
@@ -17,108 +17,133 @@ type GroupListItemProps = {
 
 const dummyData: MoneyDiffProps[] = [
   {
+    id: uuid(),
     name: 'Friend A',
     amount: -14.56,
   },
   {
+    id: uuid(),
     name: 'Another Friend',
     amount: -7.13,
   },
   {
+    id: uuid(),
     name: 'Another Friend',
     amount: -17.56,
   },
   {
+    id: uuid(),
     name: 'Another Friend',
     amount: -2.99,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
 ];
 
-export default function GroupListItem({ name, createdAt, members, last }: GroupListItemProps) {
+export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, members, last }) => {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     groupContainer: {
@@ -158,7 +183,7 @@ export default function GroupListItem({ name, createdAt, members, last }: GroupL
   });
 
   function renderItem(info: ListRenderItemInfo<MoneyDiffProps>) {
-    return <MoneyDiff key={uuid()} {...info.item} />;
+    return <MoneyDiff key={info.index} {...info.item} />;
   }
 
   const [open, setOpen] = useState(false);
@@ -190,11 +215,16 @@ export default function GroupListItem({ name, createdAt, members, last }: GroupL
               <View style={styles.recentPaymentHeaderContainer}>
                 <Text style={styles.recentPaymentHeader}>Recent Payments</Text>
               </View>
-              <FlatList initialNumToRender={20} data={dummyData} renderItem={renderItem} keyExtractor={() => uuid()} />
+              <FlatList
+                initialNumToRender={20}
+                data={dummyData}
+                renderItem={renderItem}
+                keyExtractor={({ id }) => id}
+              />
             </View>
           </View>
         </View>
       </Flyout>
     </>
   );
-}
+};

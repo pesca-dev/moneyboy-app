@@ -1,7 +1,6 @@
-import Separator from '@components/structure/Separator';
+import { Separator } from '@components/structure/Separator';
 import React, { Component, PropsWithChildren } from 'react';
 import { GestureResponderEvent, StyleProp, StyleSheet, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
 
 interface ListItemProps {
   /**
@@ -28,10 +27,11 @@ interface ListItemState {
   disabled: boolean;
 }
 
+// TODO lome: convert to FC
 /**
  * A simple wrapper for content to be displayed in a list.
  */
-export default class ListItem extends Component<ListItemProps, ListItemState> {
+export class ListItem extends Component<ListItemProps, ListItemState> {
   constructor(props: PropsWithChildren<ListItemProps>) {
     super(props);
     this.state = {
@@ -54,7 +54,7 @@ export default class ListItem extends Component<ListItemProps, ListItemState> {
     return (
       <>
         <TouchableWithoutFeedback onPress={this.props.onPress} disabled={this.state.disabled} testID="touchable">
-          <View key={uuid()} style={[styles.listItem, this.props.style]} testID="view">
+          <View style={[styles.listItem, this.props.style]} testID="view">
             {this.props.children}
           </View>
         </TouchableWithoutFeedback>

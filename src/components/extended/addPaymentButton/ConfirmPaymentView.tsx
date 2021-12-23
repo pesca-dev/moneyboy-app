@@ -1,4 +1,4 @@
-import PescaButton from '@components/input/PescaButton';
+import { PescaButton } from '@components/input/PescaButton';
 import { ScreenComponentProps } from '@components/navigation/pesca-navigator/pescaScreen';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
@@ -15,7 +15,10 @@ export type ConfirmPaymentViewParams = {
   date: Date;
 };
 
-export default function ConfirmPaymentView({ navigation, params }: ScreenComponentProps<ConfirmPaymentViewParams>) {
+export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentViewParams>> = ({
+  navigation,
+  params,
+}) => {
   function confirm() {
     navigation.close();
   }
@@ -98,4 +101,4 @@ export default function ConfirmPaymentView({ navigation, params }: ScreenCompone
       </View>
     </View>
   );
-}
+};

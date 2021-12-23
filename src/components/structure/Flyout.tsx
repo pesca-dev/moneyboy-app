@@ -1,4 +1,4 @@
-import PescaButton from '@components/input/PescaButton';
+import { PescaButton } from '@components/input/PescaButton';
 import variables from '@config/variables';
 import { ThemeContext } from '@context/ThemeContext';
 import React, { PropsWithChildren } from 'react';
@@ -12,9 +12,7 @@ type FlyoutProps = {
   close(): void;
 };
 
-export default function Flyout({ isOpen, children, close }: PropsWithChildren<FlyoutProps>) {
-  // const flyout = React.useContext(FlyoutContext);
-
+export const Flyout: React.FC<PropsWithChildren<FlyoutProps>> = ({ isOpen, children, close }) => {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     flyoutContainer: {
@@ -77,4 +75,4 @@ export default function Flyout({ isOpen, children, close }: PropsWithChildren<Fl
       </KeyboardAvoidingView>
     </Modal>
   );
-}
+};

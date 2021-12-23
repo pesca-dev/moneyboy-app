@@ -18,9 +18,9 @@ export type ScreenComponentProps<P = any, N = any> = {
  * Create a new screen for pesca navigation, which can be provided as a child for the PescaNavigator.
  * @param PescaNavContext
  */
-export function createPescaScreen(
+export const createPescaScreen = (
   PescaNavContext: React.Context<PescaNavContextType | null>,
-): React.FC<PescaScreenProps> {
+): React.FC<PescaScreenProps> => {
   return function ({ name, component }: PescaScreenProps) {
     const navContext = useContext(PescaNavContext) as PescaNavContextType;
 
@@ -128,4 +128,4 @@ export function createPescaScreen(
       </animated.View>
     );
   };
-}
+};

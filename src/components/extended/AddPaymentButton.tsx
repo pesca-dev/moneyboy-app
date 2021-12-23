@@ -1,5 +1,5 @@
-import ConfirmPaymentView from '@components/extended/addPaymentButton/ConfirmPaymentView';
-import EnterPaymentView from '@components/extended/addPaymentButton/EnterPaymentView';
+import { ConfirmPaymentView } from '@components/extended/addPaymentButton/ConfirmPaymentView';
+import { EnterPaymentView } from '@components/extended/addPaymentButton/EnterPaymentView';
 import { SearchListView } from '@components/extended/addPaymentButton/SearchListView';
 import { createPescaNavigation } from '@components/navigation/pesca-navigator/createPescaNavigation';
 import React from 'react';
@@ -11,7 +11,7 @@ type AddPaymentButtonProps = {
 
 const Pesca = createPescaNavigation();
 
-export default function AddPaymentButton({ isOpen, setOpen }: AddPaymentButtonProps) {
+export const AddPaymentButton: React.FC<AddPaymentButtonProps> = ({ isOpen, setOpen }) => {
   return (
     <>
       <Pesca.Navigator isOpen={isOpen} setOpen={open => setOpen(open)} heading={'Add a payment'}>
@@ -21,4 +21,4 @@ export default function AddPaymentButton({ isOpen, setOpen }: AddPaymentButtonPr
       </Pesca.Navigator>
     </>
   );
-}
+};

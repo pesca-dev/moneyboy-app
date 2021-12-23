@@ -6,10 +6,10 @@ import { createPescaScreen } from './pescaScreen';
 /**
  * Create a new pesca navigation, which will happen inside of a flyout.
  */
-export function createPescaNavigation() {
+export const createPescaNavigation = () => {
   const PescaNavContext = createContext<PescaNavContextType | null>(null);
   return {
     Navigator: createPescaNavigator(PescaNavContext),
     Screen: createPescaScreen(PescaNavContext),
   };
-}
+};

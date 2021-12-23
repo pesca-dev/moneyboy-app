@@ -35,13 +35,13 @@ const defaultHitSlop: Insets = {
 /**
  * Simple, clickable button.
  */
-export default function PescaButton({
+export const PescaButton: React.FC<PropsWithChildren<PescaButtonProps>> = ({
   disabled,
   style,
   onPress,
   children,
   hitSlop = defaultHitSlop,
-}: PropsWithChildren<PescaButtonProps>) {
+}) => {
   const [state] = useState<PescaButtonState>({
     disabled: !!disabled,
   });
@@ -70,4 +70,4 @@ export default function PescaButton({
       {children}
     </TouchableWithoutFeedback>
   );
-}
+};

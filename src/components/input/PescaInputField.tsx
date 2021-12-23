@@ -55,7 +55,7 @@ type PescaInputFieldProps = {
   textContentType?: TextContentType;
 };
 
-export default function PescaInputField({
+export const PescaInputField: React.FC<PescaInputFieldProps> = ({
   label,
   placeholder,
   secureTextEntry,
@@ -65,7 +65,7 @@ export default function PescaInputField({
   style,
   textContentType,
   keyboardType = 'default',
-}: PescaInputFieldProps) {
+}) => {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     container: {
@@ -107,6 +107,4 @@ export default function PescaInputField({
       />
     </View>
   );
-}
-
-export { PescaInputField };
+};

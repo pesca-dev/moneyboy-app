@@ -1,14 +1,16 @@
 import { AuthContextProvider } from '@context/AuthContext';
 import { PescaContextProvider } from '@context/PescaContext';
 import { ThemeContextProvider } from '@context/ThemeContext';
-import AppContainer from '@views/AppContainer';
+import { AppContainer } from '@views/AppContainer';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 declare const global: { HermesInternal: null | {} };
 
-export default function App() {
+type AppProps = {};
+
+export const App: React.FC<AppProps> = () => {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle="dark-content" />
@@ -21,4 +23,4 @@ export default function App() {
       </PescaContextProvider>
     </SafeAreaProvider>
   );
-}
+};
