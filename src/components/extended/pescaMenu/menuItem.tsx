@@ -103,7 +103,7 @@ export const createPescaMenuItem = (PescaMenuContext: React.Context<PescaMenuCon
             ],
           },
         ]}>
-        <PescaButton onPress={handlePress}>
+        <PescaButton onPress={handlePress} disabled={!isOpen}>
           <MaterialCommunityIcons name={iconName} style={styles.icon} />
         </PescaButton>
       </animated.View>

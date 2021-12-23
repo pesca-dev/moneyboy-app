@@ -128,6 +128,7 @@ export const createPescaMenuContainer = (
       <PescaMenuContext.Provider value={contextValue}>
         <View style={styles.addButtonWrapper}>
           <animated.View style={[styles.outterContainer, outterContainerAnimStyle]}>
+            {children}
             <animated.View
               style={[
                 styles.buttonContainer,
@@ -141,7 +142,6 @@ export const createPescaMenuContainer = (
                 <MaterialCommunityIcons name="plus" style={styles.icon} />
               </PescaButton>
             </animated.View>
-            {children}
           </animated.View>
         </View>
       </PescaMenuContext.Provider>
