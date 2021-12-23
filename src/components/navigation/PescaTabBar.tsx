@@ -7,7 +7,6 @@ import { Route } from '@react-navigation/native';
 import React, { useContext } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { v4 as uuid } from 'react-native-uuid';
 
 type PescaTabUIProps = MaterialTopTabBarProps & {};
 
@@ -25,7 +24,7 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
   function renderTab(route: Route<any, any>) {
     return (
       <PescaTabIcon
-        key={uuid()}
+        key={`route-${route.name}`}
         name={route.name}
         icon={route.params?.icon}
         navigation={navigation}

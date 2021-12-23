@@ -11,7 +11,6 @@ import { RegisterView } from '@views/pages/RegisterView';
 import { SettingsView } from '@views/pages/SettingsView';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -47,8 +46,8 @@ export const AppContainer: React.FC<AppContainerProps> = () => {
               </>
             ) : (
               <>
-                <Tab.Screen key={uuid()} name="login" component={LoginView} />
-                <Tab.Screen key={uuid()} name="register" component={RegisterView} />
+                <Tab.Screen name="login" component={LoginView} />
+                <Tab.Screen name="register" component={RegisterView} />
               </>
             )}
           </Tab.Navigator>

@@ -17,102 +17,127 @@ type GroupListItemProps = {
 
 const dummyData: MoneyDiffProps[] = [
   {
+    id: uuid(),
     name: 'Friend A',
     amount: -14.56,
   },
   {
+    id: uuid(),
     name: 'Another Friend',
     amount: -7.13,
   },
   {
+    id: uuid(),
     name: 'Another Friend',
     amount: -17.56,
   },
   {
+    id: uuid(),
     name: 'Another Friend',
     amount: -2.99,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
+    id: uuid(),
     name: 'Some Random Guy',
     amount: -5.69,
   },
@@ -158,7 +183,7 @@ export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, m
   });
 
   function renderItem(info: ListRenderItemInfo<MoneyDiffProps>) {
-    return <MoneyDiff key={uuid()} {...info.item} />;
+    return <MoneyDiff key={info.index} {...info.item} />;
   }
 
   const [open, setOpen] = useState(false);
@@ -190,7 +215,12 @@ export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, m
               <View style={styles.recentPaymentHeaderContainer}>
                 <Text style={styles.recentPaymentHeader}>Recent Payments</Text>
               </View>
-              <FlatList initialNumToRender={20} data={dummyData} renderItem={renderItem} keyExtractor={() => uuid()} />
+              <FlatList
+                initialNumToRender={20}
+                data={dummyData}
+                renderItem={renderItem}
+                keyExtractor={({ id }) => id}
+              />
             </View>
           </View>
         </View>

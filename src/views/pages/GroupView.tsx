@@ -6,6 +6,7 @@ import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-n
 import { v4 as uuid } from 'react-native-uuid';
 
 type Group = {
+  id: string;
   name: string;
   createdAt: number;
   members: string[];
@@ -13,21 +14,25 @@ type Group = {
 
 const groups: Group[] = [
   {
+    id: uuid(),
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico', 'Louis', 'Hendrik', 'Vivi', 'Nico'],
   },
   {
+    id: uuid(),
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico'],
   },
   {
+    id: uuid(),
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico'],
   },
   {
+    id: uuid(),
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico'],
@@ -52,9 +57,11 @@ export const GroupView: React.FC<GroupViewProps> = () => {
     <ViewBase>
       <SectionList
         sections={data}
-        keyExtractor={() => uuid()}
+        keyExtractor={({ id }) => id}
         renderItem={renderListItem}
-        renderSectionHeader={({ section: { title } }) => <SectionHeader key={uuid()} header={title} />}
+        renderSectionHeader={({ section: { title } }) => (
+          <SectionHeader key={`groupview-section-header-${title}`} header={title} />
+        )}
       />
     </ViewBase>
   );

@@ -1,7 +1,6 @@
 import { ThemeContext } from '@context/ThemeContext';
 import React from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
 
 interface SeparatorProps {
   /**
@@ -29,7 +28,7 @@ export const Separator: React.FC<SeparatorProps> = ({ style }) => {
   });
 
   return (
-    <View key={uuid()} style={styles.separatorContainer}>
+    <View style={styles.separatorContainer}>
       <View style={[styles.separator, style]} />
     </View>
   );

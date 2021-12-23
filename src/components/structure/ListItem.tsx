@@ -1,7 +1,6 @@
 import { Separator } from '@components/structure/Separator';
 import React, { Component, PropsWithChildren } from 'react';
 import { GestureResponderEvent, StyleProp, StyleSheet, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
 
 interface ListItemProps {
   /**
@@ -55,7 +54,7 @@ export class ListItem extends Component<ListItemProps, ListItemState> {
     return (
       <>
         <TouchableWithoutFeedback onPress={this.props.onPress} disabled={this.state.disabled} testID="touchable">
-          <View key={uuid()} style={[styles.listItem, this.props.style]} testID="view">
+          <View style={[styles.listItem, this.props.style]} testID="view">
             {this.props.children}
           </View>
         </TouchableWithoutFeedback>

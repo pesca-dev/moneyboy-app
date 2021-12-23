@@ -5,6 +5,7 @@ import React from 'react';
 import { GestureResponderEvent, StyleSheet, Text } from 'react-native';
 
 export interface MoneyDiffProps {
+  id: string;
   name: string;
   amount: number;
   last?: boolean;
