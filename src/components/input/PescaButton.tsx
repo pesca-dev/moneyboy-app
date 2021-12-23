@@ -1,15 +1,5 @@
-import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
-import React, { PropsWithChildren, useState } from 'react';
-import {
-  Insets,
-  NativeSyntheticEvent,
-  NativeTouchEvent,
-  StyleProp,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  ViewStyle,
-} from 'react-native';
+import React, { PropsWithChildren } from 'react';
+import { Insets, NativeSyntheticEvent, NativeTouchEvent, Pressable, StyleProp, ViewStyle } from 'react-native';
 
 interface PescaButtonProps {
   onPress?: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
@@ -21,15 +11,11 @@ interface PescaButtonProps {
   hitSlop?: Insets;
 }
 
-interface PescaButtonState {
-  disabled: boolean;
-}
-
 const defaultHitSlop: Insets = {
-  top: 40,
-  right: 40,
-  bottom: 40,
-  left: 40,
+  top: 20,
+  right: 20,
+  bottom: 20,
+  left: 20,
 };
 
 /**
@@ -42,32 +28,9 @@ export const PescaButton: React.FC<PropsWithChildren<PescaButtonProps>> = ({
   children,
   hitSlop = defaultHitSlop,
 }) => {
-  const [state] = useState<PescaButtonState>({
-    disabled: !!disabled,
-  });
-
-  const theme = React.useContext(ThemeContext);
-  const styles = StyleSheet.create({
-    container: {
-      margin: 'auto',
-      backgroundColor: theme.buttons.default.background,
-      padding: 10,
-      borderRadius: 10,
-    },
-    content: {
-      fontSize: variables.font.size.small,
-      color: theme.buttons.default.color,
-    },
-  });
-
   return (
-    <TouchableWithoutFeedback
-      style={[styles.container, style]}
-      onPress={onPress}
-      disabled={state.disabled}
-      hitSlop={hitSlop}
-      testID="touchable">
+    <Pressable style={[style]} onPress={onPress} disabled={disabled} hitSlop={hitSlop}>
       {children}
-    </TouchableWithoutFeedback>
+    </Pressable>
   );
 };
