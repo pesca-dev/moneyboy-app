@@ -5,14 +5,14 @@ import { StyleSheet, View } from 'react-native';
 
 type ViewBaseProps = {};
 
-export function ViewBase({ children }: PropsWithChildren<ViewBaseProps>) {
+export const ViewBase: React.FC<PropsWithChildren<ViewBaseProps>> = ({ children }) => {
   return (
     <Container>
       <View style={[styles.placeholder]} />
       {children}
     </Container>
   );
-}
+};
 
 const styles = StyleSheet.create({
   placeholder: {

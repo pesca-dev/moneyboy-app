@@ -6,7 +6,7 @@ type SectionHeaderProps = {
   header: string;
 };
 
-export function SectionHeader({ header }: SectionHeaderProps) {
+export const SectionHeader: React.FC<SectionHeaderProps> = ({ header }) => {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     headerContainer: {
@@ -40,4 +40,4 @@ export function SectionHeader({ header }: SectionHeaderProps) {
       </View>
     </View>
   );
-}
+};

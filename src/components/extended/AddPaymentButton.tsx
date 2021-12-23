@@ -11,7 +11,7 @@ type AddPaymentButtonProps = {
 
 const Pesca = createPescaNavigation();
 
-export function AddPaymentButton({ isOpen, setOpen }: AddPaymentButtonProps) {
+export const AddPaymentButton: React.FC<AddPaymentButtonProps> = ({ isOpen, setOpen }) => {
   return (
     <>
       <Pesca.Navigator isOpen={isOpen} setOpen={open => setOpen(open)} heading={'Add a payment'}>
@@ -21,4 +21,4 @@ export function AddPaymentButton({ isOpen, setOpen }: AddPaymentButtonProps) {
       </Pesca.Navigator>
     </>
   );
-}
+};

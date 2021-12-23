@@ -8,7 +8,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 type LogoutButtonProps = {};
 
-export function LogoutButton({}: LogoutButtonProps) {
+export const LogoutButton: React.FC<LogoutButtonProps> = ({}) => {
   const { logout } = React.useContext(AuthContext);
 
   const theme = React.useContext(ThemeContext);
@@ -35,4 +35,4 @@ export function LogoutButton({}: LogoutButtonProps) {
       </View>
     </PescaButton>
   );
-}
+};

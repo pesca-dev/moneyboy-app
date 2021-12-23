@@ -149,8 +149,8 @@ const defaultTheme: ThemeType = {
 
 export const ThemeContext = React.createContext<ThemeType>(defaultTheme);
 
-export function ThemeContextProvider({ children }: PropsWithChildren<ThemeContextProviderProps>) {
+export const ThemeContextProvider: React.FC<PropsWithChildren<ThemeContextProviderProps>> = ({ children }) => {
   const style: ThemeType = defaultTheme;
 
   return <ThemeContext.Provider value={style}>{children}</ThemeContext.Provider>;
-}
+};

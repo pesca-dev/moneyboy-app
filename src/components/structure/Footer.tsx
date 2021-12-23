@@ -9,7 +9,7 @@ interface FooterProps {
 /**
  * Footer for a screen.
  */
-export function Footer({ children, style }: PropsWithChildren<FooterProps>) {
+export const Footer: React.FC<PropsWithChildren<FooterProps>> = ({ children, style }) => {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     footerWrapper: {
@@ -35,4 +35,4 @@ export function Footer({ children, style }: PropsWithChildren<FooterProps>) {
       <View style={[styles.footer, style]}>{children}</View>
     </View>
   );
-}
+};

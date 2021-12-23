@@ -11,9 +11,9 @@ interface ContainerProps {}
  * @param props properties for this container
  * @returns
  */
-export function Container(props: PropsWithChildren<ContainerProps>) {
+export const Container: React.FC<PropsWithChildren<ContainerProps>> = props => {
   return <SafeAreaView style={styles.container}>{props.children}</SafeAreaView>;
-}
+};
 
 const styles = StyleSheet.create({
   container: {

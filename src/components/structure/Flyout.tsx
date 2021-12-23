@@ -12,7 +12,7 @@ type FlyoutProps = {
   close(): void;
 };
 
-export function Flyout({ isOpen, children, close }: PropsWithChildren<FlyoutProps>) {
+export const Flyout: React.FC<PropsWithChildren<FlyoutProps>> = ({ isOpen, children, close }) => {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     flyoutContainer: {
@@ -75,4 +75,4 @@ export function Flyout({ isOpen, children, close }: PropsWithChildren<FlyoutProp
       </KeyboardAvoidingView>
     </Modal>
   );
-}
+};

@@ -11,7 +11,7 @@ export interface MoneyDiffProps {
   onPress?: (event: GestureResponderEvent) => void;
 }
 
-export function MoneyDiff({ name, amount, last, onPress }: MoneyDiffProps) {
+export const MoneyDiff: React.FC<MoneyDiffProps> = ({ name, amount, last, onPress }) => {
   const theme = React.useContext(ThemeContext);
   const styles = StyleSheet.create({
     moneyDiffName: {
@@ -38,4 +38,4 @@ export function MoneyDiff({ name, amount, last, onPress }: MoneyDiffProps) {
       </ListItem>
     </>
   );
-}
+};

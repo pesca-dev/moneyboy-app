@@ -15,7 +15,10 @@ export type ConfirmPaymentViewParams = {
   date: Date;
 };
 
-export function ConfirmPaymentView({ navigation, params }: ScreenComponentProps<ConfirmPaymentViewParams>) {
+export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentViewParams>> = ({
+  navigation,
+  params,
+}) => {
   function confirm() {
     navigation.close();
   }
@@ -98,4 +101,4 @@ export function ConfirmPaymentView({ navigation, params }: ScreenComponentProps<
       </View>
     </View>
   );
-}
+};

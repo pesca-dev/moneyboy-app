@@ -15,10 +15,12 @@ import { v4 as uuid } from 'react-native-uuid';
 
 const Tab = createMaterialTopTabNavigator();
 
+type AppContainerProps = {};
+
 /**
  * Container for the app and the navigation.
  */
-export function AppContainer() {
+export const AppContainer: React.FC<AppContainerProps> = () => {
   const { loggedIn, ready } = React.useContext(AuthContext);
 
   const theme = React.useContext(ThemeContext);
@@ -54,4 +56,4 @@ export function AppContainer() {
       </NavigationContainer>
     </>
   );
-}
+};

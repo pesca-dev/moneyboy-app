@@ -1,4 +1,4 @@
-import { MoneyDiffProps, MoneyDiff } from '@components/extended/MoneyDiff';
+import { MoneyDiff, MoneyDiffProps } from '@components/extended/MoneyDiff';
 import { Content } from '@components/structure/Content';
 import { SectionHeader } from '@components/structure/SectionHeader';
 import { ViewBase } from '@components/structure/ViewBase';
@@ -37,7 +37,9 @@ function renderListItem({ item, index, section }: SectionListRenderItemInfo<Mone
   );
 }
 
-export function MainView() {
+type MainViewProps = {};
+
+export const MainView: React.FC<MainViewProps> = () => {
   return (
     <ViewBase>
       <SectionList
@@ -49,7 +51,7 @@ export function MainView() {
       />
     </ViewBase>
   );
-}
+};
 
 const styles = StyleSheet.create({
   scrollView: {

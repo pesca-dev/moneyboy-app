@@ -8,7 +8,9 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 declare const global: { HermesInternal: null | {} };
 
-export function App() {
+type AppProps = {};
+
+export const App: React.FC<AppProps> = () => {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle="dark-content" />
@@ -21,4 +23,4 @@ export function App() {
       </PescaContextProvider>
     </SafeAreaProvider>
   );
-}
+};

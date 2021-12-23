@@ -41,7 +41,9 @@ const data = [
   },
 ];
 
-export function GroupView() {
+type GroupViewProps = {};
+
+export const GroupView: React.FC<GroupViewProps> = () => {
   function renderListItem({ item, index, section }: SectionListRenderItemInfo<Group, DefaultSectionT>) {
     return <GroupListItem {...item} last={index === section.data.length - 1} />;
   }
@@ -56,4 +58,4 @@ export function GroupView() {
       />
     </ViewBase>
   );
-}
+};

@@ -16,7 +16,7 @@ const constants = {
  * @param url url of the app
  * @returns a new instance of a Parse Client
  */
-export function createPescaClient(url: string): PescaClient {
+export const createPescaClient = (url: string): PescaClient => {
   const httpClient = new HttpClient(url, constants, EncryptedStorage);
 
   async function login(username: string, password: string): Promise<MaybeError<boolean>> {
@@ -101,4 +101,4 @@ export function createPescaClient(url: string): PescaClient {
     register,
     getUser,
   });
-}
+};

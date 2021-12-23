@@ -24,7 +24,7 @@ type FlyoutState = {
  *
  * @deprecated use flyout directly instead
  */
-export function FlyoutContextProvider({ children }: PropsWithChildren<FlyoutContextProviderProps>) {
+export const FlyoutContextProvider: React.FC<PropsWithChildren<FlyoutContextProviderProps>> = ({ children }) => {
   const [flyoutState, setFlyoutState] = useState<FlyoutState>({
     open: false,
     children: <Text> Lol </Text>,
@@ -66,4 +66,4 @@ export function FlyoutContextProvider({ children }: PropsWithChildren<FlyoutCont
       </Flyout>
     </FlyoutContext.Provider>
   );
-}
+};

@@ -6,9 +6,9 @@ interface ContentProps {}
 /**
  * Container around the content. It adds some default padding left and right.
  */
-export function Content({ children }: PropsWithChildren<ContentProps>) {
+export const Content: React.FC<PropsWithChildren<ContentProps>> = ({ children }) => {
   return <View style={styles.content}>{children}</View>;
-}
+};
 
 const styles = StyleSheet.create({
   content: {

@@ -16,10 +16,10 @@ export type EnterPaymentViewParams = {
   };
 };
 
-export function EnterPaymentView({
+export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewParams, ConfirmPaymentViewParams>> = ({
   navigation,
   params,
-}: ScreenComponentProps<EnterPaymentViewParams, ConfirmPaymentViewParams>) {
+}) => {
   const theme = useContext(ThemeContext);
   const styles = StyleSheet.create({
     container: {
@@ -138,4 +138,4 @@ export function EnterPaymentView({
       </TouchableWithoutFeedback>
     </>
   );
-}
+};

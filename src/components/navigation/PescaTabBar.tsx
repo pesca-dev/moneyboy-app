@@ -14,7 +14,7 @@ type PescaTabUIProps = MaterialTopTabBarProps & {};
 /**
  * Custom tab bar for being used in react-anative-navigation.
  */
-export function PescaTabBar({ navigation, state }: PescaTabUIProps) {
+export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) => {
   // Split tabs depending on their index
   const leftTabs = state.routes.filter((_, index) => index < state.routes.length / 2);
   const rightTabs = state.routes.filter((_, index) => index >= state.routes.length / 2);
@@ -67,4 +67,4 @@ export function PescaTabBar({ navigation, state }: PescaTabUIProps) {
       </Footer>
     </SafeAreaView>
   );
-}
+};

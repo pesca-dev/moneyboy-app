@@ -8,7 +8,7 @@ type CenterButtonProps = {};
 
 const PescaMenu = createPescaMenu();
 
-export function CenterButton({}: CenterButtonProps) {
+export const CenterButton: React.FC<CenterButtonProps> = ({}) => {
   const flyout = React.useContext(FlyoutContext);
 
   const [isPaymentButtonOpen, setPaymentButtonOpen] = useState<boolean>(false);
@@ -49,4 +49,4 @@ export function CenterButton({}: CenterButtonProps) {
       <AddPaymentButton isOpen={isPaymentButtonOpen} setOpen={setPaymentButtonOpen} />
     </>
   );
-}
+};

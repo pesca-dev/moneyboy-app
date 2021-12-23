@@ -21,7 +21,7 @@ type RegisterViewProps = {
   navigation: NavigationHelpers<ParamListBase, MaterialTopTabNavigationEventMap>;
 };
 
-export function RegisterView({ navigation }: RegisterViewProps) {
+export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
   const { register } = React.useContext(AuthContext);
 
   const [valid, setValid] = useState<boolean>(false);
@@ -211,4 +211,4 @@ export function RegisterView({ navigation }: RegisterViewProps) {
       </ScrollView>
     </KeyboardAvoidingView>
   );
-}
+};

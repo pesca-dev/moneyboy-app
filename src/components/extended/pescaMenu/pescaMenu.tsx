@@ -13,9 +13,9 @@ type MainButtonProps = {
 /**
  * Create a container for a PescaMenu. This includes the button to open and close the menu.
  */
-export function createPescaMenuContainer(
+export const createPescaMenuContainer = (
   PescaMenuContext: React.Context<PescaMenuContextType>,
-): React.FC<PropsWithChildren<MainButtonProps>> {
+): React.FC<PropsWithChildren<MainButtonProps>> => {
   return function ({ children }: PropsWithChildren<MainButtonProps>) {
     const [isOpen, setOpen] = useState(false);
 
@@ -147,4 +147,4 @@ export function createPescaMenuContainer(
       </PescaMenuContext.Provider>
     );
   };
-}
+};

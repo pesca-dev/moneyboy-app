@@ -15,7 +15,7 @@ type LoginViewProps = {
 /**
  * The login view of out application.
  */
-export function LoginView({ navigation }: LoginViewProps) {
+export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
   const { login } = React.useContext(AuthContext);
 
   const [valid, setValid] = useState<boolean>(false);
@@ -150,4 +150,4 @@ export function LoginView({ navigation }: LoginViewProps) {
       </ScrollView>
     </KeyboardAvoidingView>
   );
-}
+};

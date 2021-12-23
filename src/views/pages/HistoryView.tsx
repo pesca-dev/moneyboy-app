@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import { MoneyDiffProps, MoneyDiff } from '@components/extended/MoneyDiff';
+import { MoneyDiff, MoneyDiffProps } from '@components/extended/MoneyDiff';
 import { Content } from '@components/structure/Content';
 import { SectionHeader } from '@components/structure/SectionHeader';
 import { ViewBase } from '@components/structure/ViewBase';
@@ -125,7 +125,7 @@ const data = [
   },
 ];
 
-export function HistoryView({}: HistoryViewProps) {
+export const HistoryView: React.FC<HistoryViewProps> = ({}) => {
   const flyout = React.useContext(FlyoutContext);
 
   function openFlyout(children: ReactNode) {
@@ -167,4 +167,4 @@ export function HistoryView({}: HistoryViewProps) {
       />
     </ViewBase>
   );
-}
+};

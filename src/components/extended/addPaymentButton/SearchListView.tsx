@@ -111,7 +111,7 @@ const sections: SectionT[] = [
   },
 ];
 
-export function SearchListView({ navigation }: ScreenComponentProps<any, EnterPaymentViewParams>) {
+export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentViewParams>> = ({ navigation }) => {
   const [value, setValue] = useState('');
   function onSubmit() {
     console.log('submit');
@@ -208,4 +208,4 @@ export function SearchListView({ navigation }: ScreenComponentProps<any, EnterPa
       />
     </>
   );
-}
+};

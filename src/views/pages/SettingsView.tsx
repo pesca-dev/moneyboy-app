@@ -8,7 +8,9 @@ import React from 'react';
 import { SectionList } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
-export function SettingsView() {
+type SettingsViewProps = {};
+
+export const SettingsView: React.FC<SettingsViewProps> = () => {
   const { user } = React.useContext(AuthContext);
 
   const data = [
@@ -36,4 +38,4 @@ export function SettingsView() {
       />
     </ViewBase>
   );
-}
+};
