@@ -12,10 +12,6 @@ export type ThemeType = {
     };
   };
   buttons: {
-    add: {
-      color: string;
-      background: string;
-    };
     default: {
       color: string;
       background: string;
