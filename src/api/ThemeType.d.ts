@@ -11,17 +11,6 @@ export type ThemeType = {
       color: string;
     };
   };
-  buttons: {
-    form: {
-      color: string;
-      invalid: {
-        background: string;
-      };
-      valid: {
-        background: string;
-      };
-    };
-  };
   input: {
     label: {
       color: string;

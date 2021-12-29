@@ -68,7 +68,7 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
   }
 
   const theme = React.useContext(ThemeContext);
-  const { Texts } = React.useContext(StyleContext);
+  const { Texts, Buttons, Colors } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
     wrapper: {
       backgroundColor: theme.content.background,
@@ -92,13 +92,13 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
       borderRadius: 5,
     },
     errorView: {
-      backgroundColor: theme.signals.error,
+      backgroundColor: Colors.status.error,
     },
     errorText: {
       color: Texts.colors.secondary,
     },
     successView: {
-      backgroundColor: theme.signals.success,
+      backgroundColor: Colors.status.success,
     },
     successText: {
       color: Texts.colors.secondary,
@@ -115,17 +115,17 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
       alignItems: 'center',
       padding: 10,
       borderRadius: 5,
-      backgroundColor: theme.buttons.form.invalid.background,
+      backgroundColor: Buttons.secondary.inactive.background,
     },
     validFormbutton: {
-      backgroundColor: theme.buttons.form.valid.background,
+      backgroundColor: Buttons.secondary.active.background,
     },
     buttonText: {
       fontSize: variables.font.size.extraSmall,
-      color: theme.buttons.form.color,
+      color: Buttons.secondary.active.color,
     },
     error: {
-      borderColor: theme.signals.error,
+      borderColor: Colors.status.error,
     },
     link: {
       marginTop: 25,

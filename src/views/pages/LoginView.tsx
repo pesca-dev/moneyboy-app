@@ -50,7 +50,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
   }
 
   const theme = React.useContext(ThemeContext);
-  const { Texts } = React.useContext(StyleContext);
+  const { Texts, Buttons, Colors } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
     wrapper: {
       backgroundColor: theme.content.background,
@@ -70,7 +70,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
     },
     errorView: {
       alignItems: 'center',
-      backgroundColor: theme.signals.error,
+      backgroundColor: Colors.status.error,
       padding: 10,
       borderRadius: 5,
     },
@@ -89,14 +89,14 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
       alignItems: 'center',
       padding: 10,
       borderRadius: 5,
-      backgroundColor: theme.buttons.form.invalid.background,
+      backgroundColor: Buttons.secondary.inactive.background,
     },
     validFormbutton: {
-      backgroundColor: theme.buttons.form.valid.background,
+      backgroundColor: Buttons.secondary.active.background,
     },
     buttonText: {
       fontSize: variables.font.size.extraSmall,
-      color: theme.buttons.form.color,
+      color: Buttons.secondary.active.color,
     },
     link: {
       marginTop: 25,

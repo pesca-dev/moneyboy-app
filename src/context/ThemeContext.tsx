@@ -55,17 +55,6 @@ const defaultTheme: ThemeType = {
       color: palette.shades.veryLight,
     },
   },
-  buttons: {
-    form: {
-      color: palette.shades.white,
-      invalid: {
-        background: palette.shades.mediumLight,
-      },
-      valid: {
-        background: palette.shades.veryDark,
-      },
-    },
-  },
   input: {
     label: {
       color: palette.shades.dark,
