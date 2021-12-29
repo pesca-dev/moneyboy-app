@@ -1,5 +1,5 @@
-import { ThemeContext } from '@context/ThemeContext';
-import React from 'react';
+import { StyleContext } from '@context/StyleContext';
+import React, { useContext } from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 interface SeparatorProps {
@@ -13,7 +13,7 @@ interface SeparatorProps {
  * Separator for a list.
  */
 export const Separator: React.FC<SeparatorProps> = ({ style }) => {
-  const theme = React.useContext(ThemeContext);
+  const { Content } = useContext(StyleContext);
   const styles = StyleSheet.create({
     separatorContainer: {
       width: '100%',
@@ -23,7 +23,7 @@ export const Separator: React.FC<SeparatorProps> = ({ style }) => {
       flex: 1,
       height: 1,
       marginHorizontal: 15,
-      backgroundColor: theme.content.separator.color,
+      backgroundColor: Content.background,
     },
   });
 

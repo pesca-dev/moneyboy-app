@@ -46,15 +46,6 @@ const palette = {
 };
 
 const defaultTheme: ThemeType = {
-  content: {
-    background: palette.shades.white,
-    text: {
-      color: palette.shades.black,
-    },
-    separator: {
-      color: palette.shades.veryLight,
-    },
-  },
   input: {
     label: {
       color: palette.shades.dark,

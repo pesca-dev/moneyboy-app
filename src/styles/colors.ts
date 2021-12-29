@@ -58,5 +58,6 @@ export const createColors = () => {
   return {
     base,
     status,
+    shades,
   };
 };

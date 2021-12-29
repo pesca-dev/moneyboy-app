@@ -2,15 +2,6 @@
  * Global type for a theme.
  */
 export type ThemeType = {
-  content: {
-    background: string;
-    text: {
-      color: string;
-    };
-    separator: {
-      color: string;
-    };
-  };
   input: {
     label: {
       color: string;

@@ -5,8 +5,8 @@ export const createTextStyles = () => {
 
   return {
     colors: {
-      primary: colors.base.white,
-      secondary: colors.base.black,
+      primary: colors.base.black,
+      secondary: colors.base.white,
     },
   };
 };

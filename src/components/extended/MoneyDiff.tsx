@@ -1,7 +1,7 @@
 import { ListItem } from '@components/structure/ListItem';
 import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
-import React from 'react';
+import { StyleContext } from '@context/StyleContext';
+import React, { useContext } from 'react';
 import { GestureResponderEvent, StyleSheet, Text } from 'react-native';
 
 export interface MoneyDiffProps {
@@ -13,21 +13,21 @@ export interface MoneyDiffProps {
 }
 
 export const MoneyDiff: React.FC<MoneyDiffProps> = ({ name, amount, last, onPress }) => {
-  const theme = React.useContext(ThemeContext);
+  const { Colors, Texts } = useContext(StyleContext);
   const styles = StyleSheet.create({
     moneyDiffName: {
       flex: 1,
       fontSize: variables.font.size.small,
-      color: theme.content.text.color,
+      color: Texts.colors.primary,
     },
     moneyDiffAmount: {
       fontSize: variables.font.size.small,
     },
     positiveDiff: {
-      color: theme.signals.success,
+      color: Colors.status.success,
     },
     negativeDiff: {
-      color: theme.signals.error,
+      color: Colors.status.error,
     },
   });
 
