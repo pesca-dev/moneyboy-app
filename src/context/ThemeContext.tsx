@@ -56,10 +56,6 @@ const defaultTheme: ThemeType = {
     },
   },
   buttons: {
-    default: {
-      color: palette.shades.white,
-      background: palette.blue.light,
-    },
     form: {
       color: palette.shades.white,
       invalid: {

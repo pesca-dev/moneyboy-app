@@ -35,9 +35,12 @@ export const createButtonStyles = () => {
     },
   };
 
-  const logout: Button = {
+  const logout: Partial<Button> = {
     color: colors.status.error,
-    background: colors.base.white,
+  };
+
+  const back: Partial<Button> = {
+    color: colors.base.primary,
   };
 
   return {
@@ -45,6 +48,7 @@ export const createButtonStyles = () => {
     secondary,
     special: {
       logout,
+      back,
     },
   };
 };

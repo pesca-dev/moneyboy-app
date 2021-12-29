@@ -3,8 +3,9 @@ import { PescaButton } from '@components/input/PescaButton';
 import { PescaInputField } from '@components/input/PescaInputField';
 import { ScreenComponentProps } from '@components/navigation/pesca-navigator/pescaScreen';
 import { ListItem } from '@components/structure/ListItem';
+import { StyleContext } from '@context/StyleContext';
 import { ThemeContext } from '@context/ThemeContext';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Insets, SectionList, SectionListData, SectionListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
@@ -125,6 +126,7 @@ export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentView
   };
 
   const theme = React.useContext(ThemeContext);
+  const { Buttons } = useContext(StyleContext);
   const styles = StyleSheet.create({
     flyoutHeaderContainer: {
       marginBottom: 10,
@@ -136,13 +138,13 @@ export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentView
     },
     submitButtonContainer: {
       width: '100%',
-      backgroundColor: theme.buttons.default.background,
+      backgroundColor: Buttons.primary.active.background,
       padding: 5,
       borderRadius: 5,
       alignItems: 'center',
     },
     submitButtonText: {
-      color: theme.buttons.default.color,
+      color: Buttons.primary.active.color,
     },
     sectionHeaderContainer: {
       paddingVertical: 5,

@@ -1,8 +1,8 @@
 import variables from '@config/variables';
+import { StyleContext } from '@context/StyleContext';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
-import { ThemeContext } from '../../../context/ThemeContext';
 import { parseAmount } from '../../../util/amountUtil';
 import { defaultValue, PescaAmountField } from '../../input/PescaAmountField';
 import { PescaButton } from '../../input/PescaButton';
@@ -20,7 +20,7 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
   navigation,
   params,
 }) => {
-  const theme = useContext(ThemeContext);
+  const { Buttons } = useContext(StyleContext);
   const styles = StyleSheet.create({
     container: {
       width: '100%',
@@ -31,7 +31,7 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
       paddingBottom: 20,
     },
     backButtonText: {
-      color: theme.buttons.default.background,
+      color: Buttons.special.back.color,
     },
     submitButtonContainer: {
       width: '100%',
@@ -40,14 +40,14 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
     submitButtonBackground: {
       width: '100%',
       justifyContent: 'center',
-      backgroundColor: theme.buttons.default.background,
+      backgroundColor: Buttons.primary.active.background,
       padding: 5,
       borderRadius: 10,
     },
     submitButtonText: {
       textAlign: 'center',
       fontSize: 24,
-      color: theme.buttons.default.color,
+      color: Buttons.primary.active.background,
     },
     dateFieldContainer: {
       flexDirection: 'row',

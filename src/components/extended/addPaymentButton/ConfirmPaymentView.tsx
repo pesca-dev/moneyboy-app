@@ -1,6 +1,7 @@
 import { PescaButton } from '@components/input/PescaButton';
 import { ScreenComponentProps } from '@components/navigation/pesca-navigator/pescaScreen';
 import variables from '@config/variables';
+import { StyleContext } from '@context/StyleContext';
 import { ThemeContext } from '@context/ThemeContext';
 import { formatAmount } from '@util/amountUtil';
 import React, { useContext } from 'react';
@@ -24,6 +25,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
   }
 
   const theme = useContext(ThemeContext);
+  const { Buttons } = useContext(StyleContext);
   const styles = StyleSheet.create({
     container: {
       width: '100%',
@@ -34,7 +36,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
       paddingBottom: 20,
     },
     backButtonText: {
-      color: theme.buttons.default.background,
+      color: Buttons.special.back.color,
     },
     label: {
       fontSize: variables.font.size.small,
@@ -53,14 +55,14 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
     submitButtonBackground: {
       width: '100%',
       justifyContent: 'center',
-      backgroundColor: theme.buttons.default.background,
+      backgroundColor: Buttons.primary.active.background,
       padding: 5,
       borderRadius: 10,
     },
     submitButtonText: {
       textAlign: 'center',
       fontSize: 24,
-      color: theme.buttons.default.color,
+      color: Buttons.primary.active.color,
     },
     dateFieldContainer: {
       flexDirection: 'row',
