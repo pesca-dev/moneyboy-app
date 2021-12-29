@@ -1,5 +1,6 @@
 import { AuthContextProvider } from '@context/AuthContext';
 import { PescaContextProvider } from '@context/PescaContext';
+import { StyleContextProvider } from '@context/StyleContext';
 import { ThemeContextProvider } from '@context/ThemeContext';
 import { AppContainer } from '@views/AppContainer';
 import React from 'react';
@@ -17,7 +18,9 @@ export const App: React.FC<AppProps> = () => {
       <PescaContextProvider>
         <AuthContextProvider>
           <ThemeContextProvider>
-            <AppContainer />
+            <StyleContextProvider>
+              <AppContainer />
+            </StyleContextProvider>
           </ThemeContextProvider>
         </AuthContextProvider>
       </PescaContextProvider>
