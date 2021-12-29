@@ -2,6 +2,7 @@ import { PescaButton } from '@components/input/PescaButton';
 import { PescaInputField } from '@components/input/PescaInputField';
 import variables from '@config/variables';
 import { AuthContext } from '@context/AuthContext';
+import { StyleContext } from '@context/StyleContext';
 import { ThemeContext } from '@context/ThemeContext';
 import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
 import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
@@ -67,6 +68,7 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
   }
 
   const theme = React.useContext(ThemeContext);
+  const { Texts } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
     wrapper: {
       backgroundColor: theme.content.background,
@@ -93,13 +95,13 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
       backgroundColor: theme.signals.error,
     },
     errorText: {
-      color: theme.default.white,
+      color: Texts.colors.secondary,
     },
     successView: {
       backgroundColor: theme.signals.success,
     },
     successText: {
-      color: theme.default.white,
+      color: Texts.colors.secondary,
     },
     formContainer: {
       width: '80%',

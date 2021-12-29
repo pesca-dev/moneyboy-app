@@ -46,10 +46,6 @@ const palette = {
 };
 
 const defaultTheme: ThemeType = {
-  default: {
-    white: palette.shades.white,
-    black: palette.shades.black,
-  },
   content: {
     background: palette.shades.white,
     text: {
@@ -147,6 +143,9 @@ const defaultTheme: ThemeType = {
   },
 };
 
+/**
+ * @deprecated
+ */
 export const ThemeContext = React.createContext<ThemeType>(defaultTheme);
 
 /**

@@ -2,10 +2,6 @@
  * Global type for a theme.
  */
 export type ThemeType = {
-  default: {
-    white: string;
-    black: string;
-  };
   content: {
     background: string;
     text: {

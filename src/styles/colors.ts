@@ -48,9 +48,15 @@ export const createColors = () => {
     primary: palette.blue.light,
   };
 
+  const status = {
+    success: palette.green.light,
+    error: palette.red.light,
+  };
+
   return {
     base,
     shades,
     palette,
+    status,
   };
 };

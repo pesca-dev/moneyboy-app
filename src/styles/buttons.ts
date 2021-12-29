@@ -1,6 +1,6 @@
 import { createColors } from '@styles/colors';
 
-export const createButtonStylings = () => {
+export const createButtonStyles = () => {
   const colors = createColors();
 
   return {
