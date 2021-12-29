@@ -12,9 +12,6 @@ export type ThemeType = {
     };
   };
   buttons: {
-    logout: {
-      color: string;
-    };
     add: {
       color: string;
       background: string;

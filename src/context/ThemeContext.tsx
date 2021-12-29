@@ -56,9 +56,6 @@ const defaultTheme: ThemeType = {
     },
   },
   buttons: {
-    logout: {
-      color: palette.red.light,
-    },
     add: {
       color: palette.shades.white,
       background: palette.blue.light,

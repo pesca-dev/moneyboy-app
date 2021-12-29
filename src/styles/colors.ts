@@ -46,6 +46,8 @@ export const createColors = () => {
     black: shades.black,
     white: shades.white,
     primary: palette.blue.light,
+    secondary: shades.veryDark,
+    inactive: shades.mediumLight,
   };
 
   const status = {
@@ -55,8 +57,6 @@ export const createColors = () => {
 
   return {
     base,
-    shades,
-    palette,
     status,
   };
 };
