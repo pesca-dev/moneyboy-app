@@ -68,7 +68,7 @@ export const PescaInputField: React.FC<PescaInputFieldProps> = ({
   textContentType,
   keyboardType = 'default',
 }) => {
-  const { Input } = useContext(StyleContext);
+  const { Input, Texts } = useContext(StyleContext);
   const styles = StyleSheet.create({
     container: {
       width: '100%',
@@ -86,6 +86,7 @@ export const PescaInputField: React.FC<PescaInputFieldProps> = ({
       padding: 10,
       fontSize: variables.font.size.small,
       borderRadius: 5,
+      color: Texts.colors.primary,
     },
   });
 
