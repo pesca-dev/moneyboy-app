@@ -6,7 +6,7 @@ import { ListItem } from '@components/structure/ListItem';
 import { AuthContext } from '@context/AuthContext';
 import { PescaContext } from '@context/PescaContext';
 import { StyleContext } from '@context/StyleContext';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Insets, SectionList, SectionListData, SectionListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 
 type SectionData = {
@@ -21,18 +21,25 @@ type SectionT = {
 };
 
 export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentViewParams>> = ({ navigation }) => {
-  const [users, setUsers] = useState<Pesca.UserInformation[]>([]);
-
   const pesca = useContext(PescaContext);
   const { user } = useContext(AuthContext);
 
-  useEffect(() => {
+  const [users, setUsers] = useState<Pesca.UserInformation[]>([]);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const getUsers = useCallback(() => {
+    setRefreshing(true);
     pesca?.getUsers().then(us => {
       if (us) {
         setUsers(us.filter(u => u.id !== user?.id));
       }
+      setRefreshing(false);
     });
   }, [pesca, user?.id]);
+
+  useEffect(() => {
+    getUsers();
+  }, [getUsers]);
 
   const sections: SectionT[] = [{ title: 'Users', data: users }];
 
@@ -138,6 +145,8 @@ export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentView
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
         style={[styles.list]}
+        onRefresh={getUsers}
+        refreshing={refreshing}
       />
     </>
   );
