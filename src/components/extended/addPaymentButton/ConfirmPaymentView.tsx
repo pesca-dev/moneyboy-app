@@ -7,10 +7,7 @@ import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export type ConfirmPaymentViewParams = {
-  item?: {
-    id: string;
-    name: string;
-  };
+  item?: Pesca.UserInformation;
   amount: number;
   date: Date;
 };
@@ -84,7 +81,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
         </PescaButton>
       </View>
       <View>
-        <Text style={[styles.label]}>Confirm Payment for {params?.item?.name}</Text>
+        <Text style={[styles.label]}>Confirm Payment for {params?.item?.displayName}</Text>
       </View>
       <View>
         <Text style={[styles.amount]}>{formatAmount(params?.amount ?? 0)} €</Text>
