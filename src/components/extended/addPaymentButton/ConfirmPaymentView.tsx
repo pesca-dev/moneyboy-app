@@ -23,7 +23,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
     navigation.close();
   }
 
-  const { Buttons, Input } = useContext(StyleContext);
+  const { Buttons, Input, Texts } = useContext(StyleContext);
   const styles = StyleSheet.create({
     container: {
       width: '100%',
@@ -43,6 +43,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
       color: Input.label.color,
     },
     amount: {
+      color: Texts.colors.primary,
       textAlign: 'center',
       fontSize: 100,
     },
@@ -69,6 +70,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
       justifyContent: 'center',
     },
     dateFieldLabel: {
+      color: Texts.colors.primary,
       fontSize: variables.font.size.small,
       paddingHorizontal: 7,
     },

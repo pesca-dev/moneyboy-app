@@ -20,7 +20,7 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
   navigation,
   params,
 }) => {
-  const { Buttons } = useContext(StyleContext);
+  const { Buttons, Texts } = useContext(StyleContext);
   const styles = StyleSheet.create({
     container: {
       width: '100%',
@@ -44,6 +44,9 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
       padding: 5,
       borderRadius: 10,
     },
+    disabled: {
+      backgroundColor: Buttons.primary.inactive.background,
+    },
     submitButtonText: {
       textAlign: 'center',
       fontSize: 24,
@@ -56,6 +59,7 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
       justifyContent: 'center',
     },
     dateFieldLabel: {
+      color: Texts.colors.primary,
       fontSize: variables.font.size.small,
       paddingHorizontal: 7,
     },
@@ -128,8 +132,11 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
             />
           </View>
           <View style={[styles.submitButtonContainer]}>
-            <PescaButton onPress={handleSubmitButtonPress} hitSlop={{ top: 0, right: 0, bottom: 0, left: 0 }}>
-              <View style={[styles.submitButtonBackground]}>
+            <PescaButton
+              onPress={handleSubmitButtonPress}
+              hitSlop={{ top: 0, right: 0, bottom: 0, left: 0 }}
+              disabled={parseAmount(value) === 0}>
+              <View style={[styles.submitButtonBackground, parseAmount(value) === 0 && styles.disabled]}>
                 <Text style={[styles.submitButtonText]}>Next</Text>
               </View>
             </PescaButton>
