@@ -22,7 +22,6 @@ export const HistoryView: React.FC<HistoryViewProps> = ({}) => {
 
   useEffect(() => {
     pesca?.getPayments().then(ps => {
-      console.log(ps);
       if (ps) {
         setPayents(ps);
       }
