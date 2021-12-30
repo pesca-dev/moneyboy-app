@@ -112,8 +112,7 @@ export const createPescaClient = (url: string): PescaClient => {
       },
       body: JSON.stringify(payment),
     });
-    console.log(result);
-    return true;
+    return result?.status === 201;
   }
 
   return Object.freeze({
