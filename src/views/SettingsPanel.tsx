@@ -1,11 +1,11 @@
-import PescaButton from '@components/input/PescaButton';
-import { ThemeContext } from '@context/ThemeContext';
+import { PescaButton } from '@components/input/PescaButton';
+import { StyleContext } from '@context/StyleContext';
 import React, { useContext } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function SettingsPanel() {
-  const theme = useContext(ThemeContext);
+  const { Tabs } = useContext(StyleContext);
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
@@ -18,7 +18,7 @@ export default function SettingsPanel() {
     },
     icon: {
       fontSize: 28,
-      color: theme.tab.focus.color,
+      color: Tabs.focus.color,
     },
   });
   return (
