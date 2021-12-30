@@ -9,7 +9,7 @@ export const createContentStyles = (props?: StylingProps) => {
   };
 
   const shadows = {
-    color: colors.shades.soft,
+    color: props?.mode === 'dark' ? colors.base.black : colors.shades.soft,
   };
 
   const base = props?.mode === 'dark' ? colors.dark.background.base : colors.base.white;
