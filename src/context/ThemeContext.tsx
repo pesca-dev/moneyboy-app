@@ -46,18 +46,6 @@ const palette = {
 };
 
 const defaultTheme: ThemeType = {
-  tab: {
-    default: {
-      color: palette.shades.mediumDark,
-    },
-    focus: {
-      color: palette.shades.dark,
-      shadow: palette.shades.soft,
-    },
-    disabled: {
-      color: palette.shades.light,
-    },
-  },
   flyout: {
     heading: {
       color: palette.shades.black,

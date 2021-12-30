@@ -2,18 +2,6 @@
  * Global type for a theme.
  */
 export type ThemeType = {
-  tab: {
-    default: {
-      color: string;
-    };
-    focus: {
-      color: string;
-      shadow: string;
-    };
-    disabled: {
-      color: string;
-    };
-  };
   flyout: {
     heading: {
       color: string;
