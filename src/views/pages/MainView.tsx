@@ -5,7 +5,7 @@ import { ViewBase } from '@components/structure/ViewBase';
 import variables from '@config/variables';
 import { AuthContext } from '@context/AuthContext';
 import { PescaContext } from '@context/PescaContext';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from 'react-native';
 
 function renderListItem({
@@ -37,8 +37,10 @@ export const MainView: React.FC<MainViewProps> = () => {
   const { user } = useContext(AuthContext);
 
   const [diffs, setDiffs] = useState<MoneyDiffProps[]>([]);
+  const [refreshing, setRefreshing] = useState(false);
 
-  useEffect(() => {
+  const getPayments = useCallback(() => {
+    setRefreshing(true);
     pesca?.getPayments().then(ps => {
       if (ps) {
         const statistics = ps.reduce<StatisticReducer>(
@@ -66,8 +68,13 @@ export const MainView: React.FC<MainViewProps> = () => {
           })),
         );
       }
+      setRefreshing(false);
     });
   }, [pesca, user?.id]);
+
+  useEffect(() => {
+    getPayments();
+  }, [getPayments]);
 
   const sections = [
     {
@@ -86,6 +93,8 @@ export const MainView: React.FC<MainViewProps> = () => {
         renderSectionHeader={({ section: { title } }) => (
           <SectionHeader key={`mainview-section-${title}`} header={title} />
         )}
+        onRefresh={getPayments}
+        refreshing={refreshing}
       />
     </ViewBase>
   );

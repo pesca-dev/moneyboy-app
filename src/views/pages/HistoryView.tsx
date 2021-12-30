@@ -7,7 +7,7 @@ import { AuthContext } from '@context/AuthContext';
 import { PescaContext } from '@context/PescaContext';
 import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
 
 type HistoryViewProps = {
@@ -20,13 +20,21 @@ export const HistoryView: React.FC<HistoryViewProps> = ({}) => {
   const pesca = useContext(PescaContext);
   const { user } = useContext(AuthContext);
 
-  useEffect(() => {
+  const [refreshing, setRefreshing] = useState(false);
+
+  const getPayments = useCallback(() => {
+    setRefreshing(true);
     pesca?.getPayments().then(ps => {
       if (ps) {
         setPayents(ps);
       }
+      setRefreshing(false);
     });
   }, [pesca]);
+
+  useEffect(() => {
+    getPayments();
+  }, [getPayments]);
 
   const data = [
     {
@@ -71,6 +79,8 @@ export const HistoryView: React.FC<HistoryViewProps> = ({}) => {
         renderSectionHeader={({ section: { title } }) => (
           <SectionHeader key={`historyview-section-${title}`} header={title} />
         )}
+        onRefresh={getPayments}
+        refreshing={refreshing}
       />
     </ViewBase>
   );
