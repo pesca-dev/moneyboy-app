@@ -46,11 +46,6 @@ const palette = {
 };
 
 const defaultTheme: ThemeType = {
-  shadow: {
-    default: {
-      color: palette.shades.soft,
-    },
-  },
   tab: {
     default: {
       color: palette.shades.mediumDark,

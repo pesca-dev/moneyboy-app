@@ -6,9 +6,14 @@ export const createContentStyles = () => {
     color: colors.shades.veryLight,
   };
 
+  const shadows = {
+    color: colors.shades.soft,
+  };
+
   // TODO lome: when introducing dark-mode, use several stages of content
   return {
     background: colors.base.white,
     separator,
+    shadows,
   };
 };

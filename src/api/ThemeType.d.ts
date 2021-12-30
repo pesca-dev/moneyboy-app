@@ -2,11 +2,6 @@
  * Global type for a theme.
  */
 export type ThemeType = {
-  shadow: {
-    default: {
-      color: string;
-    };
-  };
   tab: {
     default: {
       color: string;
