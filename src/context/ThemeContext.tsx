@@ -46,17 +46,6 @@ const palette = {
 };
 
 const defaultTheme: ThemeType = {
-  flyout: {
-    heading: {
-      color: palette.shades.black,
-      fontSize: 24,
-    },
-    background: palette.shades.white,
-    shadow: palette.shades.soft,
-    icon: {
-      color: palette.shades.mediumDark,
-    },
-  },
   footer: {
     background: palette.shades.white,
     shadow: palette.shades.soft,

@@ -1,6 +1,6 @@
 import { PescaNavContextScreen, PescaNavContextType } from '@api/PescaNavContextType';
 import { Flyout } from '@components/structure/Flyout';
-import { ThemeContext } from '@context/ThemeContext';
+import { StyleContext } from '@context/StyleContext';
 import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { LayoutAnimation, StyleSheet, Text, View } from 'react-native';
 
@@ -84,7 +84,7 @@ export const createPescaNavigator = (
       close,
     };
 
-    const theme = useContext(ThemeContext);
+    const { Flyouts } = useContext(StyleContext);
     const styles = StyleSheet.create({
       screensContainer: {
         flexDirection: 'row',
@@ -97,8 +97,8 @@ export const createPescaNavigator = (
         height: 30,
       },
       flyoutHeadingLabel: {
-        color: theme.flyout.heading.color,
-        fontSize: theme.flyout.heading.fontSize,
+        color: Flyouts.heading.color,
+        fontSize: Flyouts.heading.fontSize,
         fontWeight: 'bold',
       },
     });

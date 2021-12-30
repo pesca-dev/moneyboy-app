@@ -1,7 +1,7 @@
 import { PescaButton } from '@components/input/PescaButton';
 import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
-import React, { PropsWithChildren } from 'react';
+import { StyleContext } from '@context/StyleContext';
+import React, { PropsWithChildren, useContext } from 'react';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 import Modal from 'react-native-modal';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -13,16 +13,16 @@ type FlyoutProps = {
 };
 
 export const Flyout: React.FC<PropsWithChildren<FlyoutProps>> = ({ isOpen, children, close }) => {
-  const theme = React.useContext(ThemeContext);
+  const { Flyouts } = useContext(StyleContext);
   const styles = StyleSheet.create({
     flyoutContainer: {
-      backgroundColor: theme.flyout.background,
+      backgroundColor: Flyouts.background,
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
       paddingHorizontal: 20,
       paddingTop: 20,
       elevation: 5,
-      shadowColor: theme.flyout.shadow,
+      shadowColor: Flyouts.shadow,
       shadowRadius: 10,
       shadowOffset: {
         width: 1,
@@ -41,7 +41,7 @@ export const Flyout: React.FC<PropsWithChildren<FlyoutProps>> = ({ isOpen, child
     },
     closeIcon: {
       fontSize: variables.font.size.default,
-      color: theme.flyout.icon.color,
+      color: Flyouts.icon.color,
     },
     modal: {
       margin: 0,
