@@ -1,7 +1,7 @@
 import { PescaButton } from '@components/input/PescaButton';
 import variables from '@config/variables';
 import { AuthContext } from '@context/AuthContext';
-import { ThemeContext } from '@context/ThemeContext';
+import { StyleContext } from '@context/StyleContext';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -11,7 +11,7 @@ type LogoutButtonProps = {};
 export const LogoutButton: React.FC<LogoutButtonProps> = ({}) => {
   const { logout } = React.useContext(AuthContext);
 
-  const theme = React.useContext(ThemeContext);
+  const { Buttons } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
     logoutContainer: {
       flexDirection: 'row',
@@ -19,11 +19,11 @@ export const LogoutButton: React.FC<LogoutButtonProps> = ({}) => {
     logoutIcon: {
       fontSize: variables.font.size.small,
       marginRight: 5,
-      color: theme.buttons.logout.color,
+      color: Buttons.special.logout.color,
     },
     logoutText: {
       fontSize: variables.font.size.extraSmall,
-      color: theme.buttons.logout.color,
+      color: Buttons.special.logout.color,
     },
   });
 

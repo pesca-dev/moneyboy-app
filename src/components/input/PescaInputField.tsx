@@ -1,6 +1,6 @@
 import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
-import React from 'react';
+import { StyleContext } from '@context/StyleContext';
+import React, { useContext } from 'react';
 import {
   KeyboardTypeOptions,
   NativeSyntheticEvent,
@@ -66,7 +66,7 @@ export const PescaInputField: React.FC<PescaInputFieldProps> = ({
   textContentType,
   keyboardType = 'default',
 }) => {
-  const theme = React.useContext(ThemeContext);
+  const { Input } = useContext(StyleContext);
   const styles = StyleSheet.create({
     container: {
       width: '100%',
@@ -76,11 +76,10 @@ export const PescaInputField: React.FC<PescaInputFieldProps> = ({
       fontSize: variables.font.size.ultraSmall,
       marginBottom: 5,
       paddingLeft: 7,
-      color: theme.input.label.color,
+      color: Input.label.color,
     },
     input: {
-      // width: 200,
-      borderColor: theme.input.borderColor,
+      borderColor: Input.border.color,
       borderWidth: 1,
       padding: 10,
       fontSize: variables.font.size.small,
@@ -94,7 +93,7 @@ export const PescaInputField: React.FC<PescaInputFieldProps> = ({
       <TextInput
         placeholder={placeholder}
         style={[styles.input, style]}
-        placeholderTextColor={theme.input.placeholder}
+        placeholderTextColor={Input.placeholder.color}
         textContentType={textContentType}
         autoCorrect={false}
         enablesReturnKeyAutomatically={true}

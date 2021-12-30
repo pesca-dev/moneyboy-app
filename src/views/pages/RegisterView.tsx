@@ -2,7 +2,7 @@ import { PescaButton } from '@components/input/PescaButton';
 import { PescaInputField } from '@components/input/PescaInputField';
 import variables from '@config/variables';
 import { AuthContext } from '@context/AuthContext';
-import { ThemeContext } from '@context/ThemeContext';
+import { StyleContext } from '@context/StyleContext';
 import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
 import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import React, { useEffect, useState } from 'react';
@@ -66,10 +66,10 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
     }
   }
 
-  const theme = React.useContext(ThemeContext);
+  const { Texts, Buttons, Colors, Content } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
     wrapper: {
-      backgroundColor: theme.content.background,
+      backgroundColor: Content.background,
       flex: 1,
     },
     container: {
@@ -90,16 +90,16 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
       borderRadius: 5,
     },
     errorView: {
-      backgroundColor: theme.signals.error,
+      backgroundColor: Colors.status.error,
     },
     errorText: {
-      color: theme.default.white,
+      color: Texts.colors.secondary,
     },
     successView: {
-      backgroundColor: theme.signals.success,
+      backgroundColor: Colors.status.success,
     },
     successText: {
-      color: theme.default.white,
+      color: Texts.colors.secondary,
     },
     formContainer: {
       width: '80%',
@@ -113,17 +113,17 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
       alignItems: 'center',
       padding: 10,
       borderRadius: 5,
-      backgroundColor: theme.buttons.form.invalid.background,
+      backgroundColor: Buttons.secondary.inactive.background,
     },
     validFormbutton: {
-      backgroundColor: theme.buttons.form.valid.background,
+      backgroundColor: Buttons.secondary.active.background,
     },
     buttonText: {
       fontSize: variables.font.size.extraSmall,
-      color: theme.buttons.form.color,
+      color: Buttons.secondary.active.color,
     },
     error: {
-      borderColor: theme.signals.error,
+      borderColor: Colors.status.error,
     },
     link: {
       marginTop: 25,

@@ -1,6 +1,6 @@
 import { PescaMenuContextType } from '@api/PescaMenuContextType';
 import { PescaButton } from '@components/input/PescaButton';
-import { ThemeContext } from '@context/ThemeContext';
+import { StyleContext } from '@context/StyleContext';
 import { animated, useSpring } from '@react-spring/native';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
@@ -71,11 +71,11 @@ export const createPescaMenuItem = (PescaMenuContext: React.Context<PescaMenuCon
       }
     }, [isOpen, animateOpen, animateClose]);
 
-    const theme = useContext(ThemeContext);
+    const { Buttons } = React.useContext(StyleContext);
     const styles = StyleSheet.create({
       buttonContainer: {
         position: 'absolute',
-        backgroundColor: theme.buttons.add.background,
+        backgroundColor: Buttons.primary.active.background,
         width: 48,
         height: 48,
         justifyContent: 'center',
@@ -84,7 +84,7 @@ export const createPescaMenuItem = (PescaMenuContext: React.Context<PescaMenuCon
       },
       icon: {
         fontSize: 28,
-        color: theme.buttons.add.color,
+        color: Buttons.primary.active.color,
       },
     });
 

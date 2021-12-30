@@ -1,6 +1,6 @@
 import { AuthContextProvider } from '@context/AuthContext';
 import { PescaContextProvider } from '@context/PescaContext';
-import { ThemeContextProvider } from '@context/ThemeContext';
+import { StyleContextProvider } from '@context/StyleContext';
 import { AppContainer } from '@views/AppContainer';
 import React from 'react';
 import { StatusBar } from 'react-native';
@@ -16,9 +16,9 @@ export const App: React.FC<AppProps> = () => {
       <StatusBar barStyle="dark-content" />
       <PescaContextProvider>
         <AuthContextProvider>
-          <ThemeContextProvider>
+          <StyleContextProvider>
             <AppContainer />
-          </ThemeContextProvider>
+          </StyleContextProvider>
         </AuthContextProvider>
       </PescaContextProvider>
     </SafeAreaProvider>

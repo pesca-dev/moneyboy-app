@@ -2,7 +2,7 @@ import { PescaButton } from '@components/input/PescaButton';
 import { PescaInputField } from '@components/input/PescaInputField';
 import variables from '@config/variables';
 import { AuthContext } from '@context/AuthContext';
-import { ThemeContext } from '@context/ThemeContext';
+import { StyleContext } from '@context/StyleContext';
 import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
 import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import React, { useEffect, useState } from 'react';
@@ -48,10 +48,10 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
     }
   }
 
-  const theme = React.useContext(ThemeContext);
+  const { Texts, Buttons, Colors, Content } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
     wrapper: {
-      backgroundColor: theme.content.background,
+      backgroundColor: Content.background,
       flex: 1,
     },
     container: {
@@ -68,12 +68,12 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
     },
     errorView: {
       alignItems: 'center',
-      backgroundColor: theme.signals.error,
+      backgroundColor: Colors.status.error,
       padding: 10,
       borderRadius: 5,
     },
     errorText: {
-      color: theme.default.white,
+      color: Texts.colors.secondary,
     },
     formContainer: {
       width: '80%',
@@ -87,14 +87,14 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
       alignItems: 'center',
       padding: 10,
       borderRadius: 5,
-      backgroundColor: theme.buttons.form.invalid.background,
+      backgroundColor: Buttons.secondary.inactive.background,
     },
     validFormbutton: {
-      backgroundColor: theme.buttons.form.valid.background,
+      backgroundColor: Buttons.secondary.active.background,
     },
     buttonText: {
       fontSize: variables.font.size.extraSmall,
-      color: theme.buttons.form.color,
+      color: Buttons.secondary.active.color,
     },
     link: {
       marginTop: 25,

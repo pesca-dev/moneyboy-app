@@ -1,7 +1,7 @@
 import { CenterButton } from '@components/extended/CenterButton';
 import { PescaTabIcon } from '@components/navigation/PescaTabIcon';
 import { Footer } from '@components/structure/Footer';
-import { ThemeContext } from '@context/ThemeContext';
+import { StyleContext } from '@context/StyleContext';
 import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
 import { Route } from '@react-navigation/native';
 import React, { useContext } from 'react';
@@ -35,10 +35,10 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
   }
 
   const insets = useSafeAreaInsets();
-  const theme = useContext(ThemeContext);
+  const { Content } = useContext(StyleContext);
   const styles = StyleSheet.create({
     safeAreaView: {
-      backgroundColor: theme.content.background,
+      backgroundColor: Content.background,
     },
     footer: {
       height: 64,

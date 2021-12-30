@@ -1,5 +1,5 @@
 import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
+import { StyleContext } from '@context/StyleContext';
 import { formatAmount } from '@util/amountUtil';
 import React, { useContext, useEffect, useRef } from 'react';
 import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
@@ -59,7 +59,7 @@ export const PescaAmountField: React.FC<PescaAmountFieldProps> = ({
     setValue(formatAmount(floatRef.current));
   }
 
-  const theme = useContext(ThemeContext);
+  const { Input } = useContext(StyleContext);
   const styles = StyleSheet.create({
     container: {
       //   flexDirection: 'row',
@@ -70,7 +70,7 @@ export const PescaAmountField: React.FC<PescaAmountFieldProps> = ({
       fontSize: variables.font.size.small,
       marginBottom: 5,
       paddingLeft: 7,
-      color: theme.input.label.color,
+      color: Input.label.color,
     },
     input: {
       display: 'none',

@@ -1,9 +1,9 @@
 import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
+import { StyleContext } from '@context/StyleContext';
 import { NavigationHelpers } from '@react-navigation/core';
 import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import { ParamListBase } from '@react-navigation/routers';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Insets, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -23,7 +23,7 @@ export const PescaTabIcon: React.FC<PescaTabProps> = ({ name, navigation, icon, 
     navigation.navigate(name);
   }
 
-  const theme = React.useContext(ThemeContext);
+  const { Tabs } = useContext(StyleContext);
   const styles = StyleSheet.create({
     tab: {
       minWidth: 32,
@@ -32,11 +32,11 @@ export const PescaTabIcon: React.FC<PescaTabProps> = ({ name, navigation, icon, 
     },
     icon: {
       fontSize: variables.font.size.large,
-      color: theme.tab.default.color,
+      color: Tabs.default.color,
     },
     focus: {
-      color: theme.tab.focus.color,
-      shadowColor: theme.tab.focus.shadow,
+      color: Tabs.focus.color,
+      shadowColor: Tabs.focus.shadow,
       shadowRadius: 10,
       shadowOffset: {
         width: 1,
@@ -45,7 +45,7 @@ export const PescaTabIcon: React.FC<PescaTabProps> = ({ name, navigation, icon, 
       shadowOpacity: 0.6,
     },
     disabled: {
-      color: theme.tab.disabled.color,
+      color: Tabs.disabled.color,
     },
   });
 
