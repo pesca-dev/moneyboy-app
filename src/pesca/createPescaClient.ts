@@ -103,11 +103,25 @@ export const createPescaClient = (url: string): PescaClient => {
     return null;
   }
 
+  async function createPayment(payment: Pesca.PaymentCreateDTO): Promise<boolean> {
+    const result = await httpClient.requestWithAuth('payments', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payment),
+    });
+    console.log(result);
+    return true;
+  }
+
   return Object.freeze({
     login,
     logout,
     register,
     getUser,
     getUsers,
+    createPayment,
   });
 };

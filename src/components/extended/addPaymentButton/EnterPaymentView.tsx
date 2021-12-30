@@ -10,7 +10,7 @@ import { ScreenComponentProps } from '../../navigation/pesca-navigator/pescaScre
 import { ConfirmPaymentViewParams } from './ConfirmPaymentView';
 
 export type EnterPaymentViewParams = {
-  item?: Pesca.UserInformation;
+  item: Pesca.UserInformation;
 };
 
 export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewParams, ConfirmPaymentViewParams>> = ({
@@ -83,6 +83,10 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
   }
 
   function handleSubmitButtonPress() {
+    if (!params) {
+      // TODO lome: error badge
+      return;
+    }
     const amount = parseAmount(value);
     if (amount > 0) {
       unfocusAmountField();
