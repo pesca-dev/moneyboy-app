@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UserProfileInformation | moneyboy-app</title>
+	<title>PaymentCreateDTO | moneyboy-app</title>
 	<meta name="description" content="Documentation for moneyboy-app">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -61,10 +61,10 @@
 					<a href="../modules/src_global.Pesca.html">Pesca</a>
 				</li>
 				<li>
-					<a href="src_global.Pesca.UserProfileInformation.html">UserProfileInformation</a>
+					<a href="src_global.Pesca.PaymentCreateDTO.html">PaymentCreateDTO</a>
 				</li>
 			</ul>
-			<h1>Interface UserProfileInformation</h1>
+			<h1>Interface PaymentCreateDTO</h1>
 		</div>
 	</div>
 </header>
@@ -75,12 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="src_global.Pesca.UserInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">UserInformation</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">UserProfileInformation</span>
-							</li>
-						</ul>
+						<span class="target">PaymentCreateDTO</span>
 					</li>
 				</ul>
 			</section>
@@ -91,10 +86,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="src_global.Pesca.UserProfileInformation.html#displayName" class="tsd-kind-icon">display<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="src_global.Pesca.UserProfileInformation.html#email" class="tsd-kind-icon">email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="src_global.Pesca.UserProfileInformation.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="src_global.Pesca.UserProfileInformation.html#username" class="tsd-kind-icon">username</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="src_global.Pesca.PaymentCreateDTO.html#amount" class="tsd-kind-icon">amount</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="src_global.Pesca.PaymentCreateDTO.html#date" class="tsd-kind-icon">date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="src_global.Pesca.PaymentCreateDTO.html#to" class="tsd-kind-icon">to</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,48 +96,50 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="displayName" class="tsd-anchor"></a>
-					<h3>display<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">display<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="amount" class="tsd-anchor"></a>
+					<h3>amount</h3>
+					<div class="tsd-signature tsd-kind-icon">amount<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="src_global.Pesca.UserInformation.html">UserInformation</a>.<a href="src_global.Pesca.UserInformation.html#displayName">displayName</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/H1ghBre4k3r/moneyboy-app/blob/fd05924/src/global.d.ts#L10">src/global.d.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/H1ghBre4k3r/moneyboy-app/blob/fd05924/src/global.d.ts#L41">src/global.d.ts:41</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Amount of this payment.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="email" class="tsd-anchor"></a>
-					<h3>email</h3>
-					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="date" class="tsd-anchor"></a>
+					<h3>date</h3>
+					<div class="tsd-signature tsd-kind-icon">date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/H1ghBre4k3r/moneyboy-app/blob/fd05924/src/global.d.ts#L14">src/global.d.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/H1ghBre4k3r/moneyboy-app/blob/fd05924/src/global.d.ts#L46">src/global.d.ts:46</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Date of this payment.</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="to" class="tsd-anchor"></a>
+					<h3>to</h3>
+					<div class="tsd-signature tsd-kind-icon">to<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="src_global.Pesca.UserInformation.html">UserInformation</a>.<a href="src_global.Pesca.UserInformation.html#id">id</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/H1ghBre4k3r/moneyboy-app/blob/fd05924/src/global.d.ts#L8">src/global.d.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/H1ghBre4k3r/moneyboy-app/blob/fd05924/src/global.d.ts#L36">src/global.d.ts:36</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="username" class="tsd-anchor"></a>
-					<h3>username</h3>
-					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="src_global.Pesca.UserInformation.html">UserInformation</a>.<a href="src_global.Pesca.UserInformation.html#username">username</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/H1ghBre4k3r/moneyboy-app/blob/fd05924/src/global.d.ts#L9">src/global.d.ts:9</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>ID of the user this payment is issued for.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -168,9 +164,24 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="src_global.Pesca.LoginReturnDTO.html" class="tsd-kind-icon">Login<wbr>ReturnDTO</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="src_global.Pesca.PaymentCreateDTO.html" class="tsd-kind-icon">Payment<wbr>CreateDTO</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="src_global.Pesca.PaymentCreateDTO.html#amount" class="tsd-kind-icon">amount</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="src_global.Pesca.PaymentCreateDTO.html#date" class="tsd-kind-icon">date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="src_global.Pesca.PaymentCreateDTO.html#to" class="tsd-kind-icon">to</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="src_global.Pesca.PaymentInformation.html" class="tsd-kind-icon">Payment<wbr>Information</a>
 					</li>
@@ -186,27 +197,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="src_global.Pesca.UserInformation.html" class="tsd-kind-icon">User<wbr>Information</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="src_global.Pesca.UserProfileInformation.html" class="tsd-kind-icon">User<wbr>Profile<wbr>Information</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="src_global.Pesca.UserProfileInformation.html#displayName" class="tsd-kind-icon">display<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="src_global.Pesca.UserProfileInformation.html#email" class="tsd-kind-icon">email</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="src_global.Pesca.UserProfileInformation.html#id" class="tsd-kind-icon">id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="src_global.Pesca.UserProfileInformation.html#username" class="tsd-kind-icon">username</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
