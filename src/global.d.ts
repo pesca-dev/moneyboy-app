@@ -4,10 +4,13 @@ declare namespace Pesca {
     refresh_token: string;
   }
 
-  interface UserProfileInformation {
+  interface UserInformation {
     id: string;
     username: string;
     displayName: string;
+  }
+
+  interface UserProfileInformation extends UserInformation {
     email: string;
   }
 
@@ -24,5 +27,30 @@ declare namespace Pesca {
     password: string;
     displayName: string;
     email: string;
+  }
+
+  interface PaymentCreateDTO {
+    /**
+     * ID of the user this payment is issued for.
+     */
+    to: string;
+
+    /**
+     * Amount of this payment.
+     */
+    amount: number;
+
+    /**
+     * Date of this payment.
+     */
+    date: number;
+  }
+
+  interface PaymentInformation {
+    id: string;
+    amount: number;
+    date: number;
+    to: UserInformation;
+    from: UserInformation;
   }
 }

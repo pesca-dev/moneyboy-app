@@ -7,7 +7,6 @@ export const PescaContext = React.createContext<PescaClient | undefined>(undefin
 type PescaContextProviderProps = {};
 
 export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProviderProps>> = ({ children }) => {
-  const parseClient = React.useRef<PescaClient>(createPescaClient('https://moneyboy.pesca.dev'));
-
-  return <PescaContext.Provider value={parseClient.current}>{children}</PescaContext.Provider>;
+  const pescaClient = React.useRef<PescaClient>(createPescaClient('https://moneyboy.pesca.dev'));
+  return <PescaContext.Provider value={pescaClient.current}>{children}</PescaContext.Provider>;
 };

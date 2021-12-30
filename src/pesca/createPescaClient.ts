@@ -95,10 +95,42 @@ export const createPescaClient = (url: string): PescaClient => {
     return user;
   }
 
+  async function getUsers(): Promise<Pesca.UserInformation[] | null> {
+    const result = await httpClient.requestWithAuth('/users', {});
+    if (result?.status === 200) {
+      return result.json();
+    }
+    return null;
+  }
+
+  // TODO lome: move this to PaymentContext
+  async function createPayment(payment: Pesca.PaymentCreateDTO): Promise<boolean> {
+    const result = await httpClient.requestWithAuth('payments', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payment),
+    });
+    return result?.status === 201;
+  }
+
+  async function getPayments(): Promise<Pesca.PaymentInformation[] | null> {
+    const result = await httpClient.requestWithAuth('payments', {});
+    if (result?.status === 200) {
+      return result.json();
+    }
+    return null;
+  }
+
   return Object.freeze({
     login,
     logout,
     register,
     getUser,
+    getUsers,
+    createPayment,
+    getPayments,
   });
 };

@@ -28,4 +28,17 @@ export interface PescaClient {
    * @param data data needed for registration
    */
   register(data: Pesca.RegistrationPayload): Promise<MaybeError<boolean>>;
+
+  /**
+   * Get all users visible.
+   */
+  getUsers(): Promise<Pesca.UserInformation[] | null>;
+
+  /**
+   * Create a payment.
+   * @param payment information about the payment.
+   */
+  createPayment(payment: Pesca.PaymentCreateDTO): Promise<boolean>;
+
+  getPayments(): Promise<Pesca.PaymentInformation[] | null>;
 }

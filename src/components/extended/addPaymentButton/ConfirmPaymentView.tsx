@@ -1,16 +1,14 @@
 import { PescaButton } from '@components/input/PescaButton';
 import { ScreenComponentProps } from '@components/navigation/pesca-navigator/pescaScreen';
 import variables from '@config/variables';
+import { PescaContext } from '@context/PescaContext';
 import { StyleContext } from '@context/StyleContext';
 import { formatAmount } from '@util/amountUtil';
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export type ConfirmPaymentViewParams = {
-  item?: {
-    id: string;
-    name: string;
-  };
+  item: Pesca.UserInformation;
   amount: number;
   date: Date;
 };
@@ -19,7 +17,21 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
   navigation,
   params,
 }) => {
+  const pesca = useContext(PescaContext);
+
   function confirm() {
+    if (!params) {
+      // TODO lome: error badge
+      return;
+    }
+
+    const { item, amount, date } = params;
+    const payment: Pesca.PaymentCreateDTO = {
+      to: item?.id,
+      amount,
+      date: date.getTime(),
+    };
+    pesca?.createPayment(payment);
     navigation.close();
   }
 
@@ -84,7 +96,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
         </PescaButton>
       </View>
       <View>
-        <Text style={[styles.label]}>Confirm Payment for {params?.item?.name}</Text>
+        <Text style={[styles.label]}>Confirm Payment for {params?.item?.displayName}</Text>
       </View>
       <View>
         <Text style={[styles.amount]}>{formatAmount(params?.amount ?? 0)} €</Text>

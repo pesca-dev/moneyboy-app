@@ -10,10 +10,7 @@ import { ScreenComponentProps } from '../../navigation/pesca-navigator/pescaScre
 import { ConfirmPaymentViewParams } from './ConfirmPaymentView';
 
 export type EnterPaymentViewParams = {
-  item?: {
-    id: string;
-    name: string;
-  };
+  item: Pesca.UserInformation;
 };
 
 export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewParams, ConfirmPaymentViewParams>> = ({
@@ -72,7 +69,6 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
   const [date, setDate] = useState(new Date());
 
   function onDateChange(evt: any, newDate?: Date) {
-    console.log(newDate);
     newDate && setDate(newDate);
   }
 
@@ -87,6 +83,10 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
   }
 
   function handleSubmitButtonPress() {
+    if (!params) {
+      // TODO lome: error badge
+      return;
+    }
     const amount = parseAmount(value);
     if (amount > 0) {
       unfocusAmountField();
@@ -113,7 +113,7 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
           </View>
 
           <PescaAmountField
-            label={`Enter Payment for ${params?.item?.name}`}
+            label={`Enter Payment for ${params?.item?.displayName}`}
             focus={amountFieldInFocus}
             setFocus={setAmountFieldFocus}
             value={value}

@@ -36,7 +36,9 @@ export const MoneyDiff: React.FC<MoneyDiffProps> = ({ name, amount, last, onPres
     <>
       <ListItem last={last} onPress={onPress} separatorStyle={separatorStyle}>
         <Text style={styles.moneyDiffName}>{name}</Text>
-        <Text style={[styles.moneyDiffAmount, amount < 0 ? styles.negativeDiff : styles.positiveDiff]}>{amount} €</Text>
+        <Text style={[styles.moneyDiffAmount, amount < 0 ? styles.negativeDiff : styles.positiveDiff]}>
+          {amount.toFixed(2)} €
+        </Text>
       </ListItem>
     </>
   );
