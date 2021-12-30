@@ -1,4 +1,6 @@
-export const createColors = () => {
+import { StylingProps } from '@styles/stylingProps';
+
+export const createColors = (_props?: StylingProps) => {
   const palette = {
     turquoise: {
       light: '#1abc9c',

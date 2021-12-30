@@ -1,7 +1,8 @@
 import { createColors } from '@styles/colors';
+import { StylingProps } from '@styles/stylingProps';
 
-export const createContentStyles = () => {
-  const colors = createColors();
+export const createContentStyles = (props?: StylingProps) => {
+  const colors = createColors(props);
   const separator = {
     color: colors.shades.veryLight,
   };

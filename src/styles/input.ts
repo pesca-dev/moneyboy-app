@@ -1,7 +1,8 @@
 import { createColors } from '@styles/colors';
+import { StylingProps } from '@styles/stylingProps';
 
-export const createInputStyles = () => {
-  const colors = createColors();
+export const createInputStyles = (props?: StylingProps) => {
+  const colors = createColors(props);
   return {
     label: {
       color: colors.shades.dark,
