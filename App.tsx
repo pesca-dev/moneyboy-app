@@ -13,7 +13,7 @@ type AppProps = {};
 export const App: React.FC<AppProps> = () => {
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar />
       <PescaContextProvider>
         <AuthContextProvider>
           <StyleContextProvider>
