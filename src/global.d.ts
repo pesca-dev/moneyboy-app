@@ -29,7 +29,7 @@ declare namespace Pesca {
     email: string;
   }
 
-  export interface PaymentCreateDTO {
+  interface PaymentCreateDTO {
     /**
      * ID of the user this payment is issued for.
      */
@@ -44,5 +44,13 @@ declare namespace Pesca {
      * Date of this payment.
      */
     date: number;
+  }
+
+  interface PaymentInformation {
+    id: string;
+    amount: number;
+    date: number;
+    to: UserInformation;
+    from: UserInformation;
   }
 }

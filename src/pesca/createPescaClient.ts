@@ -103,6 +103,7 @@ export const createPescaClient = (url: string): PescaClient => {
     return null;
   }
 
+  // TODO lome: move this to PaymentContext
   async function createPayment(payment: Pesca.PaymentCreateDTO): Promise<boolean> {
     const result = await httpClient.requestWithAuth('payments', {
       method: 'POST',
@@ -115,6 +116,14 @@ export const createPescaClient = (url: string): PescaClient => {
     return result?.status === 201;
   }
 
+  async function getPayments(): Promise<Pesca.PaymentInformation[] | null> {
+    const result = await httpClient.requestWithAuth('payments', {});
+    if (result?.status === 200) {
+      return result.json();
+    }
+    return null;
+  }
+
   return Object.freeze({
     login,
     logout,
@@ -122,5 +131,6 @@ export const createPescaClient = (url: string): PescaClient => {
     getUser,
     getUsers,
     createPayment,
+    getPayments,
   });
 };

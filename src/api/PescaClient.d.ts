@@ -39,4 +39,6 @@ export interface PescaClient {
    * @param payment information about the payment.
    */
   createPayment(payment: Pesca.PaymentCreateDTO): Promise<boolean>;
+
+  getPayments(): Promise<Pesca.PaymentInformation[] | null>;
 }
