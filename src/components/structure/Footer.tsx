@@ -13,7 +13,7 @@ export const Footer: React.FC<PropsWithChildren<FooterProps>> = ({ children, sty
   const { Content, Footers } = useContext(StyleContext);
   const styles = StyleSheet.create({
     footerWrapper: {
-      backgroundColor: Content.background,
+      backgroundColor: Content.background.dp01,
       marginHorizontal: 20,
     },
     footer: {

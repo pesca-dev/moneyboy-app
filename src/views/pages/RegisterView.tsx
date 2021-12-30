@@ -69,7 +69,7 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
   const { Texts, Buttons, Colors, Content } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
     wrapper: {
-      backgroundColor: Content.background,
+      backgroundColor: Content.background.dp00,
       flex: 1,
     },
     container: {
@@ -82,6 +82,7 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
       marginBottom: 40,
     },
     formHeading: {
+      color: Texts.colors.primary,
       fontSize: variables.font.size.large,
     },
     infoMessage: {
@@ -127,6 +128,9 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
     },
     link: {
       marginTop: 25,
+    },
+    linkText: {
+      color: Texts.colors.primary,
     },
   });
 
@@ -204,7 +208,7 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
 
           <View style={[styles.link]}>
             <PescaButton onPress={() => navigation.navigate('login')}>
-              <Text>Already got an accout? Login!</Text>
+              <Text style={styles.linkText}>Already got an accout? Login!</Text>
             </PescaButton>
           </View>
         </SafeAreaView>

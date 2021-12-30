@@ -38,7 +38,7 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
   const { Content } = useContext(StyleContext);
   const styles = StyleSheet.create({
     safeAreaView: {
-      backgroundColor: Content.background,
+      backgroundColor: Content.background.dp01,
     },
     footer: {
       height: 64,

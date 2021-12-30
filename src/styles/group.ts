@@ -1,9 +1,10 @@
 import { createColors } from '@styles/colors';
+import { StylingProps } from '@styles/stylingProps';
 import { createTextStyles } from '@styles/text';
 
-export const createGroupStyles = () => {
-  const colors = createColors();
-  const text = createTextStyles();
+export const createGroupStyles = (props?: StylingProps) => {
+  const colors = createColors(props);
+  const text = createTextStyles(props);
 
   const header = {
     color: text.colors.primary,

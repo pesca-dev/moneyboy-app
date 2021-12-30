@@ -180,10 +180,13 @@ export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, m
       fontSize: variables.font.size.small,
       fontWeight: 'bold',
     },
+    separator: {
+      backgroundColor: Flyouts.separator.color,
+    },
   });
 
   function renderItem(info: ListRenderItemInfo<MoneyDiffProps>) {
-    return <MoneyDiff key={info.index} {...info.item} />;
+    return <MoneyDiff key={info.index} separatorStyle={styles.separator} {...info.item} />;
   }
 
   const [open, setOpen] = useState(false);

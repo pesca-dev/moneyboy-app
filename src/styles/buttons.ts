@@ -1,4 +1,5 @@
 import { createColors } from '@styles/colors';
+import { StylingProps } from '@styles/stylingProps';
 
 type Button = {
   color: string;
@@ -10,8 +11,8 @@ type ButtonStyle = {
   inactive: Button;
 };
 
-export const createButtonStyles = () => {
-  const colors = createColors();
+export const createButtonStyles = (props?: StylingProps) => {
+  const colors = createColors(props);
 
   const primary: ButtonStyle = {
     active: {

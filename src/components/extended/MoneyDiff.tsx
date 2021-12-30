@@ -2,7 +2,7 @@ import { ListItem } from '@components/structure/ListItem';
 import variables from '@config/variables';
 import { StyleContext } from '@context/StyleContext';
 import React, { useContext } from 'react';
-import { GestureResponderEvent, StyleSheet, Text } from 'react-native';
+import { GestureResponderEvent, StyleProp, StyleSheet, Text, ViewStyle } from 'react-native';
 
 export interface MoneyDiffProps {
   id: string;
@@ -10,9 +10,10 @@ export interface MoneyDiffProps {
   amount: number;
   last?: boolean;
   onPress?: (event: GestureResponderEvent) => void;
+  separatorStyle?: StyleProp<ViewStyle>;
 }
 
-export const MoneyDiff: React.FC<MoneyDiffProps> = ({ name, amount, last, onPress }) => {
+export const MoneyDiff: React.FC<MoneyDiffProps> = ({ name, amount, last, onPress, separatorStyle }) => {
   const { Colors, Texts } = useContext(StyleContext);
   const styles = StyleSheet.create({
     moneyDiffName: {
@@ -33,7 +34,7 @@ export const MoneyDiff: React.FC<MoneyDiffProps> = ({ name, amount, last, onPres
 
   return (
     <>
-      <ListItem last={last} onPress={onPress}>
+      <ListItem last={last} onPress={onPress} separatorStyle={separatorStyle}>
         <Text style={styles.moneyDiffName}>{name}</Text>
         <Text style={[styles.moneyDiffAmount, amount < 0 ? styles.negativeDiff : styles.positiveDiff]}>{amount} €</Text>
       </ListItem>

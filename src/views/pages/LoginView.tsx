@@ -51,7 +51,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
   const { Texts, Buttons, Colors, Content } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
     wrapper: {
-      backgroundColor: Content.background,
+      backgroundColor: Content.background.dp00,
       flex: 1,
     },
     container: {
@@ -64,6 +64,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
       marginBottom: 40,
     },
     formHeading: {
+      color: Texts.colors.primary,
       fontSize: variables.font.size.large,
     },
     errorView: {
@@ -98,6 +99,9 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
     },
     link: {
       marginTop: 25,
+    },
+    linkText: {
+      color: Texts.colors.primary,
     },
   });
 
@@ -143,7 +147,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
 
           <View style={[styles.link]}>
             <PescaButton onPress={() => navigation.navigate('register')}>
-              <Text>No Account? Register!</Text>
+              <Text style={styles.linkText}>No Account? Register!</Text>
             </PescaButton>
           </View>
         </SafeAreaView>

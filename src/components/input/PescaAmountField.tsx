@@ -59,7 +59,7 @@ export const PescaAmountField: React.FC<PescaAmountFieldProps> = ({
     setValue(formatAmount(floatRef.current));
   }
 
-  const { Input } = useContext(StyleContext);
+  const { Input, Texts } = useContext(StyleContext);
   const styles = StyleSheet.create({
     container: {
       //   flexDirection: 'row',
@@ -79,6 +79,7 @@ export const PescaAmountField: React.FC<PescaAmountFieldProps> = ({
       //   flexDirection: 'column',
       textAlign: 'center',
       fontSize: 100,
+      color: Texts.colors.primary,
     },
   });
   const ref = useRef<TextInput | null>(null);

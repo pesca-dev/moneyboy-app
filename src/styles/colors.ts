@@ -1,4 +1,6 @@
-export const createColors = () => {
+import { StylingProps } from '@styles/stylingProps';
+
+export const createColors = (_props?: StylingProps) => {
   const palette = {
     turquoise: {
       light: '#1abc9c',
@@ -31,14 +33,14 @@ export const createColors = () => {
   };
 
   const shades = {
-    white: '#fff',
+    white: '#ffffff',
     veryLight: '#ecf0f1',
     light: '#bdc3c7',
     mediumLight: '#95a5a6',
     mediumDark: '#7f8c8d',
     dark: '#34495e',
     veryDark: '#2c3e50',
-    black: '#000',
+    black: '#000000',
     soft: '#42423d',
   };
 
@@ -55,9 +57,16 @@ export const createColors = () => {
     error: palette.red.light,
   };
 
+  const dark = {
+    background: {
+      base: 0x121212,
+    },
+  };
+
   return {
     base,
     status,
     shades,
+    dark,
   };
 };
