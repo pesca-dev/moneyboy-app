@@ -4,7 +4,8 @@ import { createContentStyles } from '@styles/content';
 import { createFlyoutStyles } from '@styles/flyout';
 import { createFooterStyles } from '@styles/footer';
 import { createInputStyles } from '@styles/input';
-import { createTabStyles } from '@styles/tabs';
+import { createListStyles } from '@styles/list';
+import { createTabStyles } from '@styles/tab';
 import { createTextStyles } from '@styles/text';
 import React, { PropsWithChildren } from 'react';
 
@@ -17,6 +18,7 @@ export type StyleContextType = {
   Tabs: ReturnType<typeof createTabStyles>;
   Flyouts: ReturnType<typeof createFlyoutStyles>;
   Footers: ReturnType<typeof createFooterStyles>;
+  Lists: ReturnType<typeof createListStyles>;
 };
 
 export const StyleContext = React.createContext<StyleContextType>({
@@ -28,6 +30,7 @@ export const StyleContext = React.createContext<StyleContextType>({
   Tabs: createTabStyles(),
   Flyouts: createFlyoutStyles(),
   Footers: createFooterStyles(),
+  Lists: createListStyles(),
 });
 
 type StyleContextProviderProps = {};
@@ -42,6 +45,7 @@ export const StyleContextProvider: React.FC<PropsWithChildren<StyleContextProvid
     Tabs: createTabStyles(),
     Flyouts: createFlyoutStyles(),
     Footers: createFooterStyles(),
+    Lists: createListStyles(),
   };
   return <StyleContext.Provider value={value}>{children}</StyleContext.Provider>;
 };

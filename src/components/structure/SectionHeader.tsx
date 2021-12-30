@@ -1,5 +1,5 @@
-import { ThemeContext } from '@context/ThemeContext';
-import React from 'react';
+import { StyleContext } from '@context/StyleContext';
+import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 type SectionHeaderProps = {
@@ -7,12 +7,12 @@ type SectionHeaderProps = {
 };
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({ header }) => {
-  const theme = React.useContext(ThemeContext);
+  const { Lists } = useContext(StyleContext);
   const styles = StyleSheet.create({
     headerContainer: {
       paddingHorizontal: 20,
       paddingTop: 10,
-      backgroundColor: theme.list.header.background,
+      backgroundColor: Lists.header.background,
     },
     headerTextContainer: {
       width: '100%',
@@ -20,7 +20,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ header }) => {
       padding: 10,
       // backgroundColor: '#fff',
       elevation: 10,
-      shadowColor: theme.list.header.shadow,
+      shadowColor: Lists.header.shadow,
       shadowOffset: {
         width: 0,
         height: 0,
@@ -30,7 +30,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ header }) => {
     headerText: {
       fontSize: 42,
       fontWeight: 'bold',
-      color: theme.list.header.color,
+      color: Lists.header.color,
     },
   });
   return (
