@@ -8,7 +8,7 @@ export const createListStyles = (props?: StylingProps) => {
 
   const header = {
     color: text.colors.primary,
-    background: content.background.dp00,
+    background: content.background.dp01,
     shadow: content.shadows.color,
   };
 
