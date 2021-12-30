@@ -4,10 +4,13 @@ declare namespace Pesca {
     refresh_token: string;
   }
 
-  interface UserProfileInformation {
+  interface UserInformation {
     id: string;
     username: string;
     displayName: string;
+  }
+
+  interface UserProfileInformation extends UserInformation {
     email: string;
   }
 

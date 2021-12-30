@@ -28,4 +28,6 @@ export interface PescaClient {
    * @param data data needed for registration
    */
   register(data: Pesca.RegistrationPayload): Promise<MaybeError<boolean>>;
+
+  getUsers(): Promise<Pesca.UserInformation[] | null>;
 }

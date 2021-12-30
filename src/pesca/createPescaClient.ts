@@ -95,10 +95,19 @@ export const createPescaClient = (url: string): PescaClient => {
     return user;
   }
 
+  async function getUsers(): Promise<Pesca.UserInformation[] | null> {
+    const result = await httpClient.requestWithAuth('/users', {});
+    if (result?.status === 200) {
+      return result.json();
+    }
+    return null;
+  }
+
   return Object.freeze({
     login,
     logout,
     register,
     getUser,
+    getUsers,
   });
 };
