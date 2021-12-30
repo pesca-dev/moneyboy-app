@@ -46,13 +46,6 @@ const palette = {
 };
 
 const defaultTheme: ThemeType = {
-  input: {
-    label: {
-      color: palette.shades.dark,
-    },
-    borderColor: palette.shades.veryLight,
-    placeholder: palette.shades.mediumDark,
-  },
   signals: {
     success: palette.green.light,
     error: palette.red.light,

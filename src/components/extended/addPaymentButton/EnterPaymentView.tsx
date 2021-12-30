@@ -47,7 +47,7 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
     submitButtonText: {
       textAlign: 'center',
       fontSize: 24,
-      color: Buttons.primary.active.background,
+      color: Buttons.primary.active.color,
     },
     dateFieldContainer: {
       flexDirection: 'row',
