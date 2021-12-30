@@ -46,10 +46,6 @@ const palette = {
 };
 
 const defaultTheme: ThemeType = {
-  footer: {
-    background: palette.shades.white,
-    shadow: palette.shades.soft,
-  },
   list: {
     header: {
       color: palette.shades.black,

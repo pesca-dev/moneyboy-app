@@ -2,6 +2,7 @@ import { createButtonStyles } from '@styles/buttons';
 import { createColors } from '@styles/colors';
 import { createContentStyles } from '@styles/content';
 import { createFlyoutStyles } from '@styles/flyout';
+import { createFooterStyles } from '@styles/footer';
 import { createInputStyles } from '@styles/input';
 import { createTabStyles } from '@styles/tabs';
 import { createTextStyles } from '@styles/text';
@@ -15,6 +16,7 @@ export type StyleContextType = {
   Input: ReturnType<typeof createInputStyles>;
   Tabs: ReturnType<typeof createTabStyles>;
   Flyouts: ReturnType<typeof createFlyoutStyles>;
+  Footers: ReturnType<typeof createFooterStyles>;
 };
 
 export const StyleContext = React.createContext<StyleContextType>({
@@ -25,6 +27,7 @@ export const StyleContext = React.createContext<StyleContextType>({
   Input: createInputStyles(),
   Tabs: createTabStyles(),
   Flyouts: createFlyoutStyles(),
+  Footers: createFooterStyles(),
 });
 
 type StyleContextProviderProps = {};
@@ -38,6 +41,7 @@ export const StyleContextProvider: React.FC<PropsWithChildren<StyleContextProvid
     Input: createInputStyles(),
     Tabs: createTabStyles(),
     Flyouts: createFlyoutStyles(),
+    Footers: createFooterStyles(),
   };
   return <StyleContext.Provider value={value}>{children}</StyleContext.Provider>;
 };

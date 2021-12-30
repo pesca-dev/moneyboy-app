@@ -1,5 +1,4 @@
 import { StyleContext } from '@context/StyleContext';
-import { ThemeContext } from '@context/ThemeContext';
 import React, { PropsWithChildren, useContext } from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
@@ -11,8 +10,7 @@ interface FooterProps {
  * Footer for a screen.
  */
 export const Footer: React.FC<PropsWithChildren<FooterProps>> = ({ children, style }) => {
-  const theme = React.useContext(ThemeContext);
-  const { Content } = useContext(StyleContext);
+  const { Content, Footers } = useContext(StyleContext);
   const styles = StyleSheet.create({
     footerWrapper: {
       backgroundColor: Content.background,
@@ -20,8 +18,8 @@ export const Footer: React.FC<PropsWithChildren<FooterProps>> = ({ children, sty
     },
     footer: {
       height: 60,
-      backgroundColor: theme.footer.background,
-      shadowColor: theme.footer.shadow,
+      backgroundColor: Footers.background,
+      shadowColor: Footers.shadow,
       borderRadius: 20,
       shadowOffset: {
         height: 0,

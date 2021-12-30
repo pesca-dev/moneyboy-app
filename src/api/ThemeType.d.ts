@@ -2,10 +2,6 @@
  * Global type for a theme.
  */
 export type ThemeType = {
-  footer: {
-    background: string;
-    shadow: string;
-  };
   list: {
     header: {
       background: string;
