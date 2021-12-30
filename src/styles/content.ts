@@ -5,7 +5,7 @@ import { mix } from '@styles/utils';
 export const createContentStyles = (props?: StylingProps) => {
   const colors = createColors(props);
   const separator = {
-    color: colors.shades.veryLight,
+    color: props?.mode === 'dark' ? colors.shades.dark : colors.shades.veryLight,
   };
 
   const shadows = {
