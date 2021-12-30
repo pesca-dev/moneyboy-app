@@ -23,7 +23,7 @@ export const Separator: React.FC<SeparatorProps> = ({ style }) => {
       flex: 1,
       height: 1,
       marginHorizontal: 15,
-      backgroundColor: Content.background,
+      backgroundColor: Content.separator.color,
     },
   });
 
