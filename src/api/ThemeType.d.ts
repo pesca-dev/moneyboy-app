@@ -2,10 +2,6 @@
  * Global type for a theme.
  */
 export type ThemeType = {
-  signals: {
-    success: string;
-    error: string;
-  };
   shadow: {
     default: {
       color: string;

@@ -46,10 +46,6 @@ const palette = {
 };
 
 const defaultTheme: ThemeType = {
-  signals: {
-    success: palette.green.light,
-    error: palette.red.light,
-  },
   shadow: {
     default: {
       color: palette.shades.soft,
