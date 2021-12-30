@@ -3,6 +3,7 @@ import { createColors } from '@styles/colors';
 import { createContentStyles } from '@styles/content';
 import { createFlyoutStyles } from '@styles/flyout';
 import { createFooterStyles } from '@styles/footer';
+import { createGroupStyles } from '@styles/group';
 import { createInputStyles } from '@styles/input';
 import { createListStyles } from '@styles/list';
 import { createTabStyles } from '@styles/tab';
@@ -19,6 +20,7 @@ export type StyleContextType = {
   Flyouts: ReturnType<typeof createFlyoutStyles>;
   Footers: ReturnType<typeof createFooterStyles>;
   Lists: ReturnType<typeof createListStyles>;
+  Groups: ReturnType<typeof createGroupStyles>;
 };
 
 export const StyleContext = React.createContext<StyleContextType>({
@@ -31,6 +33,7 @@ export const StyleContext = React.createContext<StyleContextType>({
   Flyouts: createFlyoutStyles(),
   Footers: createFooterStyles(),
   Lists: createListStyles(),
+  Groups: createGroupStyles(),
 });
 
 type StyleContextProviderProps = {};
@@ -46,6 +49,7 @@ export const StyleContextProvider: React.FC<PropsWithChildren<StyleContextProvid
     Flyouts: createFlyoutStyles(),
     Footers: createFooterStyles(),
     Lists: createListStyles(),
+    Groups: createGroupStyles(),
   };
   return <StyleContext.Provider value={value}>{children}</StyleContext.Provider>;
 };

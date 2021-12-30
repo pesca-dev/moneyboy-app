@@ -45,22 +45,7 @@ const palette = {
   },
 };
 
-const defaultTheme: ThemeType = {
-  groups: {
-    header: {
-      color: palette.shades.black,
-    },
-    caption: {
-      color: palette.shades.mediumDark,
-    },
-    memberList: {
-      color: palette.shades.black,
-    },
-    flyout: {
-      color: palette.shades.black,
-    },
-  },
-};
+const defaultTheme: ThemeType = {};
 
 /**
  * @deprecated

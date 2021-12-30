@@ -3,8 +3,8 @@ import { Content } from '@components/structure/Content';
 import { Flyout } from '@components/structure/Flyout';
 import { ListItem } from '@components/structure/ListItem';
 import variables from '@config/variables';
-import { ThemeContext } from '@context/ThemeContext';
-import React, { useState } from 'react';
+import { StyleContext } from '@context/StyleContext';
+import React, { useContext, useState } from 'react';
 import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 import { v4 as uuid } from 'react-native-uuid';
 
@@ -144,7 +144,7 @@ const dummyData: MoneyDiffProps[] = [
 ];
 
 export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, members, last }) => {
-  const theme = React.useContext(ThemeContext);
+  const { Groups, Flyouts } = useContext(StyleContext);
   const styles = StyleSheet.create({
     groupContainer: {
       width: '100%',
@@ -154,19 +154,19 @@ export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, m
       // alignItems: 'center',
     },
     groupName: {
-      color: theme.groups.header.color,
+      color: Groups.header.color,
       fontSize: variables.font.size.medium,
       fontWeight: 'bold',
     },
     groupCaption: {
-      color: theme.groups.caption.color,
+      color: Groups.caption.color,
       fontSize: variables.font.size.ultraSmall,
     },
     groupBody: {
       paddingVertical: 5,
     },
     membersList: {
-      color: theme.groups.memberList.color,
+      color: Groups.memberList.color,
     },
     recentPaymentContainer: {
       marginVertical: 10,
@@ -176,7 +176,7 @@ export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, m
       marginBottom: 10,
     },
     recentPaymentHeader: {
-      color: theme.groups.flyout.color,
+      color: Flyouts.heading.color,
       fontSize: variables.font.size.small,
       fontWeight: 'bold',
     },
