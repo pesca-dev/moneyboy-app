@@ -124,7 +124,7 @@ export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentView
     left: 0,
   };
 
-  const { Buttons, Flyouts } = useContext(StyleContext);
+  const { Buttons, Flyouts, Content } = useContext(StyleContext);
   const styles = StyleSheet.create({
     flyoutHeaderContainer: {
       marginBottom: 10,
@@ -146,7 +146,7 @@ export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentView
     },
     sectionHeaderContainer: {
       paddingVertical: 5,
-      backgroundColor: '#fff',
+      backgroundColor: Content.background,
     },
     sectionHeaderLabel: {
       fontWeight: 'bold',
