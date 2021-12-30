@@ -25,7 +25,7 @@ export const AppContainer: React.FC<AppContainerProps> = () => {
   const { Content } = useContext(StyleContext);
   const styles = StyleSheet.create({
     sceneContainer: {
-      backgroundColor: Content.background,
+      backgroundColor: Content.background.dp01,
     },
   });
 

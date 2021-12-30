@@ -14,7 +14,7 @@ export const createTabStyles = (props?: StylingProps) => {
   };
 
   const focus: Tab = {
-    color: colors.shades.dark,
+    color: props?.mode === 'dark' ? colors.base.white : colors.shades.dark,
     shadow: colors.shades.soft,
   };
 

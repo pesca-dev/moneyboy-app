@@ -19,7 +19,7 @@ export const createFlyoutStyles = (props?: StylingProps) => {
 
   return {
     heading,
-    background: contents.background,
+    background: contents.background.dp24,
     shadow: contents.shadows.color,
     icon,
   };

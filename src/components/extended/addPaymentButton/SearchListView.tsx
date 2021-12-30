@@ -124,7 +124,7 @@ export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentView
     left: 0,
   };
 
-  const { Buttons, Flyouts, Content } = useContext(StyleContext);
+  const { Buttons, Flyouts, Content, Texts, Input } = useContext(StyleContext);
   const styles = StyleSheet.create({
     flyoutHeaderContainer: {
       marginBottom: 10,
@@ -144,18 +144,23 @@ export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentView
     submitButtonText: {
       color: Buttons.primary.active.color,
     },
+    inputLabel: {
+      color: Input.label.color,
+    },
     sectionHeaderContainer: {
       paddingVertical: 5,
-      backgroundColor: Content.background,
+      backgroundColor: Content.background.dp00,
     },
     sectionHeaderLabel: {
       fontWeight: 'bold',
+      color: Texts.colors.primary,
     },
     list: {
       flexGrow: 0,
     },
     listItem: {
       fontSize: 16,
+      color: Texts.colors.primary,
     },
   });
 

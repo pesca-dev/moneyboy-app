@@ -51,6 +51,7 @@ type PescaInputFieldProps = {
   value?: string;
   onSubmitEditing?: (e?: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => void;
   style?: StyleProp<TextStyle>;
+  labelStyle?: StyleProp<TextStyle>;
   keyboardType?: KeyboardTypeOptions;
   textContentType?: TextContentType;
 };
@@ -63,6 +64,7 @@ export const PescaInputField: React.FC<PescaInputFieldProps> = ({
   onChangeText,
   onSubmitEditing,
   style,
+  labelStyle,
   textContentType,
   keyboardType = 'default',
 }) => {
@@ -89,7 +91,7 @@ export const PescaInputField: React.FC<PescaInputFieldProps> = ({
 
   return (
     <View style={[styles.container]}>
-      <Text style={[styles.label]}>{label}</Text>
+      <Text style={[styles.label, labelStyle]}>{label}</Text>
       <TextInput
         placeholder={placeholder}
         style={[styles.input, style]}

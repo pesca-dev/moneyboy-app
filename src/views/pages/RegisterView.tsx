@@ -69,7 +69,7 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
   const { Texts, Buttons, Colors, Content } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
     wrapper: {
-      backgroundColor: Content.background,
+      backgroundColor: Content.background.dp00,
       flex: 1,
     },
     container: {
