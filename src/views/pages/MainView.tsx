@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { MoneyDiff, MoneyDiffProps } from '@components/extended/MoneyDiff';
 import { Content } from '@components/structure/Content';
 import { SectionHeader } from '@components/structure/SectionHeader';
@@ -21,7 +22,7 @@ function renderListItem({
   );
 }
 
-type MainViewProps = {};
+type MainViewProps = unknown;
 
 type StatisticReducer = {
   users: {
@@ -83,6 +84,15 @@ export const MainView: React.FC<MainViewProps> = () => {
     },
   ];
 
+  const styles = StyleSheet.create({
+    scrollView: {
+      flex: 1,
+    },
+    placeholder: {
+      height: variables.display.placeholderTop.height,
+    },
+  });
+
   return (
     <ViewBase>
       <SectionList
@@ -99,12 +109,3 @@ export const MainView: React.FC<MainViewProps> = () => {
     </ViewBase>
   );
 };
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  placeholder: {
-    height: variables.display.placeholderTop.height,
-  },
-});
