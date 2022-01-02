@@ -51,6 +51,12 @@ export class ListItem extends Component<ListItemProps, ListItemState> {
   }
 
   render() {
+    const styles = StyleSheet.create({
+      listItem: {
+        flexDirection: 'row',
+        paddingVertical: 10,
+      },
+    });
     return (
       <>
         <TouchableWithoutFeedback onPress={this.props.onPress} disabled={this.state.disabled} testID="touchable">
@@ -63,10 +69,3 @@ export class ListItem extends Component<ListItemProps, ListItemState> {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  listItem: {
-    flexDirection: 'row',
-    paddingVertical: 10,
-  },
-});
