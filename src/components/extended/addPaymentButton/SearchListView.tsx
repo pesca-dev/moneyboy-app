@@ -135,12 +135,10 @@ export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentView
       <SectionList
         initialNumToRender={20}
         sections={sections
-          .map(s => {
-            return {
-              ...s,
-              data: s.data.filter(d => d.displayName.toLowerCase().includes(value.toLowerCase())),
-            };
-          })
+          .map(s => ({
+            ...s,
+            data: s.data.filter(d => d.displayName.toLowerCase().includes(value.toLowerCase())),
+          }))
           .filter(s => s.data.length > 0)}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
