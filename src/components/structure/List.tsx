@@ -22,17 +22,12 @@ interface ListProps<T> {
  */
 export function List<T>({ style, render, data }: ListProps<T>) {
   // Use a very simple render function if none is provided
-  const renderFn =
-    render ??
-    ((renderData: T) => {
-      return <View>{renderData}</View>;
-    });
+  const renderFn = render ?? ((renderData: T) => <View>{renderData}</View>);
 
+  const styles = StyleSheet.create({
+    itemContainer: {
+      flexDirection: 'column',
+    },
+  });
   return <View style={[styles.itemContainer, style]}>{renderFn(data)}</View>;
 }
-
-const styles = StyleSheet.create({
-  itemContainer: {
-    flexDirection: 'column',
-  },
-});

@@ -11,14 +11,12 @@ type AddPaymentButtonProps = {
 
 const Pesca = createPescaNavigation();
 
-export const AddPaymentButton: React.FC<AddPaymentButtonProps> = ({ isOpen, setOpen }) => {
-  return (
-    <>
-      <Pesca.Navigator isOpen={isOpen} setOpen={open => setOpen(open)} heading={'Add a payment'}>
-        <Pesca.Screen name={'SeachListView'} component={SearchListView} />
-        <Pesca.Screen name={'EnterPaymentView'} component={EnterPaymentView} />
-        <Pesca.Screen name={'ConfirmPaymentView'} component={ConfirmPaymentView} />
-      </Pesca.Navigator>
-    </>
-  );
-};
+export const AddPaymentButton: React.FC<AddPaymentButtonProps> = ({ isOpen, setOpen }) => (
+  <>
+    <Pesca.Navigator isOpen={isOpen} setOpen={open => setOpen(open)} heading={'Add a payment'}>
+      <Pesca.Screen name={'SeachListView'} component={SearchListView} />
+      <Pesca.Screen name={'EnterPaymentView'} component={EnterPaymentView} />
+      <Pesca.Screen name={'ConfirmPaymentView'} component={ConfirmPaymentView} />
+    </Pesca.Navigator>
+  </>
+);

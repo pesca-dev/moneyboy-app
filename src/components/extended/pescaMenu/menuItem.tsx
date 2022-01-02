@@ -14,8 +14,9 @@ type MenuItemProps = {
 /**
  * Create a menu item for a PescaMenu. All items will be layout in a half-circle around the main button.
  */
-export const createPescaMenuItem = (PescaMenuContext: React.Context<PescaMenuContextType>): React.FC<MenuItemProps> => {
-  return function ({ iconName, onPress }: MenuItemProps) {
+export const createPescaMenuItem =
+  (PescaMenuContext: React.Context<PescaMenuContextType>): React.FC<MenuItemProps> =>
+  ({ iconName, onPress }: MenuItemProps) => {
     const { isOpen, count, close, register } = useContext(PescaMenuContext);
 
     const [index, setIndex] = useState(-1);
@@ -109,4 +110,3 @@ export const createPescaMenuItem = (PescaMenuContext: React.Context<PescaMenuCon
       </animated.View>
     );
   };
-};

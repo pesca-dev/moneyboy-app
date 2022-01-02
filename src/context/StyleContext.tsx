@@ -38,7 +38,7 @@ export const StyleContext = React.createContext<StyleContextType>({
   Groups: createGroupStyles(),
 });
 
-type StyleContextProviderProps = {};
+type StyleContextProviderProps = unknown;
 
 export const StyleContextProvider: React.FC<PropsWithChildren<StyleContextProviderProps>> = ({ children }) => {
   const mode = useColorScheme();

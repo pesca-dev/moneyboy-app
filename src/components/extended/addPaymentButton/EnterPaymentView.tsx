@@ -69,7 +69,9 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
   const [date, setDate] = useState(new Date());
 
   function onDateChange(evt: any, newDate?: Date) {
-    newDate && setDate(newDate);
+    if (newDate) {
+      setDate(newDate);
+    }
   }
 
   useEffect(() => {

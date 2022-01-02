@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { FlyoutType } from '@api/FlyoutType';
 import { Flyout } from '@components/structure/Flyout';
 import React, { PropsWithChildren, ReactNode, useState } from 'react';
@@ -12,7 +13,7 @@ export const FlyoutContext = React.createContext<FlyoutType>({
   setChildren(_childred: ReactNode, _open?: boolean) {},
 });
 
-type FlyoutContextProviderProps = {};
+type FlyoutContextProviderProps = unknown;
 
 type FlyoutState = {
   open: boolean;

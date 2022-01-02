@@ -27,10 +27,8 @@ export const PescaButton: React.FC<PropsWithChildren<PescaButtonProps>> = ({
   onPress,
   children,
   hitSlop = defaultHitSlop,
-}) => {
-  return (
-    <Pressable style={[style]} onPress={onPress} disabled={disabled} hitSlop={hitSlop} testID={'touchable'}>
-      {children}
-    </Pressable>
-  );
-};
+}) => (
+  <Pressable style={[style]} onPress={onPress} disabled={disabled} hitSlop={hitSlop} testID={'touchable'}>
+    {children}
+  </Pressable>
+);

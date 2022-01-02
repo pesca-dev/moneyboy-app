@@ -11,11 +11,11 @@ import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
 
 type HistoryViewProps = {
-  route: RouteProp<ParamListBase, any>;
+  route: RouteProp<ParamListBase, string>;
   navigation: NavigationHelpers<ParamListBase, MaterialTopTabNavigationEventMap>;
 };
 
-export const HistoryView: React.FC<HistoryViewProps> = ({}) => {
+export const HistoryView: React.FC<HistoryViewProps> = () => {
   const [payments, setPayents] = useState<Pesca.PaymentInformation[]>([]);
   const pesca = useContext(PescaContext);
   const { user } = useContext(AuthContext);

@@ -6,9 +6,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-type LogoutButtonProps = {};
+type LogoutButtonProps = unknown;
 
-export const LogoutButton: React.FC<LogoutButtonProps> = ({}) => {
+export const LogoutButton: React.FC<LogoutButtonProps> = () => {
   const { logout } = React.useContext(AuthContext);
 
   const { Buttons } = React.useContext(StyleContext);

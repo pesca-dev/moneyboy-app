@@ -97,7 +97,7 @@ export const PescaAmountField: React.FC<PescaAmountFieldProps> = ({
       <TextInput value={value} style={[styles.input]} keyboardType="number-pad" onChangeText={onChangeText} ref={ref} />
       <Text style={[styles.label]}>{label}</Text>
       <TouchableWithoutFeedback onPress={() => setFocus?.(true)}>
-        <Text style={[styles.text]}>{value + ' ' + unit}</Text>
+        <Text style={[styles.text]}>{`${value} ${unit}`}</Text>
       </TouchableWithoutFeedback>
     </View>
   );

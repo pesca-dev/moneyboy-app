@@ -4,11 +4,11 @@ import { FlyoutContext } from '@context/FlyoutContext';
 import React, { useState } from 'react';
 import { Text } from 'react-native';
 
-type CenterButtonProps = {};
+type CenterButtonProps = unknown;
 
 const PescaMenu = createPescaMenu();
 
-export const CenterButton: React.FC<CenterButtonProps> = ({}) => {
+export const CenterButton: React.FC<CenterButtonProps> = () => {
   const flyout = React.useContext(FlyoutContext);
 
   const [isPaymentButtonOpen, setPaymentButtonOpen] = useState<boolean>(false);

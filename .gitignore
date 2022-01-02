@@ -67,3 +67,5 @@ buck-out/
 /docs
 
 .env*
+
+licenses.json

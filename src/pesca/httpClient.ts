@@ -18,6 +18,7 @@ interface StorageProvider {
  * @author Louis Meyer
  */
 export class HttpClient {
+  // eslint-disable-next-line no-useless-constructor
   constructor(
     private readonly apiUrl: string,
     private readonly keys: VariableKeys,
@@ -37,19 +38,20 @@ export class HttpClient {
    */
   public async requestWithAuth(uri: RequestInfo, options: RequestInit) {
     // get access token from storage and add it to header
-    let access_token = (await this.storage.getItem(this.keys.storage.access_token).catch(() => null)) ?? '';
+    const accessToken = (await this.storage.getItem(this.keys.storage.access_token).catch(() => null)) ?? '';
+    // eslint-disable-next-line no-param-reassign
     options.headers = {
       ...options.headers,
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${accessToken}`,
     };
 
     // perform request
     let res = await this.request(uri, options);
     if (res?.status === 401) {
       // if request is unauthorized, get refresh token from storage
-      const refresh_token = (await this.storage.getItem(this.keys.storage.refresh_token).catch(() => null)) ?? '';
+      const refreshToken = (await this.storage.getItem(this.keys.storage.refresh_token).catch(() => null)) ?? '';
       const payload: Pesca.RefreshAccessTokenPayload = {
-        refresh_token,
+        refresh_token: refreshToken,
       };
       // try to get a new access token
       const refResult = await fetch(`${this.apiUrl}/auth/refresh`, {
@@ -65,6 +67,7 @@ export class HttpClient {
         const newAccessToken: Pesca.RefreshAccessTokenDTO = await refResult.json();
         await this.storage.setItem(this.keys.storage.access_token, newAccessToken.access_token).catch(console.error);
         // ...and perform request again
+        // eslint-disable-next-line no-param-reassign
         options.headers = {
           ...options.headers,
           Authorization: `Bearer ${newAccessToken.access_token}`,

@@ -14,7 +14,7 @@ import { StyleSheet } from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
 
-type AppContainerProps = {};
+type AppContainerProps = unknown;
 
 /**
  * Container for the app and the navigation.
