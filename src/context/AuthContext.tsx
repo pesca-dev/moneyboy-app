@@ -38,6 +38,7 @@ export const AuthContext = React.createContext<AuthContextType>({
   async login(_data) {
     return [true];
   },
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   logout() {},
   async register() {
     return [true];
@@ -45,7 +46,7 @@ export const AuthContext = React.createContext<AuthContextType>({
   ready: true,
 });
 
-type AuthContextProviderProps = {};
+type AuthContextProviderProps = unknown;
 
 type AuthContextState = {
   ready: boolean;
