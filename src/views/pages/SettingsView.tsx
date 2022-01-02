@@ -7,16 +7,16 @@ import { AuthContext } from '@context/AuthContext';
 import React from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
 
-type SettingsViewProps = {};
-
-type SettingsViewListData = {
-  title: any;
-  data: SettingsViewListEntry[];
-};
+type SettingsViewProps = unknown;
 
 type SettingsViewListEntry = {
   id: string;
   content: JSX.Element;
+};
+
+type SettingsViewListData = {
+  title: unknown;
+  data: SettingsViewListEntry[];
 };
 
 export const SettingsView: React.FC<SettingsViewProps> = () => {
