@@ -46,7 +46,7 @@ const data = [
   },
 ];
 
-type GroupViewProps = {};
+type GroupViewProps = unknown;
 
 export const GroupView: React.FC<GroupViewProps> = () => {
   function renderListItem({ item, index, section }: SectionListRenderItemInfo<Group, DefaultSectionT>) {
