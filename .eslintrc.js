@@ -24,6 +24,7 @@ module.exports = {
     'import/extensions': [0, 'never'],
     'import/no-unresolved': [0, 'never'],
     'import/prefer-default-export': 0,
+    'import/no-extraneous-dependencies': 0,
   },
 
   settings: {

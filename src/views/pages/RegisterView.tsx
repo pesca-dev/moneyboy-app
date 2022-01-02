@@ -3,7 +3,6 @@ import { PescaInputField } from '@components/input/PescaInputField';
 import variables from '@config/variables';
 import { AuthContext } from '@context/AuthContext';
 import { StyleContext } from '@context/StyleContext';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
 import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import React, { useEffect, useState } from 'react';
