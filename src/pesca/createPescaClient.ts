@@ -66,9 +66,9 @@ export const createPescaClient = (url: string): PescaClient => {
 
     if (result?.status === 202) {
       return [true];
-    } else {
-      return [false, (await result?.json())?.message ?? 'Error during registration'];
     }
+
+    return [false, (await result?.json())?.message ?? 'Error during registration'];
   }
 
   async function getUser(): Promise<Pesca.UserProfileInformation | null> {
@@ -84,7 +84,9 @@ export const createPescaClient = (url: string): PescaClient => {
       if (userJSON) {
         try {
           user = JSON.parse(userJSON);
-        } catch {}
+        } catch (e) {
+          console.error(e);
+        }
       }
     } else {
       // if we are unauthorized, we simply delete all stored data, so we leave nothing behind after a logout
