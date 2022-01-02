@@ -10,10 +10,9 @@ type PescaNavigatorProps = PropsWithChildren<{
   heading?: string;
 }>;
 
-export const createPescaNavigator = (
-  PescaNavContext: React.Context<PescaNavContextType | null>,
-): React.FC<PescaNavigatorProps> => {
-  return function ({ children, isOpen, setOpen, heading }: PescaNavigatorProps) {
+export const createPescaNavigator =
+  (PescaNavContext: React.Context<PescaNavContextType | null>): React.FC<PescaNavigatorProps> =>
+  ({ children, isOpen, setOpen, heading }: PescaNavigatorProps) => {
     const [screens, setScreens] = useState<PescaNavContextScreen[]>([]);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
 
@@ -38,11 +37,12 @@ export const createPescaNavigator = (
       setScreens(s => s.filter(screen => screen.name !== name));
     }
 
-    function next(params?: any) {
+    function next(params?: unknown) {
       if (currentIndex + 1 < screens.length) {
         setScreens(s =>
           s.map((screen, i) => {
             if (params && i === currentIndex + 1) {
+              // eslint-disable-next-line no-param-reassign
               screen.params = params;
             }
             return screen;
@@ -116,4 +116,3 @@ export const createPescaNavigator = (
       </PescaNavContext.Provider>
     );
   };
-};
