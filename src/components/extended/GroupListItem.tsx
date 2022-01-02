@@ -6,7 +6,7 @@ import variables from '@config/variables';
 import { StyleContext } from '@context/StyleContext';
 import React, { useContext, useState } from 'react';
 import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
+import uuid from 'react-native-uuid';
 
 type GroupListItemProps = {
   name: string;
@@ -17,127 +17,127 @@ type GroupListItemProps = {
 
 const dummyData: MoneyDiffProps[] = [
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Friend A',
     amount: -14.56,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Another Friend',
     amount: -7.13,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Another Friend',
     amount: -17.56,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Another Friend',
     amount: -2.99,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -5.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -55.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -50000.69,
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Some Random Guy',
     amount: -5.69,
   },
