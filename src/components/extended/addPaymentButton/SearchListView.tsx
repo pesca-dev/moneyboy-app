@@ -20,7 +20,7 @@ type SectionT = {
   data: SectionData[];
 };
 
-export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentViewParams>> = ({ navigation }) => {
+export const SearchListView: React.FC<ScreenComponentProps<unknown, EnterPaymentViewParams>> = ({ navigation }) => {
   const pesca = useContext(PescaContext);
   const { user } = useContext(AuthContext);
 
@@ -114,7 +114,7 @@ export const SearchListView: React.FC<ScreenComponentProps<any, EnterPaymentView
     );
   }
 
-  function renderSectionHeader({ section: { title } }: { section: SectionListData<any, SectionT> }) {
+  function renderSectionHeader({ section: { title } }: { section: SectionListData<SectionData, SectionT> }) {
     return (
       <View style={[styles.sectionHeaderContainer]}>
         <Text style={[styles.sectionHeaderLabel]}>{title}</Text>
