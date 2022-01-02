@@ -1,7 +1,6 @@
-import 'react-native';
-import React from 'react';
 import { PescaButton } from '@components/input/PescaButton';
 import { cleanup, fireEvent, render } from '@testing-library/react-native';
+import React from 'react';
 import { Text } from 'react-native';
 
 describe('PescaButton', () => {
