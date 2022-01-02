@@ -3,7 +3,7 @@ import { SectionHeader } from '@components/structure/SectionHeader';
 import { ViewBase } from '@components/structure/ViewBase';
 import React from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
-import { v4 as uuid } from 'react-native-uuid';
+import uuid from 'react-native-uuid';
 
 type Group = {
   id: string;
@@ -14,25 +14,25 @@ type Group = {
 
 const groups: Group[] = [
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico', 'Louis', 'Hendrik', 'Vivi', 'Nico'],
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico'],
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico'],
   },
   {
-    id: uuid(),
+    id: uuid.v4() as string,
     name: 'Hello',
     createdAt: Date.now(),
     members: ['Louis', 'Hendrik', 'Vivi', 'Nico'],
