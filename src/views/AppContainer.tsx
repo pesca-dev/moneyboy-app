@@ -9,6 +9,7 @@ import { LoginView } from '@views/pages/LoginView';
 import { MainView } from '@views/pages/MainView';
 import { RegisterView } from '@views/pages/RegisterView';
 import { SettingsView } from '@views/pages/SettingsView';
+import SettingsPanel from '@views/SettingsPanel';
 import React, { useContext } from 'react';
 import { StyleSheet } from 'react-native';
 
@@ -31,6 +32,7 @@ export const AppContainer: React.FC<AppContainerProps> = () => {
 
   return (
     <>
+      <SettingsPanel />
       <NavigationContainer>
         {ready && (
           <Tab.Navigator

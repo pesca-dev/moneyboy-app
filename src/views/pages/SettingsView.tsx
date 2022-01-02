@@ -2,7 +2,6 @@ import { LogoutButton } from '@components/extended/LogoutButton';
 import { Content } from '@components/structure/Content';
 import { ListItem } from '@components/structure/ListItem';
 import { SectionHeader } from '@components/structure/SectionHeader';
-import { ViewBase } from '@components/structure/ViewBase';
 import { AuthContext } from '@context/AuthContext';
 import React from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
@@ -46,14 +45,12 @@ export const SettingsView: React.FC<SettingsViewProps> = () => {
 
   // TODO lome: Add structure for menu points
   return (
-    <ViewBase>
-      <SectionList
-        sections={data}
-        renderItem={renderItem}
-        keyExtractor={({ id }) => id}
-        renderSectionHeader={({ section: { title } }) => title}
-        scrollEnabled={false}
-      />
-    </ViewBase>
+    <SectionList
+      sections={data}
+      renderItem={renderItem}
+      keyExtractor={({ id }) => id}
+      renderSectionHeader={({ section: { title } }) => title}
+      scrollEnabled={false}
+    />
   );
 };

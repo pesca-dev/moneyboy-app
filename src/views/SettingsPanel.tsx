@@ -1,10 +1,13 @@
 import { PescaButton } from '@components/input/PescaButton';
+import { Flyout } from '@components/structure/Flyout';
 import { StyleContext } from '@context/StyleContext';
-import React, { useContext } from 'react';
+import { SettingsView } from '@views/pages/SettingsView';
+import React, { useContext, useState } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function SettingsPanel() {
+  const [isOpen, setOpen] = useState(false);
   const { Tabs } = useContext(StyleContext);
   const styles = StyleSheet.create({
     container: {
@@ -22,14 +25,19 @@ export default function SettingsPanel() {
     },
   });
   return (
-    <View style={[styles.container]}>
-      <SafeAreaView>
-        <View style={[styles.iconContainer]}>
-          <PescaButton onPress={() => console.log('press')}>
-            <MaterialCommunityIcons name="cog-outline" style={[styles.icon]} />
-          </PescaButton>
-        </View>
-      </SafeAreaView>
-    </View>
+    <>
+      <View style={[styles.container]}>
+        <SafeAreaView>
+          <View style={[styles.iconContainer]}>
+            <PescaButton onPress={() => setOpen(true)}>
+              <MaterialCommunityIcons name="cog-outline" style={[styles.icon]} />
+            </PescaButton>
+          </View>
+        </SafeAreaView>
+      </View>
+      <Flyout isOpen={isOpen} close={() => setOpen(false)}>
+        <SettingsView />
+      </Flyout>
+    </>
   );
 }
