@@ -1,9 +1,9 @@
 export type PescaNavContextScreen = {
   name: string;
-  params?: any;
+  params?: unknown;
 };
 
-export type PescaNavContextType<N = any> = {
+export type PescaNavContextType<N = unknown> = {
   screens: PescaNavContextScreen[];
   current: number;
   register(name: string): void;
