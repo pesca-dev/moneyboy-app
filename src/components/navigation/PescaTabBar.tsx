@@ -8,7 +8,7 @@ import React, { useContext } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-type PescaTabUIProps = MaterialTopTabBarProps & {};
+type PescaTabUIProps = MaterialTopTabBarProps;
 
 /**
  * Custom tab bar for being used in react-anative-navigation.
