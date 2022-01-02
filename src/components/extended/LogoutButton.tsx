@@ -6,10 +6,17 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-type LogoutButtonProps = unknown;
+type LogoutButtonProps = {
+  onPress?: () => void;
+};
 
-export const LogoutButton: React.FC<LogoutButtonProps> = () => {
+export const LogoutButton: React.FC<LogoutButtonProps> = ({ onPress }) => {
   const { logout } = React.useContext(AuthContext);
+
+  const handlePress = () => {
+    logout();
+    onPress?.();
+  };
 
   const { Buttons } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
@@ -28,7 +35,7 @@ export const LogoutButton: React.FC<LogoutButtonProps> = () => {
   });
 
   return (
-    <PescaButton onPress={logout}>
+    <PescaButton onPress={handlePress}>
       <View style={[styles.logoutContainer]}>
         <MaterialCommunityIcons name="arrow-right" style={[styles.logoutIcon]} />
         <Text style={[styles.logoutText]}>Logout</Text>

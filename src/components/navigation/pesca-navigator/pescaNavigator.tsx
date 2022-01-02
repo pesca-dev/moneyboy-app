@@ -1,17 +1,18 @@
 import { PescaNavContextScreen, PescaNavContextType } from '@api/PescaNavContextType';
+import { PescaNavContext } from '@components/navigation/pesca-navigator/createPescaNavigation';
 import { Flyout } from '@components/structure/Flyout';
 import { StyleContext } from '@context/StyleContext';
 import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { LayoutAnimation, StyleSheet, Text, View } from 'react-native';
 
-type PescaNavigatorProps = PropsWithChildren<{
+export type PescaNavigatorProps = PropsWithChildren<{
   isOpen: boolean;
   setOpen(open: boolean): void;
   heading?: string;
 }>;
 
 export const createPescaNavigator =
-  (PescaNavContext: React.Context<PescaNavContextType | null>): React.FC<PescaNavigatorProps> =>
+  (): React.FC<PescaNavigatorProps> =>
   ({ children, isOpen, setOpen, heading }: PescaNavigatorProps) => {
     const [screens, setScreens] = useState<PescaNavContextScreen[]>([]);
     const [currentIndex, setCurrentIndex] = useState<number>(0);

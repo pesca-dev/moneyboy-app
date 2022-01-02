@@ -1,8 +1,6 @@
-/* eslint-disable react-native/no-inline-styles */
 import { MoneyDiff, MoneyDiffProps } from '@components/extended/MoneyDiff';
 import { Content } from '@components/structure/Content';
 import { SectionHeader } from '@components/structure/SectionHeader';
-import { ViewBase } from '@components/structure/ViewBase';
 import { AuthContext } from '@context/AuthContext';
 import { PescaContext } from '@context/PescaContext';
 import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
@@ -70,18 +68,15 @@ export const HistoryView: React.FC<HistoryViewProps> = () => {
   }
 
   return (
-    <ViewBase>
-      <SectionList
-        style={{ flex: 1 }}
-        sections={data}
-        renderItem={renderListItem}
-        keyExtractor={({ id }) => id}
-        renderSectionHeader={({ section: { title } }) => (
-          <SectionHeader key={`historyview-section-${title}`} header={title} />
-        )}
-        onRefresh={getPayments}
-        refreshing={refreshing}
-      />
-    </ViewBase>
+    <SectionList
+      sections={data}
+      renderItem={renderListItem}
+      keyExtractor={({ id }) => id}
+      renderSectionHeader={({ section: { title } }) => (
+        <SectionHeader key={`historyview-section-${title}`} header={title} />
+      )}
+      onRefresh={getPayments}
+      refreshing={refreshing}
+    />
   );
 };

@@ -1,7 +1,6 @@
 import { PescaButton } from '@components/input/PescaButton';
-import { Flyout } from '@components/structure/Flyout';
 import { StyleContext } from '@context/StyleContext';
-import { SettingsView } from '@views/pages/SettingsView';
+import { SettingsView } from '@views/settings/SettingsView';
 import React, { useContext, useState } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -35,9 +34,7 @@ export default function SettingsPanel() {
           </View>
         </SafeAreaView>
       </View>
-      <Flyout isOpen={isOpen} close={() => setOpen(false)}>
-        <SettingsView />
-      </Flyout>
+      <SettingsView isOpen={isOpen} setOpen={setOpen} />
     </>
   );
 }

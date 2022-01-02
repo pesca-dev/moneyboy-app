@@ -8,7 +8,6 @@ import { HistoryView } from '@views/pages/HistoryView';
 import { LoginView } from '@views/pages/LoginView';
 import { MainView } from '@views/pages/MainView';
 import { RegisterView } from '@views/pages/RegisterView';
-import { SettingsView } from '@views/pages/SettingsView';
 import SettingsPanel from '@views/SettingsPanel';
 import React, { useContext } from 'react';
 import { StyleSheet } from 'react-native';
@@ -44,7 +43,6 @@ export const AppContainer: React.FC<AppContainerProps> = () => {
                 <Tab.Screen name="Overview" component={MainView} initialParams={{ icon: 'home-outline' }} />
                 <Tab.Screen name="Groups" component={GroupView} initialParams={{ icon: 'account-multiple-outline' }} />
                 <Tab.Screen name="History" component={HistoryView} initialParams={{ icon: 'history' }} />
-                <Tab.Screen name="Settings" component={SettingsView} initialParams={{ icon: 'cog-outline' }} />
               </>
             ) : (
               <>
