@@ -10,7 +10,7 @@ export const createTabStyles = (props?: StylingProps) => {
   const colors = createColors(props);
 
   const defaultTab: Partial<Tab> = {
-    color: colors.shades.mediumDark,
+    color: props?.mode === 'dark' ? colors.shades.light : colors.shades.mediumDark,
   };
 
   const focus: Tab = {
@@ -19,7 +19,7 @@ export const createTabStyles = (props?: StylingProps) => {
   };
 
   const disabled: Partial<Tab> = {
-    color: colors.shades.light,
+    color: props?.mode === 'dark' ? colors.shades.soft : colors.shades.light,
   };
 
   return {

@@ -6,8 +6,9 @@ import { Content } from '@components/structure/Content';
 import { ListItem } from '@components/structure/ListItem';
 import { SectionHeader } from '@components/structure/SectionHeader';
 import { AuthContext } from '@context/AuthContext';
-import React from 'react';
-import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
+import { StyleContext } from '@context/StyleContext';
+import React, { useContext } from 'react';
+import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from 'react-native';
 
 type SettingsViewProps = PescaNavigatorProps;
 
@@ -26,37 +27,44 @@ const Pesca = createPescaNavigation();
 type SettingsMainViewParams = unknown;
 
 const SettingsMainView: React.FC<ScreenComponentProps<SettingsMainViewParams>> = ({ navigation }) => {
-  const { user } = React.useContext(AuthContext);
-  const data: SettingsViewListData[] = [
-    {
-      title: <SectionHeader key={'settings-displayname'} header={user?.displayName ?? 'Settings'} />,
-      data: [
-        {
-          id: 'settings-view-logout',
-          content: (
-            <Content>
-              <ListItem>
-                <LogoutButton onPress={navigation.close} />
-              </ListItem>
-            </Content>
-          ),
-        },
-      ],
+  const { user, loggedIn } = useContext(AuthContext);
+
+  const { Content: Contents } = useContext(StyleContext);
+
+  const styles = StyleSheet.create({
+    header: {
+      backgroundColor: Contents.background.dp16,
     },
-  ];
+  });
+
+  const data: SettingsViewListData[] = [];
 
   function renderItem({ item: { content } }: SectionListRenderItemInfo<SettingsViewListEntry, DefaultSectionT>) {
     return content;
   }
 
   return (
-    <SectionList
-      sections={data}
-      renderItem={renderItem}
-      keyExtractor={({ id }) => id}
-      renderSectionHeader={({ section: { title } }) => title}
-      scrollEnabled={true}
-    />
+    <>
+      <SectionHeader
+        key={'settings-displayname'}
+        header={user?.displayName ?? 'Settings'}
+        headerContainerStyle={[styles.header]}
+      />
+      <SectionList
+        sections={data}
+        renderItem={renderItem}
+        keyExtractor={({ id }) => id}
+        renderSectionHeader={({ section: { title } }) => title}
+        scrollEnabled={false}
+      />
+      {loggedIn && (
+        <Content>
+          <ListItem last>
+            <LogoutButton onPress={navigation.close} />
+          </ListItem>
+        </Content>
+      )}
+    </>
   );
 };
 

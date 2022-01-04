@@ -1,12 +1,13 @@
 import { StyleContext } from '@context/StyleContext';
 import React, { useContext } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 
 type SectionHeaderProps = {
   header: string;
+  headerContainerStyle?: StyleProp<ViewStyle>;
 };
 
-export const SectionHeader: React.FC<SectionHeaderProps> = ({ header }) => {
+export const SectionHeader: React.FC<SectionHeaderProps> = ({ header, headerContainerStyle }) => {
   const { Lists } = useContext(StyleContext);
   const styles = StyleSheet.create({
     headerContainer: {
@@ -33,7 +34,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ header }) => {
     },
   });
   return (
-    <View style={[styles.headerContainer]}>
+    <View style={[styles.headerContainer, headerContainerStyle]}>
       <View style={styles.headerTextContainer}>
         <Text style={styles.headerText}>{header}</Text>
       </View>

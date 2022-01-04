@@ -2,21 +2,21 @@ import { PescaButton } from '@components/input/PescaButton';
 import { StyleContext } from '@context/StyleContext';
 import { SettingsView } from '@views/settings/SettingsView';
 import React, { useContext, useState } from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function SettingsPanel() {
   const [isOpen, setOpen] = useState(false);
   const { Tabs } = useContext(StyleContext);
+  const { top, right } = useSafeAreaInsets();
   const styles = StyleSheet.create({
     container: {
-      flexDirection: 'row',
-      justifyContent: 'flex-end',
-    },
-    iconContainer: {
-      marginHorizontal: 30,
-      marginTop: 20,
-      // height: 32,
+      position: 'absolute',
+      top: top + 20,
+      right: right + 5,
+      height: 50,
+      width: 50,
     },
     icon: {
       fontSize: 28,
@@ -26,13 +26,9 @@ export default function SettingsPanel() {
   return (
     <>
       <View style={[styles.container]}>
-        <SafeAreaView>
-          <View style={[styles.iconContainer]}>
-            <PescaButton onPress={() => setOpen(true)}>
-              <MaterialCommunityIcons name="cog-outline" style={[styles.icon]} />
-            </PescaButton>
-          </View>
-        </SafeAreaView>
+        <PescaButton onPress={() => setOpen(true)}>
+          <MaterialCommunityIcons name="cog-outline" style={[styles.icon]} />
+        </PescaButton>
       </View>
       <SettingsView isOpen={isOpen} setOpen={setOpen} />
     </>

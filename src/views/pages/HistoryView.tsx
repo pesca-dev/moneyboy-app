@@ -1,16 +1,17 @@
 import { MoneyDiff, MoneyDiffProps } from '@components/extended/MoneyDiff';
 import { Content } from '@components/structure/Content';
 import { SectionHeader } from '@components/structure/SectionHeader';
+import { ViewBase } from '@components/structure/ViewBase';
 import { AuthContext } from '@context/AuthContext';
 import { PescaContext } from '@context/PescaContext';
-import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
+import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
 
 type HistoryViewProps = {
   route: RouteProp<ParamListBase, string>;
-  navigation: NavigationHelpers<ParamListBase, MaterialTopTabNavigationEventMap>;
+  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
 };
 
 export const HistoryView: React.FC<HistoryViewProps> = () => {
@@ -68,15 +69,17 @@ export const HistoryView: React.FC<HistoryViewProps> = () => {
   }
 
   return (
-    <SectionList
-      sections={data}
-      renderItem={renderListItem}
-      keyExtractor={({ id }) => id}
-      renderSectionHeader={({ section: { title } }) => (
-        <SectionHeader key={`historyview-section-${title}`} header={title} />
-      )}
-      onRefresh={getPayments}
-      refreshing={refreshing}
-    />
+    <ViewBase>
+      <SectionList
+        sections={data}
+        renderItem={renderListItem}
+        keyExtractor={({ id }) => id}
+        renderSectionHeader={({ section: { title } }) => (
+          <SectionHeader key={`historyview-section-${title}`} header={title} />
+        )}
+        onRefresh={getPayments}
+        refreshing={refreshing}
+      />
+    </ViewBase>
   );
 };
