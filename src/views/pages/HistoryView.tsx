@@ -79,6 +79,7 @@ export const HistoryView: React.FC<HistoryViewProps> = () => {
         )}
         onRefresh={getPayments}
         refreshing={refreshing}
+        stickySectionHeadersEnabled
       />
     </ViewBase>
   );

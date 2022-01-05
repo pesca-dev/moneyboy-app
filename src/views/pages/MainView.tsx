@@ -105,6 +105,7 @@ export const MainView: React.FC<MainViewProps> = () => {
         )}
         onRefresh={getPayments}
         refreshing={refreshing}
+        stickySectionHeadersEnabled
       />
     </ViewBase>
   );

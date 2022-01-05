@@ -96,6 +96,7 @@ const SettingsMainView: React.FC<ScreenComponentProps<SettingsMainViewParams>> =
         keyExtractor={({ id }) => id}
         renderSectionHeader={renderSectionHeader}
         scrollEnabled={false}
+        stickySectionHeadersEnabled
       />
       {loggedIn && (
         <Content>

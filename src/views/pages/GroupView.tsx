@@ -62,6 +62,7 @@ export const GroupView: React.FC<GroupViewProps> = () => {
         renderSectionHeader={({ section: { title } }) => (
           <SectionHeader key={`groupview-section-header-${title}`} header={title} />
         )}
+        stickySectionHeadersEnabled
       />
     </ViewBase>
   );
