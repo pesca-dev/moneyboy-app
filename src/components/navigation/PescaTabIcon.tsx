@@ -1,14 +1,14 @@
 import variables from '@config/variables';
 import { StyleContext } from '@context/StyleContext';
+import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers } from '@react-navigation/core';
-import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import { ParamListBase } from '@react-navigation/routers';
 import React, { useContext } from 'react';
 import { Insets, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type PescaTabProps = {
-  navigation: NavigationHelpers<ParamListBase, MaterialTopTabNavigationEventMap>;
+  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
   focussed?: boolean;
   disabled?: boolean;
   name: string;

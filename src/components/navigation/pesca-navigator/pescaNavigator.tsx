@@ -1,17 +1,18 @@
 import { PescaNavContextScreen, PescaNavContextType } from '@api/PescaNavContextType';
+import { PescaNavContext } from '@components/navigation/pesca-navigator/createPescaNavigation';
 import { Flyout } from '@components/structure/Flyout';
-import { StyleContext } from '@context/StyleContext';
-import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
-import { LayoutAnimation, StyleSheet, Text, View } from 'react-native';
+import { FlyoutHeader } from '@components/structure/FlyoutHeader';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
+import { LayoutAnimation, StyleSheet, View } from 'react-native';
 
-type PescaNavigatorProps = PropsWithChildren<{
+export type PescaNavigatorProps = PropsWithChildren<{
   isOpen: boolean;
   setOpen(open: boolean): void;
   heading?: string;
 }>;
 
 export const createPescaNavigator =
-  (PescaNavContext: React.Context<PescaNavContextType | null>): React.FC<PescaNavigatorProps> =>
+  (): React.FC<PescaNavigatorProps> =>
   ({ children, isOpen, setOpen, heading }: PescaNavigatorProps) => {
     const [screens, setScreens] = useState<PescaNavContextScreen[]>([]);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -84,7 +85,6 @@ export const createPescaNavigator =
       close,
     };
 
-    const { Flyouts } = useContext(StyleContext);
     const styles = StyleSheet.create({
       screensContainer: {
         flexDirection: 'row',
@@ -92,25 +92,12 @@ export const createPescaNavigator =
         maxHeight: '100%',
         paddingBottom: 35,
       },
-      flyoutHeadingContainer: {
-        width: '100%',
-        height: 30,
-      },
-      flyoutHeadingLabel: {
-        color: Flyouts.heading.color,
-        fontSize: Flyouts.heading.fontSize,
-        fontWeight: 'bold',
-      },
     });
 
     return (
       <PescaNavContext.Provider value={navContext}>
         <Flyout isOpen={isOpen} close={close}>
-          {heading && (
-            <View style={[styles.flyoutHeadingContainer]}>
-              <Text style={[styles.flyoutHeadingLabel]}>{heading}</Text>
-            </View>
-          )}
+          {heading && <FlyoutHeader heading={heading} />}
           <View style={[styles.screensContainer]}>{children}</View>
         </Flyout>
       </PescaNavContext.Provider>

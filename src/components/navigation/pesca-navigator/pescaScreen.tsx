@@ -1,4 +1,5 @@
 import { PescaNavContextType } from '@api/PescaNavContextType';
+import { PescaNavContext } from '@components/navigation/pesca-navigator/createPescaNavigation';
 import { animated, useSpring } from '@react-spring/native';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { LayoutAnimation, StyleSheet, View } from 'react-native';
@@ -19,7 +20,7 @@ export type ScreenComponentProps<P = any, N = any> = {
  * @param PescaNavContext
  */
 export const createPescaScreen =
-  (PescaNavContext: React.Context<PescaNavContextType | null>): React.FC<PescaScreenProps> =>
+  (): React.FC<PescaScreenProps> =>
   ({ name, component }: PescaScreenProps) => {
     const navContext = useContext(PescaNavContext) as PescaNavContextType;
 
@@ -47,8 +48,7 @@ export const createPescaScreen =
     useEffect(() => {
       setInViewFlow(index === navContext.current);
       setFlex(index === navContext.current);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [index]);
+    }, [index, navContext]);
 
     // ref to the "last" current screen, so we can check, if an actual animation happened
     const curRef = useRef(navContext.current);

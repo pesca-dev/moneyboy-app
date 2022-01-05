@@ -1,18 +1,19 @@
 import { PescaTabBar } from '@components/navigation/PescaTabBar';
 import { AuthContext } from '@context/AuthContext';
 import { StyleContext } from '@context/StyleContext';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { EventView } from '@views/pages/EventView';
 import { GroupView } from '@views/pages/GroupView';
 import { HistoryView } from '@views/pages/HistoryView';
 import { LoginView } from '@views/pages/LoginView';
 import { MainView } from '@views/pages/MainView';
 import { RegisterView } from '@views/pages/RegisterView';
-import { SettingsView } from '@views/pages/SettingsView';
+import SettingsPanel from '@views/SettingsPanel';
 import React, { useContext } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-const Tab = createMaterialTopTabNavigator();
+const Tab = createBottomTabNavigator();
 
 type AppContainerProps = unknown;
 
@@ -24,35 +25,53 @@ export const AppContainer: React.FC<AppContainerProps> = () => {
 
   const { Content } = useContext(StyleContext);
   const styles = StyleSheet.create({
-    sceneContainer: {
+    outterContainer: {
+      flex: 1,
       backgroundColor: Content.background.dp01,
+    },
+    sceneContainer: {
+      backgroundColor: 'transparent',
     },
   });
 
   return (
     <>
-      <NavigationContainer>
-        {ready && (
-          <Tab.Navigator
-            tabBar={props => loggedIn && <PescaTabBar {...props} />}
-            tabBarPosition="bottom"
-            sceneContainerStyle={[styles.sceneContainer]}>
-            {loggedIn ? (
-              <>
-                <Tab.Screen name="Overview" component={MainView} initialParams={{ icon: 'home-outline' }} />
-                <Tab.Screen name="Groups" component={GroupView} initialParams={{ icon: 'account-multiple-outline' }} />
-                <Tab.Screen name="History" component={HistoryView} initialParams={{ icon: 'history' }} />
-                <Tab.Screen name="Settings" component={SettingsView} initialParams={{ icon: 'cog-outline' }} />
-              </>
-            ) : (
-              <>
-                <Tab.Screen name="login" component={LoginView} />
-                <Tab.Screen name="register" component={RegisterView} />
-              </>
-            )}
-          </Tab.Navigator>
-        )}
-      </NavigationContainer>
+      <View style={[styles.outterContainer]}>
+        <NavigationContainer>
+          {ready && (
+            <Tab.Navigator
+              detachInactiveScreens={false}
+              tabBar={props => loggedIn && <PescaTabBar {...props} />}
+              screenOptions={{
+                headerShown: false,
+              }}
+              sceneContainerStyle={[styles.sceneContainer]}>
+              {loggedIn ? (
+                <>
+                  <Tab.Screen name="Overview" component={MainView} initialParams={{ icon: 'home-outline' }} />
+                  <Tab.Screen
+                    name="Groups"
+                    component={GroupView}
+                    initialParams={{ icon: 'account-multiple-outline' }}
+                  />
+                  <Tab.Screen
+                    name="Events"
+                    component={EventView}
+                    initialParams={{ icon: 'calendar-multiple', disabled: true }}
+                  />
+                  <Tab.Screen name="History" component={HistoryView} initialParams={{ icon: 'history' }} />
+                </>
+              ) : (
+                <>
+                  <Tab.Screen name="login" component={LoginView} />
+                  <Tab.Screen name="register" component={RegisterView} />
+                </>
+              )}
+            </Tab.Navigator>
+          )}
+        </NavigationContainer>
+        <SettingsPanel />
+      </View>
     </>
   );
 };

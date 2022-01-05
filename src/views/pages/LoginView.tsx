@@ -3,13 +3,13 @@ import { PescaInputField } from '@components/input/PescaInputField';
 import variables from '@config/variables';
 import { AuthContext } from '@context/AuthContext';
 import { StyleContext } from '@context/StyleContext';
+import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
-import { MaterialTopTabNavigationEventMap } from '@react-navigation/material-top-tabs/lib/typescript/src/types';
 import React, { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 type LoginViewProps = {
-  navigation: NavigationHelpers<ParamListBase, MaterialTopTabNavigationEventMap>;
+  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
 };
 
 /**
@@ -48,10 +48,9 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
     }
   }
 
-  const { Texts, Buttons, Colors, Content } = React.useContext(StyleContext);
+  const { Texts, Buttons, Colors } = React.useContext(StyleContext);
   const styles = StyleSheet.create({
     wrapper: {
-      backgroundColor: Content.background.dp00,
       flex: 1,
     },
     container: {

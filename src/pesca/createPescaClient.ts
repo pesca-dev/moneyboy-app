@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { PescaClient } from '@api/PescaClient';
 import { HttpClient } from '@pesca/httpClient';
 import EncryptedStorage from 'react-native-encrypted-storage';
@@ -121,7 +122,12 @@ export const createPescaClient = (url: string): PescaClient => {
   async function getPayments(): Promise<Pesca.PaymentInformation[] | null> {
     const result = await httpClient.requestWithAuth('payments', {});
     if (result?.status === 200) {
-      return result.json();
+      return result.json().then((payments: Pesca.PaymentInformation[]) =>
+        payments.map(p => ({
+          ...p,
+          date: parseInt(p.date as unknown as string, 10),
+        })),
+      );
     }
     return null;
   }

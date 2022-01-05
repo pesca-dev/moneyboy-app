@@ -1,5 +1,6 @@
 import { AuthContextProvider } from '@context/AuthContext';
 import { PescaContextProvider } from '@context/PescaContext';
+import { SettingsContextProvider } from '@context/SettingsContext';
 import { StyleContextProvider } from '@context/StyleContext';
 import { AppContainer } from '@views/AppContainer';
 import React from 'react';
@@ -14,12 +15,14 @@ type AppProps = unknown;
 export const App: React.FC<AppProps> = () => (
   <SafeAreaProvider>
     <StatusBar />
-    <PescaContextProvider>
-      <AuthContextProvider>
-        <StyleContextProvider>
-          <AppContainer />
-        </StyleContextProvider>
-      </AuthContextProvider>
-    </PescaContextProvider>
+    <SettingsContextProvider>
+      <PescaContextProvider>
+        <AuthContextProvider>
+          <StyleContextProvider>
+            <AppContainer />
+          </StyleContextProvider>
+        </AuthContextProvider>
+      </PescaContextProvider>
+    </SettingsContextProvider>
   </SafeAreaProvider>
 );

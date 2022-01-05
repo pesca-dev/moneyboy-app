@@ -2,13 +2,13 @@ import { CenterButton } from '@components/extended/CenterButton';
 import { PescaTabIcon } from '@components/navigation/PescaTabIcon';
 import { Footer } from '@components/structure/Footer';
 import { StyleContext } from '@context/StyleContext';
-import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Route } from '@react-navigation/native';
 import React, { useContext } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-type PescaTabUIProps = MaterialTopTabBarProps;
+type PescaTabUIProps = BottomTabBarProps;
 
 /**
  * Custom tab bar for being used in react-anative-navigation.
@@ -21,7 +21,7 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
   /**
    * Helper function for rendering a tab.
    */
-  function renderTab(route: Route<any, any>) {
+  function renderTab(route: Route<string, any>) {
     return (
       <PescaTabIcon
         key={`route-${route.name}`}
