@@ -1,3 +1,4 @@
+import { SettingsContext } from '@context/SettingsContext';
 import { createButtonStyles } from '@styles/buttons';
 import { createColors } from '@styles/colors';
 import { createContentStyles } from '@styles/content';
@@ -9,8 +10,8 @@ import { createListStyles } from '@styles/list';
 import { StylingProps } from '@styles/stylingProps';
 import { createTabStyles } from '@styles/tab';
 import { createTextStyles } from '@styles/text';
-import React, { PropsWithChildren } from 'react';
-import { useColorScheme } from 'react-native';
+import React, { PropsWithChildren, useContext } from 'react';
+import { ColorSchemeName, useColorScheme } from 'react-native';
 
 export type StyleContextType = {
   Colors: ReturnType<typeof createColors>;
@@ -41,9 +42,17 @@ export const StyleContext = React.createContext<StyleContextType>({
 type StyleContextProviderProps = unknown;
 
 export const StyleContextProvider: React.FC<PropsWithChildren<StyleContextProviderProps>> = ({ children }) => {
-  const mode = useColorScheme();
+  const { useSystemTheme, theme } = useContext(SettingsContext);
+  let scheme = theme;
+
+  const systemScheme = useColorScheme();
+
+  if (useSystemTheme) {
+    scheme = systemScheme;
+  }
+
   const styleProps: StylingProps = {
-    mode,
+    mode: scheme as ColorSchemeName,
   };
   const value: StyleContextType = {
     Colors: createColors(styleProps),
