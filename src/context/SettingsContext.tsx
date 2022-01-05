@@ -1,3 +1,5 @@
+import { defaultStorage } from '@context/StorageContext';
+import { useStorage } from '@hooks/useStorage';
 import React, { createContext, PropsWithChildren, useState } from 'react';
 import { ColorSchemeName } from 'react-native';
 
@@ -14,16 +16,19 @@ export const SettingsContext = createContext<SettingsContextType>({
   set<T extends keyof Settings>(_key: T, _value: Settings[T]): void {
     //
   },
-  useSystemTheme: true,
-  theme: 'light',
+  theme: defaultStorage.theme,
+  useSystemTheme: defaultStorage.useSystemTheme,
 });
 
 type SettingsContextProviderProps = unknown;
 
 export const SettingsContextProvider: React.FC<PropsWithChildren<SettingsContextProviderProps>> = ({ children }) => {
+  const [theme, setTheme] = useStorage('theme');
+  const [useSystemTheme, setUseSystemTheme] = useStorage('useSystemTheme');
+
   const [settings, setSettings] = useState<Settings>({
-    useSystemTheme: true,
-    theme: 'light',
+    theme,
+    useSystemTheme,
   });
 
   function set<T extends keyof Settings>(key: T, value: Settings[T]): void {
@@ -34,6 +39,17 @@ export const SettingsContextProvider: React.FC<PropsWithChildren<SettingsContext
       newSettings[key] = value;
       return newSettings;
     });
+    switch (key) {
+      case 'theme':
+        setTheme(value as Settings['theme']);
+        break;
+
+      case 'useSystemTheme':
+        setUseSystemTheme(value as Settings['useSystemTheme']);
+        break;
+
+      default:
+    }
   }
 
   const value = {
