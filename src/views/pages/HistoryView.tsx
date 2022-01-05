@@ -25,7 +25,7 @@ export const HistoryView: React.FC<HistoryViewProps> = () => {
     setRefreshing(true);
     pesca?.getPayments().then(ps => {
       if (ps) {
-        setPayents(ps);
+        setPayents(ps.sort((a, b) => a.date - b.date));
       }
       setRefreshing(false);
     });
