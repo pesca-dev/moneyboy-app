@@ -25,6 +25,7 @@ module.exports = {
     'import/no-unresolved': [0, 'never'],
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': 0,
+    'no-restricted-imports': ['error', '@react-native-async-storage/async-storage'],
   },
 
   settings: {
