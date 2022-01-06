@@ -1,11 +1,12 @@
 import { StorageContextType, StorageItems, StorageSetFunction } from '@api/Storage';
 // eslint-disable-next-line no-restricted-imports
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
-import React, { createContext, FC, PropsWithChildren, useEffect, useState } from 'react';
+import React, { createContext, FC, PropsWithChildren, useCallback, useEffect, useState } from 'react';
 
 export const defaultStorage: StorageItems = {
   useSystemTheme: true,
   theme: 'light',
+  payments: [],
 };
 
 export const StorageContext = createContext<StorageContextType>({
@@ -54,7 +55,7 @@ export const StorageContextProvider: FC<PropsWithChildren<unknown>> = ({ childre
     }
   }, []);
 
-  const set: StorageSetFunction = (key, value) => {
+  const set: StorageSetFunction = useCallback((key, value) => {
     // update state
     setStorage(curStorage => {
       const newStorage = {
@@ -66,7 +67,7 @@ export const StorageContextProvider: FC<PropsWithChildren<unknown>> = ({ childre
     // and set item in storage
     // eslint-disable-next-line no-console
     AsyncStorageLib.setItem(key, JSON.stringify(value)).catch(console.error);
-  };
+  }, []);
 
   return <StorageContext.Provider value={{ storage, set }}>{children}</StorageContext.Provider>;
 };

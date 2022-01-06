@@ -4,6 +4,7 @@ import { SectionHeader } from '@components/structure/SectionHeader';
 import { ViewBase } from '@components/structure/ViewBase';
 import { AuthContext } from '@context/AuthContext';
 import { PescaContext } from '@context/PescaContext';
+import { useStorage } from '@hooks/useStorage';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
@@ -15,22 +16,37 @@ type HistoryViewProps = {
 };
 
 export const HistoryView: React.FC<HistoryViewProps> = () => {
-  const [payments, setPayents] = useState<Pesca.PaymentInformation[]>([]);
   const pesca = useContext(PescaContext);
   const { user } = useContext(AuthContext);
 
+  const [payments, setPayments] = useState<Pesca.PaymentInformation[]>([]);
   const [refreshing, setRefreshing] = useState(false);
 
+  const [storagePayments, setStoragePayments] = useStorage('payments');
+
+  // update payment state
+  const updatePayments = useCallback((ps: Pesca.PaymentInformation[]) => {
+    setPayments(ps.sort((a, b) => a.date - b.date));
+  }, []);
+
+  // on update of storage payments, update state payments
+  useEffect(() => {
+    updatePayments(storagePayments);
+  }, [storagePayments, updatePayments]);
+
+  // get payments from server
   const getPayments = useCallback(() => {
     setRefreshing(true);
     pesca?.getPayments().then(ps => {
       if (ps) {
-        setPayents(ps.sort((a, b) => a.date - b.date));
+        // store new payments
+        setStoragePayments(ps);
       }
       setRefreshing(false);
     });
-  }, [pesca]);
+  }, [pesca, setStoragePayments]);
 
+  // initially, get all payments
   useEffect(() => {
     getPayments();
   }, [getPayments]);

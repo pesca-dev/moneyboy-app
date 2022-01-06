@@ -23,6 +23,7 @@ export const SettingsContext = createContext<SettingsContextType>({
 type SettingsContextProviderProps = unknown;
 
 export const SettingsContextProvider: React.FC<PropsWithChildren<SettingsContextProviderProps>> = ({ children }) => {
+  // TODO lome: merge settings into one storage entity (maybe)
   const [theme, setTheme] = useStorage('theme');
   const [useSystemTheme, setUseSystemTheme] = useStorage('useSystemTheme');
 
