@@ -145,6 +145,7 @@ export const SearchListView: React.FC<ScreenComponentProps<unknown, EnterPayment
         style={[styles.list]}
         onRefresh={getUsers}
         refreshing={refreshing}
+        stickySectionHeadersEnabled
       />
     </>
   );
