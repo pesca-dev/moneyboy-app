@@ -48,6 +48,7 @@ targets:
       parallelizeBuild: false
     settings:
       base:
+        CODE_SIGN_ENTITLEMENTS: MoneyBoy/MoneyBoy.entitlements
         PRODUCT_BUNDLE_IDENTIFIER: '${BUNDLE_IDENT}'
         CLANG_ENABLE_MODULES: true
         OTHER_LDFLAGS:
@@ -60,6 +61,10 @@ targets:
           GCC_PREPROCESSOR_DEFINITIONS:
             - $(inherited)
             - FB_SONARKIT_ENABLED=1
+    attributes:
+      SystemCapabilities:
+        com.apple.Push:
+          enabled: 1
     preBuildScripts:
       - name: Start Packager
         script: |
