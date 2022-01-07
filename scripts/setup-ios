@@ -18,7 +18,7 @@ fi
 
 # Install system dependencies
 if [ -n "$system_deps" ]; then
-    brew install $system_deps
+    brew install ${system_deps[@]}
 fi
 
 # Set up the Xcode project
