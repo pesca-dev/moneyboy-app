@@ -2,10 +2,10 @@ import { defaultValue, PescaAmountField } from '@moneyboy/components/general/inp
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
 import variables from '@moneyboy/config/variables';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { parseAmount } from '@moneyboy/services/util/amountUtil';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { ConfirmPaymentViewParams } from '../confirmPayment';
 
@@ -17,7 +17,7 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
   navigation,
   params,
 }) => {
-  const { Buttons, Texts } = useContext(StyleContext);
+  const { Buttons, Texts } = useStyle();
   const styles = StyleSheet.create({
     container: {
       width: '100%',

@@ -8,7 +8,7 @@ import { Content } from '@moneyboy/components/general/structure/content';
 import { LogoutButton } from '@moneyboy/components/settings/logoutButton';
 import { ThemeSwitch } from '@moneyboy/components/settings/themeSwitch';
 import { AuthContext } from '@moneyboy/contexts/authContext';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import React, { useContext } from 'react';
 import {
   DefaultSectionT,
@@ -39,7 +39,7 @@ type SettingsMainViewParams = unknown;
 const SettingsMainView: React.FC<ScreenComponentProps<SettingsMainViewParams>> = ({ navigation }) => {
   const { loggedIn } = useContext(AuthContext);
 
-  const { Content: Contents, Flyouts, Texts } = useContext(StyleContext);
+  const { Content: Contents, Flyouts, Texts } = useStyle();
 
   const styles = StyleSheet.create({
     header: {

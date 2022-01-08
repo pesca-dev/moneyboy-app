@@ -1,5 +1,5 @@
-import { StyleContext } from '@moneyboy/contexts/styleContext';
-import React, { useContext } from 'react';
+import { useStyle } from '@moneyboy/hooks/useStyle';
+import React from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 interface SeparatorProps {
@@ -13,7 +13,7 @@ interface SeparatorProps {
  * Separator for a list.
  */
 export const Separator: React.FC<SeparatorProps> = ({ style }) => {
-  const { Content } = useContext(StyleContext);
+  const { Content } = useStyle();
   const styles = StyleSheet.create({
     separatorContainer: {
       width: '100%',

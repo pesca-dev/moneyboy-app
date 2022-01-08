@@ -2,7 +2,7 @@ import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import { PescaInputField } from '@moneyboy/components/general/input/pescaInputField';
 import variables from '@moneyboy/config/variables';
 import { AuthContext } from '@moneyboy/contexts/authContext';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
 import React, { useEffect, useState } from 'react';
@@ -66,7 +66,7 @@ export const RegisterView: React.FC<RegisterViewProps> = ({ navigation }) => {
     }
   }
 
-  const { Texts, Buttons, Colors } = React.useContext(StyleContext);
+  const { Texts, Buttons, Colors } = useStyle();
   const styles = StyleSheet.create({
     wrapper: {
       flex: 1,

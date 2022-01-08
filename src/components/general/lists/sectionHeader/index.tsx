@@ -1,5 +1,5 @@
-import { StyleContext } from '@moneyboy/contexts/styleContext';
-import React, { useContext } from 'react';
+import { useStyle } from '@moneyboy/hooks/useStyle';
+import React from 'react';
 import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 
 type SectionHeaderProps = {
@@ -8,7 +8,7 @@ type SectionHeaderProps = {
 };
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({ header, headerContainerStyle }) => {
-  const { Lists } = useContext(StyleContext);
+  const { Lists } = useStyle();
   const styles = StyleSheet.create({
     headerContainer: {
       paddingHorizontal: 20,

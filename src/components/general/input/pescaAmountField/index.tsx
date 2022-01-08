@@ -1,7 +1,7 @@
 import variables from '@moneyboy/config/variables';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { formatAmount } from '@moneyboy/services/util/amountUtil';
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
 
 type PescaAmountFieldProps = {
@@ -59,7 +59,7 @@ export const PescaAmountField: React.FC<PescaAmountFieldProps> = ({
     setValue(formatAmount(floatRef.current));
   }
 
-  const { Input, Texts } = useContext(StyleContext);
+  const { Input, Texts } = useStyle();
   const styles = StyleSheet.create({
     container: {
       //   flexDirection: 'row',

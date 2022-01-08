@@ -1,6 +1,6 @@
 import { PescaMenuContextType } from '@moneyboy/api/PescaMenuContextType';
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { animated, useSpring } from '@react-spring/native';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
@@ -72,7 +72,7 @@ export const createPescaMenuItem =
       }
     }, [isOpen, animateOpen, animateClose]);
 
-    const { Buttons } = React.useContext(StyleContext);
+    const { Buttons } = useStyle();
     const styles = StyleSheet.create({
       buttonContainer: {
         position: 'absolute',

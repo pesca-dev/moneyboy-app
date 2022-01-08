@@ -1,5 +1,5 @@
-import { StyleContext } from '@moneyboy/contexts/styleContext';
-import React, { PropsWithChildren, useContext } from 'react';
+import { useStyle } from '@moneyboy/hooks/useStyle';
+import React, { PropsWithChildren } from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 interface FooterProps {
@@ -10,7 +10,7 @@ interface FooterProps {
  * Footer for a screen.
  */
 export const Footer: React.FC<PropsWithChildren<FooterProps>> = ({ children, style }) => {
-  const { Content, Footers } = useContext(StyleContext);
+  const { Content, Footers } = useStyle();
   const styles = StyleSheet.create({
     footerWrapper: {
       backgroundColor: Content.background.dp01,

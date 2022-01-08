@@ -1,9 +1,9 @@
 import variables from '@moneyboy/config/variables';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers } from '@react-navigation/core';
 import { ParamListBase } from '@react-navigation/routers';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Insets, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -23,7 +23,7 @@ export const PescaTabIcon: React.FC<PescaTabProps> = ({ name, navigation, icon, 
     navigation.navigate(name);
   }
 
-  const { Tabs } = useContext(StyleContext);
+  const { Tabs } = useStyle();
   const styles = StyleSheet.create({
     tab: {
       minWidth: 32,

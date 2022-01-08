@@ -1,7 +1,7 @@
 import { PescaTabBar } from '@moneyboy/components/general/navigation/pescaTabBar';
 import SettingsPanel from '@moneyboy/components/settings/settingsPanel';
 import { AuthContext } from '@moneyboy/contexts/authContext';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { LoginView } from '@moneyboy/screens/auth/login';
 import { RegisterView } from '@moneyboy/screens/auth/register';
 import { EventView } from '@moneyboy/screens/events';
@@ -10,7 +10,7 @@ import { HistoryView } from '@moneyboy/screens/history';
 import { MainView } from '@moneyboy/screens/main';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import React, { useContext } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
@@ -23,7 +23,7 @@ type AppContainerProps = unknown;
 export const AppContainer: React.FC<AppContainerProps> = () => {
   const { loggedIn, ready } = React.useContext(AuthContext);
 
-  const { Content } = useContext(StyleContext);
+  const { Content } = useStyle();
   const styles = StyleSheet.create({
     outterContainer: {
       flex: 1,

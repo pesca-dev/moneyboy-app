@@ -2,7 +2,7 @@ import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
 import variables from '@moneyboy/config/variables';
 import { PescaContext } from '@moneyboy/contexts/pescaContext';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { formatAmount } from '@moneyboy/services/util/amountUtil';
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
@@ -35,7 +35,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
     navigation.close();
   }
 
-  const { Buttons, Input, Texts } = useContext(StyleContext);
+  const { Buttons, Input, Texts } = useStyle();
   const styles = StyleSheet.create({
     container: {
       width: '100%',

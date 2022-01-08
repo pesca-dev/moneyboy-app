@@ -3,8 +3,8 @@ import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/moneyDiff';
 import { Content } from '@moneyboy/components/general/structure/content';
 import variables from '@moneyboy/config/variables';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
-import React, { useContext, useState } from 'react';
+import { useStyle } from '@moneyboy/hooks/useStyle';
+import React, { useState } from 'react';
 import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 import uuid from 'react-native-uuid';
 
@@ -144,7 +144,7 @@ const dummyData: MoneyDiffProps[] = [
 ];
 
 export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, members, last }) => {
-  const { Groups, Flyouts } = useContext(StyleContext);
+  const { Groups, Flyouts } = useStyle();
   const styles = StyleSheet.create({
     groupContainer: {
       width: '100%',

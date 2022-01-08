@@ -1,10 +1,10 @@
 import { CenterButton } from '@moneyboy/components/general/navigation/centerButton';
 import { PescaTabIcon } from '@moneyboy/components/general/navigation/pescaTabIcon';
 import { Footer } from '@moneyboy/components/general/structure/footer';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Route } from '@react-navigation/native';
-import React, { useContext } from 'react';
+import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -35,7 +35,7 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
   }
 
   const insets = useSafeAreaInsets();
-  const { Content } = useContext(StyleContext);
+  const { Content } = useStyle();
   const styles = StyleSheet.create({
     safeAreaView: {
       backgroundColor: Content.background.dp01,

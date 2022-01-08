@@ -1,7 +1,7 @@
 import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import variables from '@moneyboy/config/variables';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
-import React, { useContext } from 'react';
+import { useStyle } from '@moneyboy/hooks/useStyle';
+import React from 'react';
 import { GestureResponderEvent, StyleProp, StyleSheet, Text, ViewStyle } from 'react-native';
 
 export interface MoneyDiffProps {
@@ -14,7 +14,7 @@ export interface MoneyDiffProps {
 }
 
 export const MoneyDiff: React.FC<MoneyDiffProps> = ({ name, amount, last, onPress, separatorStyle }) => {
-  const { Colors, Texts } = useContext(StyleContext);
+  const { Colors, Texts } = useStyle();
   const styles = StyleSheet.create({
     moneyDiffName: {
       flex: 1,

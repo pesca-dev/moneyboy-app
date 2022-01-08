@@ -1,7 +1,7 @@
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import variables from '@moneyboy/config/variables';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
-import React, { PropsWithChildren, useContext } from 'react';
+import { useStyle } from '@moneyboy/hooks/useStyle';
+import React, { PropsWithChildren } from 'react';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 import Modal from 'react-native-modal';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -13,7 +13,7 @@ type FlyoutProps = {
 };
 
 export const Flyout: React.FC<PropsWithChildren<FlyoutProps>> = ({ isOpen, children, close }) => {
-  const { Flyouts } = useContext(StyleContext);
+  const { Flyouts } = useStyle();
   const styles = StyleSheet.create({
     flyoutContainer: {
       backgroundColor: Flyouts.background,

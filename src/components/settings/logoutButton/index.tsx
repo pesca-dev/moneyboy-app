@@ -1,7 +1,7 @@
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import variables from '@moneyboy/config/variables';
 import { AuthContext } from '@moneyboy/contexts/authContext';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -18,7 +18,7 @@ export const LogoutButton: React.FC<LogoutButtonProps> = ({ onPress }) => {
     onPress?.();
   };
 
-  const { Buttons } = React.useContext(StyleContext);
+  const { Buttons } = useStyle();
   const styles = StyleSheet.create({
     logoutContainer: {
       flexDirection: 'row',

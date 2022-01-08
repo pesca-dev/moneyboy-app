@@ -1,14 +1,14 @@
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { SettingsView } from '@moneyboy/screens/settings';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function SettingsPanel() {
   const [isOpen, setOpen] = useState(false);
-  const { Tabs } = useContext(StyleContext);
+  const { Tabs } = useStyle();
   const { top, right } = useSafeAreaInsets();
   const styles = StyleSheet.create({
     container: {

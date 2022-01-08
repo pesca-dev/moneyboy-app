@@ -4,7 +4,7 @@ import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
 import { AuthContext } from '@moneyboy/contexts/authContext';
 import { PescaContext } from '@moneyboy/contexts/pescaContext';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { EnterPaymentViewParams } from '@moneyboy/screens/addPayments/enterPayment';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Insets, SectionList, SectionListData, SectionListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
@@ -55,7 +55,7 @@ export const SearchListView: React.FC<ScreenComponentProps<unknown, EnterPayment
     left: 0,
   };
 
-  const { Buttons, Flyouts, Texts, Input } = useContext(StyleContext);
+  const { Buttons, Flyouts, Texts, Input } = useStyle();
   const styles = StyleSheet.create({
     flyoutHeaderContainer: {
       marginBottom: 10,

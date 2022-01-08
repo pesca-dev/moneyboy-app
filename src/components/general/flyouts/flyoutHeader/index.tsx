@@ -1,5 +1,5 @@
-import { StyleContext } from '@moneyboy/contexts/styleContext';
-import React, { useContext } from 'react';
+import { useStyle } from '@moneyboy/hooks/useStyle';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 type FlyoutHeaderProps = {
@@ -7,7 +7,7 @@ type FlyoutHeaderProps = {
 };
 
 export const FlyoutHeader: React.FC<FlyoutHeaderProps> = ({ heading }) => {
-  const { Flyouts } = useContext(StyleContext);
+  const { Flyouts } = useStyle();
   const styles = StyleSheet.create({
     flyoutHeadingContainer: {
       width: '100%',

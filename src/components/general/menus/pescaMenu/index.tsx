@@ -1,8 +1,8 @@
 import { PescaMenuContextType } from '@moneyboy/api/PescaMenuContextType';
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import { animated, useSpring } from '@react-spring/native';
-import React, { PropsWithChildren, useContext, useEffect, useRef, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -86,7 +86,7 @@ export const createPescaMenuContainer =
       });
     }, [isOpen, outterContainerAnimation, buttonAnimation]);
 
-    const { Buttons, Content } = useContext(StyleContext);
+    const { Buttons, Content } = useStyle();
     const styles = StyleSheet.create({
       addButtonWrapper: {
         height: 32,

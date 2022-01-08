@@ -1,12 +1,12 @@
 import { SettingsContext } from '@moneyboy/contexts/settingsContext';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
+import { useStyle } from '@moneyboy/hooks/useStyle';
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';
 
 export const ThemeSwitch: React.FC = () => {
   const { theme, useSystemTheme, set } = useContext(SettingsContext);
-  const { Texts } = useContext(StyleContext);
+  const { Texts } = useStyle();
 
   const onModeChange = (useDarkMode: boolean) => {
     set('theme', useDarkMode ? 'dark' : 'light');

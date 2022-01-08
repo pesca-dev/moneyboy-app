@@ -1,6 +1,6 @@
 import variables from '@moneyboy/config/variables';
-import { StyleContext } from '@moneyboy/contexts/styleContext';
-import React, { useContext } from 'react';
+import { useStyle } from '@moneyboy/hooks/useStyle';
+import React from 'react';
 import {
   KeyboardTypeOptions,
   NativeSyntheticEvent,
@@ -68,7 +68,7 @@ export const PescaInputField: React.FC<PescaInputFieldProps> = ({
   textContentType,
   keyboardType = 'default',
 }) => {
-  const { Input, Texts } = useContext(StyleContext);
+  const { Input, Texts } = useStyle();
   const styles = StyleSheet.create({
     container: {
       width: '100%',
