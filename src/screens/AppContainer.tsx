@@ -2,7 +2,6 @@ import { PescaTabBar } from '@moneyboy/components/general/navigation/pescaTabBar
 import SettingsPanel from '@moneyboy/components/settings/settingsPanel';
 import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';
-import { LoginView } from '@moneyboy/screens/auth/login';
 import { RegisterView } from '@moneyboy/screens/auth/register';
 import { EventView } from '@moneyboy/screens/events';
 import { GroupView } from '@moneyboy/screens/groups';
@@ -12,6 +11,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { LoginView } from '@moneyboy/screens/auth/login';
 
 const Tab = createBottomTabNavigator();
 
