@@ -1,4 +1,5 @@
 import { PescaTabBar } from '@moneyboy/components/general/navigation/pescaTabBar';
+import SettingsPanel from '@moneyboy/components/settings/settingsPanel';
 import { AuthContext } from '@moneyboy/context/AuthContext';
 import { StyleContext } from '@moneyboy/context/StyleContext';
 import { LoginView } from '@moneyboy/screens/auth/login';
@@ -7,7 +8,6 @@ import { EventView } from '@moneyboy/screens/events';
 import { GroupView } from '@moneyboy/screens/groups';
 import { HistoryView } from '@moneyboy/screens/history';
 import { MainView } from '@moneyboy/screens/main';
-import SettingsPanel from '@moneyboy/screens/SettingsPanel';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useContext } from 'react';
