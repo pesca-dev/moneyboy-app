@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/extended/MoneyDiff';
+import { SectionHeader } from '@moneyboy/components/general/lists/sectionHeader';
 import { Content } from '@moneyboy/components/structure/Content';
-import { SectionHeader } from '@moneyboy/components/structure/SectionHeader';
 import { ViewBase } from '@moneyboy/components/structure/ViewBase';
 import variables from '@moneyboy/config/variables';
 import { AuthContext } from '@moneyboy/context/AuthContext';

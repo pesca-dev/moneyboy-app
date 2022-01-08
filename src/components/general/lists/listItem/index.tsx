@@ -1,4 +1,4 @@
-import { Separator } from '@moneyboy/components/structure/Separator';
+import { Separator } from '@moneyboy/components/general/lists/separator';
 import React, { Component, PropsWithChildren } from 'react';
 import { GestureResponderEvent, StyleProp, StyleSheet, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
 

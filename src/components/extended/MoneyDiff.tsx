@@ -1,4 +1,4 @@
-import { ListItem } from '@moneyboy/components/structure/ListItem';
+import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import variables from '@moneyboy/config/variables';
 import { StyleContext } from '@moneyboy/context/StyleContext';
 import React, { useContext } from 'react';

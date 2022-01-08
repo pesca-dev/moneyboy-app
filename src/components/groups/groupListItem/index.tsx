@@ -1,7 +1,7 @@
 import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/extended/MoneyDiff';
+import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import { Content } from '@moneyboy/components/structure/Content';
 import { Flyout } from '@moneyboy/components/structure/Flyout';
-import { ListItem } from '@moneyboy/components/structure/ListItem';
 import variables from '@moneyboy/config/variables';
 import { StyleContext } from '@moneyboy/context/StyleContext';
 import React, { useContext, useState } from 'react';
