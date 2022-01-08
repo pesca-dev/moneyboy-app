@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
-import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/extended/MoneyDiff';
 import { SectionHeader } from '@moneyboy/components/general/lists/sectionHeader';
+import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/moneyDiff';
 import { Content } from '@moneyboy/components/general/structure/content';
 import { ViewBase } from '@moneyboy/components/general/structure/viewBase';
 import variables from '@moneyboy/config/variables';
