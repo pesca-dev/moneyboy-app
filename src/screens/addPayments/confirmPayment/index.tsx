@@ -1,5 +1,5 @@
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
-import { ScreenComponentProps } from '@moneyboy/components/navigation/pesca-navigator/pescaScreen';
+import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
 import variables from '@moneyboy/config/variables';
 import { PescaContext } from '@moneyboy/context/PescaContext';
 import { StyleContext } from '@moneyboy/context/StyleContext';

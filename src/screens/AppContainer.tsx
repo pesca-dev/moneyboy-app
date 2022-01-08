@@ -1,4 +1,4 @@
-import { PescaTabBar } from '@moneyboy/components/navigation/PescaTabBar';
+import { PescaTabBar } from '@moneyboy/components/general/navigation/pescaTabBar';
 import { AuthContext } from '@moneyboy/context/AuthContext';
 import { StyleContext } from '@moneyboy/context/StyleContext';
 import { LoginView } from '@moneyboy/screens/auth/login';

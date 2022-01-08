@@ -1,7 +1,7 @@
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import { PescaInputField } from '@moneyboy/components/general/input/pescaInputField';
 import { ListItem } from '@moneyboy/components/general/lists/listItem';
-import { ScreenComponentProps } from '@moneyboy/components/navigation/pesca-navigator/pescaScreen';
+import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
 import { AuthContext } from '@moneyboy/context/AuthContext';
 import { PescaContext } from '@moneyboy/context/PescaContext';
 import { StyleContext } from '@moneyboy/context/StyleContext';

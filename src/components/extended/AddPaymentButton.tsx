@@ -1,4 +1,4 @@
-import { createPescaNavigation } from '@moneyboy/components/navigation/pesca-navigator/createPescaNavigation';
+import { createPescaNavigation } from '@moneyboy/components/general/navigation/pesca-navigator/createPescaNavigation';
 import { ConfirmPaymentView } from '@moneyboy/screens/addPayments/confirmPayment';
 import { EnterPaymentView } from '@moneyboy/screens/addPayments/enterPayment';
 import { SearchListView } from '@moneyboy/screens/addPayments/searchList';
