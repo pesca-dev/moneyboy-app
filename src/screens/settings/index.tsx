@@ -1,4 +1,3 @@
-import { LogoutButton } from '@moneyboy/components/extended/LogoutButton';
 import { FlyoutHeader } from '@moneyboy/components/general/flyouts/flyoutHeader';
 import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import { Separator } from '@moneyboy/components/general/lists/separator';
@@ -6,6 +5,7 @@ import { createPescaNavigation } from '@moneyboy/components/general/navigation/p
 import { PescaNavigatorProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaNavigator';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
 import { Content } from '@moneyboy/components/general/structure/content';
+import { LogoutButton } from '@moneyboy/components/settings/logoutButton';
 import { ThemeSwitch } from '@moneyboy/components/settings/themeSwitch';
 import { AuthContext } from '@moneyboy/context/authContext';
 import { StyleContext } from '@moneyboy/context/styleContext';
