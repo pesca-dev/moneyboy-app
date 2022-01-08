@@ -1,5 +1,1 @@
-// eslint-disable-next-line no-restricted-imports
-import { SettingsContext, SettingsContextType } from '@moneyboy/contexts/settingsContext';
-import { useContext } from 'react';
-
-export const useSettings: () => SettingsContextType = () => useContext(SettingsContext);
+export * from './useSettings.hook';
