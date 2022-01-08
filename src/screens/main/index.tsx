@@ -4,8 +4,8 @@ import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments
 import { Content } from '@moneyboy/components/general/structure/content';
 import { ViewBase } from '@moneyboy/components/general/structure/viewBase';
 import variables from '@moneyboy/config/variables';
-import { AuthContext } from '@moneyboy/contexts/authContext';
 import { PescaContext } from '@moneyboy/contexts/pescaContext';
+import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStorage } from '@moneyboy/hooks/useStorage';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from 'react-native';
@@ -36,7 +36,7 @@ type StatisticReducer = {
 
 export const MainView: React.FC<MainViewProps> = () => {
   const pesca = useContext(PescaContext);
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const [diffs, setDiffs] = useState<MoneyDiffProps[]>([]);
   const [refreshing, setRefreshing] = useState(false);

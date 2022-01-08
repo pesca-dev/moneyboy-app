@@ -1,6 +1,6 @@
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import variables from '@moneyboy/config/variables';
-import { AuthContext } from '@moneyboy/contexts/authContext';
+import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
@@ -11,7 +11,7 @@ type LogoutButtonProps = {
 };
 
 export const LogoutButton: React.FC<LogoutButtonProps> = ({ onPress }) => {
-  const { logout } = React.useContext(AuthContext);
+  const { logout } = useAuth();
 
   const handlePress = () => {
     logout();

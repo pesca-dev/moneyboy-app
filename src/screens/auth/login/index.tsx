@@ -1,7 +1,7 @@
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import { PescaInputField } from '@moneyboy/components/general/input/pescaInputField';
 import variables from '@moneyboy/config/variables';
-import { AuthContext } from '@moneyboy/contexts/authContext';
+import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
@@ -16,7 +16,7 @@ type LoginViewProps = {
  * The login view of out application.
  */
 export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
-  const { login } = React.useContext(AuthContext);
+  const { login } = useAuth();
 
   const [valid, setValid] = useState<boolean>(false);
 

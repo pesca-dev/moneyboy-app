@@ -2,8 +2,8 @@ import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import { PescaInputField } from '@moneyboy/components/general/input/pescaInputField';
 import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
-import { AuthContext } from '@moneyboy/contexts/authContext';
 import { PescaContext } from '@moneyboy/contexts/pescaContext';
+import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { EnterPaymentViewParams } from '@moneyboy/screens/addPayments/enterPayment';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
@@ -22,7 +22,7 @@ type SectionT = {
 
 export const SearchListView: React.FC<ScreenComponentProps<unknown, EnterPaymentViewParams>> = ({ navigation }) => {
   const pesca = useContext(PescaContext);
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const [users, setUsers] = useState<Pesca.UserInformation[]>([]);
   const [refreshing, setRefreshing] = useState(false);

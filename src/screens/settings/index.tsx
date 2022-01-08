@@ -7,9 +7,9 @@ import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pe
 import { Content } from '@moneyboy/components/general/structure/content';
 import { LogoutButton } from '@moneyboy/components/settings/logoutButton';
 import { ThemeSwitch } from '@moneyboy/components/settings/themeSwitch';
-import { AuthContext } from '@moneyboy/contexts/authContext';
+import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   DefaultSectionT,
   SectionList,
@@ -37,7 +37,7 @@ const Pesca = createPescaNavigation();
 type SettingsMainViewParams = unknown;
 
 const SettingsMainView: React.FC<ScreenComponentProps<SettingsMainViewParams>> = ({ navigation }) => {
-  const { loggedIn } = useContext(AuthContext);
+  const { loggedIn } = useAuth();
 
   const { Content: Contents, Flyouts, Texts } = useStyle();
 

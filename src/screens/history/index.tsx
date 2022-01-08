@@ -2,8 +2,8 @@ import { SectionHeader } from '@moneyboy/components/general/lists/sectionHeader'
 import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/moneyDiff';
 import { Content } from '@moneyboy/components/general/structure/content';
 import { ViewBase } from '@moneyboy/components/general/structure/viewBase';
-import { AuthContext } from '@moneyboy/contexts/authContext';
 import { PescaContext } from '@moneyboy/contexts/pescaContext';
+import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStorage } from '@moneyboy/hooks/useStorage';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
@@ -17,7 +17,7 @@ type HistoryViewProps = {
 
 export const HistoryView: React.FC<HistoryViewProps> = () => {
   const pesca = useContext(PescaContext);
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const [payments, setPayments] = useState<Pesca.PaymentInformation[]>([]);
   const [refreshing, setRefreshing] = useState(false);

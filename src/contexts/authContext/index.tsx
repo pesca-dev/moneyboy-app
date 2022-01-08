@@ -2,7 +2,7 @@ import { AuthData } from '@moneyboy/api/AuthData';
 import { PescaContext } from '@moneyboy/contexts/pescaContext';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 
-type AuthContextType = {
+export type AuthContextType = {
   /**
    * Flag, if user is logged in.
    */

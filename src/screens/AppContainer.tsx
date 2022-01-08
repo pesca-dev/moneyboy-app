@@ -1,6 +1,6 @@
 import { PescaTabBar } from '@moneyboy/components/general/navigation/pescaTabBar';
 import SettingsPanel from '@moneyboy/components/settings/settingsPanel';
-import { AuthContext } from '@moneyboy/contexts/authContext';
+import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { LoginView } from '@moneyboy/screens/auth/login';
 import { RegisterView } from '@moneyboy/screens/auth/register';
@@ -21,7 +21,7 @@ type AppContainerProps = unknown;
  * Container for the app and the navigation.
  */
 export const AppContainer: React.FC<AppContainerProps> = () => {
-  const { loggedIn, ready } = React.useContext(AuthContext);
+  const { loggedIn, ready } = useAuth();
 
   const { Content } = useStyle();
   const styles = StyleSheet.create({
