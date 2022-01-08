@@ -1,6 +1,6 @@
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import variables from '@moneyboy/config/variables';
-import { StyleContext } from '@moneyboy/context/styleContext';
+import { StyleContext } from '@moneyboy/contexts/styleContext';
 import React, { PropsWithChildren, useContext } from 'react';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 import Modal from 'react-native-modal';

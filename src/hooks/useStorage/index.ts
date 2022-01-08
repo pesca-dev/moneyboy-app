@@ -1,5 +1,5 @@
 import { StorageItems } from '@moneyboy/api/Storage';
-import { StorageContext } from '@moneyboy/context/storageContext';
+import { StorageContext } from '@moneyboy/contexts/storageContext';
 import { useCallback, useContext } from 'react';
 
 type SetStorageFunction<T extends keyof StorageItems> = (val: StorageItems[T]) => void;
