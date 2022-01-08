@@ -39,6 +39,11 @@ module.exports = {
             message: "Please use 'useStyle' instead!",
           },
           {
+            name: '@moneyboy/contexts/settingsContext',
+            importNames: ['SettingsContext'],
+            message: "Please use 'useSettings' instead!",
+          },
+          {
             name: '@moneyboy/contexts/authContext',
             importNames: ['AuthContext'],
             message: "Please use 'useAuth' instead!",

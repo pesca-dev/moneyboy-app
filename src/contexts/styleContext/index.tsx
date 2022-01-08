@@ -1,4 +1,4 @@
-import { SettingsContext } from '@moneyboy/contexts/settingsContext';
+import { useSettings } from '@moneyboy/hooks/useSettings';
 import { createButtonStyles } from '@moneyboy/styles/buttons';
 import { createColors } from '@moneyboy/styles/colors';
 import { createContentStyles } from '@moneyboy/styles/content';
@@ -10,7 +10,7 @@ import { createListStyles } from '@moneyboy/styles/list';
 import { StylingProps } from '@moneyboy/styles/stylingProps';
 import { createTabStyles } from '@moneyboy/styles/tab';
 import { createTextStyles } from '@moneyboy/styles/text';
-import React, { PropsWithChildren, useContext } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { ColorSchemeName, useColorScheme } from 'react-native';
 
 export type StyleContextType = {
@@ -42,7 +42,7 @@ export const StyleContext = React.createContext<StyleContextType>({
 type StyleContextProviderProps = unknown;
 
 export const StyleContextProvider: React.FC<PropsWithChildren<StyleContextProviderProps>> = ({ children }) => {
-  const { useSystemTheme, theme } = useContext(SettingsContext);
+  const { useSystemTheme, theme } = useSettings();
   let scheme = theme;
 
   const systemScheme = useColorScheme();

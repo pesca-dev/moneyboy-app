@@ -8,7 +8,7 @@ type Settings = {
   useSystemTheme: boolean;
 };
 
-type SettingsContextType = {
+export type SettingsContextType = {
   set<T extends keyof Settings>(key: T, value: Settings[T]): void;
 } & Settings;
 
