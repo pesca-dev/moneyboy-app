@@ -1,4 +1,4 @@
-import { PescaButton } from '@moneyboy/components/input/PescaButton';
+import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import { StyleContext } from '@moneyboy/context/StyleContext';
 import { SettingsView } from '@moneyboy/screens/settings';
 import React, { useContext, useState } from 'react';

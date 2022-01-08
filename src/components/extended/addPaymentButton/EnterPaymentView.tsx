@@ -1,11 +1,11 @@
 import { defaultValue, PescaAmountField } from '@moneyboy/components/general/input/pescaAmountField';
+import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import variables from '@moneyboy/config/variables';
 import { StyleContext } from '@moneyboy/context/StyleContext';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { parseAmount } from '../../../util/amountUtil';
-import { PescaButton } from '../../input/PescaButton';
 import { ScreenComponentProps } from '../../navigation/pesca-navigator/pescaScreen';
 import { ConfirmPaymentViewParams } from './ConfirmPaymentView';
 

@@ -1,4 +1,4 @@
-import { PescaButton } from '@moneyboy/components/input/PescaButton';
+import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import variables from '@moneyboy/config/variables';
 import { AuthContext } from '@moneyboy/context/AuthContext';
 import { StyleContext } from '@moneyboy/context/StyleContext';

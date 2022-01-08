@@ -1,5 +1,5 @@
 import { EnterPaymentViewParams } from '@moneyboy/components/extended/addPaymentButton/EnterPaymentView';
-import { PescaButton } from '@moneyboy/components/input/PescaButton';
+import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import { PescaInputField } from '@moneyboy/components/input/PescaInputField';
 import { ScreenComponentProps } from '@moneyboy/components/navigation/pesca-navigator/pescaScreen';
 import { ListItem } from '@moneyboy/components/structure/ListItem';
