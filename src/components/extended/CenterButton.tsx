@@ -1,5 +1,5 @@
 import { AddPaymentButton } from '@moneyboy/components/extended/AddPaymentButton';
-import { createPescaMenu } from '@moneyboy/components/extended/pescaMenu/createPescaMenu';
+import { createPescaMenu } from '@moneyboy/components/general/pescaMenu/createPescaMenu';
 import React, { useState } from 'react';
 
 type CenterButtonProps = unknown;
