@@ -1,7 +1,7 @@
-import { PescaButton } from '@components/input/PescaButton';
-import variables from '@config/variables';
-import { AuthContext } from '@context/AuthContext';
-import { StyleContext } from '@context/StyleContext';
+import { PescaButton } from '@moneyboy/components/input/PescaButton';
+import variables from '@moneyboy/config/variables';
+import { AuthContext } from '@moneyboy/context/AuthContext';
+import { StyleContext } from '@moneyboy/context/StyleContext';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';

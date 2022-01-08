@@ -1,8 +1,8 @@
-import { createColors } from '@styles/colors';
-import { createContentStyles } from '@styles/content';
-import { createListStyles } from '@styles/list';
-import { StylingProps } from '@styles/stylingProps';
-import { createTextStyles } from '@styles/text';
+import { createColors } from '@moneyboy/styles/colors';
+import { createContentStyles } from '@moneyboy/styles/content';
+import { createListStyles } from '@moneyboy/styles/list';
+import { StylingProps } from '@moneyboy/styles/stylingProps';
+import { createTextStyles } from '@moneyboy/styles/text';
 
 export const createFlyoutStyles = (props?: StylingProps) => {
   const colors = createColors(props);

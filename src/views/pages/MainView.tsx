@@ -1,12 +1,12 @@
 /* eslint-disable no-param-reassign */
-import { MoneyDiff, MoneyDiffProps } from '@components/extended/MoneyDiff';
-import { Content } from '@components/structure/Content';
-import { SectionHeader } from '@components/structure/SectionHeader';
-import { ViewBase } from '@components/structure/ViewBase';
-import variables from '@config/variables';
-import { AuthContext } from '@context/AuthContext';
-import { PescaContext } from '@context/PescaContext';
-import { useStorage } from '@hooks/useStorage';
+import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/extended/MoneyDiff';
+import { Content } from '@moneyboy/components/structure/Content';
+import { SectionHeader } from '@moneyboy/components/structure/SectionHeader';
+import { ViewBase } from '@moneyboy/components/structure/ViewBase';
+import variables from '@moneyboy/config/variables';
+import { AuthContext } from '@moneyboy/context/AuthContext';
+import { PescaContext } from '@moneyboy/context/PescaContext';
+import { useStorage } from '@moneyboy/hooks/useStorage';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from 'react-native';
 

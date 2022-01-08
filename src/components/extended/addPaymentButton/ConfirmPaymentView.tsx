@@ -1,9 +1,9 @@
-import { PescaButton } from '@components/input/PescaButton';
-import { ScreenComponentProps } from '@components/navigation/pesca-navigator/pescaScreen';
-import variables from '@config/variables';
-import { PescaContext } from '@context/PescaContext';
-import { StyleContext } from '@context/StyleContext';
-import { formatAmount } from '@util/amountUtil';
+import { PescaButton } from '@moneyboy/components/input/PescaButton';
+import { ScreenComponentProps } from '@moneyboy/components/navigation/pesca-navigator/pescaScreen';
+import variables from '@moneyboy/config/variables';
+import { PescaContext } from '@moneyboy/context/PescaContext';
+import { StyleContext } from '@moneyboy/context/StyleContext';
+import { formatAmount } from '@moneyboy/util/amountUtil';
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 

@@ -1,6 +1,6 @@
-import { PescaButton } from '@components/input/PescaButton';
-import { StyleContext } from '@context/StyleContext';
-import { SettingsView } from '@views/pages/SettingsView';
+import { PescaButton } from '@moneyboy/components/input/PescaButton';
+import { StyleContext } from '@moneyboy/context/StyleContext';
+import { SettingsView } from '@moneyboy/views/pages/SettingsView';
 import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';

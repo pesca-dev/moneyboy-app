@@ -1,9 +1,9 @@
-import { MoneyDiff, MoneyDiffProps } from '@components/extended/MoneyDiff';
-import { Content } from '@components/structure/Content';
-import { Flyout } from '@components/structure/Flyout';
-import { ListItem } from '@components/structure/ListItem';
-import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/extended/MoneyDiff';
+import { Content } from '@moneyboy/components/structure/Content';
+import { Flyout } from '@moneyboy/components/structure/Flyout';
+import { ListItem } from '@moneyboy/components/structure/ListItem';
+import variables from '@moneyboy/config/variables';
+import { StyleContext } from '@moneyboy/context/StyleContext';
 import React, { useContext, useState } from 'react';
 import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 import uuid from 'react-native-uuid';

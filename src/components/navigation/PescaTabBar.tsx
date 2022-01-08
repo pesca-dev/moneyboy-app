@@ -1,7 +1,7 @@
-import { CenterButton } from '@components/extended/CenterButton';
-import { PescaTabIcon } from '@components/navigation/PescaTabIcon';
-import { Footer } from '@components/structure/Footer';
-import { StyleContext } from '@context/StyleContext';
+import { CenterButton } from '@moneyboy/components/extended/CenterButton';
+import { PescaTabIcon } from '@moneyboy/components/navigation/PescaTabIcon';
+import { Footer } from '@moneyboy/components/structure/Footer';
+import { StyleContext } from '@moneyboy/context/StyleContext';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Route } from '@react-navigation/native';
 import React, { useContext } from 'react';

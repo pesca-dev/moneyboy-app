@@ -1,4 +1,4 @@
-import { StorageContextType, StorageItems, StorageSetFunction } from '@api/Storage';
+import { StorageContextType, StorageItems, StorageSetFunction } from '@moneyboy/api/Storage';
 // eslint-disable-next-line no-restricted-imports
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
 import React, { createContext, FC, PropsWithChildren, useCallback, useEffect, useState } from 'react';

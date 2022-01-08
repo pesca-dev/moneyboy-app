@@ -1,14 +1,14 @@
-import { LogoutButton } from '@components/extended/LogoutButton';
-import { createPescaNavigation } from '@components/navigation/pesca-navigator/createPescaNavigation';
-import { PescaNavigatorProps } from '@components/navigation/pesca-navigator/pescaNavigator';
-import { ScreenComponentProps } from '@components/navigation/pesca-navigator/pescaScreen';
-import { ThemeSwitch } from '@components/settings/ThemeSwitch';
-import { Content } from '@components/structure/Content';
-import { FlyoutHeader } from '@components/structure/FlyoutHeader';
-import { ListItem } from '@components/structure/ListItem';
-import { Separator } from '@components/structure/Separator';
-import { AuthContext } from '@context/AuthContext';
-import { StyleContext } from '@context/StyleContext';
+import { LogoutButton } from '@moneyboy/components/extended/LogoutButton';
+import { createPescaNavigation } from '@moneyboy/components/navigation/pesca-navigator/createPescaNavigation';
+import { PescaNavigatorProps } from '@moneyboy/components/navigation/pesca-navigator/pescaNavigator';
+import { ScreenComponentProps } from '@moneyboy/components/navigation/pesca-navigator/pescaScreen';
+import { ThemeSwitch } from '@moneyboy/components/settings/ThemeSwitch';
+import { Content } from '@moneyboy/components/structure/Content';
+import { FlyoutHeader } from '@moneyboy/components/structure/FlyoutHeader';
+import { ListItem } from '@moneyboy/components/structure/ListItem';
+import { Separator } from '@moneyboy/components/structure/Separator';
+import { AuthContext } from '@moneyboy/context/AuthContext';
+import { StyleContext } from '@moneyboy/context/StyleContext';
 import React, { useContext } from 'react';
 import {
   DefaultSectionT,

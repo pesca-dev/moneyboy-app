@@ -1,6 +1,6 @@
-import { AddPaymentButton } from '@components/extended/AddPaymentButton';
-import { createPescaMenu } from '@components/extended/pescaMenu/createPescaMenu';
-import { FlyoutContext } from '@context/FlyoutContext';
+import { AddPaymentButton } from '@moneyboy/components/extended/AddPaymentButton';
+import { createPescaMenu } from '@moneyboy/components/extended/pescaMenu/createPescaMenu';
+import { FlyoutContext } from '@moneyboy/context/FlyoutContext';
 import React, { useState } from 'react';
 import { Text } from 'react-native';
 

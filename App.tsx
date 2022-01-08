@@ -1,9 +1,9 @@
-import { AuthContextProvider } from '@context/AuthContext';
-import { PescaContextProvider } from '@context/PescaContext';
-import { SettingsContextProvider } from '@context/SettingsContext';
-import { StorageContextProvider } from '@context/StorageContext';
-import { StyleContextProvider } from '@context/StyleContext';
-import { AppContainer } from '@views/AppContainer';
+import { AuthContextProvider } from '@moneyboy/context/AuthContext';
+import { PescaContextProvider } from '@moneyboy/context/PescaContext';
+import { SettingsContextProvider } from '@moneyboy/context/SettingsContext';
+import { StorageContextProvider } from '@moneyboy/context/StorageContext';
+import { StyleContextProvider } from '@moneyboy/context/StyleContext';
+import { AppContainer } from '@moneyboy/views/AppContainer';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';

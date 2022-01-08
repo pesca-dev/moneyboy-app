@@ -1,5 +1,5 @@
-import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import variables from '@moneyboy/config/variables';
+import { StyleContext } from '@moneyboy/context/StyleContext';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';

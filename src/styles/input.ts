@@ -1,5 +1,5 @@
-import { createColors } from '@styles/colors';
-import { StylingProps } from '@styles/stylingProps';
+import { createColors } from '@moneyboy/styles/colors';
+import { StylingProps } from '@moneyboy/styles/stylingProps';
 
 export const createInputStyles = (props?: StylingProps) => {
   const colors = createColors(props);

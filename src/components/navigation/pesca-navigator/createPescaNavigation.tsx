@@ -1,4 +1,4 @@
-import { PescaNavContextType } from '@api/PescaNavContextType';
+import { PescaNavContextType } from '@moneyboy/api/PescaNavContextType';
 import { createContext } from 'react';
 import { createPescaNavigator } from './pescaNavigator';
 import { createPescaScreen } from './pescaScreen';

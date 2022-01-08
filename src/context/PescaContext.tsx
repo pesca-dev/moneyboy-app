@@ -1,5 +1,5 @@
-import { PescaClient } from '@api/PescaClient';
-import { createPescaClient } from '@pesca/createPescaClient';
+import { PescaClient } from '@moneyboy/api/PescaClient';
+import { createPescaClient } from '@moneyboy/pesca/createPescaClient';
 import React, { PropsWithChildren } from 'react';
 
 export const PescaContext = React.createContext<PescaClient | undefined>(undefined);

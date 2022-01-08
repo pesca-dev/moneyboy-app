@@ -1,6 +1,6 @@
-import { ListItem } from '@components/structure/ListItem';
-import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import { ListItem } from '@moneyboy/components/structure/ListItem';
+import variables from '@moneyboy/config/variables';
+import { StyleContext } from '@moneyboy/context/StyleContext';
 import React, { useContext } from 'react';
 import { GestureResponderEvent, StyleProp, StyleSheet, Text, ViewStyle } from 'react-native';
 

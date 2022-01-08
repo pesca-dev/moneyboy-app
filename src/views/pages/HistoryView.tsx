@@ -1,10 +1,10 @@
-import { MoneyDiff, MoneyDiffProps } from '@components/extended/MoneyDiff';
-import { Content } from '@components/structure/Content';
-import { SectionHeader } from '@components/structure/SectionHeader';
-import { ViewBase } from '@components/structure/ViewBase';
-import { AuthContext } from '@context/AuthContext';
-import { PescaContext } from '@context/PescaContext';
-import { useStorage } from '@hooks/useStorage';
+import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/extended/MoneyDiff';
+import { Content } from '@moneyboy/components/structure/Content';
+import { SectionHeader } from '@moneyboy/components/structure/SectionHeader';
+import { ViewBase } from '@moneyboy/components/structure/ViewBase';
+import { AuthContext } from '@moneyboy/context/AuthContext';
+import { PescaContext } from '@moneyboy/context/PescaContext';
+import { useStorage } from '@moneyboy/hooks/useStorage';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase, RouteProp } from '@react-navigation/native';
 import React, { useCallback, useContext, useEffect, useState } from 'react';

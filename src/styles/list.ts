@@ -1,6 +1,6 @@
-import { createContentStyles } from '@styles/content';
-import { StylingProps } from '@styles/stylingProps';
-import { createTextStyles } from '@styles/text';
+import { createContentStyles } from '@moneyboy/styles/content';
+import { StylingProps } from '@moneyboy/styles/stylingProps';
+import { createTextStyles } from '@moneyboy/styles/text';
 
 export const createListStyles = (props?: StylingProps) => {
   const content = createContentStyles(props);

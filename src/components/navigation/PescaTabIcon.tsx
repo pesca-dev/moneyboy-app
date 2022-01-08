@@ -1,5 +1,5 @@
-import variables from '@config/variables';
-import { StyleContext } from '@context/StyleContext';
+import variables from '@moneyboy/config/variables';
+import { StyleContext } from '@moneyboy/context/StyleContext';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers } from '@react-navigation/core';
 import { ParamListBase } from '@react-navigation/routers';

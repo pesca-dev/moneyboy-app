@@ -1,11 +1,11 @@
-import { EnterPaymentViewParams } from '@components/extended/addPaymentButton/EnterPaymentView';
-import { PescaButton } from '@components/input/PescaButton';
-import { PescaInputField } from '@components/input/PescaInputField';
-import { ScreenComponentProps } from '@components/navigation/pesca-navigator/pescaScreen';
-import { ListItem } from '@components/structure/ListItem';
-import { AuthContext } from '@context/AuthContext';
-import { PescaContext } from '@context/PescaContext';
-import { StyleContext } from '@context/StyleContext';
+import { EnterPaymentViewParams } from '@moneyboy/components/extended/addPaymentButton/EnterPaymentView';
+import { PescaButton } from '@moneyboy/components/input/PescaButton';
+import { PescaInputField } from '@moneyboy/components/input/PescaInputField';
+import { ScreenComponentProps } from '@moneyboy/components/navigation/pesca-navigator/pescaScreen';
+import { ListItem } from '@moneyboy/components/structure/ListItem';
+import { AuthContext } from '@moneyboy/context/AuthContext';
+import { PescaContext } from '@moneyboy/context/PescaContext';
+import { StyleContext } from '@moneyboy/context/StyleContext';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Insets, SectionList, SectionListData, SectionListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 

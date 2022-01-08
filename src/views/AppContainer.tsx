@@ -1,15 +1,15 @@
-import { PescaTabBar } from '@components/navigation/PescaTabBar';
-import { AuthContext } from '@context/AuthContext';
-import { StyleContext } from '@context/StyleContext';
+import { PescaTabBar } from '@moneyboy/components/navigation/PescaTabBar';
+import { AuthContext } from '@moneyboy/context/AuthContext';
+import { StyleContext } from '@moneyboy/context/StyleContext';
+import { EventView } from '@moneyboy/views/pages/EventView';
+import { GroupView } from '@moneyboy/views/pages/GroupView';
+import { HistoryView } from '@moneyboy/views/pages/HistoryView';
+import { LoginView } from '@moneyboy/views/pages/LoginView';
+import { MainView } from '@moneyboy/views/pages/MainView';
+import { RegisterView } from '@moneyboy/views/pages/RegisterView';
+import SettingsPanel from '@moneyboy/views/SettingsPanel';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { EventView } from '@views/pages/EventView';
-import { GroupView } from '@views/pages/GroupView';
-import { HistoryView } from '@views/pages/HistoryView';
-import { LoginView } from '@views/pages/LoginView';
-import { MainView } from '@views/pages/MainView';
-import { RegisterView } from '@views/pages/RegisterView';
-import SettingsPanel from '@views/SettingsPanel';
 import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 

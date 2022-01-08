@@ -1,15 +1,15 @@
-import { SettingsContext } from '@context/SettingsContext';
-import { createButtonStyles } from '@styles/buttons';
-import { createColors } from '@styles/colors';
-import { createContentStyles } from '@styles/content';
-import { createFlyoutStyles } from '@styles/flyout';
-import { createFooterStyles } from '@styles/footer';
-import { createGroupStyles } from '@styles/group';
-import { createInputStyles } from '@styles/input';
-import { createListStyles } from '@styles/list';
-import { StylingProps } from '@styles/stylingProps';
-import { createTabStyles } from '@styles/tab';
-import { createTextStyles } from '@styles/text';
+import { SettingsContext } from '@moneyboy/context/SettingsContext';
+import { createButtonStyles } from '@moneyboy/styles/buttons';
+import { createColors } from '@moneyboy/styles/colors';
+import { createContentStyles } from '@moneyboy/styles/content';
+import { createFlyoutStyles } from '@moneyboy/styles/flyout';
+import { createFooterStyles } from '@moneyboy/styles/footer';
+import { createGroupStyles } from '@moneyboy/styles/group';
+import { createInputStyles } from '@moneyboy/styles/input';
+import { createListStyles } from '@moneyboy/styles/list';
+import { StylingProps } from '@moneyboy/styles/stylingProps';
+import { createTabStyles } from '@moneyboy/styles/tab';
+import { createTextStyles } from '@moneyboy/styles/text';
 import React, { PropsWithChildren, useContext } from 'react';
 import { ColorSchemeName, useColorScheme } from 'react-native';
 

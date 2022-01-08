@@ -1,6 +1,6 @@
-import { PescaMenuContextType } from '@api/PescaMenuContextType';
-import { PescaButton } from '@components/input/PescaButton';
-import { StyleContext } from '@context/StyleContext';
+import { PescaMenuContextType } from '@moneyboy/api/PescaMenuContextType';
+import { PescaButton } from '@moneyboy/components/input/PescaButton';
+import { StyleContext } from '@moneyboy/context/StyleContext';
 import { animated, useSpring } from '@react-spring/native';
 import React, { PropsWithChildren, useContext, useEffect, useRef, useState } from 'react';
 import { StyleSheet, View } from 'react-native';

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { PescaMenuContextType } from '@api/PescaMenuContextType';
-import { createPescaMenuItem } from '@components/extended/pescaMenu/menuItem';
-import { createPescaMenuContainer } from '@components/extended/pescaMenu/pescaMenu';
+import { PescaMenuContextType } from '@moneyboy/api/PescaMenuContextType';
+import { createPescaMenuItem } from '@moneyboy/components/extended/pescaMenu/menuItem';
+import { createPescaMenuContainer } from '@moneyboy/components/extended/pescaMenu/pescaMenu';
 import { createContext } from 'react';
 
 /**

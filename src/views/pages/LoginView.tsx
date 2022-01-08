@@ -1,8 +1,8 @@
-import { PescaButton } from '@components/input/PescaButton';
-import { PescaInputField } from '@components/input/PescaInputField';
-import variables from '@config/variables';
-import { AuthContext } from '@context/AuthContext';
-import { StyleContext } from '@context/StyleContext';
+import { PescaButton } from '@moneyboy/components/input/PescaButton';
+import { PescaInputField } from '@moneyboy/components/input/PescaInputField';
+import variables from '@moneyboy/config/variables';
+import { AuthContext } from '@moneyboy/context/AuthContext';
+import { StyleContext } from '@moneyboy/context/StyleContext';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
 import React, { useEffect, useState } from 'react';
