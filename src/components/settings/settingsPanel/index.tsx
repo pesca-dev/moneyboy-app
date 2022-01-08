@@ -1,5 +1,5 @@
 import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
-import { StyleContext } from '@moneyboy/context/StyleContext';
+import { StyleContext } from '@moneyboy/context/styleContext';
 import { SettingsView } from '@moneyboy/screens/settings';
 import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';

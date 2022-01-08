@@ -1,4 +1,4 @@
-import { defaultStorage } from '@moneyboy/context/StorageContext';
+import { defaultStorage } from '@moneyboy/context/storageContext';
 import { useStorage } from '@moneyboy/hooks/useStorage';
 import React, { createContext, PropsWithChildren, useEffect, useState } from 'react';
 import { ColorSchemeName } from 'react-native';

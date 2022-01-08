@@ -1,4 +1,4 @@
-import { StyleContext } from '@moneyboy/context/StyleContext';
+import { StyleContext } from '@moneyboy/context/styleContext';
 import React, { useContext } from 'react';
 import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 

@@ -1,5 +1,5 @@
 import variables from '@moneyboy/config/variables';
-import { StyleContext } from '@moneyboy/context/StyleContext';
+import { StyleContext } from '@moneyboy/context/styleContext';
 import React, { useContext } from 'react';
 import {
   KeyboardTypeOptions,

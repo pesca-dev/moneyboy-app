@@ -1,7 +1,7 @@
 import { PescaTabBar } from '@moneyboy/components/general/navigation/pescaTabBar';
 import SettingsPanel from '@moneyboy/components/settings/settingsPanel';
-import { AuthContext } from '@moneyboy/context/AuthContext';
-import { StyleContext } from '@moneyboy/context/StyleContext';
+import { AuthContext } from '@moneyboy/context/authContext';
+import { StyleContext } from '@moneyboy/context/styleContext';
 import { LoginView } from '@moneyboy/screens/auth/login';
 import { RegisterView } from '@moneyboy/screens/auth/register';
 import { EventView } from '@moneyboy/screens/events';

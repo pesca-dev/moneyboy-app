@@ -3,7 +3,7 @@ import { Flyout } from '@moneyboy/components/general/flyouts/flyout';
 import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import { Content } from '@moneyboy/components/general/structure/content';
 import variables from '@moneyboy/config/variables';
-import { StyleContext } from '@moneyboy/context/StyleContext';
+import { StyleContext } from '@moneyboy/context/styleContext';
 import React, { useContext, useState } from 'react';
 import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 import uuid from 'react-native-uuid';

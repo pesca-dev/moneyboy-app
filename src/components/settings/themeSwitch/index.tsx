@@ -1,5 +1,5 @@
-import { SettingsContext } from '@moneyboy/context/SettingsContext';
-import { StyleContext } from '@moneyboy/context/StyleContext';
+import { SettingsContext } from '@moneyboy/context/settingsContext';
+import { StyleContext } from '@moneyboy/context/styleContext';
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';

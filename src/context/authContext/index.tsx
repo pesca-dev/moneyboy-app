@@ -1,5 +1,5 @@
 import { AuthData } from '@moneyboy/api/AuthData';
-import { PescaContext } from '@moneyboy/context/PescaContext';
+import { PescaContext } from '@moneyboy/context/pescaContext';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 
 type AuthContextType = {

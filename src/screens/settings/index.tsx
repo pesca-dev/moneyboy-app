@@ -7,8 +7,8 @@ import { PescaNavigatorProps } from '@moneyboy/components/general/navigation/pes
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
 import { Content } from '@moneyboy/components/general/structure/content';
 import { ThemeSwitch } from '@moneyboy/components/settings/themeSwitch';
-import { AuthContext } from '@moneyboy/context/AuthContext';
-import { StyleContext } from '@moneyboy/context/StyleContext';
+import { AuthContext } from '@moneyboy/context/authContext';
+import { StyleContext } from '@moneyboy/context/styleContext';
 import React, { useContext } from 'react';
 import {
   DefaultSectionT,

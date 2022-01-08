@@ -4,8 +4,8 @@ import { SectionHeader } from '@moneyboy/components/general/lists/sectionHeader'
 import { Content } from '@moneyboy/components/general/structure/content';
 import { ViewBase } from '@moneyboy/components/general/structure/viewBase';
 import variables from '@moneyboy/config/variables';
-import { AuthContext } from '@moneyboy/context/AuthContext';
-import { PescaContext } from '@moneyboy/context/PescaContext';
+import { AuthContext } from '@moneyboy/context/authContext';
+import { PescaContext } from '@moneyboy/context/pescaContext';
 import { useStorage } from '@moneyboy/hooks/useStorage';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from 'react-native';

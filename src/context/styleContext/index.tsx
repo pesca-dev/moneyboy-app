@@ -1,4 +1,4 @@
-import { SettingsContext } from '@moneyboy/context/SettingsContext';
+import { SettingsContext } from '@moneyboy/context/settingsContext';
 import { createButtonStyles } from '@moneyboy/styles/buttons';
 import { createColors } from '@moneyboy/styles/colors';
 import { createContentStyles } from '@moneyboy/styles/content';
