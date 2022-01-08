@@ -31,10 +31,17 @@ module.exports = {
         paths: [
           {
             name: '@react-native-async-storage/async-storage',
+            message: "Please use 'useStorage' instead!",
           },
           {
             name: '@moneyboy/contexts/styleContext',
             importNames: ['StyleContext'],
+            message: "Please use 'useStyle' instead!",
+          },
+          {
+            name: '@moneyboy/contexts/authContext',
+            importNames: ['AuthContext'],
+            message: "Please use 'useAuth' instead!",
           },
         ],
       },
