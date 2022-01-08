@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { FlyoutType } from '@moneyboy/api/FlyoutType';
-import { Flyout } from '@moneyboy/components/structure/Flyout';
+import { Flyout } from '@moneyboy/components/general/flyouts/flyout';
 import React, { PropsWithChildren, ReactNode, useState } from 'react';
 import { Text } from 'react-native';
 
