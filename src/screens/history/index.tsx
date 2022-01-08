@@ -1,7 +1,7 @@
 import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/extended/MoneyDiff';
 import { SectionHeader } from '@moneyboy/components/general/lists/sectionHeader';
-import { Content } from '@moneyboy/components/structure/Content';
-import { ViewBase } from '@moneyboy/components/structure/ViewBase';
+import { Content } from '@moneyboy/components/general/structure/content';
+import { ViewBase } from '@moneyboy/components/general/structure/viewBase';
 import { AuthContext } from '@moneyboy/context/AuthContext';
 import { PescaContext } from '@moneyboy/context/PescaContext';
 import { useStorage } from '@moneyboy/hooks/useStorage';
