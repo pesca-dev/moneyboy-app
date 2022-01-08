@@ -1,7 +1,7 @@
-import { ConfirmPaymentView } from '@moneyboy/components/extended/addPaymentButton/ConfirmPaymentView';
-import { EnterPaymentView } from '@moneyboy/components/extended/addPaymentButton/EnterPaymentView';
-import { SearchListView } from '@moneyboy/components/extended/addPaymentButton/SearchListView';
 import { createPescaNavigation } from '@moneyboy/components/navigation/pesca-navigator/createPescaNavigation';
+import { ConfirmPaymentView } from '@moneyboy/screens/addPayments/confirmPayment';
+import { EnterPaymentView } from '@moneyboy/screens/addPayments/enterPayment';
+import { SearchListView } from '@moneyboy/screens/addPayments/searchList';
 import React from 'react';
 
 type AddPaymentButtonProps = {
