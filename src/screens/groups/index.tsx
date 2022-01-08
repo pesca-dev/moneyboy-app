@@ -1,4 +1,4 @@
-import { GroupListItem } from '@moneyboy/components/extended/GroupListItem';
+import { GroupListItem } from '@moneyboy/components/groups/groupListItem';
 import { SectionHeader } from '@moneyboy/components/structure/SectionHeader';
 import { ViewBase } from '@moneyboy/components/structure/ViewBase';
 import React from 'react';
