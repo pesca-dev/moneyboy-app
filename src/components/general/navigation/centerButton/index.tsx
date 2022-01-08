@@ -1,4 +1,4 @@
-import { AddPaymentButton } from '@moneyboy/components/extended/AddPaymentButton';
+import { AddPaymentButton } from '@moneyboy/components/general/navigation/addPaymentButton';
 import { createPescaMenu } from '@moneyboy/components/general/pescaMenu/createPescaMenu';
 import React, { useState } from 'react';
 

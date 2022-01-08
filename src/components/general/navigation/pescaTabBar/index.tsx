@@ -1,4 +1,4 @@
-import { CenterButton } from '@moneyboy/components/extended/CenterButton';
+import { CenterButton } from '@moneyboy/components/general/navigation/centerButton';
 import { PescaTabIcon } from '@moneyboy/components/general/navigation/pescaTabIcon';
 import { Footer } from '@moneyboy/components/general/structure/footer';
 import { StyleContext } from '@moneyboy/context/styleContext';
