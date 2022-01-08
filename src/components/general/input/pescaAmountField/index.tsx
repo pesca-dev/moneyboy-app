@@ -1,6 +1,6 @@
 import variables from '@moneyboy/config/variables';
 import { StyleContext } from '@moneyboy/context/styleContext';
-import { formatAmount } from '@moneyboy/util/amountUtil';
+import { formatAmount } from '@moneyboy/services/util/amountUtil';
 import React, { useContext, useEffect, useRef } from 'react';
 import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
 

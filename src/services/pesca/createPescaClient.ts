@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { PescaClient } from '@moneyboy/api/PescaClient';
-import { HttpClient } from '@moneyboy/pesca/httpClient';
+import { HttpClient } from '@moneyboy/services/networking/httpClient';
 import EncryptedStorage from 'react-native-encrypted-storage';
 
 const constants = {

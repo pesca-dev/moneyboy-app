@@ -3,7 +3,7 @@ import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pe
 import variables from '@moneyboy/config/variables';
 import { PescaContext } from '@moneyboy/context/pescaContext';
 import { StyleContext } from '@moneyboy/context/styleContext';
-import { formatAmount } from '@moneyboy/util/amountUtil';
+import { formatAmount } from '@moneyboy/services/util/amountUtil';
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 

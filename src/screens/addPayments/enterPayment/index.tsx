@@ -3,7 +3,7 @@ import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
 import variables from '@moneyboy/config/variables';
 import { StyleContext } from '@moneyboy/context/styleContext';
-import { parseAmount } from '@moneyboy/util/amountUtil';
+import { parseAmount } from '@moneyboy/services/util/amountUtil';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
