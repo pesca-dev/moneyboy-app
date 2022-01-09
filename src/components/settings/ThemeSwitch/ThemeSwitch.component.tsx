@@ -1,12 +1,11 @@
 import { useSettings } from '@moneyboy/hooks/useSettings';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';
+import { useThemeSwitchStyles } from './ThemeSwitch.style';
 
 export const ThemeSwitch: React.FC = () => {
   const { theme, useSystemTheme, set } = useSettings();
-  const { Texts } = useStyle();
 
   const onModeChange = (useDarkMode: boolean) => {
     set('theme', useDarkMode ? 'dark' : 'light');
@@ -16,32 +15,7 @@ export const ThemeSwitch: React.FC = () => {
     set('useSystemTheme', useSystem);
   };
 
-  const styles = StyleSheet.create({
-    wrapper: {
-      flexDirection: 'column',
-      flex: 1,
-    },
-    container: {
-      flexDirection: 'row',
-      flex: 1,
-      marginVertical: 2,
-    },
-    labelContainer: {
-      flex: 1,
-      justifyContent: 'center',
-    },
-    label: {
-      color: Texts.colors.primary,
-      fontSize: 16,
-    },
-    subLabelContainer: {
-      paddingLeft: 20,
-    },
-    disabled: {
-      color: Texts.colors.disabled,
-    },
-    switchContainer: {},
-  });
+  const styles = useThemeSwitchStyles();
 
   return (
     <>

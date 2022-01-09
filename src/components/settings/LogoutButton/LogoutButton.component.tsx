@@ -1,10 +1,9 @@
 import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
-import variables from '@moneyboy/config/variables';
 import { useAuth } from '@moneyboy/hooks/useAuth';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useLogoutButtonStyles } from './LogoutButton.style';
 
 type LogoutButtonProps = {
   onPress?: () => void;
@@ -18,21 +17,7 @@ export const LogoutButton: React.FC<LogoutButtonProps> = ({ onPress }) => {
     onPress?.();
   };
 
-  const { Buttons } = useStyle();
-  const styles = StyleSheet.create({
-    logoutContainer: {
-      flexDirection: 'row',
-    },
-    logoutIcon: {
-      fontSize: variables.font.size.small,
-      marginRight: 5,
-      color: Buttons.special.logout.color,
-    },
-    logoutText: {
-      fontSize: variables.font.size.extraSmall,
-      color: Buttons.special.logout.color,
-    },
-  });
+  const styles = useLogoutButtonStyles();
 
   return (
     <PescaButton onPress={handlePress}>
