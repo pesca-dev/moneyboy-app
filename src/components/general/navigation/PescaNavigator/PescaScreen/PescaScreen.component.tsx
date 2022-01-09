@@ -1,5 +1,5 @@
 import { PescaNavContextType } from '@moneyboy/api/PescaNavContextType';
-import { PescaNavContext } from '@moneyboy/components/general/navigation/pesca-navigator/createPescaNavigation';
+import { PescaNavContext } from '@moneyboy/components/general/navigation/PescaNavigator/createPescaNavigation';
 import { animated, useSpring } from '@react-spring/native';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { LayoutAnimation, StyleSheet, View } from 'react-native';

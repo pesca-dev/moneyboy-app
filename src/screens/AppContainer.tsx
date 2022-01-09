@@ -1,4 +1,4 @@
-import { PescaTabBar } from '@moneyboy/components/general/navigation/pescaTabBar';
+import { PescaTabBar } from '@moneyboy/components/general/navigation/PescaTabBar';
 import SettingsPanel from '@moneyboy/components/settings/settingsPanel';
 import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';

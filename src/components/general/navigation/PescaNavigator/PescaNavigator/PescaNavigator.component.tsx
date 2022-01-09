@@ -1,7 +1,7 @@
 import { PescaNavContextScreen, PescaNavContextType } from '@moneyboy/api/PescaNavContextType';
 import { Flyout } from '@moneyboy/components/general/flyouts/Flyout';
 import { FlyoutHeader } from '@moneyboy/components/general/flyouts/FlyoutHeader';
-import { PescaNavContext } from '@moneyboy/components/general/navigation/pesca-navigator/createPescaNavigation';
+import { PescaNavContext } from '@moneyboy/components/general/navigation/PescaNavigator/createPescaNavigation';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { LayoutAnimation, StyleSheet, View } from 'react-native';
 
