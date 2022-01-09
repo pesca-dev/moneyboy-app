@@ -1,6 +1,6 @@
-import React, { PropsWithChildren } from "react";
-import { SafeAreaView } from "react-native";
-import { useContainerStyles } from "./Container.style";
+import React, { PropsWithChildren } from 'react';
+import { SafeAreaView } from 'react-native';
+import { useContainerStyles } from './Container.style';
 
 /**
  * Props for a Container.

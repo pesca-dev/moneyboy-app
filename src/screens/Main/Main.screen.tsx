@@ -1,14 +1,14 @@
 /* eslint-disable no-param-reassign */
-import { SectionHeader } from "@moneyboy/components/general/lists/SectionHeader";
-import { MoneyDiff, MoneyDiffProps } from "@moneyboy/components/general/payments/MoneyDiff";
-import { Content } from "@moneyboy/components/general/structure/Content";
-import { ViewBase } from "@moneyboy/components/general/structure/ViewBase";
-import { PescaContext } from "@moneyboy/contexts/pescaContext";
-import { useAuth } from "@moneyboy/hooks/useAuth";
-import { useStorage } from "@moneyboy/hooks/useStorage";
-import React, { useCallback, useContext, useEffect, useState } from "react";
-import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from "react-native";
-import { useMainStyles } from "./Main.style";
+import { SectionHeader } from '@moneyboy/components/general/lists/SectionHeader';
+import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/MoneyDiff';
+import { Content } from '@moneyboy/components/general/structure/Content';
+import { ViewBase } from '@moneyboy/components/general/structure/ViewBase';
+import { PescaContext } from '@moneyboy/contexts/pescaContext';
+import { useAuth } from '@moneyboy/hooks/useAuth';
+import { useStorage } from '@moneyboy/hooks/useStorage';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
+import { useMainStyles } from './Main.style';
 
 function renderListItem({
   item: { name, amount, id },

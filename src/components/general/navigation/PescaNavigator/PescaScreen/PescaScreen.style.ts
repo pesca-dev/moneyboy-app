@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
-export const usePescaScreenStyles = () => {
-  return StyleSheet.create({
+export const usePescaScreenStyles = () =>
+  StyleSheet.create({
     screenWrapper: {
       flexDirection: 'row',
       width: '100%',
@@ -22,4 +22,3 @@ export const usePescaScreenStyles = () => {
       position: 'absolute',
     },
   });
-};

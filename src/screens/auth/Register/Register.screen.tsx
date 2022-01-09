@@ -1,12 +1,12 @@
-import { PescaButton } from "@moneyboy/components/general/input/PescaButton";
-import { PescaInputField } from "@moneyboy/components/general/input/PescaInputField";
-import { useAuth } from "@moneyboy/hooks/useAuth";
-import { BottomTabNavigationEventMap } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
-import { NavigationHelpers, ParamListBase } from "@react-navigation/core";
-import React, { useEffect, useState } from "react";
-import { KeyboardAvoidingView, Platform, SafeAreaView, Text, View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import { useRegisterStyles } from "./Register.style";
+import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
+import { PescaInputField } from '@moneyboy/components/general/input/PescaInputField';
+import { useAuth } from '@moneyboy/hooks/useAuth';
+import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
+import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
+import React, { useEffect, useState } from 'react';
+import { KeyboardAvoidingView, Platform, SafeAreaView, Text, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { useRegisterStyles } from './Register.style';
 
 /**
  * Display message for the registration dialog.
