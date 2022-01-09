@@ -1,5 +1,5 @@
 import { SectionHeader } from '@moneyboy/components/general/lists/SectionHeader';
-import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/moneyDiff';
+import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/MoneyDiff';
 import { Content } from '@moneyboy/components/general/structure/content';
 import { ViewBase } from '@moneyboy/components/general/structure/viewBase';
 import { PescaContext } from '@moneyboy/contexts/pescaContext';
