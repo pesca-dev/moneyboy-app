@@ -1,17 +1,15 @@
-import variables from '@moneyboy/config/variables';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import React from 'react';
 import {
   KeyboardTypeOptions,
   NativeSyntheticEvent,
   StyleProp,
-  StyleSheet,
   Text,
   TextInputSubmitEditingEventData,
   TextStyle,
   View,
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+import { usePescaInputFieldStyles } from './PescaInputField.style';
 
 type TextContentType =
   | 'none'
@@ -68,27 +66,7 @@ export const PescaInputField: React.FC<PescaInputFieldProps> = ({
   textContentType,
   keyboardType = 'default',
 }) => {
-  const { Input, Texts } = useStyle();
-  const styles = StyleSheet.create({
-    container: {
-      width: '100%',
-      marginVertical: 10,
-    },
-    label: {
-      fontSize: variables.font.size.ultraSmall,
-      marginBottom: 5,
-      paddingLeft: 7,
-      color: Input.label.color,
-    },
-    input: {
-      borderColor: Input.border.color,
-      borderWidth: 1,
-      padding: 10,
-      fontSize: variables.font.size.small,
-      borderRadius: 5,
-      color: Texts.colors.primary,
-    },
-  });
+  const styles = usePescaInputFieldStyles();
 
   return (
     <View style={[styles.container]}>
@@ -96,7 +74,7 @@ export const PescaInputField: React.FC<PescaInputFieldProps> = ({
       <TextInput
         placeholder={placeholder}
         style={[styles.input, style]}
-        placeholderTextColor={Input.placeholder.color}
+        placeholderTextColor={styles.placeholder.color}
         textContentType={textContentType}
         autoCorrect={false}
         enablesReturnKeyAutomatically={true}

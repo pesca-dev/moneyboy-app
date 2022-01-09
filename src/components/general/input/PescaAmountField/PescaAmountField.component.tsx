@@ -1,8 +1,7 @@
-import variables from '@moneyboy/config/variables';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import { formatAmount } from '@moneyboy/services/util/amountUtil';
 import React, { useEffect, useRef } from 'react';
-import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
+import { Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
+import { usePescaAmountFieldStyles } from './PescaAmountField.style';
 
 type PescaAmountFieldProps = {
   label?: string;
@@ -59,29 +58,7 @@ export const PescaAmountField: React.FC<PescaAmountFieldProps> = ({
     setValue(formatAmount(floatRef.current));
   }
 
-  const { Input, Texts } = useStyle();
-  const styles = StyleSheet.create({
-    container: {
-      //   flexDirection: 'row',
-      width: '100%',
-      justifyContent: 'center',
-    },
-    label: {
-      fontSize: variables.font.size.small,
-      marginBottom: 5,
-      paddingLeft: 7,
-      color: Input.label.color,
-    },
-    input: {
-      display: 'none',
-    },
-    text: {
-      //   flexDirection: 'column',
-      textAlign: 'center',
-      fontSize: 100,
-      color: Texts.colors.primary,
-    },
-  });
+  const styles = usePescaAmountFieldStyles();
   const ref = useRef<TextInput | null>(null);
 
   useEffect(() => {

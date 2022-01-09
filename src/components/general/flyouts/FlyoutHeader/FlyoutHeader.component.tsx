@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { useFlyoutHeaderStyles } from './FlyoutHeader.styles';
+import { useFlyoutHeaderStyles } from './FlyoutHeader.style';
 
 type FlyoutHeaderProps = {
   heading?: string;

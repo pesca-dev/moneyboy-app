@@ -1,1 +1,1 @@
-export * from './PescaInputField.component';
+export * from './PescaAmountField.component';
