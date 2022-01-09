@@ -1,6 +1,6 @@
 import { SectionHeader } from '@moneyboy/components/general/lists/SectionHeader';
 import { ViewBase } from '@moneyboy/components/general/structure/ViewBase';
-import { GroupListItem } from '@moneyboy/components/groups/groupListItem';
+import { GroupListItem } from '@moneyboy/components/groups/GroupListItem';
 import React from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
 import uuid from 'react-native-uuid';
