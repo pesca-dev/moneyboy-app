@@ -1,4 +1,4 @@
-import { FlyoutHeader } from '@moneyboy/components/general/flyouts/flyoutHeader';
+import { FlyoutHeader } from '@moneyboy/components/general/flyouts/FlyoutHeader';
 import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import { Separator } from '@moneyboy/components/general/lists/separator';
 import { createPescaNavigation } from '@moneyboy/components/general/navigation/pesca-navigator/createPescaNavigation';

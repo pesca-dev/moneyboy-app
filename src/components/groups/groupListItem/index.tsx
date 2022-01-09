@@ -1,4 +1,4 @@
-import { Flyout } from '@moneyboy/components/general/flyouts/flyout';
+import { Flyout } from '@moneyboy/components/general/flyouts/Flyout';
 import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/moneyDiff';
 import { Content } from '@moneyboy/components/general/structure/content';

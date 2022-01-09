@@ -6,7 +6,7 @@ import { createPescaScreen } from './pescaScreen';
 export const PescaNavContext = createContext<PescaNavContextType | null>(null);
 
 /**
- * Create a new pesca navigation, which will happen inside of a flyout.
+ * Create a new pesca navigation, which will happen inside of a Flyout.
  */
 export const createPescaNavigation = () => ({
   Navigator: createPescaNavigator(),
