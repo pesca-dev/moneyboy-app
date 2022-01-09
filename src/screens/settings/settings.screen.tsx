@@ -5,8 +5,8 @@ import { createPescaNavigation } from '@moneyboy/components/general/navigation/P
 import { PescaNavigatorProps } from '@moneyboy/components/general/navigation/PescaNavigator/PescaNavigator';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/PescaNavigator/PescaScreen';
 import { Content } from '@moneyboy/components/general/structure/Content';
-import { LogoutButton } from '@moneyboy/components/settings/logoutButton';
-import { ThemeSwitch } from '@moneyboy/components/settings/themeSwitch';
+import { LogoutButton } from '@moneyboy/components/settings/LogoutButton';
+import { ThemeSwitch } from '@moneyboy/components/settings/ThemeSwitch';
 import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import React from 'react';

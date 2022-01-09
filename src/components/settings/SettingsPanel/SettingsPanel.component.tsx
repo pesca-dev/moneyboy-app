@@ -6,7 +6,7 @@ import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default function SettingsPanel() {
+export const SettingsPanel: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
   const { Tabs } = useStyle();
   const { top, right } = useSafeAreaInsets();
@@ -33,4 +33,4 @@ export default function SettingsPanel() {
       <SettingsView isOpen={isOpen} setOpen={setOpen} />
     </>
   );
-}
+};

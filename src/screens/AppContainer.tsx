@@ -1,5 +1,5 @@
 import { PescaTabBar } from '@moneyboy/components/general/navigation/PescaTabBar';
-import SettingsPanel from '@moneyboy/components/settings/settingsPanel';
+import { SettingsPanel } from '@moneyboy/components/settings/SettingsPanel';
 import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { RegisterView } from '@moneyboy/screens/auth/register';
