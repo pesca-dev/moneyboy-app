@@ -1,6 +1,6 @@
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import React from 'react';
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleProp, View, ViewStyle } from 'react-native';
+import { useSeparatorStyles } from './Separator.style';
 
 interface SeparatorProps {
   /**
@@ -13,20 +13,7 @@ interface SeparatorProps {
  * Separator for a List.
  */
 export const Separator: React.FC<SeparatorProps> = ({ style }) => {
-  const { Content } = useStyle();
-  const styles = StyleSheet.create({
-    separatorContainer: {
-      width: '100%',
-      flexDirection: 'row',
-    },
-    separator: {
-      flex: 1,
-      height: 1,
-      marginHorizontal: 15,
-      backgroundColor: Content.separator.color,
-    },
-  });
-
+  const styles = useSeparatorStyles();
   return (
     <View style={styles.separatorContainer}>
       <View style={[styles.separator, style]} />

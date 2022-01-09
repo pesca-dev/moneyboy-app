@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleProp, View, ViewStyle } from 'react-native';
+import { useListStyles } from './List.style';
 
 interface ListProps<T> {
   /**
@@ -24,11 +25,6 @@ interface ListProps<T> {
 export function List<T>({ style, render, data }: ListProps<T>) {
   // Use a very simple render function if none is provided
   const renderFn = render ?? ((renderData: T) => <View>{renderData}</View>);
-
-  const styles = StyleSheet.create({
-    itemContainer: {
-      flexDirection: 'column',
-    },
-  });
+  const styles = useListStyles();
   return <View style={[styles.itemContainer, style]}>{renderFn(data)}</View>;
 }
