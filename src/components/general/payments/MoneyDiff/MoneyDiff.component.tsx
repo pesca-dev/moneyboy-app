@@ -1,8 +1,7 @@
 import { ListItem } from '@moneyboy/components/general/lists/ListItem';
-import variables from '@moneyboy/config/variables';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import React from 'react';
-import { GestureResponderEvent, StyleProp, StyleSheet, Text, ViewStyle } from 'react-native';
+import { GestureResponderEvent, StyleProp, Text, ViewStyle } from 'react-native';
+import { useMoneyDiffStyles } from './MoneyDiff.style';
 
 export interface MoneyDiffProps {
   id: string;
@@ -14,23 +13,7 @@ export interface MoneyDiffProps {
 }
 
 export const MoneyDiff: React.FC<MoneyDiffProps> = ({ name, amount, last, onPress, separatorStyle }) => {
-  const { Colors, Texts } = useStyle();
-  const styles = StyleSheet.create({
-    moneyDiffName: {
-      flex: 1,
-      fontSize: variables.font.size.small,
-      color: Texts.colors.primary,
-    },
-    moneyDiffAmount: {
-      fontSize: variables.font.size.small,
-    },
-    positiveDiff: {
-      color: Colors.status.success,
-    },
-    negativeDiff: {
-      color: Colors.status.error,
-    },
-  });
+  const styles = useMoneyDiffStyles();
 
   return (
     <>
