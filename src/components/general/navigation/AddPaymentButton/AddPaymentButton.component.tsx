@@ -1,7 +1,7 @@
 import { createPescaNavigation } from '@moneyboy/components/general/navigation/PescaNavigator/createPescaNavigation';
-import { ConfirmPaymentView } from '@moneyboy/screens/addPayments/confirmPayment';
-import { EnterPaymentView } from '@moneyboy/screens/addPayments/enterPayment';
-import { SearchListView } from '@moneyboy/screens/addPayments/searchList';
+import { ConfirmPaymentView } from '@moneyboy/screens/addPayments/ConfirmPayment';
+import { EnterPaymentView } from '@moneyboy/screens/addPayments/EnterPayment';
+import { SearchListView } from '@moneyboy/screens/addPayments/SearchList';
 import React from 'react';
 
 type AddPaymentButtonProps = {

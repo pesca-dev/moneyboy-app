@@ -1,5 +1,5 @@
 import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
-import { SettingsView } from '@moneyboy/screens/settings';
+import { SettingsView } from '@moneyboy/screens/Settings';
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';

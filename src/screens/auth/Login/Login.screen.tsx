@@ -13,7 +13,7 @@ type LoginViewProps = {
 };
 
 /**
- * The login view of out application.
+ * The Login view of out application.
  */
 export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
   const { login } = useAuth();
@@ -40,7 +40,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
         username,
         password,
       }).then(([success, message]) => {
-        // Set error message, if login is not successful
+        // Set error message, if Login is not successful
         if (!success) {
           setError(message);
         }

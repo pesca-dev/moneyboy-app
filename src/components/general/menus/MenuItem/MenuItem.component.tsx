@@ -11,7 +11,7 @@ type MenuItemProps = {
 };
 
 /**
- * Create a menu item for a PescaMenu. All items will be layout in a half-circle around the main button.
+ * Create a menu item for a PescaMenu. All items will be layout in a half-circle around the Main button.
  */
 export const createPescaMenuItem =
   (PescaMenuContext: React.Context<PescaMenuContextType>): React.FC<MenuItemProps> =>

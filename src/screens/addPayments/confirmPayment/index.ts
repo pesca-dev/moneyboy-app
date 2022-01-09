@@ -1,1 +1,0 @@
-export * from './confirmPayment.screen';

@@ -60,7 +60,7 @@ const SettingsMainView: React.FC<ScreenComponentProps<SettingsMainViewParams>> =
       title: 'General',
       data: [
         {
-          id: 'settings-theme-switch',
+          id: 'Settings-theme-switch',
           content: <ThemeSwitch />,
         },
       ],

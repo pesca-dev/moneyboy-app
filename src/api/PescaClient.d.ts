@@ -10,11 +10,13 @@ export interface PescaClient {
    * @param password password of the user
    */
   login(username: string, password: string): Promise<MaybeError<boolean>>;
+
   /**
    * Log the current user out.
    * Noop if no user is logged in.
    */
   logout(): Promise<void>;
+
   /**
    * Get the currently logged in user.
    *
@@ -23,7 +25,7 @@ export interface PescaClient {
   getUser(): Promise<Pesca.UserProfileInformation | null>;
 
   /**
-   * Try to register a new user.
+   * Try to Register a new user.
    *
    * @param data data needed for registration
    */

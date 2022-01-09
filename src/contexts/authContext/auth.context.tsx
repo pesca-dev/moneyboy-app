@@ -25,7 +25,7 @@ export type AuthContextType = {
    */
   logout(): void;
   /**
-   * Try to register a new user.
+   * Try to Register a new user.
    */
   register(data: Pesca.RegistrationPayload): Promise<MaybeError<boolean>>;
 };

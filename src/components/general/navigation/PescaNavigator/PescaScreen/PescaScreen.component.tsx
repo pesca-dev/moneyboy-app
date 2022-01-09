@@ -25,7 +25,7 @@ export const createPescaScreen =
   ({ name, component }: PescaScreenProps) => {
     const navContext = useContext(PescaNavContext) as PescaNavContextType;
 
-    // register this screen
+    // Register this screen
     useEffect(() => {
       navContext.register(name);
     }, [navContext, name]);

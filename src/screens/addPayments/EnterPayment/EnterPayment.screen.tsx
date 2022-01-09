@@ -7,7 +7,7 @@ import { parseAmount } from '@moneyboy/services/util/amountUtil';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
-import { ConfirmPaymentViewParams } from '../confirmPayment';
+import { ConfirmPaymentViewParams } from '../ConfirmPayment';
 
 export type EnterPaymentViewParams = {
   item: Pesca.UserInformation;

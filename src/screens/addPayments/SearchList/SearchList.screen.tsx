@@ -5,7 +5,7 @@ import { ScreenComponentProps } from '@moneyboy/components/general/navigation/Pe
 import { PescaContext } from '@moneyboy/contexts/pescaContext';
 import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';
-import { EnterPaymentViewParams } from '@moneyboy/screens/addPayments/enterPayment';
+import { EnterPaymentViewParams } from '@moneyboy/screens/addPayments/EnterPayment';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Insets, SectionList, SectionListData, SectionListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 
