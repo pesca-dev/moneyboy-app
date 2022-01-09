@@ -1,6 +1,6 @@
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import React, { PropsWithChildren } from 'react';
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleProp, View, ViewStyle } from 'react-native';
+import { useFooterStyles } from './Footer.style';
 
 interface FooterProps {
   style?: StyleProp<ViewStyle>;
@@ -10,26 +10,7 @@ interface FooterProps {
  * Footer for a screen.
  */
 export const Footer: React.FC<PropsWithChildren<FooterProps>> = ({ children, style }) => {
-  const { Content, Footers } = useStyle();
-  const styles = StyleSheet.create({
-    footerWrapper: {
-      backgroundColor: Content.background.dp01,
-      marginHorizontal: 20,
-    },
-    footer: {
-      height: 60,
-      backgroundColor: Footers.background,
-      shadowColor: Footers.shadow,
-      borderRadius: 20,
-      shadowOffset: {
-        height: 0,
-        width: 0,
-      },
-      shadowOpacity: 0.4,
-      shadowRadius: 12,
-      justifyContent: 'center',
-    },
-  });
+  const styles = useFooterStyles();
   return (
     <View style={[styles.footerWrapper]}>
       <View style={[styles.footer, style]}>{children}</View>

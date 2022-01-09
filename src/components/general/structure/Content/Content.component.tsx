@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
+import { useContentStyles } from './Content.style';
 
 type ContentProps = unknown;
 
@@ -7,13 +8,7 @@ type ContentProps = unknown;
  * Container around the Content. It adds some default padding left and right.
  */
 export const Content: React.FC<PropsWithChildren<ContentProps>> = ({ children }) => {
-  const styles = StyleSheet.create({
-    content: {
-      width: '100%',
-      alignItems: 'center',
-      paddingHorizontal: 30,
-    },
-  });
+  const styles = useContentStyles();
 
   return <View style={styles.content}>{children}</View>;
 };
