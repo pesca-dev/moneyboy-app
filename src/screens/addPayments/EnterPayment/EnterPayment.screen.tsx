@@ -1,13 +1,12 @@
 import { defaultValue, PescaAmountField } from '@moneyboy/components/general/input/PescaAmountField';
 import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/PescaNavigator/PescaScreen';
-import variables from '@moneyboy/config/variables';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import { parseAmount } from '@moneyboy/services/util/amountUtil';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import { ConfirmPaymentViewParams } from '../ConfirmPayment';
+import { useEnterPaymentStyles } from './EnterPayment.style';
 
 export type EnterPaymentViewParams = {
   item: Pesca.UserInformation;
@@ -17,53 +16,7 @@ export const EnterPaymentView: React.FC<ScreenComponentProps<EnterPaymentViewPar
   navigation,
   params,
 }) => {
-  const { Buttons, Texts } = useStyle();
-  const styles = StyleSheet.create({
-    container: {
-      width: '100%',
-      marginBottom: 30,
-    },
-    backButtonContainer: {
-      paddingTop: 5,
-      paddingBottom: 20,
-    },
-    backButtonText: {
-      color: Buttons.special.back.color,
-    },
-    submitButtonContainer: {
-      width: '100%',
-      marginTop: 20,
-    },
-    submitButtonBackground: {
-      width: '100%',
-      justifyContent: 'center',
-      backgroundColor: Buttons.primary.active.background,
-      padding: 5,
-      borderRadius: 10,
-    },
-    disabled: {
-      backgroundColor: Buttons.primary.inactive.background,
-    },
-    submitButtonText: {
-      textAlign: 'center',
-      fontSize: 24,
-      color: Buttons.primary.active.color,
-    },
-    dateFieldContainer: {
-      flexDirection: 'row',
-    },
-    dateFieldLabelContainer: {
-      justifyContent: 'center',
-    },
-    dateFieldLabel: {
-      color: Texts.colors.primary,
-      fontSize: variables.font.size.small,
-      paddingHorizontal: 7,
-    },
-    dateFieldInput: {
-      flex: 1,
-    },
-  });
+  const styles = useEnterPaymentStyles();
 
   const [value, setValue] = useState(defaultValue);
   const [date, setDate] = useState(new Date());

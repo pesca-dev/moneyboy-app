@@ -3,12 +3,12 @@ import { SectionHeader } from "@moneyboy/components/general/lists/SectionHeader"
 import { MoneyDiff, MoneyDiffProps } from "@moneyboy/components/general/payments/MoneyDiff";
 import { Content } from "@moneyboy/components/general/structure/Content";
 import { ViewBase } from "@moneyboy/components/general/structure/ViewBase";
-import variables from "@moneyboy/config/variables";
 import { PescaContext } from "@moneyboy/contexts/pescaContext";
 import { useAuth } from "@moneyboy/hooks/useAuth";
 import { useStorage } from "@moneyboy/hooks/useStorage";
 import React, { useCallback, useContext, useEffect, useState } from "react";
-import { DefaultSectionT, SectionList, SectionListRenderItemInfo, StyleSheet } from "react-native";
+import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from "react-native";
+import { useMainStyles } from "./Main.style";
 
 function renderListItem({
   item: { name, amount, id },
@@ -102,14 +102,7 @@ export const MainView: React.FC<MainViewProps> = () => {
     },
   ];
 
-  const styles = StyleSheet.create({
-    scrollView: {
-      flex: 1,
-    },
-    placeholder: {
-      height: variables.display.placeholderTop.height,
-    },
-  });
+  const styles = useMainStyles();
 
   return (
     <ViewBase>

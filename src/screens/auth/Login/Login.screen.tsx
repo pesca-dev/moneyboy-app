@@ -1,12 +1,11 @@
 import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
 import { PescaInputField } from '@moneyboy/components/general/input/PescaInputField';
-import variables from '@moneyboy/config/variables';
 import { useAuth } from '@moneyboy/hooks/useAuth';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase } from '@react-navigation/core';
 import React, { useEffect, useState } from 'react';
-import { KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { useLoginStyles } from './Login.style';
 
 type LoginViewProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
@@ -48,61 +47,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
     }
   }
 
-  const { Texts, Buttons, Colors } = useStyle();
-  const styles = StyleSheet.create({
-    wrapper: {
-      flex: 1,
-    },
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      marginBottom: 40,
-    },
-    formHeadingContainer: {
-      alignItems: 'center',
-      marginBottom: 40,
-    },
-    formHeading: {
-      color: Texts.colors.primary,
-      fontSize: variables.font.size.large,
-    },
-    errorView: {
-      alignItems: 'center',
-      backgroundColor: Colors.status.error,
-      padding: 10,
-      borderRadius: 5,
-    },
-    errorText: {
-      color: Texts.colors.secondary,
-    },
-    formContainer: {
-      width: '80%',
-      marginTop: 120,
-    },
-    buttonContainer: {
-      marginTop: 15,
-    },
-    button: {},
-    buttonContent: {
-      alignItems: 'center',
-      padding: 10,
-      borderRadius: 5,
-      backgroundColor: Buttons.secondary.inactive.background,
-    },
-    validFormbutton: {
-      backgroundColor: Buttons.secondary.active.background,
-    },
-    buttonText: {
-      fontSize: variables.font.size.extraSmall,
-      color: Buttons.secondary.active.color,
-    },
-    link: {
-      marginTop: 25,
-    },
-    linkText: {
-      color: Texts.colors.primary,
-    },
-  });
+  const styles = useLoginStyles();
 
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.wrapper]}>

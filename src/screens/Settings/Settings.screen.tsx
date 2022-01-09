@@ -8,17 +8,9 @@ import { Content } from '@moneyboy/components/general/structure/Content';
 import { LogoutButton } from '@moneyboy/components/settings/LogoutButton';
 import { ThemeSwitch } from '@moneyboy/components/settings/ThemeSwitch';
 import { useAuth } from '@moneyboy/hooks/useAuth';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import React from 'react';
-import {
-  DefaultSectionT,
-  SectionList,
-  SectionListData,
-  SectionListRenderItemInfo,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { DefaultSectionT, SectionList, SectionListData, SectionListRenderItemInfo, Text, View } from 'react-native';
+import { useSettingsStyles } from './Settings.style';
 
 type SettingsViewProps = PescaNavigatorProps;
 
@@ -39,21 +31,7 @@ type SettingsMainViewParams = unknown;
 const SettingsMainView: React.FC<ScreenComponentProps<SettingsMainViewParams>> = ({ navigation }) => {
   const { loggedIn } = useAuth();
 
-  const { Content: Contents, Flyouts, Texts } = useStyle();
-
-  const styles = StyleSheet.create({
-    header: {
-      backgroundColor: Contents.background.dp16,
-    },
-    sectionHeaderContainer: {
-      paddingVertical: 5,
-      backgroundColor: Flyouts.background,
-    },
-    sectionHeaderLabel: {
-      fontWeight: 'bold',
-      color: Texts.colors.primary,
-    },
-  });
+  const styles = useSettingsStyles();
 
   const data: SettingsViewListData[] = [
     {
