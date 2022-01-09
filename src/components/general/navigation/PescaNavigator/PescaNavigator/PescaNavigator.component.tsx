@@ -3,7 +3,8 @@ import { Flyout } from '@moneyboy/components/general/flyouts/Flyout';
 import { FlyoutHeader } from '@moneyboy/components/general/flyouts/FlyoutHeader';
 import { PescaNavContext } from '@moneyboy/components/general/navigation/PescaNavigator/createPescaNavigation';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
-import { LayoutAnimation, StyleSheet, View } from 'react-native';
+import { LayoutAnimation, View } from 'react-native';
+import { usePescaNavigatorStyles } from './PescaNavigator.style';
 
 export type PescaNavigatorProps = PropsWithChildren<{
   isOpen: boolean;
@@ -85,14 +86,7 @@ export const createPescaNavigator =
       close,
     };
 
-    const styles = StyleSheet.create({
-      screensContainer: {
-        flexDirection: 'row',
-        width: '100%',
-        maxHeight: '100%',
-        paddingBottom: 35,
-      },
-    });
+    const styles = usePescaNavigatorStyles();
 
     return (
       <PescaNavContext.Provider value={navContext}>

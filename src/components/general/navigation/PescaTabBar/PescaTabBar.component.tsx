@@ -1,12 +1,11 @@
 import { CenterButton } from '@moneyboy/components/general/navigation/CenterButton';
 import { PescaTabIcon } from '@moneyboy/components/general/navigation/PescaTabIcon';
 import { Footer } from '@moneyboy/components/general/structure/Footer';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Route } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView, View } from 'react-native';
+import { usePescaTabBarStyles } from './PescaTabBar.style';
 
 type PescaTabUIProps = BottomTabBarProps;
 
@@ -34,27 +33,8 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
     );
   }
 
-  const insets = useSafeAreaInsets();
-  const { Content } = useStyle();
-  const styles = StyleSheet.create({
-    safeAreaView: {
-      backgroundColor: Content.background.dp01,
-    },
-    footer: {
-      height: 64,
-      marginBottom: insets.bottom ? 0 : 20, // if we are on an older device, use some default padding
-    },
-    tabBarContainer: {
-      flexDirection: 'row',
-      width: '100%',
-      paddingHorizontal: 8,
-    },
-    tabContainer: {
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-    },
-  });
+  const styles = usePescaTabBarStyles();
+
   return (
     <SafeAreaView style={[styles.safeAreaView]}>
       <Footer style={styles.footer}>

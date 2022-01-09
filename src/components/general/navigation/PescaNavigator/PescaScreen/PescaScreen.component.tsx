@@ -2,7 +2,8 @@ import { PescaNavContextType } from '@moneyboy/api/PescaNavContextType';
 import { PescaNavContext } from '@moneyboy/components/general/navigation/PescaNavigator/createPescaNavigation';
 import { animated, useSpring } from '@react-spring/native';
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { LayoutAnimation, StyleSheet, View } from 'react-native';
+import { LayoutAnimation, View } from 'react-native';
+import { usePescaScreenStyles } from './PescaScreen.style';
 
 type PescaScreenProps = {
   name: string;
@@ -102,17 +103,7 @@ export const createPescaScreen =
       }
     }, [index, navContext, setOffsetStyle]);
 
-    const style = StyleSheet.create({
-      screenWrapper: {
-        flexDirection: 'row',
-        width: '100%',
-      },
-      dummyWrapper: {
-        display: isFlex ? 'flex' : 'none',
-        position: inViewFlow ? 'relative' : 'absolute',
-        width: '100%',
-      },
-    });
+    const styles = usePescaScreenStyles();
 
     const componentProps: ScreenComponentProps = {
       name,
@@ -120,8 +111,14 @@ export const createPescaScreen =
       params: navContext.screens[index]?.params,
     };
     return (
-      <animated.View style={[style.screenWrapper, offsetStyle]}>
-        <View style={style.dummyWrapper} pointerEvents={isAnimating ? 'none' : 'auto'}>
+      <animated.View style={[styles.screenWrapper, offsetStyle]}>
+        <View
+          style={[
+            styles.dummyWrapper,
+            isFlex ? styles.displayFlex : styles.displayNone,
+            inViewFlow ? styles.positionRelative : styles.positionAbsolute,
+          ]}
+          pointerEvents={isAnimating ? 'none' : 'auto'}>
           {React.createElement(component, componentProps)}
         </View>
       </animated.View>
