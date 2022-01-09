@@ -14,7 +14,7 @@ interface ListItemProps {
   style?: StyleProp<ViewStyle>;
   /**
    * Custom style for the Separator.
-   * note: It will be rendered outside of the style container of the ListItem.
+   * note: It will be rendered outside of the style Container of the ListItem.
    */
   separatorStyle?: StyleProp<ViewStyle>;
 
@@ -29,7 +29,7 @@ interface ListItemState {
 
 // TODO lome: convert to FC
 /**
- * A simple wrapper for content to be displayed in a List.
+ * A simple wrapper for Content to be displayed in a List.
  */
 export class ListItem extends Component<ListItemProps, ListItemState> {
   constructor(props: PropsWithChildren<ListItemProps>) {

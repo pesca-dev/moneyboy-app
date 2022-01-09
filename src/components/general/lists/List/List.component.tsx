@@ -7,7 +7,7 @@ interface ListProps<T> {
    */
   data: T;
   /**
-   * Custom style for this List-container.
+   * Custom style for this List-Container.
    */
   style?: StyleProp<ViewStyle>;
 

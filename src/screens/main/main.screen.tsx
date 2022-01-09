@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { SectionHeader } from "@moneyboy/components/general/lists/SectionHeader";
 import { MoneyDiff, MoneyDiffProps } from "@moneyboy/components/general/payments/MoneyDiff";
-import { Content } from "@moneyboy/components/general/structure/content";
-import { ViewBase } from "@moneyboy/components/general/structure/viewBase";
+import { Content } from "@moneyboy/components/general/structure/Content";
+import { ViewBase } from "@moneyboy/components/general/structure/ViewBase";
 import variables from "@moneyboy/config/variables";
 import { PescaContext } from "@moneyboy/contexts/pescaContext";
 import { useAuth } from "@moneyboy/hooks/useAuth";

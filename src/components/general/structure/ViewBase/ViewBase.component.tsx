@@ -1,4 +1,4 @@
-import { Container } from '@moneyboy/components/general/structure/container';
+import { Container } from '@moneyboy/components/general/structure/Container';
 import React, { PropsWithChildren } from 'react';
 
 type ViewBaseProps = unknown;

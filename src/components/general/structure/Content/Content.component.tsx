@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 type ContentProps = unknown;
 
 /**
- * Container around the content. It adds some default padding left and right.
+ * Container around the Content. It adds some default padding left and right.
  */
 export const Content: React.FC<PropsWithChildren<ContentProps>> = ({ children }) => {
   const styles = StyleSheet.create({

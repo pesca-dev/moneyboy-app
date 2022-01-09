@@ -11,7 +11,7 @@ type MainButtonProps = {
 };
 
 /**
- * Create a container for a PescaMenu. This includes the button to open and close the menu.
+ * Create a Container for a PescaMenu. This includes the button to open and close the menu.
  */
 export const createPescaMenuContainer =
   (PescaMenuContext: React.Context<PescaMenuContextType>): React.FC<PropsWithChildren<MainButtonProps>> =>

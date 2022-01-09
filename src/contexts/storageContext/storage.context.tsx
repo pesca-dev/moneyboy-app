@@ -19,7 +19,7 @@ export const StorageContext = createContext<StorageContextType>({
 export const StorageContextProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
   const [storage, setStorage] = useState<StorageItems>(defaultStorage);
 
-  // On intial mount, read storage content
+  // On intial mount, read storage Content
   useEffect(() => {
     let key: keyof StorageItems;
     // eslint-disable-next-line no-restricted-syntax, guard-for-in

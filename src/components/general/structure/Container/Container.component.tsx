@@ -1,14 +1,14 @@
-import React, { PropsWithChildren } from 'react';
-import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import React, { PropsWithChildren } from "react";
+import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
 
 /**
- * Props for a container.
+ * Props for a Container.
  */
 type ContainerProps = unknown;
 
 /**
- * A simple container for the react native application.
- * @param props properties for this container
+ * A simple Container for the react native application.
+ * @param props properties for this Container
  * @returns
  */
 export const Container: React.FC<PropsWithChildren<ContainerProps>> = props => {

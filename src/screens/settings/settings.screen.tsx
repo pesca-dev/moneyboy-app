@@ -4,7 +4,7 @@ import { Separator } from '@moneyboy/components/general/lists/Separator';
 import { createPescaNavigation } from '@moneyboy/components/general/navigation/PescaNavigator/createPescaNavigation';
 import { PescaNavigatorProps } from '@moneyboy/components/general/navigation/PescaNavigator/PescaNavigator';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/PescaNavigator/PescaScreen';
-import { Content } from '@moneyboy/components/general/structure/content';
+import { Content } from '@moneyboy/components/general/structure/Content';
 import { LogoutButton } from '@moneyboy/components/settings/logoutButton';
 import { ThemeSwitch } from '@moneyboy/components/settings/themeSwitch';
 import { useAuth } from '@moneyboy/hooks/useAuth';
