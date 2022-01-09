@@ -1,10 +1,10 @@
 import { PescaMenuContextType } from '@moneyboy/api/PescaMenuContextType';
 import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import { animated, useSpring } from '@react-spring/native';
 import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { usePescaMenuStyles } from './PescaMenu.style';
 
 type MainButtonProps = {
   iconName: string;
@@ -86,44 +86,7 @@ export const createPescaMenuContainer =
       });
     }, [isOpen, outterContainerAnimation, buttonAnimation]);
 
-    const { Buttons, Content } = useStyle();
-    const styles = StyleSheet.create({
-      addButtonWrapper: {
-        height: 32,
-        width: 32,
-        top: -25,
-        overflow: 'visible',
-        marginLeft: 15,
-        marginRight: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        shadowColor: Content.shadows.color,
-        shadowOffset: {
-          height: 0,
-          width: 0,
-        },
-        shadowOpacity: 0.7,
-        zIndex: 100,
-        shadowRadius: 7,
-      },
-      outterContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-      },
-      buttonContainer: {
-        position: 'absolute',
-        backgroundColor: Buttons.primary.active.background,
-        width: 48,
-        height: 48,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 24,
-      },
-      icon: {
-        fontSize: 28,
-        color: Buttons.primary.active.color,
-      },
-    });
+    const styles = usePescaMenuStyles();
 
     return (
       <PescaMenuContext.Provider value={contextValue}>

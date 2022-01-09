@@ -1,10 +1,9 @@
 import { PescaMenuContextType } from '@moneyboy/api/PescaMenuContextType';
 import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import { animated, useSpring } from '@react-spring/native';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useMenuItemStyles } from './MenuItem.style';
 
 type MenuItemProps = {
   iconName: string;
@@ -72,22 +71,7 @@ export const createPescaMenuItem =
       }
     }, [isOpen, animateOpen, animateClose]);
 
-    const { Buttons } = useStyle();
-    const styles = StyleSheet.create({
-      buttonContainer: {
-        position: 'absolute',
-        backgroundColor: Buttons.primary.active.background,
-        width: 48,
-        height: 48,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 24,
-      },
-      icon: {
-        fontSize: 28,
-        color: Buttons.primary.active.color,
-      },
-    });
+    const styles = useMenuItemStyles();
 
     return (
       <animated.View
