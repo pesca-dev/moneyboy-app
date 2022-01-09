@@ -1,5 +1,5 @@
 import { Flyout } from '@moneyboy/components/general/flyouts/Flyout';
-import { ListItem } from '@moneyboy/components/general/lists/listItem';
+import { ListItem } from '@moneyboy/components/general/lists/ListItem';
 import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/moneyDiff';
 import { Content } from '@moneyboy/components/general/structure/content';
 import variables from '@moneyboy/config/variables';

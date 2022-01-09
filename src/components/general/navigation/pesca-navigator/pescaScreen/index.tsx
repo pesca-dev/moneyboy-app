@@ -29,7 +29,7 @@ export const createPescaScreen =
       navContext.register(name);
     }, [navContext, name]);
 
-    // index of this screen in the list of screens
+    // index of this screen in the List of screens
     const [index, setIndex] = useState(navContext.screens.map(s => s.name).indexOf(name));
     useEffect(() => {
       setIndex(navContext.screens.map(s => s.name).indexOf(name));

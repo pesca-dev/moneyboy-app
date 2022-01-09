@@ -1,4 +1,4 @@
-import { ListItem } from '@moneyboy/components/general/lists/listItem';
+import { ListItem } from '@moneyboy/components/general/lists/ListItem';
 import variables from '@moneyboy/config/variables';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import React from 'react';

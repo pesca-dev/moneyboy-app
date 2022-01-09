@@ -1,19 +1,19 @@
-import { Separator } from '@moneyboy/components/general/lists/separator';
+import { Separator } from '@moneyboy/components/general/lists/Separator';
 import React, { Component, PropsWithChildren } from 'react';
 import { GestureResponderEvent, StyleProp, StyleSheet, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
 
 interface ListItemProps {
   /**
-   * Flag for indicating the last item in a list.
-   * If this is false, a separator will be added.
+   * Flag for indicating the last item in a List.
+   * If this is false, a Separator will be added.
    */
   last?: boolean;
   /**
-   * Custom style for this list item.
+   * Custom style for this List item.
    */
   style?: StyleProp<ViewStyle>;
   /**
-   * Custom style for the separator.
+   * Custom style for the Separator.
    * note: It will be rendered outside of the style container of the ListItem.
    */
   separatorStyle?: StyleProp<ViewStyle>;
@@ -29,7 +29,7 @@ interface ListItemState {
 
 // TODO lome: convert to FC
 /**
- * A simple wrapper for content to be displayed in a list.
+ * A simple wrapper for content to be displayed in a List.
  */
 export class ListItem extends Component<ListItemProps, ListItemState> {
   constructor(props: PropsWithChildren<ListItemProps>) {
@@ -40,7 +40,7 @@ export class ListItem extends Component<ListItemProps, ListItemState> {
   }
 
   /**
-   * Disable all listeners on this list item.
+   * Disable all listeners on this List item.
    * @param disabled
    */
   setDisabled(disabled: boolean) {

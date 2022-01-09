@@ -4,13 +4,13 @@ import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 interface SeparatorProps {
   /**
-   * Custom styling for the separator.
+   * Custom styling for the Separator.
    */
   style?: StyleProp<ViewStyle>;
 }
 
 /**
- * Separator for a list.
+ * Separator for a List.
  */
 export const Separator: React.FC<SeparatorProps> = ({ style }) => {
   const { Content } = useStyle();

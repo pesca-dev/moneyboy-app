@@ -1,6 +1,6 @@
 import { FlyoutHeader } from '@moneyboy/components/general/flyouts/FlyoutHeader';
-import { ListItem } from '@moneyboy/components/general/lists/listItem';
-import { Separator } from '@moneyboy/components/general/lists/separator';
+import { ListItem } from '@moneyboy/components/general/lists/ListItem';
+import { Separator } from '@moneyboy/components/general/lists/Separator';
 import { createPescaNavigation } from '@moneyboy/components/general/navigation/pesca-navigator/createPescaNavigation';
 import { PescaNavigatorProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaNavigator';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
