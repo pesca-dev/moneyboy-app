@@ -1,5 +1,5 @@
-import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
-import { PescaInputField } from '@moneyboy/components/general/input/pescaInputField';
+import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
+import { PescaInputField } from '@moneyboy/components/general/input/PescaInputField';
 import { ListItem } from '@moneyboy/components/general/lists/listItem';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
 import { PescaContext } from '@moneyboy/contexts/pescaContext';

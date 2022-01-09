@@ -1,5 +1,5 @@
 import { PescaMenuContextType } from '@moneyboy/api/PescaMenuContextType';
-import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
+import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { animated, useSpring } from '@react-spring/native';
 import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';

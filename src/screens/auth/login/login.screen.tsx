@@ -1,5 +1,5 @@
-import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
-import { PescaInputField } from '@moneyboy/components/general/input/pescaInputField';
+import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
+import { PescaInputField } from '@moneyboy/components/general/input/PescaInputField';
 import variables from '@moneyboy/config/variables';
 import { useAuth } from '@moneyboy/hooks/useAuth';
 import { useStyle } from '@moneyboy/hooks/useStyle';

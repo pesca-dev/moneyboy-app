@@ -1,4 +1,4 @@
-import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
+import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
 import variables from '@moneyboy/config/variables';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import React, { PropsWithChildren } from 'react';

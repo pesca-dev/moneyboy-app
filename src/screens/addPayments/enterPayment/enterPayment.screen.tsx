@@ -1,5 +1,5 @@
-import { defaultValue, PescaAmountField } from '@moneyboy/components/general/input/pescaAmountField';
-import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
+import { defaultValue, PescaAmountField } from '@moneyboy/components/general/input/PescaAmountField';
+import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/pesca-navigator/pescaScreen';
 import variables from '@moneyboy/config/variables';
 import { useStyle } from '@moneyboy/hooks/useStyle';

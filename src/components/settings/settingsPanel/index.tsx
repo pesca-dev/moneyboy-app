@@ -1,4 +1,4 @@
-import { PescaButton } from '@moneyboy/components/general/input/pescaButton';
+import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { SettingsView } from '@moneyboy/screens/settings';
 import React, { useState } from 'react';
