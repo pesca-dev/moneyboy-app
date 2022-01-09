@@ -2,11 +2,10 @@ import { Flyout } from '@moneyboy/components/general/flyouts/Flyout';
 import { ListItem } from '@moneyboy/components/general/lists/ListItem';
 import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/MoneyDiff';
 import { Content } from '@moneyboy/components/general/structure/Content';
-import variables from '@moneyboy/config/variables';
-import { useStyle } from '@moneyboy/hooks/useStyle';
 import React, { useState } from 'react';
-import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ListRenderItemInfo, Text, View } from 'react-native';
 import uuid from 'react-native-uuid';
+import { useGroupListItemStyles } from './GroupListItem.style';
 
 type GroupListItemProps = {
   name: string;
@@ -144,46 +143,7 @@ const dummyData: MoneyDiffProps[] = [
 ];
 
 export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, members, last }) => {
-  const { Groups, Flyouts } = useStyle();
-  const styles = StyleSheet.create({
-    groupContainer: {
-      width: '100%',
-    },
-    groupHeader: {
-      // flexDirection: 'row',
-      // alignItems: 'center',
-    },
-    groupName: {
-      color: Groups.header.color,
-      fontSize: variables.font.size.medium,
-      fontWeight: 'bold',
-    },
-    groupCaption: {
-      color: Groups.caption.color,
-      fontSize: variables.font.size.ultraSmall,
-    },
-    groupBody: {
-      paddingVertical: 5,
-    },
-    membersList: {
-      color: Groups.memberList.color,
-    },
-    recentPaymentContainer: {
-      marginVertical: 10,
-      maxHeight: '90%',
-    },
-    recentPaymentHeaderContainer: {
-      marginBottom: 10,
-    },
-    recentPaymentHeader: {
-      color: Flyouts.heading.color,
-      fontSize: variables.font.size.small,
-      fontWeight: 'bold',
-    },
-    separator: {
-      backgroundColor: Flyouts.separator.color,
-    },
-  });
+  const styles = useGroupListItemStyles();
 
   function renderItem(info: ListRenderItemInfo<MoneyDiffProps>) {
     return <MoneyDiff key={info.index} separatorStyle={styles.separator} {...info.item} />;
