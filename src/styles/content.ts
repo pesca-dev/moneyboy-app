@@ -1,6 +1,6 @@
-import { createColors } from '@styles/colors';
-import { StylingProps } from '@styles/stylingProps';
-import { mix } from '@styles/utils';
+import { createColors } from '@moneyboy/styles/colors';
+import { StylingProps } from '@moneyboy/styles/stylingProps';
+import { mix } from '@moneyboy/styles/utils';
 
 export const createContentStyles = (props?: StylingProps) => {
   const colors = createColors(props);
@@ -26,7 +26,7 @@ export const createContentStyles = (props?: StylingProps) => {
     dp24: mix('ffffff', base.toString(16), 16),
   };
 
-  // TODO lome: when introducing dark-mode, use several stages of content
+  // TODO lome: when introducing dark-mode, use several stages of Content
   return {
     background,
     separator,

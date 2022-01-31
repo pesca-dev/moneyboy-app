@@ -1,4 +1,4 @@
-import { StylingProps } from '@styles/stylingProps';
+import { StylingProps } from '@moneyboy/styles/stylingProps';
 
 export const createColors = (_props?: StylingProps) => {
   const palette = {

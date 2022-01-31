@@ -25,7 +25,34 @@ module.exports = {
     'import/no-unresolved': [0, 'never'],
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': 0,
-    'no-restricted-imports': ['error', '@react-native-async-storage/async-storage'],
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          {
+            name: '@react-native-async-storage/async-storage',
+            message: "Please use 'useStorage' instead!",
+          },
+          {
+            name: '@moneyboy/contexts/styleContext',
+            importNames: ['StyleContext'],
+            message: "Please use 'useStyle' instead!",
+          },
+          {
+            name: '@moneyboy/contexts/settingsContext',
+            importNames: ['SettingsContext'],
+            message: "Please use 'useSettings' instead!",
+          },
+          {
+            name: '@moneyboy/contexts/authContext',
+            importNames: ['AuthContext'],
+            message: "Please use 'useAuth' instead!",
+          },
+        ],
+      },
+    ],
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': 'error',
   },
 
   settings: {

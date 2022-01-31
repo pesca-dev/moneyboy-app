@@ -1,6 +1,6 @@
-import { createColors } from '@styles/colors';
-import { StylingProps } from '@styles/stylingProps';
-import { createTextStyles } from '@styles/text';
+import { createColors } from '@moneyboy/styles/colors';
+import { StylingProps } from '@moneyboy/styles/stylingProps';
+import { createTextStyles } from '@moneyboy/styles/text';
 
 export const createGroupStyles = (props?: StylingProps) => {
   const colors = createColors(props);
