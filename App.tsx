@@ -1,4 +1,5 @@
 import { AuthContextProvider } from '@moneyboy/contexts/authContext';
+import { PaymentContextProvider } from '@moneyboy/contexts/paymentContext';
 import { PescaContextProvider } from '@moneyboy/contexts/pescaContext';
 import { SettingsContextProvider } from '@moneyboy/contexts/settingsContext';
 import { StorageContextProvider } from '@moneyboy/contexts/storageContext';
@@ -20,9 +21,11 @@ export const App: React.FC<AppProps> = () => (
       <SettingsContextProvider>
         <PescaContextProvider>
           <AuthContextProvider>
-            <StyleContextProvider>
-              <AppContainer />
-            </StyleContextProvider>
+            <PaymentContextProvider>
+              <StyleContextProvider>
+                <AppContainer />
+              </StyleContextProvider>
+            </PaymentContextProvider>
           </AuthContextProvider>
         </PescaContextProvider>
       </SettingsContextProvider>
