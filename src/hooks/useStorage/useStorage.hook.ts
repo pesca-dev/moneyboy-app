@@ -1,5 +1,6 @@
 import { StorageItems } from '@moneyboy/api/Storage';
 import { StorageContext } from '@moneyboy/contexts/storageContext';
+// eslint-disable-next-line no-restricted-imports
 import { useCallback, useContext } from 'react';
 
 type SetStorageFunction<T extends keyof StorageItems> = (val: StorageItems[T]) => void;

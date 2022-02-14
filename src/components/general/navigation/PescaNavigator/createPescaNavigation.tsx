@@ -3,6 +3,7 @@ import { createContext } from 'react';
 import { createPescaNavigator } from './PescaNavigator';
 import { createPescaScreen } from './PescaScreen';
 
+// TODO lome: move this to context section
 export const PescaNavContext = createContext<PescaNavContextType | null>(null);
 
 /**

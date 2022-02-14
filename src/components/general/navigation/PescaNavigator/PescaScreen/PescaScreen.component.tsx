@@ -1,6 +1,7 @@
 import { PescaNavContextType } from '@moneyboy/api/PescaNavContextType';
 import { PescaNavContext } from '@moneyboy/components/general/navigation/PescaNavigator/createPescaNavigation';
 import { animated, useSpring } from '@react-spring/native';
+// eslint-disable-next-line no-restricted-imports
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { LayoutAnimation, View } from 'react-native';
 import { usePescaScreenStyles } from './PescaScreen.style';
@@ -23,6 +24,7 @@ export type ScreenComponentProps<P = any, N = any> = {
 export const createPescaScreen =
   (): React.FC<PescaScreenProps> =>
   ({ name, component }: PescaScreenProps) => {
+    // TODO lome: introduce own hook for this
     const navContext = useContext(PescaNavContext) as PescaNavContextType;
 
     // Register this screen
