@@ -3,10 +3,9 @@ import { SectionHeader } from '@moneyboy/components/general/lists/SectionHeader'
 import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/MoneyDiff';
 import { Content } from '@moneyboy/components/general/structure/Content';
 import { ViewBase } from '@moneyboy/components/general/structure/ViewBase';
-import { PescaContext } from '@moneyboy/contexts/pescaContext';
 import { useAuth } from '@moneyboy/hooks/useAuth';
-import { useStorage } from '@moneyboy/hooks/useStorage';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { usePayments } from '@moneyboy/hooks/usePayments';
+import React, { useCallback, useEffect, useState } from 'react';
 import { DefaultSectionT, SectionList, SectionListRenderItemInfo } from 'react-native';
 import { useMainStyles } from './Main.style';
 
@@ -35,15 +34,13 @@ type StatisticReducer = {
 };
 
 export const MainView: React.FC<MainViewProps> = () => {
-  const pesca = useContext(PescaContext);
   const { user } = useAuth();
+  const { payments, update } = usePayments();
 
   const [diffs, setDiffs] = useState<MoneyDiffProps[]>([]);
   const [refreshing, setRefreshing] = useState(false);
 
-  const [storagePayments, setStoragePayments] = useStorage('payments');
-
-  // update payment state
+  // update local payment state
   const updatePayments = useCallback(
     (ps: Pesca.PaymentInformation[]) => {
       const statistics = ps.reduce<StatisticReducer>(
@@ -76,24 +73,14 @@ export const MainView: React.FC<MainViewProps> = () => {
 
   // on update of storage paments, update state payments
   useEffect(() => {
-    updatePayments(storagePayments);
-  }, [updatePayments, storagePayments]);
+    updatePayments(payments);
+  }, [updatePayments, payments]);
 
-  // get payments from server
+  // update all payments
   const getPayments = useCallback(() => {
     setRefreshing(true);
-    pesca?.payments.getAll().then(ps => {
-      if (ps) {
-        setStoragePayments(ps);
-      }
-      setRefreshing(false);
-    });
-  }, [pesca, setStoragePayments]);
-
-  // initially, get all payments
-  useEffect(() => {
-    getPayments();
-  }, [getPayments]);
+    update().then(() => setRefreshing(false));
+  }, [update]);
 
   const sections = [
     {
