@@ -1,5 +1,5 @@
 import { AuthData } from '@moneyboy/api/AuthData';
-import { PescaContext } from '@moneyboy/contexts/pescaContext';
+import { usePesca } from '@moneyboy/hooks/usePesca';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 
 export type AuthContextType = {
@@ -58,7 +58,7 @@ type AuthContextState = {
  * Provider for the authentication context.
  */
 export const AuthContextProvider: React.FC<PropsWithChildren<AuthContextProviderProps>> = ({ children }) => {
-  const Pesca = React.useContext(PescaContext);
+  const Pesca = usePesca();
 
   const [authContextState, setAuthContextState] = useState<AuthContextState>({ loggedIn: false, ready: false });
 
