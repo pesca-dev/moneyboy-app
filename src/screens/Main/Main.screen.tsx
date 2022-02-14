@@ -82,7 +82,7 @@ export const MainView: React.FC<MainViewProps> = () => {
   // get payments from server
   const getPayments = useCallback(() => {
     setRefreshing(true);
-    pesca?.getPayments().then(ps => {
+    pesca?.payments.getAll().then(ps => {
       if (ps) {
         setStoragePayments(ps);
       }

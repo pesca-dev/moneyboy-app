@@ -30,7 +30,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
       amount,
       date: date.getTime(),
     };
-    pesca?.createPayment(payment);
+    pesca?.payments.create(payment);
     navigation.close();
   }
 

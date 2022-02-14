@@ -106,39 +106,38 @@ export const createPescaClient = (url: string): PescaClient => {
     return null;
   }
 
-  // TODO lome: move this to PaymentContext
-  async function createPayment(payment: Pesca.PaymentCreateDTO): Promise<boolean> {
-    const result = await httpClient.requestWithAuth('payments', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payment),
-    });
-    return result?.status === 201;
-  }
+  const payments = {
+    create: async (payment: Pesca.PaymentCreateDTO): Promise<boolean> => {
+      const result = await httpClient.requestWithAuth('payments', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payment),
+      });
+      return result?.status === 201;
+    },
+    getAll: async (): Promise<Pesca.PaymentInformation[] | null> => {
+      const result = await httpClient.requestWithAuth('payments', {});
+      if (result?.status === 200) {
+        return result.json().then((fetchedPayments: Pesca.PaymentInformation[]) =>
+          fetchedPayments.map(p => ({
+            ...p,
+            date: parseInt(p.date as unknown as string, 10),
+          })),
+        );
+      }
+      return null;
+    },
+  };
 
-  async function getPayments(): Promise<Pesca.PaymentInformation[] | null> {
-    const result = await httpClient.requestWithAuth('payments', {});
-    if (result?.status === 200) {
-      return result.json().then((payments: Pesca.PaymentInformation[]) =>
-        payments.map(p => ({
-          ...p,
-          date: parseInt(p.date as unknown as string, 10),
-        })),
-      );
-    }
-    return null;
-  }
-
-  return Object.freeze({
+  return Object.freeze<PescaClient>({
     login,
     logout,
     register,
     getUser,
     getUsers,
-    createPayment,
-    getPayments,
+    payments,
   });
 };

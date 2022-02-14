@@ -37,7 +37,7 @@ export const HistoryView: React.FC<HistoryViewProps> = () => {
   // get payments from server
   const getPayments = useCallback(() => {
     setRefreshing(true);
-    pesca?.getPayments().then(ps => {
+    pesca?.payments.getAll().then(ps => {
       if (ps) {
         // store new payments
         setStoragePayments(ps);
