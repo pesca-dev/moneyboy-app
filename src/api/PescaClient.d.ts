@@ -36,11 +36,13 @@ export interface PescaClient {
    */
   getUsers(): Promise<Pesca.UserInformation[] | null>;
 
-  /**
-   * Create a payment.
-   * @param payment information about the payment.
-   */
-  createPayment(payment: Pesca.PaymentCreateDTO): Promise<boolean>;
+  payments: {
+    /**
+     * Create a payment.
+     * @param payment information about the payment.
+     */
+    create(payment: Pesca.PaymentCreateDTO): Promise<boolean>;
 
-  getPayments(): Promise<Pesca.PaymentInformation[] | null>;
+    getAll(): Promise<Pesca.PaymentInformation[] | null>;
+  };
 }

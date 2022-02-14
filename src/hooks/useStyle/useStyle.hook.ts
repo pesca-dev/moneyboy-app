@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-restricted-imports
+/* eslint-disable no-restricted-imports */
 import { StyleContext, StyleContextType } from '@moneyboy/contexts/styleContext';
 import { useContext } from 'react';
 

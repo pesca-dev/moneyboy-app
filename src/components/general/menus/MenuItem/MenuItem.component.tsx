@@ -1,6 +1,7 @@
 import { PescaMenuContextType } from '@moneyboy/api/PescaMenuContextType';
 import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
 import { animated, useSpring } from '@react-spring/native';
+// eslint-disable-next-line no-restricted-imports
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useMenuItemStyles } from './MenuItem.style';
@@ -16,6 +17,7 @@ type MenuItemProps = {
 export const createPescaMenuItem =
   (PescaMenuContext: React.Context<PescaMenuContextType>): React.FC<MenuItemProps> =>
   ({ iconName, onPress }: MenuItemProps) => {
+    // TODO lome: introduce own hook for this
     const { isOpen, count, close, register } = useContext(PescaMenuContext);
 
     const [index, setIndex] = useState(-1);

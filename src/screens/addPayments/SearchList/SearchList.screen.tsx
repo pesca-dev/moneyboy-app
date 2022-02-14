@@ -2,10 +2,10 @@ import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
 import { PescaInputField } from '@moneyboy/components/general/input/PescaInputField';
 import { ListItem } from '@moneyboy/components/general/lists/ListItem';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/PescaNavigator/PescaScreen';
-import { PescaContext } from '@moneyboy/contexts/pescaContext';
 import { useAuth } from '@moneyboy/hooks/useAuth';
+import { usePesca } from '@moneyboy/hooks/usePesca';
 import { EnterPaymentViewParams } from '@moneyboy/screens/addPayments/EnterPayment';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Insets, SectionList, SectionListData, SectionListRenderItemInfo, Text, View } from 'react-native';
 import { useSearchListStyles } from './SearchList.style';
 
@@ -21,7 +21,7 @@ type SectionT = {
 };
 
 export const SearchListView: React.FC<ScreenComponentProps<unknown, EnterPaymentViewParams>> = ({ navigation }) => {
-  const pesca = useContext(PescaContext);
+  const pesca = usePesca();
   const { user } = useAuth();
 
   const [users, setUsers] = useState<Pesca.UserInformation[]>([]);
@@ -29,7 +29,7 @@ export const SearchListView: React.FC<ScreenComponentProps<unknown, EnterPayment
 
   const getUsers = useCallback(() => {
     setRefreshing(true);
-    pesca?.getUsers().then(us => {
+    pesca.getUsers().then(us => {
       if (us) {
         setUsers(us.filter(u => u.id !== user?.id));
       }

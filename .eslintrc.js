@@ -34,19 +34,15 @@ module.exports = {
             message: "Please use 'useStorage' instead!",
           },
           {
-            name: '@moneyboy/contexts/styleContext',
-            importNames: ['StyleContext'],
-            message: "Please use 'useStyle' instead!",
+            name: 'react',
+            importNames: ['useContext'],
+            message: 'Please do not import contexts directly. Use corresponding hook instead!',
           },
+        ],
+        patterns: [
           {
-            name: '@moneyboy/contexts/settingsContext',
-            importNames: ['SettingsContext'],
-            message: "Please use 'useSettings' instead!",
-          },
-          {
-            name: '@moneyboy/contexts/authContext',
-            importNames: ['AuthContext'],
-            message: "Please use 'useAuth' instead!",
+            group: ['@moneyboy/contexts/*'],
+            message: 'Please do not import contexts directly. Use corresponding hook instead!',
           },
         ],
       },

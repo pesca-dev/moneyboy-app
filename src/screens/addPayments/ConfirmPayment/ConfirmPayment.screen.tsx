@@ -1,8 +1,8 @@
 import { PescaButton } from '@moneyboy/components/general/input/PescaButton';
 import { ScreenComponentProps } from '@moneyboy/components/general/navigation/PescaNavigator/PescaScreen';
-import { PescaContext } from '@moneyboy/contexts/pescaContext';
+import { usePayments } from '@moneyboy/hooks/usePayments';
 import { formatAmount } from '@moneyboy/services/util/amountUtil';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Text, View } from 'react-native';
 import { useConfirmPaymentStyles } from './ConfirmPayment.style';
 
@@ -16,7 +16,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
   navigation,
   params,
 }) => {
-  const pesca = useContext(PescaContext);
+  const { createPayment } = usePayments();
 
   function confirm() {
     if (!params) {
@@ -30,7 +30,7 @@ export const ConfirmPaymentView: React.FC<ScreenComponentProps<ConfirmPaymentVie
       amount,
       date: date.getTime(),
     };
-    pesca?.createPayment(payment);
+    createPayment(payment);
     navigation.close();
   }
 
