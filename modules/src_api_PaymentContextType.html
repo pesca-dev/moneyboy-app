@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>src/api/FlyoutType | moneyboy-app</title>
+	<title>src/api/PaymentContextType | moneyboy-app</title>
 	<meta name="description" content="Documentation for moneyboy-app">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">moneyboy-app</a>
 				</li>
 				<li>
-					<a href="src_api_FlyoutType.html">src/api/FlyoutType</a>
+					<a href="src_api_PaymentContextType.html">src/api/PaymentContextType</a>
 				</li>
 			</ul>
-			<h1>Module src/api/FlyoutType</h1>
+			<h1>Module src/api/PaymentContextType</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="src_api_FlyoutType.html#FlyoutType" class="tsd-kind-icon">Flyout<wbr>Type</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="src_api_PaymentContextType.html#PaymentContextType" class="tsd-kind-icon">Payment<wbr>Context<wbr>Type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -81,71 +81,73 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="FlyoutType" class="tsd-anchor"></a>
-					<h3>Flyout<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Flyout<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>close<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>open<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>setChildren<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></div>
+					<a name="PaymentContextType" class="tsd-anchor"></a>
+					<h3>Payment<wbr>Context<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Payment<wbr>Context<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>payments<span class="tsd-signature-symbol">: </span><a href="../interfaces/src_global.Pesca.PaymentInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentInformation</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>createPayment<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>update<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/FlyoutType.d.ts#L3">src/api/FlyoutType.d.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PaymentContextType.d.ts#L1">src/api/PaymentContextType.d.ts:1</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
-								<h5>close<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal">
-									<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/FlyoutType.d.ts#L5">src/api/FlyoutType.d.ts:5</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
+								<h5>payments<span class="tsd-signature-symbol">: </span><a href="../interfaces/src_global.Pesca.PaymentInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentInformation</a><span class="tsd-signature-symbol">[]</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>All payments currently available in the app.</p>
+									</div>
+								</div>
 							</li>
 							<li class="tsd-parameter">
-								<h5>open<span class="tsd-signature-symbol">: </span>function</h5>
+								<h5>create<wbr>Payment<span class="tsd-signature-symbol">: </span>function</h5>
 								<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal">
-									<li class="tsd-signature tsd-kind-icon">open<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									<li class="tsd-signature tsd-kind-icon">create<wbr>Payment<span class="tsd-signature-symbol">(</span>payment<span class="tsd-signature-symbol">: </span><a href="../interfaces/src_global.Pesca.PaymentCreateDTO.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentCreateDTO</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/FlyoutType.d.ts#L4">src/api/FlyoutType.d.ts:4</a></li>
+												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PaymentContextType.d.ts#L14">src/api/PaymentContextType.d.ts:14</a></li>
 											</ul>
 										</aside>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
-							<li class="tsd-parameter">
-								<h5>set<wbr>Children<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal">
-									<li class="tsd-signature tsd-kind-icon">set<wbr>Children<span class="tsd-signature-symbol">(</span>children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReactNode</span>, open<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/FlyoutType.d.ts#L6">src/api/FlyoutType.d.ts:6</a></li>
-											</ul>
-										</aside>
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Create a new payment for another user.</p>
+											</div>
+										</div>
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5>children: <span class="tsd-signature-type">ReactNode</span></h5>
-											</li>
-											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> open: <span class="tsd-signature-type">boolean</span></h5>
+												<h5>payment: <a href="../interfaces/src_global.Pesca.PaymentCreateDTO.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentCreateDTO</a></h5>
+												<div class="tsd-comment tsd-typography">
+													<p>payment to create</p>
+												</div>
 											</li>
 										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+							<li class="tsd-parameter">
+								<h5>update<span class="tsd-signature-symbol">: </span>function</h5>
+								<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal">
+									<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<aside class="tsd-sources">
+											<ul>
+												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PaymentContextType.d.ts#L9">src/api/PaymentContextType.d.ts:9</a></li>
+											</ul>
+										</aside>
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Request an update of all payments. This will lead to a network request.</p>
+											</div>
+										</div>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 									</li>
 								</ul>
 							</li>
@@ -161,14 +163,14 @@
 						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="src_api_FlyoutType.html">src/api/<wbr>Flyout<wbr>Type</a>
+						<a href="src_api_PaymentContextType.html">src/api/<wbr>Payment<wbr>Context<wbr>Type</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="src_api_FlyoutType.html#FlyoutType" class="tsd-kind-icon">Flyout<wbr>Type</a>
+						<a href="src_api_PaymentContextType.html#PaymentContextType" class="tsd-kind-icon">Payment<wbr>Context<wbr>Type</a>
 					</li>
 				</ul>
 			</nav>

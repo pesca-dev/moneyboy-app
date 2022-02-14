@@ -93,10 +93,14 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#payments" class="tsd-kind-icon">payments</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#createPayment" class="tsd-kind-icon">create<wbr>Payment</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#getPayments" class="tsd-kind-icon">get<wbr>Payments</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#getUser" class="tsd-kind-icon">get<wbr>User</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#getUsers" class="tsd-kind-icon">get<wbr>Users</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#login" class="tsd-kind-icon">login</a></li>
@@ -108,55 +112,71 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="payments" class="tsd-anchor"></a>
+					<h3>payments</h3>
+					<div class="tsd-signature tsd-kind-icon">payments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>create<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>getAll<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PescaClient.d.ts#L39">src/api/PescaClient.d.ts:39</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>create<span class="tsd-signature-symbol">: </span>function</h5>
+								<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal">
+									<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>payment<span class="tsd-signature-symbol">: </span><a href="src_global.Pesca.PaymentCreateDTO.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentCreateDTO</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<aside class="tsd-sources">
+											<ul>
+												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PescaClient.d.ts#L44">src/api/PescaClient.d.ts:44</a></li>
+											</ul>
+										</aside>
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Create a payment.</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>payment: <a href="src_global.Pesca.PaymentCreateDTO.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentCreateDTO</a></h5>
+												<div class="tsd-comment tsd-typography">
+													<p>information about the payment.</p>
+												</div>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+							<li class="tsd-parameter">
+								<h5>get<wbr>All<span class="tsd-signature-symbol">: </span>function</h5>
+								<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal">
+									<li class="tsd-signature tsd-kind-icon">get<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="src_global.Pesca.PaymentInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentInformation</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<aside class="tsd-sources">
+											<ul>
+												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PescaClient.d.ts#L46">src/api/PescaClient.d.ts:46</a></li>
+											</ul>
+										</aside>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="src_global.Pesca.PaymentInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentInformation</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="createPayment" class="tsd-anchor"></a>
-					<h3>create<wbr>Payment</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Payment<span class="tsd-signature-symbol">(</span>payment<span class="tsd-signature-symbol">: </span><a href="src_global.Pesca.PaymentCreateDTO.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentCreateDTO</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/5dcf5e3/src/api/PescaClient.d.ts#L43">src/api/PescaClient.d.ts:43</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Create a payment.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>payment: <a href="src_global.Pesca.PaymentCreateDTO.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentCreateDTO</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>information about the payment.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getPayments" class="tsd-anchor"></a>
-					<h3>get<wbr>Payments</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Payments<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="src_global.Pesca.PaymentInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentInformation</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/5dcf5e3/src/api/PescaClient.d.ts#L45">src/api/PescaClient.d.ts:45</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="src_global.Pesca.PaymentInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentInformation</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="getUser" class="tsd-anchor"></a>
 					<h3>get<wbr>User</h3>
@@ -167,7 +187,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/5dcf5e3/src/api/PescaClient.d.ts#L25">src/api/PescaClient.d.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PescaClient.d.ts#L25">src/api/PescaClient.d.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -190,7 +210,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/5dcf5e3/src/api/PescaClient.d.ts#L37">src/api/PescaClient.d.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PescaClient.d.ts#L37">src/api/PescaClient.d.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -212,7 +232,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/5dcf5e3/src/api/PescaClient.d.ts#L12">src/api/PescaClient.d.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PescaClient.d.ts#L12">src/api/PescaClient.d.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -249,7 +269,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/5dcf5e3/src/api/PescaClient.d.ts#L18">src/api/PescaClient.d.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PescaClient.d.ts#L18">src/api/PescaClient.d.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -272,7 +292,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/5dcf5e3/src/api/PescaClient.d.ts#L32">src/api/PescaClient.d.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/913f8f9/src/api/PescaClient.d.ts#L32">src/api/PescaClient.d.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -313,11 +333,8 @@
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="src_api_PescaClient.PescaClient.html" class="tsd-kind-icon">Pesca<wbr>Client</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="src_api_PescaClient.PescaClient.html#createPayment" class="tsd-kind-icon">create<wbr>Payment</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="src_api_PescaClient.PescaClient.html#getPayments" class="tsd-kind-icon">get<wbr>Payments</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="src_api_PescaClient.PescaClient.html#payments" class="tsd-kind-icon">payments</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="src_api_PescaClient.PescaClient.html#getUser" class="tsd-kind-icon">get<wbr>User</a>
@@ -357,6 +374,7 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
