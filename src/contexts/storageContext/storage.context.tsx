@@ -3,6 +3,7 @@ import { StorageContextType, StorageItems, StorageSetFunction } from '@moneyboy/
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
 import React, { createContext, FC, PropsWithChildren, useCallback, useEffect, useState } from 'react';
 
+// TODO lome: move to service directory
 export const defaultStorage: StorageItems = {
   useSystemTheme: true,
   theme: 'light',

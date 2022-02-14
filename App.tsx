@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import { AuthContextProvider } from '@moneyboy/contexts/authContext';
 import { PaymentContextProvider } from '@moneyboy/contexts/paymentContext';
 import { PescaContextProvider } from '@moneyboy/contexts/pescaContext';

@@ -30,8 +30,18 @@ module.exports = {
       {
         paths: [
           {
+            name: '@react-native-async-storage/async-storage',
+            message: "Please use 'useStorage' instead!",
+          },
+          {
             name: 'react',
             importNames: ['useContext'],
+            message: 'Please do not import contexts directly. Use corresponding hook instead!',
+          },
+        ],
+        patterns: [
+          {
+            group: ['@moneyboy/contexts/*'],
             message: 'Please do not import contexts directly. Use corresponding hook instead!',
           },
         ],

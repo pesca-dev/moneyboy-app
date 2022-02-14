@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import { defaultStorage } from '@moneyboy/contexts/storageContext';
 import { useStorage } from '@moneyboy/hooks/useStorage';
 import React, { createContext, PropsWithChildren, useEffect, useState } from 'react';
