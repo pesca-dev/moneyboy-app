@@ -34,7 +34,13 @@ export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextPr
   }, [storagePayments, updatePayments]);
 
   // simply forward to pesca client
-  const createPayment = (payment: Pesca.PaymentCreateDTO) => create(payment);
+  const createPayment = async (payment: Pesca.PaymentCreateDTO) => {
+    const success = await create(payment);
+    if (success) {
+      update();
+    }
+    return success;
+  };
 
   const context: PaymentContextType = {
     payments,
