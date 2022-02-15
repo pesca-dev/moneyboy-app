@@ -3,7 +3,7 @@ name: iOS
 on: [push]
 
 jobs:
-  build:
+  build_ios:
     runs-on: macos-11
 
     steps:
