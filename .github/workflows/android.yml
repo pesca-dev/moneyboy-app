@@ -3,7 +3,7 @@ name: Android
 on: [push]
 
 jobs:
-  build:
+  android_build:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,3 +22,8 @@ jobs:
     - name: Build the app
       run: bundle exec fastlane build
       working-directory: android
+    - name: Upload apk as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-release
+        path: android/app/build/outputs/apk/release/app-release.apk
