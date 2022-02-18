@@ -3,7 +3,7 @@ name: Build
 on: [push]
 
 jobs:
-  build:
+  build_npm:
     runs-on: ubuntu-latest
 
     strategy:
