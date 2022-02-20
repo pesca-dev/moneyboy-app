@@ -1,9 +1,9 @@
 # MoneyBoy App
 
-[![Build](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/build.yml/badge.svg)](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/build.yml)
-[![Docs](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/docs.yml/badge.svg)](https://h1ghbre4k3r.github.io/moneyboy-app)
-[![iOS](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/ios.yml/badge.svg)](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/ios.yml)
-[![Android](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/android.yml/badge.svg)](https://github.com/H1ghBre4k3r/moneyboy-app/actions/workflows/android.yml)
+[![Build](https://github.com/pesca-dev/moneyboy-app/actions/workflows/build.yml/badge.svg)](https://github.com/pesca-dev/moneyboy-app/actions/workflows/build.yml)
+[![Docs](https://github.com/pesca-dev/moneyboy-app/actions/workflows/docs.yml/badge.svg)](https://pesca-dev.github.io/moneyboy-app)
+[![iOS](https://github.com/pesca-dev/moneyboy-app/actions/workflows/ios.yml/badge.svg)](https://github.com/pesca-dev/moneyboy-app/actions/workflows/ios.yml)
+[![Android](https://github.com/pesca-dev/moneyboy-app/actions/workflows/android.yml/badge.svg)](https://github.com/pesca-dev/moneyboy-app/actions/workflows/android.yml)
 
 <div align="center">
 <p>
