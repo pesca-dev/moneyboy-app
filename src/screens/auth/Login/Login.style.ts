@@ -1,6 +1,6 @@
+import variables from '@moneyboy/config/variables';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { StyleSheet } from 'react-native';
-import variables from '@moneyboy/config/variables';
 
 export const useLoginStyles = () => {
   const { Texts, Buttons, Colors } = useStyle();
