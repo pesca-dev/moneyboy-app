@@ -23,7 +23,7 @@ export const HistoryView: React.FC<HistoryViewProps> = () => {
 
   // update payment state
   const updatePayments = useCallback((ps: Pesca.PaymentInformation[]) => {
-    setLocalPayments(ps.sort((a, b) => a.date - b.date));
+    setLocalPayments(ps.sort((a, b) => b.date - a.date));
   }, []);
 
   // on update of storage payments, update state payments
