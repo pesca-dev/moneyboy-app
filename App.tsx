@@ -8,6 +8,7 @@ import { StyleContextProvider } from '@moneyboy/contexts/styleContext';
 import { AppContainer } from '@moneyboy/screens/AppContainer';
 import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
+import { isEmulatorSync } from 'react-native-device-info';
 import { Notification, Notifications, Registered, RegistrationError } from 'react-native-notifications';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -18,25 +19,27 @@ type AppProps = unknown;
 
 export const App: React.FC<AppProps> = () => {
   useEffect(() => {
-    Notifications.registerRemoteNotifications();
+    if (!isEmulatorSync()) {
+      Notifications.registerRemoteNotifications();
 
-    Notifications.events().registerNotificationReceivedForeground((notification: Notification, completion) => {
-      console.log(`Notification received in foreground: ${notification.title} : ${notification.body}`);
-      completion({ alert: false, sound: false, badge: false });
-    });
+      Notifications.events().registerNotificationReceivedForeground((notification: Notification, completion) => {
+        console.log(`Notification received in foreground: ${notification.title} : ${notification.body}`);
+        completion({ alert: false, sound: false, badge: false });
+      });
 
-    Notifications.events().registerNotificationOpened((notification: Notification, completion) => {
-      console.log(`Notification opened: ${notification.payload}`);
-      completion();
-    });
+      Notifications.events().registerNotificationOpened((notification: Notification, completion) => {
+        console.log(`Notification opened: ${notification.payload}`);
+        completion();
+      });
 
-    Notifications.events().registerRemoteNotificationsRegistered((event: Registered) => {
-      // TODO: Send the token to my server so it could send back push notifications...
-      console.log('Device Token Received', event.deviceToken);
-    });
-    Notifications.events().registerRemoteNotificationsRegistrationFailed((event: RegistrationError) => {
-      console.error(event);
-    });
+      Notifications.events().registerRemoteNotificationsRegistered((event: Registered) => {
+        // TODO: Send the token to my server so it could send back push notifications...
+        console.log('Device Token Received', event.deviceToken);
+      });
+      Notifications.events().registerRemoteNotificationsRegistrationFailed((event: RegistrationError) => {
+        console.error(event);
+      });
+    }
   }, []);
   return (
     <SafeAreaProvider>

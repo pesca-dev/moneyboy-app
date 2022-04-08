@@ -34,6 +34,10 @@ module.exports = {
             message: "Please use 'useStorage' instead!",
           },
           {
+            name: 'react-native-encrypted-storage',
+            message: "Please use 'useSecureStorage' instead!",
+          },
+          {
             name: 'react',
             importNames: ['useContext'],
             message: 'Please do not import contexts directly. Use corresponding hook instead!',
