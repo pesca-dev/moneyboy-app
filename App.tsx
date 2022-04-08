@@ -1,7 +1,9 @@
 /* eslint-disable no-restricted-imports */
 import { AuthContextProvider } from '@moneyboy/contexts/authContext';
+import { NotificationContextProvider } from '@moneyboy/contexts/notificationContext';
 import { PaymentContextProvider } from '@moneyboy/contexts/paymentContext';
 import { PescaContextProvider } from '@moneyboy/contexts/pescaContext';
+import { SecureStorageContextProvider } from '@moneyboy/contexts/secureStorageContext';
 import { SettingsContextProvider } from '@moneyboy/contexts/settingsContext';
 import { StorageContextProvider } from '@moneyboy/contexts/storageContext';
 import { StyleContextProvider } from '@moneyboy/contexts/styleContext';
@@ -45,17 +47,21 @@ export const App: React.FC<AppProps> = () => {
     <SafeAreaProvider>
       <StatusBar />
       <StorageContextProvider>
-        <SettingsContextProvider>
-          <PescaContextProvider>
-            <AuthContextProvider>
-              <PaymentContextProvider>
-                <StyleContextProvider>
-                  <AppContainer />
-                </StyleContextProvider>
-              </PaymentContextProvider>
-            </AuthContextProvider>
-          </PescaContextProvider>
-        </SettingsContextProvider>
+        <SecureStorageContextProvider>
+          <SettingsContextProvider>
+            <NotificationContextProvider>
+              <PescaContextProvider>
+                <AuthContextProvider>
+                  <PaymentContextProvider>
+                    <StyleContextProvider>
+                      <AppContainer />
+                    </StyleContextProvider>
+                  </PaymentContextProvider>
+                </AuthContextProvider>
+              </PescaContextProvider>
+            </NotificationContextProvider>
+          </SettingsContextProvider>
+        </SecureStorageContextProvider>
       </StorageContextProvider>
     </SafeAreaProvider>
   );

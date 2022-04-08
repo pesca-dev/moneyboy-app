@@ -1,5 +1,5 @@
 export type SecureStorageItems = {
-  token: string;
+  token?: string;
 };
 
 export type SecureStorageSetFunction = <T extends keyof SecureStorageItems>(

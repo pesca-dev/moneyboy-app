@@ -5,7 +5,7 @@ import EncryptedStorage from 'react-native-encrypted-storage';
 
 // TODO lome: move to service directory
 export const defaultStorage: SecureStorageItems = {
-  token: '',
+  token: undefined,
 };
 
 export const SecureStorageContext = createContext<SecureStorageContextType>({
