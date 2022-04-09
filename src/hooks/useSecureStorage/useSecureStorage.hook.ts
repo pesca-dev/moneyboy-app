@@ -19,6 +19,18 @@ type BatchSetSecureStorageFunction<T extends keyof SecureStorageItems> = (
 
 type BatchDeleteSecureStorageFunction<T extends keyof SecureStorageItems> = (keys: T[]) => void;
 
+/**
+ * Hook for interacting with the secure storage of the underyling device.
+ *
+ * Return an array with 3 items:
+ *  - `getItem(key)`: Get an item by its key. The returned array consists of 3 elements:
+ *    - `value`: current value of this item
+ *    - `setvalue`: set a new value for this item
+ *    - `delete`: delete this item from secure storage
+ *  - `batchSet({key, value}[])`: set multiple values as a batch
+ *  - `batchDelete(key[])`: delete multiple items as a batch
+ * @returns `[getItem, batchSet, batchDelete]`
+ */
 export function useSecureStorage(): [
   GetSecureStorageItemFunction,
   BatchSetSecureStorageFunction<keyof Omit<SecureStorageItems, 'finished'>>,

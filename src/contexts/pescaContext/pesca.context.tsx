@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { PescaClient } from '@moneyboy/api/PescaClient';
 import { useSecureStorage } from '@moneyboy/hooks/useSecureStorage';
 import deepEqual from 'deep-equal';
@@ -96,8 +95,6 @@ export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProvid
         { key: 'access_token', value: tokens.access_token },
         { key: 'refresh_token', value: tokens.refresh_token },
       ]);
-      // setAccessToken(tokens.access_token);
-      // setRefreshToken(tokens.refresh_token);
       return [true];
     },
     [request, batchSetSecureItems],
