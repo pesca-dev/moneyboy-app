@@ -92,21 +92,23 @@ export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProvid
       }
 
       const tokens: Pesca.LoginReturnDTO = await result.json();
-      setAccessToken(tokens.access_token);
-      setRefreshToken(tokens.refresh_token);
+      batchSetSecureItems([
+        { key: 'access_token', value: tokens.access_token },
+        { key: 'refresh_token', value: tokens.refresh_token },
+      ]);
+      // setAccessToken(tokens.access_token);
+      // setRefreshToken(tokens.refresh_token);
       return [true];
     },
-    [request, setAccessToken, setRefreshToken],
+    [request, batchSetSecureItems],
   );
 
   const logout = useCallback(async (): Promise<void> => {
     await requestWithAuth('auth/logout', {
       method: 'DELETE',
     });
-    deleteAccessToken();
-    deleteRefreshToken();
-    deleteUser();
-  }, [requestWithAuth, deleteAccessToken, deleteRefreshToken, deleteUser]);
+    batchDeleteSecureItems(['access_token', 'refresh_token', 'user']);
+  }, [requestWithAuth, batchDeleteSecureItems]);
 
   const register = useCallback(
     async (data: Pesca.RegistrationPayload): Promise<MaybeError<boolean>> => {
@@ -145,13 +147,11 @@ export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProvid
           newUser = user;
         } else {
           // if we are unauthorized, we simply delete all stored data, so we leave nothing behind after a logout
-          deleteAccessToken();
-          deleteRefreshToken();
-          deleteUser();
+          batchDeleteSecureItems(['access_token', 'refresh_token', 'user']);
         }
       });
     }
-  }, [deleteAccessToken, deleteRefreshToken, deleteUser, requestWithAuth, setUser, user, accessToken, refreshToken]);
+  }, [batchDeleteSecureItems, requestWithAuth, setUser, user, accessToken, refreshToken]);
 
   const getUsers = useCallback(async (): Promise<Pesca.UserInformation[] | null> => {
     const result = await requestWithAuth('/users', {});
