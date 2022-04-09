@@ -73,7 +73,7 @@ export const SecureStorageContextProvider: FC<PropsWithChildren<unknown>> = ({ c
       keys.forEach(key => {
         delete newStorage[key];
         // eslint-disable-next-line no-console
-        EncryptedStorage.removeItem(key).catch(console.log).catch(console.log);
+        EncryptedStorage.removeItem(key).catch(console.log);
       });
       return newStorage;
     });
