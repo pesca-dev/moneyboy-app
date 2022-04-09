@@ -1,4 +1,9 @@
-import { SecureStorageContextType, SecureStorageItems, SecureStorageSetFunction } from '@moneyboy/api/SecureStorage';
+import {
+  SecureStorageContextType,
+  SecureStorageDeleteFunction,
+  SecureStorageItems,
+  SecureStorageSetFunction,
+} from '@moneyboy/api/SecureStorage';
 import React, { createContext, FC, PropsWithChildren, useCallback, useEffect, useState } from 'react';
 // eslint-disable-next-line no-restricted-imports
 import EncryptedStorage from 'react-native-encrypted-storage';
@@ -6,11 +11,17 @@ import EncryptedStorage from 'react-native-encrypted-storage';
 // TODO lome: move to service directory
 export const defaultStorage: SecureStorageItems = {
   token: undefined,
+  access_token: undefined,
+  refresh_token: undefined,
+  user: undefined,
 };
 
 export const SecureStorageContext = createContext<SecureStorageContextType>({
   storage: defaultStorage,
   set: (_key, _value) => {
+    //
+  },
+  delete: _key => {
     //
   },
 });
@@ -20,38 +31,22 @@ export const SecureStorageContextProvider: FC<PropsWithChildren<unknown>> = ({ c
 
   // On intial mount, read storage Content
   useEffect(() => {
-    let key: keyof SecureStorageItems;
-    // eslint-disable-next-line no-restricted-syntax, guard-for-in
-    for (key in defaultStorage) {
-      const itemKey = key;
-      // try to get all items from storage
-      EncryptedStorage.getItem(itemKey)
-        .then(value => {
-          // update storage-state
-          setStorage(currentStorage => {
-            const newStorage: SecureStorageItems = {
-              ...currentStorage,
-            };
-            // use value from storage for state or use default one
-            (newStorage[itemKey] as SecureStorageItems[keyof SecureStorageItems]) = value
-              ? JSON.parse(value)
-              : defaultStorage[itemKey];
-            return newStorage;
-          });
-        })
-        .catch(reason => {
+    const newStorage: SecureStorageItems = {};
+    // read entire storage and update state after finishing
+    Promise.all(
+      Object.keys(defaultStorage).map(async key => {
+        const itemKey: keyof SecureStorageItems = key as keyof SecureStorageItems;
+        // try to get all items from storage
+        try {
+          const value = await EncryptedStorage.getItem(itemKey);
+          newStorage[itemKey] = value ? JSON.parse(value) : defaultStorage[itemKey];
+        } catch (reason) {
           // eslint-disable-next-line no-console
           console.error(reason);
-          // on error, set the default value as storage
-          setStorage(currentStorage => {
-            const newStorage: SecureStorageItems = {
-              ...currentStorage,
-            };
-            (newStorage[itemKey] as SecureStorageItems[keyof SecureStorageItems]) = defaultStorage[itemKey];
-            return newStorage;
-          });
-        });
-    }
+          (newStorage[itemKey] as SecureStorageItems[keyof SecureStorageItems]) = defaultStorage[itemKey];
+        }
+      }),
+    ).then(() => setStorage({ ...newStorage, finished: true }));
   }, []);
 
   const set: SecureStorageSetFunction = useCallback((key, value) => {
@@ -68,5 +63,19 @@ export const SecureStorageContextProvider: FC<PropsWithChildren<unknown>> = ({ c
     EncryptedStorage.setItem(key, JSON.stringify(value)).catch(console.error);
   }, []);
 
-  return <SecureStorageContext.Provider value={{ storage, set }}>{children}</SecureStorageContext.Provider>;
+  const deleteFn: SecureStorageDeleteFunction = useCallback(key => {
+    setStorage(curStorage => {
+      const newStorage = {
+        ...curStorage,
+      };
+      delete newStorage[key];
+      return newStorage;
+    });
+    // eslint-disable-next-line no-console
+    EncryptedStorage.removeItem(key).catch(console.log).catch(console.log);
+  }, []);
+
+  return (
+    <SecureStorageContext.Provider value={{ storage, set, delete: deleteFn }}>{children}</SecureStorageContext.Provider>
+  );
 };

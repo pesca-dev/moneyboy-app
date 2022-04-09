@@ -4,11 +4,12 @@ import { SecureStorageContext } from '@moneyboy/contexts/secureStorageContext';
 import { useCallback, useContext } from 'react';
 
 type SetSecureStorageFunction<T extends keyof SecureStorageItems> = (val: SecureStorageItems[T]) => void;
+type DeleteSecureStorageFunction = () => void;
 
 export function useSecureStorage<T extends keyof SecureStorageItems>(
   key: T,
-): [SecureStorageItems[T], SetSecureStorageFunction<T>] {
-  const { storage, set } = useContext(SecureStorageContext);
+): [SecureStorageItems[T], SetSecureStorageFunction<T>, DeleteSecureStorageFunction] {
+  const { storage, set, delete: deleteFn } = useContext(SecureStorageContext);
 
   const setStorage: SetSecureStorageFunction<T> = useCallback(
     val => {
@@ -17,5 +18,7 @@ export function useSecureStorage<T extends keyof SecureStorageItems>(
     [key, set],
   );
 
-  return [storage[key], setStorage];
+  const deleteStorage: DeleteSecureStorageFunction = useCallback(() => deleteFn(key), [key, deleteFn]);
+
+  return [storage[key], setStorage, deleteStorage];
 }

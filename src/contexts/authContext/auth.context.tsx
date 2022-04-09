@@ -1,5 +1,6 @@
 import { AuthData } from '@moneyboy/api/AuthData';
 import { usePesca } from '@moneyboy/hooks/usePesca';
+import deepEqual from 'deep-equal';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 
 export type AuthContextType = {
@@ -58,36 +59,28 @@ type AuthContextState = {
  * Provider for the authentication context.
  */
 export const AuthContextProvider: React.FC<PropsWithChildren<AuthContextProviderProps>> = ({ children }) => {
-  const Pesca = usePesca();
-
+  const { login: pescaLogin, logout: pescaLogout, register: pescaRegister, user, finished } = usePesca();
   const [authContextState, setAuthContextState] = useState<AuthContextState>({ loggedIn: false, ready: false });
 
-  /**
-   * Try to authenticate the current user, if it exists.
-   */
-  async function tryToAuthCurrentUser() {
-    const currentUser = await Pesca?.getUser();
-
-    if (currentUser) {
-      setAuthContextState({
-        ...authContextState,
-        loggedIn: true,
-        ready: true,
-        user: currentUser,
-      });
-    } else {
-      setAuthContextState({
-        ...authContextState,
-        ready: true,
-      });
-    }
-  }
-
-  // Try to auth the user on app start
   useEffect(() => {
-    tryToAuthCurrentUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const newState: Partial<AuthContextState> = {
+      ready: !!finished,
+    };
+    if (!deepEqual(user, authContextState.user)) {
+      if (user) {
+        newState.loggedIn = true;
+        newState.user = user;
+      } else {
+        newState.user = undefined;
+      }
+    }
+    if (!deepEqual({ ...authContextState, ...newState }, authContextState)) {
+      setAuthContextState(curState => ({
+        ...curState,
+        ...newState,
+      }));
+    }
+  }, [user, authContextState, setAuthContextState, finished]);
 
   /**
    * Try to log a user in. It will also try to authenticate the user.
@@ -99,7 +92,7 @@ export const AuthContextProvider: React.FC<PropsWithChildren<AuthContextProvider
     }
 
     // Try to log in
-    const [success, message] = (await Pesca?.login(username, password)) ?? [
+    const [success, message] = (await pescaLogin(username, password)) ?? [
       false,
       'Internal error while communicating with server',
     ];
@@ -108,21 +101,20 @@ export const AuthContextProvider: React.FC<PropsWithChildren<AuthContextProvider
     if (!success) {
       return [success, message];
     }
-    await tryToAuthCurrentUser();
 
     return [true];
   }
 
   async function register(data: Pesca.RegistrationPayload): Promise<MaybeError<boolean>> {
     // Simply forward call
-    return Pesca?.register(data) ?? [false, 'Internal error while communicating with server'];
+    return pescaRegister(data) ?? [false, 'Internal error while communicating with server'];
   }
 
   /**
    * Log the current user out.
    */
   async function logout() {
-    await Pesca?.logout();
+    await pescaLogout();
 
     setAuthContextState({
       ...authContextState,
