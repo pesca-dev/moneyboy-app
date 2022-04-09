@@ -7,8 +7,8 @@ import { Notifications, Registered, RegistrationError } from 'react-native-notif
 export const NotificationContext = createContext<NotificationContextType>({});
 
 export const NotificationContextProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
-  const [getSecureItem, batchSetSecureItems, batchDeleteSecureItems] = useSecureStorage();
-  const [tokenInStorage, setTokenInStorage] = getSecureItem('token');
+  const [useSecureItem] = useSecureStorage();
+  const [tokenInStorage, setTokenInStorage] = useSecureItem('token');
   const [token, setToken] = useState<undefined | string>(tokenInStorage);
 
   useEffect(() => {
@@ -19,7 +19,6 @@ export const NotificationContextProvider: FC<PropsWithChildren<unknown>> = ({ ch
     if (!isEmulatorSync()) {
       Notifications.registerRemoteNotifications();
       Notifications.events().registerRemoteNotificationsRegistered(({ deviceToken }: Registered) => {
-        //   console.log('Device Token Received', event.deviceToken);
         setTokenInStorage(deviceToken);
       });
       Notifications.events().registerRemoteNotificationsRegistrationFailed((event: RegistrationError) => {

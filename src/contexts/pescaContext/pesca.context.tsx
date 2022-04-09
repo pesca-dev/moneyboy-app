@@ -10,11 +10,11 @@ type PescaContextProviderProps = unknown;
 export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProviderProps>> = ({ children }) => {
   // const httpClient = useRef(new HttpClient('https://moneyboy.pesca.dev', constants, EncryptedStorage));
   const apiUrl = 'https://moneyboy.pesca.dev';
-  const [getSecureItem, batchSetSecureItems, batchDeleteSecureItems] = useSecureStorage();
-  const [accessToken, setAccessToken, deleteAccessToken] = getSecureItem('access_token');
-  const [refreshToken, setRefreshToken, deleteRefreshToken] = getSecureItem('refresh_token');
-  const [user, setUser, deleteUser] = getSecureItem('user');
-  const [finished] = getSecureItem('finished');
+  const [useSecureItem, batchSetSecureItems, batchDeleteSecureItems] = useSecureStorage();
+  const [accessToken, setAccessToken] = useSecureItem('access_token');
+  const [refreshToken] = useSecureItem('refresh_token');
+  const [user, setUser] = useSecureItem('user');
+  const [finished] = useSecureItem('finished');
 
   const request = useCallback(
     async (url: RequestInfo, options?: RequestInit) => fetch(`${apiUrl}/${url}`, options).catch(() => null),
