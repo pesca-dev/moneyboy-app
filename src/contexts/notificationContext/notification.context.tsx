@@ -7,7 +7,8 @@ import { Notifications, Registered, RegistrationError } from 'react-native-notif
 export const NotificationContext = createContext<NotificationContextType>({});
 
 export const NotificationContextProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
-  const [tokenInStorage, setTokenInStorage] = useSecureStorage('token');
+  const [getSecureItem, batchSetSecureItems, batchDeleteSecureItems] = useSecureStorage();
+  const [tokenInStorage, setTokenInStorage] = getSecureItem('token');
   const [token, setToken] = useState<undefined | string>(tokenInStorage);
 
   useEffect(() => {

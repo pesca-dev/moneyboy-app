@@ -1,24 +1,40 @@
 /* eslint-disable no-restricted-imports */
 import { SecureStorageItems } from '@moneyboy/api/SecureStorage';
 import { SecureStorageContext } from '@moneyboy/contexts/secureStorageContext';
-import { useCallback, useContext } from 'react';
+import { useContext } from 'react';
 
 type SetSecureStorageFunction<T extends keyof SecureStorageItems> = (val: SecureStorageItems[T]) => void;
 type DeleteSecureStorageFunction = () => void;
 
-export function useSecureStorage<T extends keyof SecureStorageItems>(
+type GetSecureStorageItemFunction = <T extends keyof SecureStorageItems>(
   key: T,
-): [SecureStorageItems[T], SetSecureStorageFunction<T>, DeleteSecureStorageFunction] {
-  const { storage, set, delete: deleteFn } = useContext(SecureStorageContext);
+) => [SecureStorageItems[T], SetSecureStorageFunction<T>, DeleteSecureStorageFunction];
 
-  const setStorage: SetSecureStorageFunction<T> = useCallback(
-    val => {
-      set(key, val);
-    },
-    [key, set],
-  );
+type BatchSetSecureStorageFunction<T extends keyof SecureStorageItems> = (
+  items: {
+    key: T;
+    value: SecureStorageItems[T];
+  }[],
+) => void;
 
-  const deleteStorage: DeleteSecureStorageFunction = useCallback(() => deleteFn(key), [key, deleteFn]);
+type BatchDeleteSecureStorageFunction<T extends keyof SecureStorageItems> = (keys: T[]) => void;
 
-  return [storage[key], setStorage, deleteStorage];
+export function useSecureStorage(): [
+  GetSecureStorageItemFunction,
+  BatchSetSecureStorageFunction<keyof Omit<SecureStorageItems, 'finished'>>,
+  BatchDeleteSecureStorageFunction<keyof Omit<SecureStorageItems, 'finished'>>,
+] {
+  const { storage, batchSet, batchDelete } = useContext(SecureStorageContext);
+
+  function getItem<T extends keyof SecureStorageItems>(
+    key: T,
+  ): [SecureStorageItems[T], SetSecureStorageFunction<T>, DeleteSecureStorageFunction] {
+    const setStorage: SetSecureStorageFunction<T> = val => {
+      batchSet([{ key, value: val }]);
+    };
+
+    const deleteStorage: DeleteSecureStorageFunction = () => batchDelete([key]);
+    return [storage[key], setStorage, deleteStorage];
+  }
+  return [getItem, batchSet, batchDelete];
 }

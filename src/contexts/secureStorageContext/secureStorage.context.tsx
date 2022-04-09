@@ -1,8 +1,8 @@
 import {
+  SecureStorageBatchDeleteFunction,
+  SecureStorageBatchSetFunction,
   SecureStorageContextType,
-  SecureStorageDeleteFunction,
   SecureStorageItems,
-  SecureStorageSetFunction,
 } from '@moneyboy/api/SecureStorage';
 import React, { createContext, FC, PropsWithChildren, useCallback, useEffect, useState } from 'react';
 // eslint-disable-next-line no-restricted-imports
@@ -18,10 +18,10 @@ export const defaultStorage: SecureStorageItems = {
 
 export const SecureStorageContext = createContext<SecureStorageContextType>({
   storage: defaultStorage,
-  set: (_key, _value) => {
+  batchSet: _args => {
     //
   },
-  delete: _key => {
+  batchDelete: _key => {
     //
   },
 });
@@ -49,33 +49,37 @@ export const SecureStorageContextProvider: FC<PropsWithChildren<unknown>> = ({ c
     ).then(() => setStorage({ ...newStorage, finished: true }));
   }, []);
 
-  const set: SecureStorageSetFunction = useCallback((key, value) => {
+  const batchSet: SecureStorageBatchSetFunction = useCallback(items => {
     // update state
     setStorage(curStorage => {
       const newStorage = {
         ...curStorage,
       };
-      newStorage[key] = value;
+      // and set item in storage
+      items.forEach(({ key, value }) => {
+        newStorage[key] = value;
+        // eslint-disable-next-line no-console
+        EncryptedStorage.setItem(key, JSON.stringify(value)).catch(console.error);
+      });
       return newStorage;
     });
-    // and set item in storage
-    // eslint-disable-next-line no-console
-    EncryptedStorage.setItem(key, JSON.stringify(value)).catch(console.error);
   }, []);
 
-  const deleteFn: SecureStorageDeleteFunction = useCallback(key => {
+  const batchDelete: SecureStorageBatchDeleteFunction = useCallback(keys => {
     setStorage(curStorage => {
       const newStorage = {
         ...curStorage,
       };
-      delete newStorage[key];
+      keys.forEach(key => {
+        delete newStorage[key];
+        // eslint-disable-next-line no-console
+        EncryptedStorage.removeItem(key).catch(console.log).catch(console.log);
+      });
       return newStorage;
     });
-    // eslint-disable-next-line no-console
-    EncryptedStorage.removeItem(key).catch(console.log).catch(console.log);
   }, []);
 
   return (
-    <SecureStorageContext.Provider value={{ storage, set, delete: deleteFn }}>{children}</SecureStorageContext.Provider>
+    <SecureStorageContext.Provider value={{ storage, batchSet, batchDelete }}>{children}</SecureStorageContext.Provider>
   );
 };

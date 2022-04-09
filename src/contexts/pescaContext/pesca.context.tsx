@@ -11,10 +11,11 @@ type PescaContextProviderProps = unknown;
 export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProviderProps>> = ({ children }) => {
   // const httpClient = useRef(new HttpClient('https://moneyboy.pesca.dev', constants, EncryptedStorage));
   const apiUrl = 'https://moneyboy.pesca.dev';
-  const [accessToken, setAccessToken, deleteAccessToken] = useSecureStorage('access_token');
-  const [refreshToken, setRefreshToken, deleteRefreshToken] = useSecureStorage('refresh_token');
-  const [user, setUser, deleteUser] = useSecureStorage('user');
-  const [finished] = useSecureStorage('finished');
+  const [getSecureItem, batchSetSecureItems, batchDeleteSecureItems] = useSecureStorage();
+  const [accessToken, setAccessToken, deleteAccessToken] = getSecureItem('access_token');
+  const [refreshToken, setRefreshToken, deleteRefreshToken] = getSecureItem('refresh_token');
+  const [user, setUser, deleteUser] = getSecureItem('user');
+  const [finished] = getSecureItem('finished');
 
   const request = useCallback(
     async (url: RequestInfo, options?: RequestInit) => fetch(`${apiUrl}/${url}`, options).catch(() => null),
@@ -57,7 +58,6 @@ export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProvid
           // if sucessful, store new access token in storage...
           const newAccessToken: Pesca.RefreshAccessTokenDTO = await refResult.json();
           setAccessToken(newAccessToken.access_token);
-          // await this.storage.setItem(this.keys.storage.access_token, newAccessToken.access_token).catch(console.error);
           // ...and perform request again
           // eslint-disable-next-line no-param-reassign
           options.headers = {
