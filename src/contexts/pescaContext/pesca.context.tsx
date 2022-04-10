@@ -7,6 +7,12 @@ export const PescaContext = React.createContext<PescaClient | undefined>(undefin
 
 type PescaContextProviderProps = unknown;
 
+type LoginPayload = {
+  username: string;
+  password: string;
+  notificationToken?: string;
+};
+
 export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProviderProps>> = ({ children }) => {
   // const httpClient = useRef(new HttpClient('https://moneyboy.pesca.dev', constants, EncryptedStorage));
   const apiUrl = 'https://moneyboy.pesca.dev';
@@ -14,6 +20,7 @@ export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProvid
   const [accessToken, setAccessToken] = useSecureItem('access_token');
   const [refreshToken] = useSecureItem('refresh_token');
   const [user, setUser] = useSecureItem('user');
+  const [notificationToken] = useSecureItem('token');
   const [finished] = useSecureItem('finished');
 
   const request = useCallback(
@@ -73,10 +80,11 @@ export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProvid
 
   const login = useCallback(
     async (username: string, password: string): Promise<MaybeError<boolean>> => {
-      const body = JSON.stringify({
-        username,
-        password,
-      });
+      const payload: LoginPayload = { username, password };
+      if (notificationToken) {
+        payload.notificationToken = notificationToken;
+      }
+      const body = JSON.stringify(payload);
       const result = await request('auth/login', {
         method: 'POST',
         headers: {
@@ -97,7 +105,7 @@ export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProvid
       ]);
       return [true];
     },
-    [request, batchSetSecureItems],
+    [request, batchSetSecureItems, notificationToken],
   );
 
   const logout = useCallback(async (): Promise<void> => {
