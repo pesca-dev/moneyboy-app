@@ -95,13 +95,14 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#finished" class="tsd-kind-icon">finished</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#payments" class="tsd-kind-icon">payments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#user" class="tsd-kind-icon">user</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#getUser" class="tsd-kind-icon">get<wbr>User</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#getUsers" class="tsd-kind-icon">get<wbr>Users</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#login" class="tsd-kind-icon">login</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="src_api_PescaClient.PescaClient.html#logout" class="tsd-kind-icon">logout</a></li>
@@ -114,12 +115,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="finished" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> finished</h3>
+					<div class="tsd-signature tsd-kind-icon">finished<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/7dfc182/src/api/PescaClient.d.ts#L44">src/api/PescaClient.d.ts:44</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="payments" class="tsd-anchor"></a>
 					<h3>payments</h3>
 					<div class="tsd-signature tsd-kind-icon">payments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>create<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>getAll<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/1795e6e/src/api/PescaClient.d.ts#L39">src/api/PescaClient.d.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/7dfc182/src/api/PescaClient.d.ts#L34">src/api/PescaClient.d.ts:34</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -134,7 +145,7 @@
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/1795e6e/src/api/PescaClient.d.ts#L44">src/api/PescaClient.d.ts:44</a></li>
+												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/7dfc182/src/api/PescaClient.d.ts#L39">src/api/PescaClient.d.ts:39</a></li>
 											</ul>
 										</aside>
 										<div class="tsd-comment tsd-typography">
@@ -164,7 +175,7 @@
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/1795e6e/src/api/PescaClient.d.ts#L46">src/api/PescaClient.d.ts:46</a></li>
+												<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/7dfc182/src/api/PescaClient.d.ts#L41">src/api/PescaClient.d.ts:41</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="src_global.Pesca.PaymentInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">PaymentInformation</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -174,32 +185,19 @@
 						</ul>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="user" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> user</h3>
+					<div class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="src_global.Pesca.UserProfileInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">UserProfileInformation</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/7dfc182/src/api/PescaClient.d.ts#L20">src/api/PescaClient.d.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getUser" class="tsd-anchor"></a>
-					<h3>get<wbr>User</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>User<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="src_global.Pesca.UserProfileInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">UserProfileInformation</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/1795e6e/src/api/PescaClient.d.ts#L25">src/api/PescaClient.d.ts:25</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get the currently logged in user.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="src_global.Pesca.UserProfileInformation.html" class="tsd-signature-type" data-tsd-kind="Interface">UserProfileInformation</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>currently logged in user, or <code>null</code>, if no user is logged in</p>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="getUsers" class="tsd-anchor"></a>
 					<h3>get<wbr>Users</h3>
@@ -210,7 +208,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/1795e6e/src/api/PescaClient.d.ts#L37">src/api/PescaClient.d.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/7dfc182/src/api/PescaClient.d.ts#L32">src/api/PescaClient.d.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -232,7 +230,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/1795e6e/src/api/PescaClient.d.ts#L12">src/api/PescaClient.d.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/7dfc182/src/api/PescaClient.d.ts#L12">src/api/PescaClient.d.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -269,7 +267,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/1795e6e/src/api/PescaClient.d.ts#L18">src/api/PescaClient.d.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/7dfc182/src/api/PescaClient.d.ts#L18">src/api/PescaClient.d.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -292,7 +290,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/1795e6e/src/api/PescaClient.d.ts#L32">src/api/PescaClient.d.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/pesca-dev/moneyboy-app/blob/7dfc182/src/api/PescaClient.d.ts#L27">src/api/PescaClient.d.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -334,10 +332,13 @@
 						<a href="src_api_PescaClient.PescaClient.html" class="tsd-kind-icon">Pesca<wbr>Client</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="src_api_PescaClient.PescaClient.html#finished" class="tsd-kind-icon">finished</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="src_api_PescaClient.PescaClient.html#payments" class="tsd-kind-icon">payments</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="src_api_PescaClient.PescaClient.html#getUser" class="tsd-kind-icon">get<wbr>User</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="src_api_PescaClient.PescaClient.html#user" class="tsd-kind-icon">user</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="src_api_PescaClient.PescaClient.html#getUsers" class="tsd-kind-icon">get<wbr>Users</a>
@@ -376,9 +377,6 @@
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 			</ul>
 		</div>
 	</div>
