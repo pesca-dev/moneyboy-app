@@ -12,8 +12,6 @@
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
 
-#import "RNNotifications.h"
-
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
   SKDescriptorMapper *layoutDescriptorMapper = [[SKDescriptorMapper alloc] initWithDefaults];
@@ -24,6 +22,8 @@ static void InitializeFlipper(UIApplication *application) {
   [client start];
 }
 #endif
+
+#import "RNNotifications.h"
 
 /**
  Deletes all Keychain items accessible by this app if this is the first time the user launches the app
