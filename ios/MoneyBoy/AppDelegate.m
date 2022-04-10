@@ -12,6 +12,8 @@
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
 
+#import "RNNotifications.h"
+
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
   SKDescriptorMapper *layoutDescriptorMapper = [[SKDescriptorMapper alloc] initWithDefaults];
@@ -23,6 +25,31 @@ static void InitializeFlipper(UIApplication *application) {
 }
 #endif
 
+/**
+ Deletes all Keychain items accessible by this app if this is the first time the user launches the app
+ */
+static void ClearKeychainIfNecessary() {
+    // Checks wether or not this is the first time the app is run
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HAS_RUN_BEFORE"] == NO) {
+        // Set the appropriate value so we don't clear next time the app is launched
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HAS_RUN_BEFORE"];
+
+        NSArray *secItemClasses = @[
+            (__bridge id)kSecClassGenericPassword,
+            (__bridge id)kSecClassInternetPassword,
+            (__bridge id)kSecClassCertificate,
+            (__bridge id)kSecClassKey,
+            (__bridge id)kSecClassIdentity
+        ];
+
+        // Maps through all Keychain classes and deletes all items that match
+        for (id secItemClass in secItemClasses) {
+            NSDictionary *spec = @{(__bridge id)kSecClass: secItemClass};
+            SecItemDelete((__bridge CFDictionaryRef)spec);
+        }
+    }
+}
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -30,6 +57,9 @@ static void InitializeFlipper(UIApplication *application) {
 #ifdef FB_SONARKIT_ENABLED
   InitializeFlipper(application);
 #endif
+  
+  // Add this line to call the above function
+  ClearKeychainIfNecessary();
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
@@ -47,6 +77,7 @@ static void InitializeFlipper(UIApplication *application) {
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [RNNotifications startMonitorNotifications]; // -> Add this line
   return YES;
 }
 
@@ -57,6 +88,18 @@ static void InitializeFlipper(UIApplication *application) {
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+  [RNNotifications didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+  [RNNotifications didFailToRegisterForRemoteNotificationsWithError:error];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+  [RNNotifications didReceiveBackgroundNotification:userInfo withCompletionHandler:completionHandler];
 }
 
 @end

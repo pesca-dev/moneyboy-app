@@ -17,12 +17,7 @@ export interface PescaClient {
    */
   logout(): Promise<void>;
 
-  /**
-   * Get the currently logged in user.
-   *
-   * @returns currently logged in user, or `null`, if no user is logged in
-   */
-  getUser(): Promise<Pesca.UserProfileInformation | null>;
+  user?: Pesca.UserProfileInformation | null;
 
   /**
    * Try to Register a new user.
@@ -45,4 +40,6 @@ export interface PescaClient {
 
     getAll(): Promise<Pesca.PaymentInformation[] | null>;
   };
+
+  finished?: boolean;
 }
