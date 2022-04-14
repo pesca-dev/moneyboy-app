@@ -25,8 +25,9 @@ export const PescaAmountField: React.FC<PescaAmountFieldProps> = ({
   setFocus,
   value,
   setValue,
+  initialValue,
 }) => {
-  const floatRef = useRef(0);
+  const floatRef = useRef(initialValue ?? 0);
 
   function extractNumbers(str: string) {
     return str.replace(/\D+/g, '');
