@@ -2,8 +2,8 @@ import { Flyout } from '@moneyboy/components/general/flyouts/Flyout';
 import { ListItem } from '@moneyboy/components/general/lists/ListItem';
 import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/MoneyDiff';
 import { Content } from '@moneyboy/components/general/structure/Content';
-import React, { useState } from 'react';
-import { FlatList, ListRenderItemInfo, Text, View } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { FlatList, ListRenderItemInfo, Pressable, Text, View } from 'react-native';
 import uuid from 'react-native-uuid';
 import { useGroupListItemStyles } from './GroupListItem.style';
 
@@ -150,6 +150,12 @@ export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, m
   }
 
   const [open, setOpen] = useState(false);
+  const [numberOfLines, setNumberOfLines] = useState(0);
+
+  const toggleMemberList = useCallback(() => {
+    setNumberOfLines(curNumberOfLines => (curNumberOfLines === 0 ? 1 : 0));
+  }, [setNumberOfLines]);
+
   return (
     <>
       <Content>
@@ -171,21 +177,20 @@ export const GroupListItem: React.FC<GroupListItemProps> = ({ name, createdAt, m
           <View style={styles.groupHeader}>
             <Text style={styles.groupName}>{name}</Text>
             <Text style={styles.groupCaption}>created at {new Date(createdAt).toLocaleDateString()}</Text>
-          </View>
-          <View style={styles.groupBody}>
-            <Text style={styles.membersList}>{`you, ${members.join(', ')}`}</Text>
-            <View style={styles.recentPaymentContainer}>
-              <View style={styles.recentPaymentHeaderContainer}>
-                <Text style={styles.recentPaymentHeader}>Recent Payments</Text>
-              </View>
-              <FlatList
-                initialNumToRender={20}
-                data={dummyData}
-                renderItem={renderItem}
-                keyExtractor={({ id }) => id}
-              />
+            <Pressable onPress={toggleMemberList}>
+              <Text numberOfLines={numberOfLines} style={styles.membersList}>{`you, ${members.join(', ')}`}</Text>
+            </Pressable>
+            <View style={styles.recentPaymentHeaderContainer}>
+              <Text style={styles.recentPaymentHeader}>Recent Payments</Text>
             </View>
           </View>
+          <FlatList
+            initialNumToRender={20}
+            data={dummyData}
+            renderItem={renderItem}
+            keyExtractor={({ id }) => id}
+            style={[styles.list]}
+          />
         </View>
       </Flyout>
     </>
