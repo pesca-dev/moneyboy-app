@@ -1,6 +1,6 @@
+import variables from '@moneyboy/config/variables';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { StyleSheet } from 'react-native';
-import variables from '@moneyboy/config/variables';
 
 export const useConfirmPaymentStyles = () => {
   const { Buttons, Input, Texts } = useStyle();
@@ -25,7 +25,7 @@ export const useConfirmPaymentStyles = () => {
     amount: {
       color: Texts.colors.primary,
       textAlign: 'center',
-      fontSize: 100,
+      fontSize: 60,
     },
     submitButtonContainer: {
       width: '100%',
