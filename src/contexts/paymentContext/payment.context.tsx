@@ -50,9 +50,18 @@ export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextPr
     return success;
   };
 
+  const getPayment = useCallback((id: string): Pesca.PaymentInformation | undefined => payments[id], [payments]);
+
+  const updatePayment = useCallback(async (payment: Pesca.PaymentInformation) => {
+    //
+    return true;
+  }, []);
+
   const context: PaymentContextType = {
     payments: Object.values(payments),
     createPayment,
+    getPayment,
+    updatePayment,
     update,
   };
 
