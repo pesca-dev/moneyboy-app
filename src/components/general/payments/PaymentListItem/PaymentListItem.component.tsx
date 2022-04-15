@@ -100,7 +100,7 @@ export const PaymentListItem: VFC<PaymentProps> = ({ id, to, from, amount, date,
             hitSlop={{ top: 0, right: 0, bottom: 0, left: 0 }}
             disabled={parseAmount(value) === 0}>
             <View style={[styles.submitButtonBackground, parseAmount(value) === 0 && styles.disabled]}>
-              <Text style={[styles.buttonText]}>Next</Text>
+              <Text style={[styles.buttonText]}>Update Payment</Text>
             </View>
           </PescaButton>
         </View>
