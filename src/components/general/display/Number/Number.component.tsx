@@ -10,7 +10,7 @@ type NumberProps = {
 export const Number: VFC<NumberProps> = ({ value, style, unit }) => (
   // TODO: Set this dynamically
   <Text style={style}>
-    {`${Intl.NumberFormat('en-en', {
+    {`${Intl.NumberFormat('de-DE', {
       maximumFractionDigits: 2,
       minimumFractionDigits: 2,
     }).format(value)}${unit ?? ''}`}
