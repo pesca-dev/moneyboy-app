@@ -10,12 +10,12 @@ type PaymentContextProviderProps = unknown;
 
 export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextProviderProps>> = ({ children }) => {
   const {
-    payments: { create, getAll },
+    payments: { create, getAll, update },
   } = usePesca();
   const [storagePayments, setStoragePayments] = useStorage('payments');
   const [payments, updatePayments] = useState<StorageItems['payments']>({});
 
-  const update = useCallback(async () => {
+  const updateState = useCallback(async () => {
     // fetch all payments and update payments in storage
     await getAll().then(fetchedPayments => {
       if (fetchedPayments) {
@@ -33,8 +33,8 @@ export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextPr
 
   // initially, we update the payments, that are stored
   useEffect(() => {
-    update();
-  }, [update]);
+    updateState();
+  }, [updateState]);
 
   // when payments in storage change, update payments in state
   useEffect(() => {
@@ -45,24 +45,30 @@ export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextPr
   const createPayment = async (payment: Pesca.PaymentCreateDTO) => {
     const success = await create(payment);
     if (success) {
-      update();
+      updateState();
     }
     return success;
   };
 
   const getPayment = useCallback((id: string): Pesca.PaymentInformation | undefined => payments[id], [payments]);
 
-  const updatePayment = useCallback(async (payment: Pesca.PaymentInformation) => {
-    //
-    return true;
-  }, []);
+  const updatePayment = useCallback(
+    async (payment: Pesca.PaymentUpdateDTO) => {
+      const result = await update(payment);
+      if (result) {
+        updateState();
+      }
+      return result;
+    },
+    [update, updateState],
+  );
 
   const context: PaymentContextType = {
     payments: Object.values(payments),
     createPayment,
     getPayment,
     updatePayment,
-    update,
+    update: updateState,
   };
 
   return <PaymentContext.Provider value={context}>{children}</PaymentContext.Provider>;

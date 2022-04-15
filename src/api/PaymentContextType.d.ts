@@ -22,5 +22,5 @@ export type PaymentContextType = {
    * Update information about a payment.
    * @param payment payment to update
    */
-  updatePayment(payment: Pesca.PaymentInformation): Promise<boolean>;
+  updatePayment(payment: Pesca.PaymentUpdateDTO): Promise<boolean>;
 };

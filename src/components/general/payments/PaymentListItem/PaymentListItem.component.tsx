@@ -18,7 +18,7 @@ export interface PaymentProps extends Pesca.PaymentInformation {
 
 export const PaymentListItem: VFC<PaymentProps> = ({ id, to, from, amount, date, last, separatorStyle }) => {
   const { user } = useAuth();
-  const payments = usePayments();
+  const { updatePayment } = usePayments();
   const [open, setOpen] = useState(false);
 
   const fromUs = useRef(user?.id === from.id);
@@ -44,8 +44,18 @@ export const PaymentListItem: VFC<PaymentProps> = ({ id, to, from, amount, date,
   }, [fromUs]);
 
   const handleSubmitButtonPress = useCallback(() => {
-    console.log('Update payment');
-  }, []);
+    const newAmount = parseAmount(value);
+    if (newAmount > 0) {
+      const payment: Pesca.PaymentUpdateDTO = {
+        id,
+        to: to.id,
+        date: currentDate.getTime(),
+        amount: newAmount,
+      };
+      updatePayment(payment);
+      setOpen(false);
+    }
+  }, [currentDate, id, to, value, updatePayment]);
 
   const handleDeleteButtonPress = useCallback(() => {
     console.log('Delete payment');

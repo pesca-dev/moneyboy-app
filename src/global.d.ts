@@ -53,4 +53,8 @@ declare namespace Pesca {
     to: UserInformation;
     from: UserInformation;
   }
+
+  interface PaymentUpdateDTO extends PaymentCreateDTO {
+    id: string;
+  }
 }

@@ -192,6 +192,20 @@ export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProvid
       }
       return null;
     }, [requestWithAuth]),
+    update: useCallback(
+      async (payment: Pesca.PaymentUpdateDTO) => {
+        const result = await requestWithAuth(`payments/${payment.id}`, {
+          method: 'PATCH',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payment),
+        });
+        return result?.status === 200;
+      },
+      [requestWithAuth],
+    ),
   };
   return (
     <PescaContext.Provider

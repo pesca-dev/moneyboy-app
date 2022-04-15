@@ -39,6 +39,8 @@ export interface PescaClient {
     create(payment: Pesca.PaymentCreateDTO): Promise<boolean>;
 
     getAll(): Promise<Pesca.PaymentInformation[] | null>;
+
+    update(payment: Pesca.PaymentUpdateDTO): Promise<boolean>;
   };
 
   finished?: boolean;
