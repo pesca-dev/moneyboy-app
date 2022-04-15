@@ -43,7 +43,7 @@ export const PaymentListItem: VFC<PaymentProps> = ({ id, to, from, amount, date,
     }
   }, [fromUs]);
 
-  const handleSubmitButtonPress = useCallback(() => {
+  const handleCreateButtonPress = useCallback(() => {
     const newAmount = parseAmount(value);
     if (newAmount > 0) {
       const payment: Pesca.PaymentUpdateDTO = {
@@ -95,7 +95,7 @@ export const PaymentListItem: VFC<PaymentProps> = ({ id, to, from, amount, date,
         </View>
         <View style={[styles.buttonContainer]}>
           <PescaButton
-            onPress={handleSubmitButtonPress}
+            onPress={handleCreateButtonPress}
             hitSlop={{ top: 0, right: 0, bottom: 0, left: 0 }}
             disabled={parseAmount(value) === 0}>
             <View style={[styles.submitButtonBackground, parseAmount(value) === 0 && styles.disabled]}>
