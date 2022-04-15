@@ -26,7 +26,7 @@ export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextPr
               ...memo,
             };
             newMemo[key] = p as Pesca.PaymentInformation;
-            return memo;
+            return newMemo;
           }, {}),
         );
       }
