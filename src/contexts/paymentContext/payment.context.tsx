@@ -20,10 +20,12 @@ export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextPr
     await getAll().then(fetchedPayments => {
       if (fetchedPayments) {
         setStoragePayments(
-          fetchedPayments.reduce<typeof payments>((memo, p) => {
-            const key: keyof typeof memo = p.id;
-            // eslint-disable-next-line no-param-reassign
-            memo[key] = p;
+          fetchedPayments.reduce<typeof payments>((memo: typeof payments, p) => {
+            const key: keyof typeof memo = p.id as keyof typeof memo;
+            const newMemo: { [key: string]: Pesca.PaymentInformation } = {
+              ...memo,
+            };
+            newMemo[key] = p as Pesca.PaymentInformation;
             return memo;
           }, {}),
         );
@@ -50,7 +52,10 @@ export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextPr
     return success;
   };
 
-  const getPayment = useCallback((id: string): Pesca.PaymentInformation | undefined => payments[id], [payments]);
+  const getPayment = useCallback(
+    (id: keyof typeof payments): Pesca.PaymentInformation | undefined => payments[id],
+    [payments],
+  );
 
   const updatePayment = useCallback(
     async (payment: Pesca.PaymentUpdateDTO) => {
