@@ -206,6 +206,15 @@ export const PescaContextProvider: React.FC<PropsWithChildren<PescaContextProvid
       },
       [requestWithAuth],
     ),
+    delete: useCallback(
+      async (id: string) => {
+        const result = await requestWithAuth(`payments/${id}`, {
+          method: 'DELETE',
+        });
+        return result?.status === 200;
+      },
+      [requestWithAuth],
+    ),
   };
   return (
     <PescaContext.Provider

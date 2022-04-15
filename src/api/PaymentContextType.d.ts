@@ -17,10 +17,14 @@ export type PaymentContextType = {
    * @param id id of the payment to get
    */
   getPayment(id: string): Pesca.PaymentInformation | undefined;
-
   /**
    * Update information about a payment.
    * @param payment payment to update
    */
   updatePayment(payment: Pesca.PaymentUpdateDTO): Promise<boolean>;
+  /**
+   * Delete a payment with the specified id.
+   * @param id id of the payment to delete
+   */
+  deletePayment(id: string): Promise<boolean>;
 };

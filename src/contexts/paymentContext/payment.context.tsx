@@ -10,7 +10,7 @@ type PaymentContextProviderProps = unknown;
 
 export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextProviderProps>> = ({ children }) => {
   const {
-    payments: { create, getAll, update },
+    payments: { create, getAll, update, delete: deletePescaPayment },
   } = usePesca();
   const [storagePayments, setStoragePayments] = useStorage('payments');
   const [payments, updatePayments] = useState<StorageItems['payments']>({});
@@ -63,11 +63,23 @@ export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextPr
     [update, updateState],
   );
 
+  const deletePayment = useCallback(
+    async (id: string) => {
+      const result = await deletePescaPayment(id);
+      if (result) {
+        updateState();
+      }
+      return result;
+    },
+    [deletePescaPayment, updateState],
+  );
+
   const context: PaymentContextType = {
     payments: Object.values(payments),
     createPayment,
     getPayment,
     updatePayment,
+    deletePayment,
     update: updateState,
   };
 
