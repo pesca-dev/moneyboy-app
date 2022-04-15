@@ -36,6 +36,17 @@ export const createButtonStyles = (props?: StylingProps) => {
     },
   };
 
+  const deleteButton: ButtonStyle = {
+    active: {
+      color: colors.base.white,
+      background: colors.status.error,
+    },
+    inactive: {
+      color: colors.base.white,
+      background: colors.base.inactive,
+    },
+  };
+
   const logout: Partial<Button> = {
     color: colors.status.error,
   };
@@ -50,6 +61,7 @@ export const createButtonStyles = (props?: StylingProps) => {
     special: {
       logout,
       back,
+      deleteButton,
     },
   };
 };

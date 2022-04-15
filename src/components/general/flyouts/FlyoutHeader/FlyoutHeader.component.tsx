@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { VFC } from 'react';
 import { Text, View } from 'react-native';
 import { useFlyoutHeaderStyles } from './FlyoutHeader.style';
 
@@ -6,7 +6,7 @@ type FlyoutHeaderProps = {
   heading?: string;
 };
 
-export const FlyoutHeader: React.FC<FlyoutHeaderProps> = ({ heading }) => {
+export const FlyoutHeader: VFC<FlyoutHeaderProps> = ({ heading }) => {
   const styles = useFlyoutHeaderStyles();
   return (
     <View style={[styles.flyoutHeadingContainer]}>

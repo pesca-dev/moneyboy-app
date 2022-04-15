@@ -1,6 +1,6 @@
+import variables from '@moneyboy/config/variables';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { StyleSheet } from 'react-native';
-import variables from '@moneyboy/config/variables';
 
 export const usePescaAmountFieldStyles = () => {
   const { Input, Texts } = useStyle();
@@ -22,7 +22,7 @@ export const usePescaAmountFieldStyles = () => {
     text: {
       //   flexDirection: 'column',
       textAlign: 'center',
-      fontSize: 100,
+      fontSize: 60,
       color: Texts.colors.primary,
     },
   });

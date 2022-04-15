@@ -2,32 +2,10 @@ import variables from '@moneyboy/config/variables';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { StyleSheet } from 'react-native';
 
-export const useConfirmPaymentStyles = () => {
-  const { Buttons, Input, Texts } = useStyle();
+export const usePaymentListItemStyles = () => {
+  const { Buttons, Texts } = useStyle();
   return StyleSheet.create({
-    container: {
-      width: '100%',
-      marginBottom: 30,
-    },
-    backButtonContainer: {
-      paddingTop: 5,
-      paddingBottom: 20,
-    },
-    backButtonText: {
-      color: Buttons.special.back.color,
-    },
-    label: {
-      fontSize: variables.font.size.small,
-      marginBottom: 5,
-      paddingLeft: 7,
-      color: Input.label.color,
-    },
-    amount: {
-      color: Texts.colors.primary,
-      textAlign: 'center',
-      fontSize: 60,
-    },
-    submitButtonContainer: {
+    buttonContainer: {
       width: '100%',
       marginTop: 20,
     },
@@ -38,7 +16,17 @@ export const useConfirmPaymentStyles = () => {
       padding: 5,
       borderRadius: 10,
     },
-    submitButtonText: {
+    deleteButtonBackground: {
+      width: '100%',
+      justifyContent: 'center',
+      backgroundColor: Buttons.special.deleteButton.active.background,
+      padding: 5,
+      borderRadius: 10,
+    },
+    disabled: {
+      backgroundColor: Buttons.primary.inactive.background,
+    },
+    buttonText: {
       textAlign: 'center',
       fontSize: 24,
       color: Buttons.primary.active.color,
@@ -53,6 +41,9 @@ export const useConfirmPaymentStyles = () => {
       color: Texts.colors.primary,
       fontSize: variables.font.size.small,
       paddingHorizontal: 7,
+    },
+    dateFieldInput: {
+      flex: 1,
     },
   });
 };

@@ -1,5 +1,5 @@
 import { SectionHeader } from '@moneyboy/components/general/lists/SectionHeader';
-import { MoneyDiff, MoneyDiffProps } from '@moneyboy/components/general/payments/MoneyDiff';
+import { PaymentListItem, PaymentProps } from '@moneyboy/components/general/payments/PaymentListItem';
 import { Content } from '@moneyboy/components/general/structure/Content';
 import { ViewBase } from '@moneyboy/components/general/structure/ViewBase';
 import { useAuth } from '@moneyboy/hooks/useAuth';
@@ -40,32 +40,14 @@ export const HistoryView: React.FC<HistoryViewProps> = () => {
   const data = [
     {
       title: 'History',
-      data: localPayments.map<MoneyDiffProps>(info => {
-        // check, if payment is "against" us
-        if (info.to.id === user?.id) {
-          return {
-            amount: -1 * info.amount,
-            id: info.id,
-            name: info.from.displayName,
-          };
-        }
-        return {
-          amount: info.amount,
-          id: info.id,
-          name: info.to.displayName,
-        };
-      }),
+      data: localPayments,
     },
   ];
 
-  function renderListItem({
-    item: { id, name, amount },
-    index,
-    section,
-  }: SectionListRenderItemInfo<MoneyDiffProps, DefaultSectionT>) {
+  function renderListItem({ item, index, section }: SectionListRenderItemInfo<PaymentProps, DefaultSectionT>) {
     return (
       <Content>
-        <MoneyDiff id={id} key={id} name={name} amount={amount} last={index === section.data.length - 1} />
+        <PaymentListItem last={index === section.data.length - 1} {...item} />
       </Content>
     );
   }
