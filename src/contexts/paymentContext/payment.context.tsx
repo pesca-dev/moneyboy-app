@@ -1,4 +1,5 @@
 import { PaymentContextType } from '@moneyboy/api/PaymentContextType';
+import { StorageItems } from '@moneyboy/api/Storage';
 import { usePesca } from '@moneyboy/hooks/usePesca';
 import { useStorage } from '@moneyboy/hooks/useStorage';
 import React, { createContext, PropsWithChildren, useCallback, useEffect, useState } from 'react';
@@ -12,13 +13,20 @@ export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextPr
     payments: { create, getAll },
   } = usePesca();
   const [storagePayments, setStoragePayments] = useStorage('payments');
-  const [payments, updatePayments] = useState<Pesca.PaymentInformation[]>([]);
+  const [payments, updatePayments] = useState<StorageItems['payments']>({});
 
   const update = useCallback(async () => {
     // fetch all payments and update payments in storage
     await getAll().then(fetchedPayments => {
       if (fetchedPayments) {
-        setStoragePayments(fetchedPayments);
+        setStoragePayments(
+          fetchedPayments.reduce<typeof payments>((memo, p) => {
+            const key: keyof typeof memo = p.id;
+            // eslint-disable-next-line no-param-reassign
+            memo[key] = p;
+            return memo;
+          }, {}),
+        );
       }
     });
   }, [getAll, setStoragePayments]);
@@ -43,7 +51,7 @@ export const PaymentContextProvider: React.FC<PropsWithChildren<PaymentContextPr
   };
 
   const context: PaymentContextType = {
-    payments,
+    payments: Object.values(payments),
     createPayment,
     update,
   };

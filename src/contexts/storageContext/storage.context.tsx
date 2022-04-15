@@ -7,7 +7,7 @@ import React, { createContext, FC, PropsWithChildren, useCallback, useEffect, us
 export const defaultStorage: StorageItems = {
   useSystemTheme: true,
   theme: 'light',
-  payments: [],
+  payments: {},
 };
 
 export const StorageContext = createContext<StorageContextType>({
