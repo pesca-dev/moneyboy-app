@@ -88,10 +88,11 @@ export const PaymentListItem: VFC<PaymentProps> = ({ id, to, from, amount, date,
           </View>
           <DateTimePicker
             value={currentDate}
-            display="default"
+            display="spinner"
             onChange={onDateChange}
             style={[styles.dateFieldInput]}
             maximumDate={new Date()}
+            collapsable
           />
         </View>
         <View style={[styles.buttonContainer]}>

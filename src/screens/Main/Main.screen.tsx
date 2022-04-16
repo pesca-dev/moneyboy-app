@@ -11,7 +11,6 @@ import { useMainStyles } from './Main.style';
 
 function renderListItem({
   item: { name, amount, id },
-  // item,
   index,
   section,
 }: SectionListRenderItemInfo<MoneyDiffProps, DefaultSectionT>) {
@@ -61,11 +60,15 @@ export const MainView: React.FC<MainViewProps> = () => {
         { users: {}, statistics: {} },
       );
       setDiffs(
-        Object.keys(statistics.users).map<MoneyDiffProps>(id => ({
-          amount: statistics.statistics[id],
-          id: `statistics-${id}`,
-          name: statistics.users[id].displayName,
-        })),
+        Object.keys(statistics.users)
+          .sort((a, b) =>
+            statistics.users[a].displayName.toUpperCase() < statistics.users[b].displayName.toUpperCase() ? -1 : 1,
+          )
+          .map<MoneyDiffProps>(id => ({
+            amount: statistics.statistics[id],
+            id: `statistics-${id}`,
+            name: statistics.users[id].displayName,
+          })),
       );
     },
     [user?.id],
