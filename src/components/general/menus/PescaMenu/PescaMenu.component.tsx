@@ -8,6 +8,8 @@ import { usePescaMenuStyles } from './PescaMenu.style';
 
 type MainButtonProps = {
   iconName: string;
+  isOpen: boolean;
+  setOpen(isOpen: boolean): void;
 };
 
 /**
@@ -15,9 +17,7 @@ type MainButtonProps = {
  */
 export const createPescaMenuContainer =
   (PescaMenuContext: React.Context<PescaMenuContextType>): React.FC<PropsWithChildren<MainButtonProps>> =>
-  ({ children }: PropsWithChildren<MainButtonProps>) => {
-    const [isOpen, setOpen] = useState(false);
-
+  ({ children, isOpen, setOpen }: PropsWithChildren<MainButtonProps>) => {
     // count for items in the menu
     const [count, setCount] = useState(0);
     const countRef = useRef(0);
