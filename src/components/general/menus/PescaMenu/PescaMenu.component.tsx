@@ -57,7 +57,7 @@ export const createPescaMenuContainer =
     const [outterContainerAnimStyle, outterContainerAnimation] = useSpring(() => ({
       top: 0,
       config: {
-        tension: 200,
+        tension: 250,
         friction: 30,
         mass: 4,
       },

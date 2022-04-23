@@ -48,33 +48,40 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
   const centerButtonWidth = 28;
   const rectWidth = width / 2 - 20;
 
-  // path for the concave shape of the tab bar
-  const paths = useMemo(
+  const leftPaths = useMemo(
     () => [
       `m ${rectWidth - centerButtonWidth * 2 - 20} 0 
       q 0 0 27 0 
       q 20 0 20 10 
       q 0 29 29 28 
-      q 28 0 29 -28 
-      q 0 -10 20 -10 
-      q 0 0 27 0 
-      v 64 h -152 v -64 z`,
+      v 26 h -76 v -64`,
       `m ${rectWidth - centerButtonWidth * 2 - 20} 0 
-      q 0 0 37 0 
-      q 0 0 10 0 
+      q 0 0 27 0 
+      q 0 0 20 0 
       q 0 0 29 0 
-      q 0 0 29 0 
-      q 0 0 10 0 
-      q 0 0 37 0 
-      v 64 h -152 v -64 z`,
+      v 64 h -76 v -64`,
     ],
     [rectWidth],
   );
-
+  const rightPaths = useMemo(
+    () => [
+      `m ${rectWidth - centerButtonWidth * 2 - 20 + 76} 38 
+      v 26 h 76 v -64 
+      q 0 0 -27 0 
+      q -20 0 -20 10 
+      q 0 29 -29 28`,
+      `m ${rectWidth - centerButtonWidth * 2 - 20 + 76} 38 
+      v 26 h 76 v -64 
+      q 0 0 -27 0 
+      q 0 0 -20 0 
+      q 0 0 -29 0`,
+    ],
+    [rectWidth],
+  );
   const [{ d }, setD] = useSpring(() => ({
     d: 0,
     config: {
-      tension: 200,
+      tension: 250,
       friction: 30,
       mass: 4,
     },
@@ -82,7 +89,7 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
 
   useEffect(() => {
     setD.start({ to: { d: isOpen ? 1 : 0 } });
-  }, [isOpen, paths, setD]);
+  }, [isOpen, setD]);
 
   return (
     <>
@@ -110,7 +117,16 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
                 <AnimatedPath
                   d={d.to({
                     range: [0, 1],
-                    output: paths,
+                    output: leftPaths,
+                  })}
+                  fill={Footers.background}
+                  // eslint-disable-next-line react/no-children-prop
+                  children={<></>}
+                />
+                <AnimatedPath
+                  d={d.to({
+                    range: [0, 1],
+                    output: rightPaths,
                   })}
                   fill={Footers.background}
                   // eslint-disable-next-line react/no-children-prop
