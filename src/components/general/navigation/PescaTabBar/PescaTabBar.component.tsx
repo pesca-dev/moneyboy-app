@@ -57,12 +57,13 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
       v 26 h -76 v -64`,
       `m ${rectWidth - centerButtonWidth * 2 - 20} 0 
       q 0 0 27 0 
-      q 0 0 20 0 
+      q 20 0 20 0 
       q 0 0 29 0 
       v 64 h -76 v -64`,
     ],
     [rectWidth],
   );
+
   const rightPaths = useMemo(
     () => [
       `m ${rectWidth - centerButtonWidth * 2 - 20 + 76} 38 
@@ -73,11 +74,12 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
       `m ${rectWidth - centerButtonWidth * 2 - 20 + 76} 38 
       v 26 h 76 v -64 
       q 0 0 -27 0 
-      q 0 0 -20 0 
+      q -20 0 -20 0 
       q 0 0 -29 0`,
     ],
     [rectWidth],
   );
+
   const [{ d }, setD] = useSpring(() => ({
     d: 0,
     config: {

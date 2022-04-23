@@ -8,6 +8,8 @@ interface FooterProps {
 
 /**
  * Footer for a screen.
+ *
+ * @deprecated
  */
 export const Footer: React.FC<PropsWithChildren<FooterProps>> = ({ children, style }) => {
   const styles = useFooterStyles();
