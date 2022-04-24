@@ -106,7 +106,7 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
                     range: [0, 1],
                     output: paths,
                   })}
-                  fill="white"
+                  fill={Footers.background}
                   // eslint-disable-next-line react/no-children-prop
                   children={<></>}
                 />
