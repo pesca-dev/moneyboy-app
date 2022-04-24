@@ -2,11 +2,14 @@ import { createPescaMenu } from '@moneyboy/components/general/menus/createPescaM
 import { AddPaymentButton } from '@moneyboy/components/general/navigation/AddPaymentButton';
 import React, { useState } from 'react';
 
-type CenterButtonProps = unknown;
+type CenterButtonProps = {
+  isOpen: boolean;
+  setOpen(isOpen: boolean): void;
+};
 
 const PescaMenu = createPescaMenu();
 
-export const CenterButton: React.FC<CenterButtonProps> = () => {
+export const CenterButton: React.FC<CenterButtonProps> = ({ isOpen, setOpen }) => {
   const [isPaymentButtonOpen, setPaymentButtonOpen] = useState<boolean>(false);
 
   function onAddGroupButtonPress() {
@@ -15,7 +18,7 @@ export const CenterButton: React.FC<CenterButtonProps> = () => {
 
   return (
     <>
-      <PescaMenu.Menu iconName="plus">
+      <PescaMenu.Menu setOpen={setOpen} isOpen={isOpen} iconName="plus">
         <PescaMenu.Item iconName="credit-card-plus-outline" onPress={() => setPaymentButtonOpen(true)} />
         <PescaMenu.Item iconName="account-plus-outline" />
         <PescaMenu.Item iconName="calendar-plus" />
