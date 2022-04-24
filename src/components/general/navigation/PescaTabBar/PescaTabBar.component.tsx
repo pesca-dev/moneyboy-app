@@ -4,7 +4,7 @@ import { useStyle } from '@moneyboy/hooks/useStyle';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Route } from '@react-navigation/native';
 import { animated, useSpring } from '@react-spring/native';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dimensions, SafeAreaView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path, Rect } from 'react-native-svg';
@@ -48,37 +48,22 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
   const centerButtonWidth = 28;
   const rectWidth = width / 2 - 20;
 
-  const leftPaths = useMemo(
-    () => [
-      `m ${rectWidth - centerButtonWidth * 2 - 20} 0 
-      q 0 0 27 0 
-      q 20 0 20 10 
-      q 0 29 29 28 
-      v 26 h -76 v -64`,
-      `m ${rectWidth - centerButtonWidth * 2 - 20} 0 
-      q 0 0 27 0 
-      q 20 0 20 0 
-      q 0 0 29 0 
-      v 64 h -76 v -64`,
-    ],
-    [rectWidth],
-  );
-
-  const rightPaths = useMemo(
-    () => [
-      `m ${rectWidth - centerButtonWidth * 2 - 20 + 76} 38 
-      v 26 h 76 v -64 
-      q 0 0 -27 0 
-      q -20 0 -20 10 
-      q 0 29 -29 28`,
-      `m ${rectWidth - centerButtonWidth * 2 - 20 + 76} 38 
-      v 26 h 76 v -64 
-      q 0 0 -27 0 
-      q -20 0 -20 0 
-      q 0 0 -29 0`,
-    ],
-    [rectWidth],
-  );
+  const paths = [
+    `m ${rectWidth - centerButtonWidth * 2 - 20} 0 
+    c 0 0 0 0 27 0 
+    c 10 0 20 0 20 10 
+    c 0 37 58 37 58 0 
+    c 0 -10 10 -10 20 -10 
+    c 0 0 0 0 27 0 
+    v 64 h -152 v -64 z`,
+    `m ${rectWidth - centerButtonWidth * 2 - 20} 0 
+    c 0 0 0 0 27 0 
+    c 10 0 20 0 20 0 
+    c 29 0 29 0 58 0 
+    c 0 0 10 0 20 0 
+    c 0 0 0 0 27 0 
+    v 64 h -152 v -64 z`,
+  ];
 
   const [{ d }, setD] = useSpring(() => ({
     d: 0,
@@ -119,18 +104,9 @@ export const PescaTabBar: React.FC<PescaTabUIProps> = ({ navigation, state }) =>
                 <AnimatedPath
                   d={d.to({
                     range: [0, 1],
-                    output: leftPaths,
+                    output: paths,
                   })}
-                  fill={Footers.background}
-                  // eslint-disable-next-line react/no-children-prop
-                  children={<></>}
-                />
-                <AnimatedPath
-                  d={d.to({
-                    range: [0, 1],
-                    output: rightPaths,
-                  })}
-                  fill={Footers.background}
+                  fill="white"
                   // eslint-disable-next-line react/no-children-prop
                   children={<></>}
                 />
