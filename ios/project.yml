@@ -4,7 +4,7 @@ name: MoneyBoy
 
 options:
   deploymentTarget:
-    iOS: '11.4'
+    iOS: "11.4"
   usesTabs: false
   tabWidth: 2
   indentWidth: 2
@@ -49,8 +49,9 @@ targets:
     settings:
       base:
         CODE_SIGN_ENTITLEMENTS: MoneyBoy/MoneyBoy.entitlements
-        PRODUCT_BUNDLE_IDENTIFIER: '${BUNDLE_IDENT}'
+        PRODUCT_BUNDLE_IDENTIFIER: "${BUNDLE_IDENT}"
         CLANG_ENABLE_MODULES: true
+        EXCLUDED_ARCHS[sdk=iphonesimulator*]: arm64
         OTHER_LDFLAGS:
           - $(inherited)
           - -ObjC

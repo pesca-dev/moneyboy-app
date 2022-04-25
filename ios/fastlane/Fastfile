@@ -7,8 +7,9 @@ platform :ios do
       scheme: "MoneyBoy",
       workspace: "MoneyBoy.xcworkspace",
       sdk: "iphonesimulator",
-      destination: "platform=iOS Simulator,name=iPhone 13,OS=15.2",
-      xcargs: "build-for-testing"
+      configuration: "Release",
+      destination: "platform=iOS Simulator,name=iPhone 13,OS=15.4",
+      derivedDataPath: "build",
     )
   end
 

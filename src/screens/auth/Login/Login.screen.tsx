@@ -50,7 +50,10 @@ export const LoginView: React.FC<LoginViewProps> = ({ navigation }) => {
   const styles = useLoginStyles();
 
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.wrapper]}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={[styles.wrapper]}
+      testID="login">
       <ScrollView>
         <SafeAreaView style={styles.container}>
           <View style={[styles.formContainer]}>
