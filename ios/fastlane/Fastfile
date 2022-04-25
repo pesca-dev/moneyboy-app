@@ -8,7 +8,6 @@ platform :ios do
       workspace: "MoneyBoy.xcworkspace",
       sdk: "iphonesimulator",
       configuration: "Release",
-      destination: "platform=iOS Simulator,name=iPhone 13,OS=15.4",
       derivedDataPath: "build",
     )
   end
