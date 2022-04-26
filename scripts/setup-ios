@@ -16,8 +16,13 @@ if [ ! -x "$(command -v xcodegen)" ]; then
     system_deps+=(xcodegen)
 fi
 
+if [ ! -x "$(command -v applesimutils)" ]; then
+    system_deps+=(applesimutils)
+fi
+
 # Install system dependencies
 if [ -n "$system_deps" ]; then
+    brew tap wix/brew
     brew install ${system_deps[@]}
 fi
 
