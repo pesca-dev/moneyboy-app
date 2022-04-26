@@ -5,6 +5,9 @@ on: [push]
 jobs:
   build_ios:
     runs-on: macos-11
+    env:
+      BUNDLE_IDENT: ${{ secrets.BUNDLE_IDENT }}
+      APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
 
     steps:
       - uses: actions/checkout@v3
