@@ -3,6 +3,18 @@ default_platform(:ios)
 platform :ios do
   desc "Builds the app without a provisioning profile"
   lane :build_only do
+    # set version number to number from env vars
+    increment_version_number(
+      version_number: "0.0.0"
+    )
+
+    # increment build number depending on current build number in testflight
+    increment_build_number(
+      build_number: 1,
+      xcodeproj: "MoneyBoy.xcodeproj"
+    )
+    
+    # build app
     xcodebuild(
       scheme: "MoneyBoy",
       workspace: "MoneyBoy.xcworkspace",
