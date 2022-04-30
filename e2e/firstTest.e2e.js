@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe('Example', () => {
   beforeAll(async () => {
     await device.launchApp();

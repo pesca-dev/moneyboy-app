@@ -11,6 +11,7 @@
     "test": "jest --passWithNoTests",
     "docs": "typedoc App.tsx ./src --tsconfig ./tsconfig.json",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test:e2e": "npx detox test --take-screenshots failing",
     "postinstall": "npm-license-crawler -onlyDirectDependencies -json licenses.json"
   },
   "dependencies": {
