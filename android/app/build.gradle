@@ -130,7 +130,9 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-
+    dexOptions {
+        javaMaxHeapSize "4G"
+    }
     defaultConfig {
         applicationId "dev.pesca.app.moneyboy"
         minSdkVersion rootProject.ext.minSdkVersion
