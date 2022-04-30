@@ -5,6 +5,9 @@ on: [push]
 jobs:
   build_ios:
     runs-on: macos-11
+    env:
+      BUNDLE_IDENT: ${{ secrets.BUNDLE_IDENT }}
+      APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
 
     steps:
       - uses: actions/checkout@v3
@@ -12,9 +15,11 @@ jobs:
         uses: actions/setup-node@v3.1.0
         with:
           node-version: 16.x
-          cache: 'npm'
+          cache: "npm"
       - name: Set up environment (dependencies, Xcode project)
         run: scripts/setup --ios --ci
       - name: Build the app
         run: bundle exec fastlane build_only
         working-directory: ios
+      - name: Run E2E Tests
+        run: npm run test:e2e
