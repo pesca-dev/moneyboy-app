@@ -90,7 +90,7 @@ const SettingsMainView: React.FC<ScreenComponentProps<SettingsMainViewParams>> =
 
 export const SettingsView: React.FC<SettingsViewProps> = ({ isOpen, setOpen }) => (
   // TODO lome: Add structure for menu points
-  <Pesca.Navigator setOpen={setOpen} isOpen={true}>
+  <Pesca.Navigator setOpen={setOpen} isOpen={isOpen}>
     <Pesca.Screen name="SettingsMainScreen" component={SettingsMainView} />
   </Pesca.Navigator>
 );
