@@ -36,6 +36,7 @@ export const useFlyoutStyles = () => {
     },
     modal: {
       margin: 20,
+      // marginBottom: 20,
       justifyContent: 'flex-end',
       overflow: 'hidden',
     },
