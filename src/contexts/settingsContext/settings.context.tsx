@@ -6,7 +6,6 @@ import { ColorSchemeName } from 'react-native';
 
 type Settings = {
   theme: ColorSchemeName;
-  useSystemTheme: boolean;
 };
 
 export type SettingsContextType = {
@@ -18,7 +17,6 @@ export const SettingsContext = createContext<SettingsContextType>({
     //
   },
   theme: defaultStorage.theme,
-  useSystemTheme: defaultStorage.useSystemTheme,
 });
 
 type SettingsContextProviderProps = unknown;
@@ -26,18 +24,15 @@ type SettingsContextProviderProps = unknown;
 export const SettingsContextProvider: React.FC<PropsWithChildren<SettingsContextProviderProps>> = ({ children }) => {
   // TODO lome: merge Settings into one storage entity (maybe)
   const [theme, setTheme] = useStorage('theme');
-  const [useSystemTheme, setUseSystemTheme] = useStorage('useSystemTheme');
-
   // store all Settings in state
   const [settings, setSettings] = useState<Settings>({
     theme,
-    useSystemTheme,
   });
 
   // on storage updates (mostly at app startup), update setting state
   useEffect(() => {
-    setSettings({ theme, useSystemTheme });
-  }, [theme, useSystemTheme]);
+    setSettings({ theme });
+  }, [theme]);
 
   function set<T extends keyof Settings>(key: T, value: Settings[T]): void {
     // update setting state
@@ -54,10 +49,6 @@ export const SettingsContextProvider: React.FC<PropsWithChildren<SettingsContext
     switch (key) {
       case 'theme':
         setTheme(value as Settings['theme']);
-        break;
-
-      case 'useSystemTheme':
-        setUseSystemTheme(value as Settings['useSystemTheme']);
         break;
 
       default:

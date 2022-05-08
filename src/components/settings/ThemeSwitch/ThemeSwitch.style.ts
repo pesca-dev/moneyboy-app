@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { useStyle } from '@moneyboy/hooks/useStyle';
+import { StyleSheet } from 'react-native';
 
 export const useThemeSwitchStyles = () => {
   const { Texts } = useStyle();
@@ -14,7 +14,7 @@ export const useThemeSwitchStyles = () => {
       marginVertical: 2,
     },
     labelContainer: {
-      flex: 1,
+      paddingRight: 10,
       justifyContent: 'center',
     },
     label: {
@@ -27,6 +27,8 @@ export const useThemeSwitchStyles = () => {
     disabled: {
       color: Texts.colors.disabled,
     },
-    switchContainer: {},
+    switchContainer: {
+      flex: 1,
+    },
   });
 };
