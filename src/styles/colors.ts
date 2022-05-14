@@ -62,7 +62,7 @@ export const createColors = (_props?: StylingProps) => {
   const base = {
     black: shades.black,
     white: shades.white,
-    primary: nord.frost.nord10,
+    primary: nord.frost.nord9,
     secondary: nord.polarNight.nord1,
     inactive: shades.mediumLight,
   };

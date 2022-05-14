@@ -1,5 +1,5 @@
+import { PescaSegmentedControl } from '@moneyboy/components/general/input/PescaSegmentedControl';
 import { useSettings } from '@moneyboy/hooks/useSettings';
-import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import React, { useCallback, useEffect, useState } from 'react';
 import { NativeSegmentedControlIOSChangeEvent, NativeSyntheticEvent, Text, View } from 'react-native';
 import { useThemeSwitchStyles } from './ThemeSwitch.style';
@@ -49,13 +49,10 @@ export const ThemeSwitch: React.FC = () => {
             <Text style={[styles.label]}>Theme</Text>
           </View>
           <View style={[styles.switchContainer]}>
-            <SegmentedControl
+            <PescaSegmentedControl
               values={['System', 'Light', 'Dark']}
               selectedIndex={tabIndex}
               onChange={onThemeSwitchChange}
-              fontStyle={{
-                color: styles.label.color,
-              }}
             />
           </View>
         </View>
