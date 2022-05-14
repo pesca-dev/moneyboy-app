@@ -11,7 +11,7 @@ export const createGroupStyles = (props?: StylingProps) => {
   };
 
   const caption = {
-    color: colors.shades.mediumDark,
+    color: props?.mode === 'dark' ? colors.shades.mediumLight : colors.shades.mediumDark,
   };
 
   const memberList = {

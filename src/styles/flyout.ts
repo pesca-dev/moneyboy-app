@@ -29,7 +29,7 @@ export const createFlyoutStyles = (props?: StylingProps) => {
   };
 
   const icon = {
-    color: colors.shades.mediumDark,
+    color: props?.mode === 'dark' ? colors.shades.mediumLight : colors.shades.mediumDark,
   };
 
   return {

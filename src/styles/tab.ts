@@ -15,7 +15,7 @@ export const createTabStyles = (props?: StylingProps) => {
 
   const focus: Tab = {
     color: props?.mode === 'dark' ? colors.base.white : colors.shades.dark,
-    shadow: colors.shades.soft,
+    shadow: props?.mode === 'dark' ? colors.shades.light : colors.shades.dark,
   };
 
   const disabled: Partial<Tab> = {

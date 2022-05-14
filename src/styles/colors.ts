@@ -1,60 +1,75 @@
 import { StylingProps } from '@moneyboy/styles/stylingProps';
 
 export const createColors = (_props?: StylingProps) => {
-  const palette = {
-    turquoise: {
-      light: '#1abc9c',
-      dark: '#16a085',
+  const nordBase = {
+    nord0: '#2E3440',
+    nord1: '#3B4252',
+    nord2: '#434C5E',
+    nord3: '#4C566A',
+    nord4: '#D8DEE9',
+    nord5: '#E5E9F0',
+    nord6: '#ECEFF4',
+    nord7: '#8FBCBB',
+    nord8: '#88C0D0',
+    nord9: '#81A1C1',
+    nord10: '#5E81AC',
+    nord11: '#BF616A',
+    nord12: '#D08770',
+    nord13: '#EBCB8B',
+    nord14: '#A3BE8C',
+    nord15: '#B48EAD',
+  };
+
+  const nord = {
+    polarNight: {
+      nord0: nordBase.nord0,
+      nord1: nordBase.nord1,
+      nord2: nordBase.nord2,
+      nord3: nordBase.nord3,
     },
-    green: {
-      light: '#2ecc71',
-      dark: '#27ae60',
+    snowStorm: {
+      nord4: nordBase.nord4,
+      nord5: nordBase.nord5,
+      nord6: nordBase.nord6,
     },
-    yellow: {
-      light: '#f1c40f',
-      dark: '#27ae60',
+    frost: {
+      nord7: nordBase.nord7,
+      nord8: nordBase.nord8,
+      nord9: nordBase.nord9,
+      nord10: nordBase.nord10,
     },
-    orange: {
-      light: '#e67e22',
-      dark: '#d35400',
-    },
-    blue: {
-      light: '#3498db',
-      dark: '#2980b9',
-    },
-    red: {
-      light: '#e74c3c',
-      dark: '#c0392b',
-    },
-    purple: {
-      light: '#9b59b6',
-      dark: '#8e44ad',
+    aurora: {
+      nord11: nordBase.nord11,
+      nord12: nordBase.nord12,
+      nord13: nordBase.nord13,
+      nord14: nordBase.nord14,
+      nord15: nordBase.nord15,
     },
   };
 
   const shades = {
     white: '#ffffff',
-    veryLight: '#ecf0f1',
-    light: '#bdc3c7',
-    mediumLight: '#95a5a6',
-    mediumDark: '#7f8c8d',
-    dark: '#34495e',
-    veryDark: '#2c3e50',
-    black: '#000000',
+    veryLight: nord.snowStorm.nord6,
+    light: nord.snowStorm.nord5,
+    mediumLight: nord.snowStorm.nord4,
+    mediumDark: nord.polarNight.nord3,
+    dark: nord.polarNight.nord2,
+    veryDark: nord.polarNight.nord1,
+    black: nord.polarNight.nord1,
     soft: '#42423d',
   };
 
   const base = {
     black: shades.black,
     white: shades.white,
-    primary: palette.blue.light,
-    secondary: shades.veryDark,
+    primary: nord.frost.nord10,
+    secondary: nord.polarNight.nord1,
     inactive: shades.mediumLight,
   };
 
   const status = {
-    success: palette.green.light,
-    error: palette.red.light,
+    success: nord.aurora.nord14,
+    error: nord.aurora.nord11,
   };
 
   const dark = {
@@ -64,6 +79,7 @@ export const createColors = (_props?: StylingProps) => {
   };
 
   return {
+    nord,
     base,
     status,
     shades,
