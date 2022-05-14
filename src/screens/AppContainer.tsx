@@ -1,6 +1,7 @@
 import { PescaTabBar } from '@moneyboy/components/general/navigation/PescaTabBar';
 import { SettingsPanel } from '@moneyboy/components/settings/SettingsPanel';
 import { useAuth } from '@moneyboy/hooks/useAuth';
+import { useSettings } from '@moneyboy/hooks/useSettings';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { LoginView } from '@moneyboy/screens/auth/Login';
 import { RegisterView } from '@moneyboy/screens/auth/Register';
@@ -11,7 +12,7 @@ import { MainView } from '@moneyboy/screens/Main';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +23,8 @@ type AppContainerProps = unknown;
  */
 export const AppContainer: React.FC<AppContainerProps> = () => {
   const { loggedIn, ready } = useAuth();
+  const { theme } = useSettings();
+  const systemTheme = useColorScheme();
 
   const { Content } = useStyle();
   const styles = StyleSheet.create({
@@ -36,6 +39,7 @@ export const AppContainer: React.FC<AppContainerProps> = () => {
 
   return (
     <>
+      <StatusBar barStyle={(theme ?? systemTheme) === 'light' ? 'dark-content' : 'light-content'} />
       <View style={[styles.outterContainer]}>
         <NavigationContainer>
           {ready && (
