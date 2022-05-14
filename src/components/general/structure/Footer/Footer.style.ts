@@ -5,7 +5,7 @@ export const useFooterStyles = () => {
   const { Content, Footers } = useStyle();
   return StyleSheet.create({
     footerWrapper: {
-      backgroundColor: Content.background.dp01,
+      backgroundColor: Content.background.bg0,
       marginHorizontal: 20,
     },
     footer: {

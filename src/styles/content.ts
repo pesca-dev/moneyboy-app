@@ -1,6 +1,5 @@
 import { createColors } from '@moneyboy/styles/colors';
 import { StylingProps } from '@moneyboy/styles/stylingProps';
-import { mix } from '@moneyboy/styles/utils';
 
 export const createContentStyles = (props?: StylingProps) => {
   const colors = createColors(props);
@@ -12,18 +11,25 @@ export const createContentStyles = (props?: StylingProps) => {
     color: props?.mode === 'dark' ? colors.base.black : colors.shades.soft,
   };
 
-  const base = props?.mode === 'dark' ? colors.dark.background.base : colors.base.white;
+  // const base = props?.mode === 'dark' ? colors.dark.background.base : colors.base.white;
+  // const background = {
+  //   dp00: props?.mode === 'dark' ? `#${base.toString(16)}` : colors.base.white,
+  //   dp01: mix('ffffff', base.toString(16), 5),
+  //   dp02: mix('ffffff', base.toString(16), 7),
+  //   dp03: mix('ffffff', base.toString(16), 8),
+  //   dp04: mix('ffffff', base.toString(16), 9),
+  //   dp06: mix('ffffff', base.toString(16), 11),
+  //   dp08: mix('ffffff', base.toString(16), 12),
+  //   dp12: mix('ffffff', base.toString(16), 14),
+  //   dp16: mix('ffffff', base.toString(16), 15),
+  //   dp24: mix('ffffff', base.toString(16), 16),
+  // };
+
   const background = {
-    dp00: props?.mode === 'dark' ? `#${base.toString(16)}` : colors.base.white,
-    dp01: mix('ffffff', base.toString(16), 5),
-    dp02: mix('ffffff', base.toString(16), 7),
-    dp03: mix('ffffff', base.toString(16), 8),
-    dp04: mix('ffffff', base.toString(16), 9),
-    dp06: mix('ffffff', base.toString(16), 11),
-    dp08: mix('ffffff', base.toString(16), 12),
-    dp12: mix('ffffff', base.toString(16), 14),
-    dp16: mix('ffffff', base.toString(16), 15),
-    dp24: mix('ffffff', base.toString(16), 16),
+    bg0: props?.mode === 'dark' ? colors.nord.polarNight.nord0 : colors.base.white,
+    bg1: props?.mode === 'dark' ? colors.nord.polarNight.nord1 : colors.base.white,
+    bg2: props?.mode === 'dark' ? colors.nord.polarNight.nord2 : colors.base.white,
+    bg3: props?.mode === 'dark' ? colors.nord.polarNight.nord3 : colors.base.white,
   };
 
   // TODO lome: when introducing dark-mode, use several stages of Content

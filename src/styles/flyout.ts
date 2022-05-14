@@ -15,7 +15,7 @@ export const createFlyoutStyles = (props?: StylingProps) => {
     fontSize: 24,
   };
 
-  const background = contents.background.dp16;
+  const background = contents.background.bg2;
 
   const list = {
     header: {

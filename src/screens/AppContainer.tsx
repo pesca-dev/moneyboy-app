@@ -27,7 +27,7 @@ export const AppContainer: React.FC<AppContainerProps> = () => {
   const styles = StyleSheet.create({
     outterContainer: {
       flex: 1,
-      backgroundColor: Content.background.dp01,
+      backgroundColor: Content.background.bg0,
     },
     sceneContainer: {
       backgroundColor: 'transparent',

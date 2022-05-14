@@ -8,10 +8,10 @@ export const createInputStyles = (props?: StylingProps) => {
       color: props?.mode === 'dark' ? colors.shades.light : colors.shades.dark,
     },
     border: {
-      color: colors.shades.veryLight,
+      color: colors.shades.mediumLight,
     },
     placeholder: {
-      color: colors.shades.mediumDark,
+      color: props?.mode === 'dark' ? colors.shades.mediumLight : colors.shades.mediumDark,
     },
   };
 };
