@@ -11,7 +11,7 @@ export const SettingsPanel: React.FC = () => {
   return (
     <>
       <View style={[styles.container]}>
-        <PescaButton onPress={() => setOpen(true)}>
+        <PescaButton onPress={() => setOpen(true)} testID="settings-button">
           <MaterialCommunityIcons name="cog-outline" style={[styles.icon]} />
         </PescaButton>
       </View>

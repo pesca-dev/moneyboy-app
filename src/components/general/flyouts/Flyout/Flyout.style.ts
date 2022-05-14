@@ -1,6 +1,6 @@
+import variables from '@moneyboy/config/variables';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { StyleSheet } from 'react-native';
-import variables from '@moneyboy/config/variables';
 
 export const useFlyoutStyles = () => {
   const { Flyouts } = useStyle();
@@ -9,6 +9,7 @@ export const useFlyoutStyles = () => {
       backgroundColor: Flyouts.background,
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
+      borderRadius: 30,
       paddingHorizontal: 20,
       paddingTop: 20,
       elevation: 5,
@@ -34,7 +35,8 @@ export const useFlyoutStyles = () => {
       color: Flyouts.icon.color,
     },
     modal: {
-      margin: 0,
+      margin: 20,
+      // marginBottom: 20,
       justifyContent: 'flex-end',
       overflow: 'hidden',
     },

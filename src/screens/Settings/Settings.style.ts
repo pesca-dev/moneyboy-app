@@ -5,7 +5,7 @@ export const useSettingsStyles = () => {
   const { Content: Contents, Flyouts, Texts } = useStyle();
   return StyleSheet.create({
     header: {
-      backgroundColor: Contents.background.dp16,
+      backgroundColor: Contents.background.bg2,
     },
     sectionHeaderContainer: {
       paddingVertical: 5,

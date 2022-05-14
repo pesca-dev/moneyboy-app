@@ -42,12 +42,12 @@ export const StyleContext = React.createContext<StyleContextType>({
 type StyleContextProviderProps = unknown;
 
 export const StyleContextProvider: React.FC<PropsWithChildren<StyleContextProviderProps>> = ({ children }) => {
-  const { useSystemTheme, theme } = useSettings();
+  const { theme } = useSettings();
   let scheme = theme;
 
   const systemScheme = useColorScheme();
 
-  if (useSystemTheme) {
+  if (!theme) {
     scheme = systemScheme;
   }
 

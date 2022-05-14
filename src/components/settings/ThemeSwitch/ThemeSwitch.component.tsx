@@ -1,19 +1,43 @@
+import { PescaSegmentedControl } from '@moneyboy/components/general/input/PescaSegmentedControl';
 import { useSettings } from '@moneyboy/hooks/useSettings';
-import React from 'react';
-import { Text, View } from 'react-native';
-import { Switch } from 'react-native-gesture-handler';
+import React, { useCallback, useEffect, useState } from 'react';
+import { NativeSegmentedControlIOSChangeEvent, NativeSyntheticEvent, Text, View } from 'react-native';
 import { useThemeSwitchStyles } from './ThemeSwitch.style';
 
 export const ThemeSwitch: React.FC = () => {
-  const { theme, useSystemTheme, set } = useSettings();
+  const { theme, set } = useSettings();
 
-  const onModeChange = (useDarkMode: boolean) => {
-    set('theme', useDarkMode ? 'dark' : 'light');
-  };
+  const [tabIndex, setTabIndex] = useState(0);
 
-  const onUseSystemChange = (useSystem: boolean) => {
-    set('useSystemTheme', useSystem);
-  };
+  useEffect(() => {
+    let index = 0;
+    if (theme === 'light') {
+      index = 1;
+    } else if (theme === 'dark') {
+      index = 2;
+    }
+    setTabIndex(index);
+  }, [theme]);
+
+  const onThemeSwitchChange = useCallback(
+    ({ nativeEvent: { selectedSegmentIndex } }: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => {
+      switch (selectedSegmentIndex) {
+        case 0:
+          set('theme', null);
+          break;
+        case 1:
+          set('theme', 'light');
+          break;
+        case 2:
+          set('theme', 'dark');
+          break;
+        default:
+          set('theme', null);
+      }
+      setTabIndex(selectedSegmentIndex);
+    },
+    [set],
+  );
 
   const styles = useThemeSwitchStyles();
 
@@ -22,18 +46,14 @@ export const ThemeSwitch: React.FC = () => {
       <View style={[styles.wrapper]}>
         <View style={[styles.container]}>
           <View style={[styles.labelContainer]}>
-            <Text style={[styles.label]}>Use system theme?</Text>
+            <Text style={[styles.label]}>Theme</Text>
           </View>
           <View style={[styles.switchContainer]}>
-            <Switch value={useSystemTheme} onValueChange={onUseSystemChange} />
-          </View>
-        </View>
-        <View style={[styles.container, styles.subLabelContainer]}>
-          <View style={[styles.labelContainer]}>
-            <Text style={[styles.label, useSystemTheme && styles.disabled]}>Dark theme?</Text>
-          </View>
-          <View style={[styles.switchContainer]}>
-            <Switch value={theme === 'dark'} onValueChange={onModeChange} disabled={useSystemTheme} />
+            <PescaSegmentedControl
+              values={['System', 'Light', 'Dark']}
+              selectedIndex={tabIndex}
+              onChange={onThemeSwitchChange}
+            />
           </View>
         </View>
       </View>

@@ -15,7 +15,7 @@ export const createFlyoutStyles = (props?: StylingProps) => {
     fontSize: 24,
   };
 
-  const background = contents.background.dp16;
+  const background = contents.background.bg1;
 
   const list = {
     header: {
@@ -29,7 +29,7 @@ export const createFlyoutStyles = (props?: StylingProps) => {
   };
 
   const icon = {
-    color: colors.shades.mediumDark,
+    color: props?.mode === 'dark' ? colors.shades.mediumLight : colors.shades.mediumDark,
   };
 
   return {

@@ -1,3 +1,4 @@
+import { Testable } from '@moneyboy/api/Testable';
 import React, { PropsWithChildren } from 'react';
 import { Insets, NativeSyntheticEvent, NativeTouchEvent, Pressable, StyleProp, ViewStyle } from 'react-native';
 
@@ -21,14 +22,15 @@ const defaultHitSlop: Insets = {
 /**
  * Simple, clickable button.
  */
-export const PescaButton: React.FC<PropsWithChildren<PescaButtonProps>> = ({
+export const PescaButton: React.FC<PropsWithChildren<Testable<PescaButtonProps>>> = ({
   disabled,
   style,
   onPress,
   children,
   hitSlop = defaultHitSlop,
+  testID,
 }) => (
-  <Pressable style={[style]} onPress={onPress} disabled={disabled} hitSlop={hitSlop} testID={'touchable'}>
+  <Pressable style={[style]} onPress={onPress} disabled={disabled} hitSlop={hitSlop} testID={testID}>
     {children}
   </Pressable>
 );

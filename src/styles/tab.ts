@@ -6,6 +6,10 @@ type Tab = {
   shadow: string;
 };
 
+type Disabled<T> = T & {
+  opacity?: number;
+};
+
 export const createTabStyles = (props?: StylingProps) => {
   const colors = createColors(props);
 
@@ -15,11 +19,12 @@ export const createTabStyles = (props?: StylingProps) => {
 
   const focus: Tab = {
     color: props?.mode === 'dark' ? colors.base.white : colors.shades.dark,
-    shadow: colors.shades.soft,
+    shadow: props?.mode === 'dark' ? colors.shades.light : colors.shades.dark,
   };
 
-  const disabled: Partial<Tab> = {
-    color: props?.mode === 'dark' ? colors.shades.soft : colors.shades.light,
+  const disabled: Partial<Disabled<Tab>> = {
+    color: props?.mode === 'dark' ? colors.shades.mediumLight : colors.shades.mediumDark,
+    opacity: 0.4,
   };
 
   return {

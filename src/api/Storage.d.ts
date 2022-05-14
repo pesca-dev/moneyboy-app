@@ -2,7 +2,6 @@ import { ColorSchemeName } from 'react-native';
 
 export type StorageItems = {
   theme: ColorSchemeName;
-  useSystemTheme: boolean;
   payments: {
     [key: Pesca.PaymentInformation['id']]: Pesca.PaymentInformation;
   };

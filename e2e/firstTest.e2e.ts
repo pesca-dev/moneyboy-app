@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+import { expect } from 'detox';
+
 describe('Example', () => {
   beforeAll(async () => {
     await device.launchApp();
@@ -10,6 +11,11 @@ describe('Example', () => {
 
   it('should have login screen', async () => {
     await expect(element(by.id('login'))).toBeVisible();
+  });
+
+  it('should do stuff', async () => {
+    await element(by.id('settings-button')).tap();
+    await expect(element(by.id('settings-main-view'))).toBeVisible();
   });
 
   // it('should show hello screen after tap', async () => {

@@ -1,6 +1,6 @@
+import variables from '@moneyboy/config/variables';
 import { useStyle } from '@moneyboy/hooks/useStyle';
 import { StyleSheet } from 'react-native';
-import variables from '@moneyboy/config/variables';
 
 export const usePescaTabIconStyles = () => {
   const { Tabs } = useStyle();
@@ -24,8 +24,6 @@ export const usePescaTabIconStyles = () => {
       },
       shadowOpacity: 0.6,
     },
-    disabled: {
-      color: Tabs.disabled.color,
-    },
+    disabled: Tabs.disabled,
   });
 };

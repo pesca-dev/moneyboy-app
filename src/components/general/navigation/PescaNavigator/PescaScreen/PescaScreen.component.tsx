@@ -1,4 +1,5 @@
 import { PescaNavContextType } from '@moneyboy/api/PescaNavContextType';
+import { Testable } from '@moneyboy/api/Testable';
 import { PescaNavContext } from '@moneyboy/components/general/navigation/PescaNavigator/createPescaNavigation';
 import { animated, useSpring } from '@react-spring/native';
 // eslint-disable-next-line no-restricted-imports
@@ -22,8 +23,8 @@ export type ScreenComponentProps<P = any, N = any> = {
  * @param PescaNavContext
  */
 export const createPescaScreen =
-  (): React.FC<PescaScreenProps> =>
-  ({ name, component }: PescaScreenProps) => {
+  (): React.FC<Testable<PescaScreenProps>> =>
+  ({ name, component, testID }) => {
     // TODO lome: introduce own hook for this
     const navContext = useContext(PescaNavContext) as PescaNavContextType;
 
@@ -113,7 +114,7 @@ export const createPescaScreen =
       params: navContext.screens[index]?.params,
     };
     return (
-      <animated.View style={[styles.screenWrapper, offsetStyle]}>
+      <animated.View style={[styles.screenWrapper, offsetStyle]} testID={testID}>
         <View
           style={[
             styles.dummyWrapper,

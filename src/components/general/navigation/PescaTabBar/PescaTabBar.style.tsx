@@ -7,7 +7,7 @@ export const usePescaTabBarStyles = () => {
   const { Content, Footers } = useStyle();
   return StyleSheet.create({
     safeAreaView: {
-      backgroundColor: Content.background.dp01,
+      backgroundColor: Content.background.bg0,
     },
     footerWrapper: {
       marginHorizontal: 20,

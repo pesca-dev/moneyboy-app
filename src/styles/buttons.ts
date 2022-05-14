@@ -55,6 +55,10 @@ export const createButtonStyles = (props?: StylingProps) => {
     color: colors.base.primary,
   };
 
+  const segmented: Partial<Button> = {
+    background: props?.mode === 'dark' ? '#6b6b71' : colors.base.white,
+  };
+
   return {
     primary,
     secondary,
@@ -62,6 +66,7 @@ export const createButtonStyles = (props?: StylingProps) => {
       logout,
       back,
       deleteButton,
+      segmented,
     },
   };
 };

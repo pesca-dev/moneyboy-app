@@ -5,8 +5,7 @@ import React, { createContext, FC, PropsWithChildren, useCallback, useEffect, us
 
 // TODO lome: move to service directory
 export const defaultStorage: StorageItems = {
-  useSystemTheme: true,
-  theme: 'light',
+  theme: null,
   payments: {},
 };
 
@@ -66,8 +65,13 @@ export const StorageContextProvider: FC<PropsWithChildren<unknown>> = ({ childre
       return newStorage;
     });
     // and set item in storage
-    // eslint-disable-next-line no-console
-    AsyncStorageLib.setItem(key, JSON.stringify(value)).catch(console.error);
+    if (value === null) {
+      // eslint-disable-next-line no-console
+      AsyncStorageLib.removeItem(key).catch(console.error);
+    } else {
+      // eslint-disable-next-line no-console
+      AsyncStorageLib.setItem(key, JSON.stringify(value)).catch(console.error);
+    }
   }, []);
 
   return <StorageContext.Provider value={{ storage, set }}>{children}</StorageContext.Provider>;
