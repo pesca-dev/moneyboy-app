@@ -44,6 +44,8 @@ export const HistoryView: React.FC<HistoryViewProps> = () => {
     },
   ];
 
+  // const
+
   function renderListItem({ item, index, section }: SectionListRenderItemInfo<PaymentProps, DefaultSectionT>) {
     return (
       <Content>
@@ -54,13 +56,14 @@ export const HistoryView: React.FC<HistoryViewProps> = () => {
 
   return (
     <ViewBase>
+      <SectionHeader key={`historyview-section-title`} header={'History'} />
       <SectionList
         sections={data}
         renderItem={renderListItem}
         keyExtractor={({ id }) => id}
-        renderSectionHeader={({ section: { title } }) => (
-          <SectionHeader key={`historyview-section-${title}`} header={title} />
-        )}
+        // renderSectionHeader={({ section: { title } }) => (
+        //   <SectionHeader key={`historyview-section-${title}`} header={title} />
+        // )}
         onRefresh={getPayments}
         refreshing={refreshing}
         stickySectionHeadersEnabled
