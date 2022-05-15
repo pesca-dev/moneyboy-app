@@ -25,17 +25,19 @@ export const Flyout: React.FC<PropsWithChildren<FlyoutProps>> = ({ isOpen, child
       animationInTiming={500}
       animationOutTiming={500}
       backdropOpacity={0.5}>
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[styles.flyoutContainer]}>
-        <SafeAreaView>
-          {children}
-          {/* Close Button */}
-          <View style={[styles.closeButtonContainer]}>
-            <PescaButton onPress={close} style={[styles.closeButton]}>
-              <MaterialCommunityIcons name="close" style={[styles.closeIcon]} />
-            </PescaButton>
-          </View>
-        </SafeAreaView>
-      </KeyboardAvoidingView>
+      <SafeAreaView mode={Platform.OS === 'ios' ? 'padding' : 'margin'} style={styles.outterContainer}>
+        <View style={[styles.flyoutContainer]}>
+          <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            {children}
+            {/* Close Button */}
+            <View style={[styles.closeButtonContainer]}>
+              <PescaButton onPress={close} style={[styles.closeButton]}>
+                <MaterialCommunityIcons name="close" style={[styles.closeIcon]} />
+              </PescaButton>
+            </View>
+          </KeyboardAvoidingView>
+        </View>
+      </SafeAreaView>
     </Modal>
   );
 };

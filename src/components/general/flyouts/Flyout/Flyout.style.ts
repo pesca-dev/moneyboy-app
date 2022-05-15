@@ -5,6 +5,9 @@ import { StyleSheet } from 'react-native';
 export const useFlyoutStyles = () => {
   const { Flyouts } = useStyle();
   return StyleSheet.create({
+    outterContainer: {
+      maxHeight: '80%',
+    },
     flyoutContainer: {
       backgroundColor: Flyouts.background,
       borderTopLeftRadius: 20,
@@ -20,7 +23,6 @@ export const useFlyoutStyles = () => {
         height: 1,
       },
       shadowOpacity: 0.5,
-      maxHeight: '80%',
     },
     closeButtonContainer: {
       position: 'absolute',
