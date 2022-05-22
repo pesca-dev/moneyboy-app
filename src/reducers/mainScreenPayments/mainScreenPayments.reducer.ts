@@ -34,9 +34,14 @@ export const mainScreenPaymentsReducer = (_: MoneyDiffProps[], { payments, user 
     { users: {}, statistics: {} },
   );
 
-  return Object.keys(statistics.users).map<MoneyDiffProps>(id => ({
-    amount: statistics.statistics[id],
-    id: `statistics-${id}`,
-    name: statistics.users[id].displayName,
-  }));
+  return (
+    Object.keys(statistics.users)
+      .map<MoneyDiffProps>(id => ({
+        amount: statistics.statistics[id],
+        id: `statistics-${id}`,
+        name: statistics.users[id].displayName,
+      }))
+      // sort by name
+      .sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1))
+  );
 };
